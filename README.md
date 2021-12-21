@@ -8,4 +8,5 @@ For a decent render, see
 
 * [Lesson 6](https://nbviewer.org/github/xpqz/cultivations/blob/main/Lesson6.ipynb)
 * [Lesson 7](https://nbviewer.org/github/xpqz/cultivations/blob/main/Lesson7.ipynb)
+* [Lesson 8](https://nbviewer.org/github/xpqz/cultivations/blob/main/Lesson8.ipynb)
 * [Lesson 9](https://nbviewer.org/github/xpqz/cultivations/blob/main/Lesson9.ipynb)
