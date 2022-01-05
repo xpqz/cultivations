@@ -6,6 +6,7 @@ See https://aplwiki.com/wiki/APL_Cultivation
 
 For a decent render, see 
 
+* [Lesson 1](https://nbviewer.org/github/xpqz/cultivations/blob/main/Lesson1.ipynb)
 * [Lesson 3](https://nbviewer.org/github/xpqz/cultivations/blob/main/Lesson3.ipynb)
 * [Lesson 4](https://nbviewer.org/github/xpqz/cultivations/blob/main/Lesson4.ipynb)
 * [Lesson 5](https://nbviewer.org/github/xpqz/cultivations/blob/main/Lesson5.ipynb)
