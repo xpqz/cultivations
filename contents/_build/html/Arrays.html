@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to arrays &#8212; APL Cultivations</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Primitive functions" href="Functions.html" />
+    <link rel="prev" title="APL Cultivations" href="Intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">APL Cultivations</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro.html">
+   APL Cultivations
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction to arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Functions.html">
+   Primitive functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Operators.html">
+   Primitive operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="UserFunctions.html">
+   User-defined functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SystemFunctions.html">
+   System functions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Arrays.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FArrays.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-arrays">
+<h1>Introduction to arrays<a class="headerlink" href="#introduction-to-arrays" title="Permalink to this headline">¶</a></h1>
+<p>The array is APL’s fundamental data type. Arrays are collections of scalars (atomic data units). There are a few types of scalars: numbers, characters, and references (refs). References are to such things as namespaces (≈JSON objects), GUI objects (WinForms), HTML Renderers, classes, instances, etc. Let’s not worry about all those now.</p>
+<p>Characters are denoted by single quotes. <code class="docutils literal notranslate"><span class="pre">'a'</span></code> is a scalar letter <code class="docutils literal notranslate"><span class="pre">a</span></code>. APL doesn’t really have strings, just lists (vectors in APL lingo) of characters. In order to write a literal vector (=list) you just write the items next to each other. <code class="docutils literal notranslate"><span class="pre">'H'</span> <span class="pre">'e'</span> <span class="pre">'y'</span></code> will render as <code class="docutils literal notranslate"><span class="pre">Hey</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;H&#39;</span> <span class="s1">&#39;e&#39;</span> <span class="s1">&#39;y&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Hey
+</span></div></div>
+</div>
+<p>Fortunately, there is a shortcut. APL allows you to write <code class="docutils literal notranslate"><span class="pre">'Hey'</span></code> and it means the same as <code class="docutils literal notranslate"><span class="pre">'H'</span> <span class="pre">'e'</span> <span class="pre">'y'</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Hey&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Hey
+</span></div></div>
+</div>
+<p>So a list of numbers need no decorators whatsoever: <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 2 3
+</span></div></div>
+</div>
+<p>You can also nest items. <code class="docutils literal notranslate"><span class="pre">'Hey'</span> <span class="pre">'you!'</span></code> is a vector of two elements. Each element is itself a vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Hey&#39;</span> <span class="s1">&#39;you!&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬────┐
+│Hey│you!│
+└───┴────┘
+</span></div></div>
+</div>
+<p>You can also mix data types: <code class="docutils literal notranslate"><span class="pre">'APL'360</span></code> is a two-element vector. The first element is a three-element vector of chars, the second is a scalar number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;APL&#39;</span><span class="m">360</span> <span class="c1">⍝ Note: no space required</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┐
+│APL│360│
+└───┴───┘
+</span></div></div>
+</div>
+<p>By the way, in APL, a number is a number. APL converts between internal representations on the fly, so you never have to worry about such conversions. It even takes care of floating point imprecision for you!</p>
+<p><code class="docutils literal notranslate"><span class="pre">'a'3</span></code> is a two element vector. No space needed here, either.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;a&#39;</span><span class="m">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">a 3
+</span></div></div>
+</div>
+<p>You can also use parentheses to delimit vectors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)(</span><span class="m">4</span> <span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────┬───┐
+│1 2 3│4 5│
+└─────┴───┘
+</span></div></div>
+</div>
+<p>Question:</p>
+<blockquote>
+<div><p>Is there any concept of a “mutable array” in APL?</p>
+</div></blockquote>
+<p>Nope. You always (appear to) create a new array when modifying an array. However, internally, APL keeps a ref-count and points multiple names to the same memory location if possible. However, all the “reference” types are mutable.</p>
+<p>The levels of nesting in APL lingo are called depth. A simple scalar has depth 0. A vector has depth 1. A vector of vectors has depth 2, etc. If the depth is uneven, then we report it as negative. Note that negative numbers in APL are denoted by a high minus (like TI calculators).</p>
+<p>You can have 1-element vectors, but you have to “create” them rather than write them. The prefix function <code class="docutils literal notranslate"><span class="pre">,</span></code> (comma) takes an array and makes it into a list. So <code class="docutils literal notranslate"><span class="pre">,6</span></code> is a one-element list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">display</span> <span class="o">,</span><span class="m">6</span>       <span class="c1">⍝ Verbose display to demonstrate that ,6 is indeed a vector</span>
+<span class="sr">]</span><span class="nv">display</span> <span class="p">(</span><span class="o">,</span><span class="m">6</span><span class="p">)</span><span class="m">1</span> <span class="m">2</span>
+<span class="sr">]</span><span class="nv">display</span> <span class="p">(</span><span class="o">,</span><span class="m">6</span><span class="p">)(</span><span class="m">1</span> <span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌→┐
+│6│
+└~┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌→────────┐
+│ ┌→┐     │
+│ │6│ 1 2 │
+│ └~┘     │
+└∊────────┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌→──────────┐
+│ ┌→┐ ┌→──┐ │
+│ │6│ │1 2│ │
+│ └~┘ └~──┘ │
+└∊──────────┘
+</span></div></div>
+</div>
+<p>APL also has a concept of rank. The rank of an array is the number of dimensions in that array. A scalar has rank 0, a vector has rank 1.</p>
+<p>However, we can also have a rank 2 array; a matrix, or table. Note that rank ≠ depth. So I can have a matrix where every element is a “string” (i.e. a vector). I can also have a vector of vectors of “strings”.</p>
+<p>Rank is always flush. Every row in a matrix must have the same number of columns. Every layer in a 3D block of data must have the same number of rows and columns.</p>
+<p>Each APL implementation has a different max number of dimensions. Dyalog allows 15D arrays. If that isn’t enough for you, you may be doing something not quite right.  J, which is a dialect of APL (and the mother of Jelly) allows for an unlimited (except by memory) number of dimensions.</p>
+<p>Imagine a piece of paper with a grid of letters. So we have rows and columns. Each paper is a page in a book.
+Each book is numbered on its shelf. The shelves are numbered. There are multiple bookcases next to each other. And there are several such corridors. In rooms next to each other. Each floor has multiple numbered corridors, etc.</p>
+<p>The infix function <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Functions/Reshape.htm">reshape</a>, <code class="docutils literal notranslate"><span class="pre">⍴</span></code> (Greek letter “rho” for reshape), takes a list of dimension lengths as left argument and any data as right argument. It returns a new array with the specified dimensions, filled with the data. If there is too much data, the tail just doesn’t get used. If there is too little, it gets recycled from the beginning.</p>
+<p>We can create a 3-row, 4-column table with</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="s1">&#39;abcdefghijkl&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">abcd
+efgh
+ijkl
+</span></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span> <span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="s1">&#39;abc&#39;</span>     <span class="c1">⍝ insufficient data; keep recycling</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">abca
+bcab
+cabc
+</span></div></div>
+</div>
+<p>Most primitive APL functions have both a monadic (one argument) and a dyadic (two arguments) form. It is always clear from context which one is being applied, as all monadic functions are prefix, and all dyadic ones are infix.
+We already addressed the dyadic <code class="docutils literal notranslate"><span class="pre">⍴</span></code> which was <em>Reshape</em>. The monadic <code class="docutils literal notranslate"><span class="pre">⍴</span></code> is <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Functions/Shape.htm">Shape</a>. It reports back what the shape is.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="m">3</span><span class="o">⍴</span><span class="nf">⎕A</span>    
+<span class="o">⍴</span><span class="m">3</span> <span class="m">3</span><span class="o">⍴</span><span class="nf">⎕A</span>   <span class="c1">⍝ What is the shape of a 3x3 matrix?</span>
+<span class="sr">]</span><span class="nv">display</span> <span class="o">⍴</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span>  <span class="c1">⍝ What is the shape of a vector?</span>
+<span class="sr">]</span><span class="nv">display</span> <span class="o">⍴</span><span class="m">6</span>  <span class="c1">⍝ What is the shape of a scalar?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABC
+DEF
+GHI
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">3 3
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌→┐
+│4│
+└~┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌⊖┐
+│0│
+└~┘
+</span></div></div>
+</div>
+<p>Note that the shape is always a vector. The shape of a scalar is the empty numeric vector, denoted <code class="docutils literal notranslate"><span class="pre">⍬</span></code>.</p>
+<p>Monadic <code class="docutils literal notranslate"><span class="pre">↑</span></code> is <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Functions/Mix.htm">mix</a>, which ups the rank (at the cost of one level of depth). We can also lower the rank with <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Functions/Split.htm">split</a>, <code class="docutils literal notranslate"><span class="pre">↓</span></code>, and thereby gain a level of depth.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)(</span><span class="m">4</span> <span class="m">5</span> <span class="m">6</span><span class="p">)(</span><span class="m">7</span> <span class="m">8</span> <span class="m">9</span><span class="p">)</span>  <span class="c1">⍝ vector</span>
+<span class="o">↑</span><span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)(</span><span class="m">4</span> <span class="m">5</span> <span class="m">6</span><span class="p">)(</span><span class="m">7</span> <span class="m">8</span> <span class="m">9</span><span class="p">)</span> <span class="c1">⍝ mix vector to a matrix</span>
+<span class="m">3</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">12</span>                <span class="c1">⍝ matrix</span>
+<span class="o">↓</span><span class="m">3</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">12</span>               <span class="c1">⍝ split matrix to a vector</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────┬─────┬─────┐
+│1 2 3│4 5 6│7 8 9│
+└─────┴─────┴─────┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1 2 3
+4 5 6
+7 8 9
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1  2  3  4
+5  6  7  8
+9 10 11 12
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────┬───────┬──────────┐
+│1 2 3 4│5 6 7 8│9 10 11 12│
+└───────┴───────┴──────────┘
+</span></div></div>
+</div>
+<p>There is no primitive for rank, because if you think about it, the rank is the shape (actually, the tally) of the shape. There is, however, a primitive for <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Functions/Depth.htm">depth</a>: <code class="docutils literal notranslate"><span class="pre">≡</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">≡</span><span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)(</span><span class="m">4</span> <span class="m">5</span> <span class="m">6</span><span class="p">)(</span><span class="m">7</span> <span class="m">8</span> <span class="m">9</span><span class="p">)</span> <span class="c1">⍝ vector of vectors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
+</span></div></div>
+</div>
+<p>There is a different primitive for count (called <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Functions/Tally.htm">tally</a>): <code class="docutils literal notranslate"><span class="pre">≢</span></code> – it looks like a tallying mark.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">≢</span><span class="m">7</span> <span class="m">5</span> <span class="m">6</span> <span class="m">3</span> <span class="m">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">5
+</span></div></div>
+</div>
+<p>Question:</p>
+<blockquote>
+<div><p>so…what <em>is</em> the difference between rank and depth?</p>
+</div></blockquote>
+<p>This is important to understand. Depth is the level of nesting. Rank is the number of dimensions.</p>
+<p>So now we have discovered monadic <code class="docutils literal notranslate"><span class="pre">↑</span></code>, <code class="docutils literal notranslate"><span class="pre">↓</span></code>, <code class="docutils literal notranslate"><span class="pre">≡</span></code>, <code class="docutils literal notranslate"><span class="pre">≢</span></code>, <code class="docutils literal notranslate"><span class="pre">⍴</span></code> and dyadic <code class="docutils literal notranslate"><span class="pre">⍴</span></code>. Monadic <code class="docutils literal notranslate"><span class="pre">⍴</span></code> always returns a vector. Monadic <code class="docutils literal notranslate"><span class="pre">≢</span></code> always returns a scalar. <code class="docutils literal notranslate"><span class="pre">≢</span></code> on a matrix returns the number of rows. <code class="docutils literal notranslate"><span class="pre">≢</span></code> on a 3D block returns the number of layers, etc. We prefer to call it the tally of “major cells”. The concept of major cells is important when it comes to manipulating and comparing arrays.</p>
+<p>We already saw how dyadic <code class="docutils literal notranslate"><span class="pre">⍴</span></code> can reshape things. Dyadic <code class="docutils literal notranslate"><span class="pre">↑</span></code> is <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Functions/Take.htm">take</a>. In order to speak about its two arguments easier, we will give them names. The left argument we will call <code class="docutils literal notranslate"><span class="pre">⍺</span></code> as in the leftmost letter of the Greek alphabet, and the right argument we will call <code class="docutils literal notranslate"><span class="pre">⍵</span></code> as in the rightmost letter. In other words, <code class="docutils literal notranslate"><span class="pre">↑⍵</span></code> is monadic <code class="docutils literal notranslate"><span class="pre">↑</span></code> and <code class="docutils literal notranslate"><span class="pre">⍺↑⍵</span></code> is dyadic <code class="docutils literal notranslate"><span class="pre">↑</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">⍺↑⍵</span></code> takes the <code class="docutils literal notranslate"><span class="pre">⍺</span></code> first major cells from <code class="docutils literal notranslate"><span class="pre">⍵</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="o">↑</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span> <span class="m">1</span> <span class="m">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">3 1 4
+</span></div></div>
+</div>
+<p>We can take major cells from the <em>end</em> of <code class="docutils literal notranslate"><span class="pre">⍵</span></code> by using a negative <code class="docutils literal notranslate"><span class="pre">⍺</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯3</span><span class="o">↑</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span> <span class="m">1</span> <span class="m">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">4 1 5
+</span></div></div>
+</div>
+<p>APL arrays have something called prototype. The prototype for numbers is 0 and the prototype for chars is a space. The prototype for a mixed-type array is the first element’s prototype. More generally, for an array of arrays, the prototype is the first element, but with all numbers made 0 and all chars made spaces. If you take more than there is, APL will pad with this prototype element:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">10</span><span class="o">↑</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
+<span class="m">¯10</span><span class="o">↑</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
+<span class="sr">]</span><span class="nv">display</span> <span class="m">10</span><span class="o">↑</span><span class="s1">&#39;Hello&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 2 3 0 0 0 0 0 0 0
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 0 0 0 0 0 1 2 3
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌→─────────┐
+│Hello     │
+└──────────┘
+</span></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dyalog-kernel"
+        },
+        kernelOptions: {
+            kernelName: "dyalog-kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dyalog-kernel'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">APL Cultivations</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Functions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Primitive functions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+        
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
