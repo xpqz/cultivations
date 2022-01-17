@@ -458,16 +458,14 @@
 <p>There is an old debate on whether to begin indexing with 0 or with 1. APL lets you choose by setting the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/io.htm">Index Origin</a>, <code class="docutils literal notranslate"><span class="pre">⎕IO</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⍳</span><span class="m">4</span>
-<span class="nf">⎕IO</span><span class="kd">←</span><span class="m">0</span>
-<span class="o">⍳</span><span class="m">4</span>
-<span class="nf">⎕IO</span><span class="kd">←</span><span class="m">1</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⍳</span><span class="m">4</span> <span class="o">⊣</span> <span class="nf">⎕IO</span><span class="kd">←</span><span class="m">0</span>
+<span class="o">⍳</span><span class="m">4</span> <span class="o">⊣</span> <span class="nf">⎕IO</span><span class="kd">←</span><span class="m">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1 2 3
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1 2 3
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1 2 3 4
 </span></div></div>
 </div>
 <p>Note that using <code class="docutils literal notranslate"><span class="pre">⎕IO←0</span></code> means you have to accept negative indices in some cases:</p>
