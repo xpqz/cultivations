@@ -6,3 +6,4 @@ sections:
 - file: Operators
 - file: UserFunctions
 - file: SystemFunctions
+- file: Constants
