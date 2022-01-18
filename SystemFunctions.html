@@ -397,7 +397,7 @@
 <p>Two floating point numbers <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> are considered to be equal if <code class="docutils literal notranslate"><span class="pre">(|X-Y)≤⎕CT×(|X)⌈|Y</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">=</span><span class="m">1</span><span class="o">+</span><span class="m">1e¯20</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">=</span><span class="m">1</span><span class="o">+</span><span class="m">1e¯15</span>
 </pre></div>
 </div>
 </div>
@@ -553,6 +553,13 @@
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">3.141592653589793
 </span></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕PP</span><span class="kd">←</span><span class="m">10</span> <span class="c1">⍝ Set back to default value</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="floating-point-representation-fr">
 <h2>Floating-point representation <code class="docutils literal notranslate"><span class="pre">⎕FR</span></code><a class="headerlink" href="#floating-point-representation-fr" title="Permalink to this headline">¶</a></h2>
@@ -591,29 +598,29 @@
 <li><p>1=Mersenne</p></li>
 <li><p>2=ask the OS.</p></li>
 </ul>
-<p>If you ask the OS, you can’t provide a seed, so you have to use <code class="docutils literal notranslate"><span class="pre">⍬</span></code>.</p>
+<p>If you ask the OS, you can’t provide a seed, so you have to use <code class="docutils literal notranslate"><span class="pre">⍬</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span> <span class="o">⊣</span> <span class="nf">⎕RL</span> <span class="no">⍬</span> <span class="m">2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.37728919472611977
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.1279318855
 </span></div></div>
 </div>
-<p>We are asking our OS by default, so we get a different result each time:</p>
+<p>When asking our OS we get a different result each time:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span> <span class="o">⊣</span> <span class="nf">⎕RL</span> <span class="no">⍬</span> <span class="m">2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.5456603511421764
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.528921036
 </span></div></div>
 </div>
-<p>Let’s use Mersenne with a specific seed instead:</p>
+<p>Let’s use Mersenne (the default) with a specific seed instead:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span> <span class="o">⊣</span> <span class="nf">⎕RL</span><span class="kd">←</span><span class="m">42</span> <span class="m">1</span>
@@ -622,8 +629,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.0019533783197548393
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.0019533783197548393
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.00195337832
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.00195337832
 </span></div></div>
 </div>
 </div>
@@ -716,6 +723,7 @@
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">2022 1 14 9 35 27 312
 </span></div></div>
 </div>
+<p>When dealing with times and dates, there is also the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/dt.htm">date-time</a> system function, <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code>, which can convert between pretty much any date and time formats around.</p>
 </div>
 </div>
 
