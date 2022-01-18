@@ -242,13 +242,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sh-cmd">
+  <a class="reference internal nav-link" href="#cmd-sh">
    <code class="docutils literal notranslate">
     <span class="pre">
-     ⎕SH
+     ⎕CMD
     </span>
     <span class="pre">
-     ⎕CMD
+     ⎕SH
     </span>
    </code>
   </a>
@@ -352,10 +352,10 @@
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCDEFGHIJKLMNOPQRSTUVWXYZ
 </span></div></div>
 </div>
-<p>There is no built-in for the lowercase alphabet, but you can get it with the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/c.htm">case convert</a> system function, <code class="docutils literal notranslate"><span class="pre">⎕C</span></code>, using a <code class="docutils literal notranslate"><span class="pre">¯1</span></code> left argument:</p>
+<p>There is no built-in for the lowercase alphabet, but you can get it with the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/c.htm">case convert</a> system function, <code class="docutils literal notranslate"><span class="pre">⎕C</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span><span class="nf">⎕C⎕A</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕C⎕A</span>
 </pre></div>
 </div>
 </div>
@@ -382,9 +382,9 @@
 <h2><code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code><a class="headerlink" href="#null" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code> is a <a class="reference external" href="help.dyalog.com/latest/index.htm#Language/System%20Functions/d.htm">scalar null</a> value. It isn’t really used much in APL itself, but you can meet it e.g. when importing spreadsheets where it represents empty cells.  Note that it is <em>not</em> JSON <code class="docutils literal notranslate"><span class="pre">null</span></code>, which is represented as <code class="docutils literal notranslate"><span class="pre">⊂'null'</span></code> to match true and false being <code class="docutils literal notranslate"><span class="pre">⊂'true'</span></code> and <code class="docutils literal notranslate"><span class="pre">⊂'false'</span></code>.  Note also that <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code> equals itself. These three (<code class="docutils literal notranslate"><span class="pre">⎕A</span> <span class="pre">⎕D</span> <span class="pre">⎕NULL</span></code>) are system <em>constants</em>; you can’t assign to them.</p>
 </div>
-<div class="section" id="sh-cmd">
-<h2><code class="docutils literal notranslate"><span class="pre">⎕SH</span> <span class="pre">⎕CMD</span></code><a class="headerlink" href="#sh-cmd" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/cmd.htm"><code class="docutils literal notranslate"><span class="pre">⎕CMD</span></code></a> and <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/sh.htm"><code class="docutils literal notranslate"><span class="pre">⎕SH</span></code></a> are exactly identical, but obviously the first feels more natural to Windows users while the second feels more natural to UNIX users. Pressing f1 on them will give you the help appropriate for that OS. As you, of course, can guess, they are used to call the OS command processor:</p>
+<div class="section" id="cmd-sh">
+<h2><code class="docutils literal notranslate"><span class="pre">⎕CMD</span> <span class="pre">⎕SH</span></code><a class="headerlink" href="#cmd-sh" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/cmd.htm"><code class="docutils literal notranslate"><span class="pre">⎕CMD</span></code></a> and <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/sh.htm"><code class="docutils literal notranslate"><span class="pre">⎕SH</span></code></a> are identical, but the first feels more natural to Windows users while the second feels more natural to UNIX users. Pressing <kbd>f1</kbd> on them will give you the help appropriate for that OS. They are used to call the OS command processor:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕SH</span><span class="s1">&#39;ls /&#39;</span>
@@ -469,7 +469,7 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
 </div>
 <div class="section" id="fmt">
 <h2><code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code><a class="headerlink" href="#fmt" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/fmt.htm">ForMaT</a>. It is like a beefed up version of <code class="docutils literal notranslate"><span class="pre">⍕</span></code>. <code class="docutils literal notranslate"><span class="pre">⍕</span></code> returns a vector for single line arguments, and a matrix otherwise. <code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> always returns a matrix. Also, <code class="docutils literal notranslate"><span class="pre">⍕</span></code> treats control characters as normal characters, while <code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> will resolve them:</p>
+<p><code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/fmt.htm">ForMaT</a>. It is like a beefed up version of <code class="docutils literal notranslate"><span class="pre">⍕</span></code>. <code class="docutils literal notranslate"><span class="pre">⍕</span></code> retains the rank of its argument (except for numeric scalars becoming character vectors). <code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> always returns a matrix. Also, <code class="docutils literal notranslate"><span class="pre">⍕</span></code> treats control characters as normal characters, while <code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> will resolve them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">str</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;abc&#39;</span><span class="o">,</span><span class="p">(</span><span class="nf">⎕UCS</span> <span class="m">8</span><span class="p">)</span><span class="o">,</span><span class="s1">&#39;def&#39;</span> <span class="c1">⍝ 8 is backspace</span>
@@ -545,8 +545,8 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">[["abc",1,2,3],4,5]
 </span></div></div>
 </div>
-<p>Just be aware that if you want to convert and APL string to JSON, you need use the left argument to specify whether you want import (0) or export (1).</p>
-<p>You can also tell ⎕JSON that you want your JSON fully white-spaced:</p>
+<p>Just be aware that if you want to convert an APL string to JSON, you need use the left argument to specify whether you want import (0) or export (1).</p>
+<p>You can also tell <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> that you want your JSON fully white-spaced:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="m">0</span><span class="o">⊢</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)</span><span class="m">4</span> <span class="m">5</span>
@@ -577,7 +577,21 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">["hello",world]
 </span></div></div>
 </div>
-<p>We opted for a generalised system for strings without quotes, rather than special casing <code class="docutils literal notranslate"><span class="pre">null</span></code>. The I-beam that preceded <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> did in fact use <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code>. By using enclosed strings, we can losslessly roundtrip.</p>
+<p>We opted for a generalised system for strings without quotes, rather than special casing <code class="docutils literal notranslate"><span class="pre">null</span></code>. The I-beam that preceded <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> did in fact use <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code>. By using enclosed strings, we can losslessly roundtrip. However, If you DO want to use APL’s <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code>, you can specify this using the <code class="docutils literal notranslate"><span class="pre">Null</span></code> variant to <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">j</span><span class="kd">←</span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Null&#39;</span> <span class="nf">⎕NULL</span><span class="o">⊢</span><span class="s1">&#39;{&quot;name&quot;: null}&#39;</span>
+<span class="nv">j</span><span class="na">.</span><span class="nv">name</span>
+<span class="nv">j</span><span class="na">.</span><span class="nv">name</span> <span class="o">=</span> <span class="nf">⎕NULL</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">[Null]
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1
+</span></div></div>
+</div>
+<p>Finally, there is also a <code class="docutils literal notranslate"><span class="pre">Dialect</span></code> variant, which is either <code class="docutils literal notranslate"><span class="pre">'JSON'</span></code> (the default) or <code class="docutils literal notranslate"><span class="pre">'JSON5'</span></code>. The latter enables <a class="reference external" href="https://json5.org/">JSON5</a> extensions on import and export.</p>
 </div>
 <div class="section" id="map">
 <h2><code class="docutils literal notranslate"><span class="pre">⎕MAP</span></code><a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h2>

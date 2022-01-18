@@ -1,6 +1,6 @@
 ⎕A
 
-¯1⎕C⎕A
+⎕C⎕A
 
 ⎕D
 
@@ -30,6 +30,10 @@ ns.(abc f)
 ⎕JSON⍠'Compact'0⊢('abc' 1 2 3)4 5
 
 ⎕JSON 'hello' (⊂'world') 
+
+j←⎕JSON⍠'Null' ⎕NULL⊢'{"name": null}'
+j.name
+j.name = ⎕NULL
 
 ⎕UCS 954 945 955 951 956 941 961 945
 
