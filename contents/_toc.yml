@@ -1,8 +1,20 @@
-format: jb-article
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
 root: Intro
-sections:
+chapters:
 - file: Arrays
 - file: Functions
+  sections:
+  - file: Functions1
+  - file: Functions2
+  - file: Functions3
+  - file: Functions4
+  - file: Functions5
+  - file: Functions6
+  - file: Functions7
+  - file: Functions8
 - file: Operators
 - file: UserFunctions
 - file: SystemFunctions
