@@ -18,4 +18,7 @@ chapters:
 - file: Operators
 - file: UserFunctions
 - file: SystemFunctions
-- file: Constants
+  sections:
+  - file: Behaviour
+  - file: Constants
+  - file: CodeManagement

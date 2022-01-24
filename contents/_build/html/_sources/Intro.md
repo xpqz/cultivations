@@ -1,6 +1,6 @@
 # APL Cultivations 
 
-_APL Cultivation_ is the title used for the series of 90-minute live chat lessons given by [Adám Brudzewsky](https://aplwiki.com/wiki/Ad%C3%A1m_Brudzewsky) in the [APL Orchard](https://apl.chat) chat room. The name was first used for lesson 15 at the end of January 2018, but was since applied retroactively to all such lessons.
+[APL Cultivation](https://aplwiki.com/wiki/APL_Cultivation) is the title used for the series of 90-minute live chat lessons given by [Adám Brudzewsky](https://aplwiki.com/wiki/Ad%C3%A1m_Brudzewsky) in the [APL Orchard](https://apl.chat) chat room. The name was first used for lesson 15 at the end of January 2018, but was since applied retroactively to all such lessons.
 
 The first season consisted of 29 weekly sessions running from 18 October 2017 until 16 May 2018, covering most aspects of basic APL programming. Initially, the lessons were not organised, but were given completely impromptu. However, between lessons 2 and 3, Erik Konstantopoulos bookmarked the first two lessons using Stack Exchange's chat conversation bookmarking feature, and thus established the lessons as a numbered series.
 
@@ -8,4 +8,4 @@ The series continued on 28 November 2019, with more in-depth lessons every two-t
 
 The following compilation is an attempt to reformat the APL Cultivations into a more accessible format, expand on some of the examples and generally improve the signal-to-noise ratio.
 
-Attribution: [APLWiki](https://aplwiki.com/wiki/APL_Cultivation)
+Attribution: [APLWiki](https://aplwiki.com)
