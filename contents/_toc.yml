@@ -22,3 +22,4 @@ chapters:
   - file: Behaviour
   - file: Constants
   - file: CodeManagement
+  - file: StackWorkspace
