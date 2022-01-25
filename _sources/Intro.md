@@ -8,4 +8,6 @@ The series continued on 28 November 2019, with more in-depth lessons every two-t
 
 The following compilation is an attempt to reformat the APL Cultivations into a more accessible format, expand on some of the examples and generally improve the signal-to-noise ratio.
 
+If you find this useful, please consider starring the [github repo](https://github.com/xpqz/cultivations).
+
 Attribution: [APLWiki](https://aplwiki.com)

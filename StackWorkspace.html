@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stack and workspace info &#8212; APL Cultivations</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Code management, I/O, dates, errors" href="CodeManagement.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">APL Cultivations</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro.html">
+   APL Cultivations
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Arrays.html">
+   Introduction to arrays
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Functions.html">
+   Primitive functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions1.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +-×÷*⍟⌹○
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions2.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       !?|⌈⌊⊥⊤⊣⊢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions3.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       =≤&lt;&gt;≥≡≢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions4.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ∨∧⍱⍲↑↓
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions5.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊂⊃⊆⌷⍋⍒
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions6.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍳⍸∊⍷∪∩~
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions7.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /\⌿⍀,⍪
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions8.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍴⌽⊖⍉⍎⍕
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Operators.html">
+   Primitive operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="UserFunctions.html">
+   User-defined functions
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="SystemFunctions.html">
+   System functions
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Behaviour.html">
+     Behaviour, session
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Constants.html">
+     Constants, tools and utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CodeManagement.html">
+     Code management, I/O, dates, errors
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Stack and workspace info
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/StackWorkspace.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FStackWorkspace.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#latent-expression-lx">
+   Latent expression
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕LX
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#name-classification-nc">
+   Name classification
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕NC
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#name-list-nl">
+   Name list
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕NL
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expunge-ex">
+   Expunge
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕EX
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shadow-shadow">
+   Shadow
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕SHADOW
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#state-indicator-si">
+   State indicator
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕SI
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#line-count-lc">
+   Line count
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕LC
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#size-size">
+   Size
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕SIZE
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workspace-available-wa">
+   Workspace available
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕WA
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#underscored-alphabetic-chars-a">
+   Underscored Alphabetic Chars
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕Á
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#screen-dimensions-sd">
+   Screen dimensions
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕SD
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="stack-and-workspace-info">
+<h1>Stack and workspace info<a class="headerlink" href="#stack-and-workspace-info" title="Permalink to this headline">¶</a></h1>
+<p>Let’s continue with other things which deal with functions and other items under program control.</p>
+<div class="section" id="latent-expression-lx">
+<h2>Latent expression <code class="docutils literal notranslate"><span class="pre">⎕LX</span></code><a class="headerlink" href="#latent-expression-lx" title="Permalink to this headline">¶</a></h2>
+<p>If you want to have an application start without having the user enter a command (for example, a function name) to boot it, you can assign an expression to <code class="docutils literal notranslate"><span class="pre">⎕LX</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/lx.htm">Latent eXpression</a>) and then save your workspace with <code class="docutils literal notranslate"><span class="pre">⎕SAVE</span></code>. When the workspace is loaded (including from the command line) APL will do <code class="docutils literal notranslate"><span class="pre">⍎⎕LX</span></code>. This is what happens when you load the various workspaces supplied with APL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">)</span><span class="nv">load</span> <span class="nv">dfns</span>
+<span class="o">≢</span><span class="nf">⎕LX</span>
+<span class="nf">⎕LX</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">/Applications/Dyalog-18.1.app/Contents/Resources/Dyalog/ws/dfns.dws saved Wed May 26 03:49:27 2021
+
+An assortment of D Functions and Operators.
+
+      tree #                ⍝ Workspace map.
+      ↑¯10↑↓attrib ⎕nl 3 4  ⍝ What's new?
+      ⍕notes find 'Word'    ⍝ Apropos "Word".
+      ⎕ed'notes.contents'   ⍝ Workspace overview.
+
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">236
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">'
+An assortment of D Functions and Operators.
+
+      tree #                ⍝ Workspace map.
+      ↑¯10↑↓attrib ⎕nl 3 4  ⍝ What''s new?
+      ⍕notes find ''Word''    ⍝ Apropos "Word".
+      ⎕ed''notes.contents''   ⍝ Workspace overview.
+'
+</span></div></div>
+</div>
+</div>
+<div class="section" id="name-classification-nc">
+<h2>Name classification <code class="docutils literal notranslate"><span class="pre">⎕NC</span></code><a class="headerlink" href="#name-classification-nc" title="Permalink to this headline">¶</a></h2>
+<p>Since APL does not enforce a naming scheme, you may wonder what a certain name is. <code class="docutils literal notranslate"><span class="pre">⎕NC</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/nc.htm">Name Classification</a>) to the rescue! Each type of item has a number. 2 is variable, 3 is function, 4 is operator, 9 is object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>   <span class="c1">⍝ Copy the dfns workspace silently</span>
+<span class="nv">var</span><span class="kd">←</span><span class="m">42</span>
+<span class="nf">⎕NC</span> <span class="o">↑</span><span class="s1">&#39;blah&#39;</span> <span class="s1">&#39;123&#39;</span> <span class="s1">&#39;var&#39;</span> <span class="s1">&#39;to&#39;</span> <span class="s1">&#39;notes&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 ¯1 2 3 9
+</span></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code> is undefined (but valid name). <code class="docutils literal notranslate"><span class="pre">¯1</span></code> is invalid name. <code class="docutils literal notranslate"><span class="pre">1</span></code> is really rare these days. It is a line label, and can only occur while a tradfn/tradop is running or suspended:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="nv">tradfn</span>
+<span class="nv">label</span><span class="bp">:</span>
+<span class="nf">⎕NC</span><span class="o">↑</span><span class="s1">&#39;label&#39;</span> <span class="s1">&#39;label2&#39;</span> <span class="s1">&#39;label3&#39;</span>
+<span class="nv">label2</span><span class="bp">:</span>
+<span class="bp">∇</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">tradfn</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 0
+</span></div></div>
+</div>
+<p>Sometimes you want even more info. If the argument to <code class="docutils literal notranslate"><span class="pre">⎕NC</span></code> is nested, then the values get a decimal which mean: .1=traditional, .2=field/direct, .3=property/tacit, .4=class, .5=interface, .6=external class, .7=external interface.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>   <span class="c1">⍝ Copy the dfns workspace silently</span>
+<span class="nv">var</span><span class="kd">←</span><span class="m">42</span>
+<span class="nf">⎕NC</span> <span class="s1">&#39;blah&#39;</span> <span class="s1">&#39;123&#39;</span> <span class="s1">&#39;var&#39;</span> <span class="s1">&#39;to&#39;</span> <span class="s1">&#39;notes&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 ¯1 2.1 3.2 9.1
+</span></div></div>
+</div>
+</div>
+<div class="section" id="name-list-nl">
+<h2>Name list <code class="docutils literal notranslate"><span class="pre">⎕NL</span></code><a class="headerlink" href="#name-list-nl" title="Permalink to this headline">¶</a></h2>
+<p>Using those same codes, you can also use <code class="docutils literal notranslate"><span class="pre">⎕NL</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/nl.htm">Name List</a>) to enquire which items of those name classifications are visible. For example, here are all of dfns’ operators:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>
+<span class="nf">⎕NL</span> <span class="m">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Cut     
+Depth   
+H       
+UndoRedo
+_fk     
+acc     
+alt     
+and     
+ascan   
+ascana  
+at      
+avl     
+bags    
+big     
+bsearch 
+bt      
+case    
+cf      
+cond    
+cxdraw  
+dft     
+do      
+each    
+else    
+file    
+fk      
+fk_     
+fnarray 
+foldl   
+for     
+invr    
+kcell   
+limit   
+lof     
+logic   
+ltrav   
+mdf     
+memo    
+nats    
+of      
+or      
+perv    
+pow     
+pred    
+profile 
+rats    
+ratsum  
+ravt    
+redblack
+repl    
+roman   
+rows    
+sam     
+saw     
+sbst    
+splay   
+tc      
+ticks   
+time    
+traj    
+trav    
+until   
+vof     
+vwise   
+while   
+</span></div></div>
+</div>
+<p>You can also specify decimals to get just those specific things. You can get just things beginning with specific letters, too, by giving a list of letters as left argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>
+<span class="s1">&#39;b&#39;</span> <span class="nf">⎕NL</span> <span class="m">4.2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">bags   
+big    
+bsearch
+bt     
+</span></div></div>
+</div>
+<p>If you’d rather have a VTV (vector of text vectors, i.e. a list of strings), then use negative numbers. APLers often use this shortcut to list everything:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>
+<span class="m">10</span><span class="o">↑</span><span class="nf">⎕NL</span><span class="o">-⍳</span><span class="m">9</span>    <span class="c1">⍝ Truncated for display purposes; contains 300+ items...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────────┬───────────┬───────┬─────────┬────────┬─────┬─────────┬───┬───┬────┐
+│APLVersion│ActivateApp│Caption│ChildList│Cholesky│Coord│CursorObj│Cut│DDE│Data│
+└──────────┴───────────┴───────┴─────────┴────────┴─────┴─────────┴───┴───┴────┘
+</span></div></div>
+</div>
+</div>
+<div class="section" id="expunge-ex">
+<h2>Expunge <code class="docutils literal notranslate"><span class="pre">⎕EX</span></code><a class="headerlink" href="#expunge-ex" title="Permalink to this headline">¶</a></h2>
+<p>If you find that the name you want to use is unavailable, you may want to <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/ex.htm">EXpunge</a> its current value with <code class="docutils literal notranslate"><span class="pre">⎕EX</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕NC</span><span class="s1">&#39;var&#39;</span> <span class="o">⊣</span> <span class="nf">⎕EX</span> <span class="s1">&#39;var&#39;</span> <span class="o">⊣</span> <span class="nv">var</span><span class="kd">←</span><span class="m">42</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0
+</span></div></div>
+</div>
+<p>There we created, removed, and enquired about the name <code class="docutils literal notranslate"><span class="pre">var</span></code>.</p>
+</div>
+<div class="section" id="shadow-shadow">
+<h2>Shadow <code class="docutils literal notranslate"><span class="pre">⎕SHADOW</span></code><a class="headerlink" href="#shadow-shadow" title="Permalink to this headline">¶</a></h2>
+<p>If you only want to use an already used name temporarily, then you can use <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/shadow.htm"><code class="docutils literal notranslate"><span class="pre">⎕SHADOW</span></code></a> instead of <code class="docutils literal notranslate"><span class="pre">⎕EX</span></code>. The name will then be freed up for your use until the current function terminates. Note that shadowing happens automatically in dfns and dops when you just do regular assignments. In a dfn, <code class="docutils literal notranslate"><span class="pre">var←42</span></code> really means <code class="docutils literal notranslate"><span class="pre">⎕SHADOW</span> <span class="pre">'var'</span> <span class="pre">⋄</span> <span class="pre">var←42</span></code>.</p>
+<p>Be careful using <code class="docutils literal notranslate"><span class="pre">⎕SHADOW</span></code> though. It is much better to localise your variables in the function header by putting <code class="docutils literal notranslate"><span class="pre">;varName</span></code> at the end of the header.</p>
+</div>
+<div class="section" id="state-indicator-si">
+<h2>State indicator <code class="docutils literal notranslate"><span class="pre">⎕SI</span></code><a class="headerlink" href="#state-indicator-si" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say you’ve built a bunch of functions that call each other, and then you run it, and it stops due to some bug. Now you need some situational awareness. You already know that <code class="docutils literal notranslate"><span class="pre">⎕NL</span></code> will let you check which names are defined, and <code class="docutils literal notranslate"><span class="pre">⎕NC</span></code> what type of things they are. <code class="docutils literal notranslate"><span class="pre">⎕SI</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/si.htm">State Indicator</a>) will give you a list of function names on the stack:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">foo</span><span class="kd">←</span><span class="kt">{</span><span class="nv">goo</span> <span class="bp">⍵</span><span class="kt">}</span>
+<span class="nv">goo</span><span class="kd">←</span><span class="kt">{</span><span class="nv">moo</span> <span class="bp">⍵</span><span class="kt">}</span>
+<span class="nv">moo</span><span class="kd">←</span><span class="kt">{</span><span class="nf">⎕SI</span><span class="kt">}</span>
+<span class="nv">foo</span><span class="no">⍬</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┬───┐
+│moo│goo│foo│
+└───┴───┴───┘
+</span></div></div>
+</div>
+</div>
+<div class="section" id="line-count-lc">
+<h2>Line count <code class="docutils literal notranslate"><span class="pre">⎕LC</span></code><a class="headerlink" href="#line-count-lc" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">⎕LC</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/lc.htm">Line Count</a>) will give you a list of corresponding line numbers where each function in <code class="docutils literal notranslate"><span class="pre">⎕SI</span></code> is holding:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="nv">foo</span><span class="kd">←</span><span class="kt">{</span>
+    <span class="nv">goo</span> <span class="bp">⍵</span>
+
+<span class="kt">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="nv">goo</span><span class="kd">←</span><span class="kt">{</span>
+
+
+    <span class="nv">moo</span> <span class="bp">⍵</span>
+<span class="kt">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="nv">moo</span><span class="kd">←</span><span class="kt">{</span>
+
+<span class="nf">⎕LC</span><span class="kt">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">foo</span> <span class="no">⍬</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2 3 1
+</span></div></div>
+</div>
+</div>
+<div class="section" id="size-size">
+<h2>Size <code class="docutils literal notranslate"><span class="pre">⎕SIZE</span></code><a class="headerlink" href="#size-size" title="Permalink to this headline">¶</a></h2>
+<p>If you get a <code class="docutils literal notranslate"><span class="pre">WS</span> <span class="pre">FULL</span></code> error, you may want to check how much memory is being used to represent a variable. Use <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/size.htm"><code class="docutils literal notranslate"><span class="pre">⎕SIZE</span></code></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">nums</span><span class="kd">←</span><span class="o">⍳</span><span class="m">100</span> <span class="m">100</span>
+<span class="nf">⎕SIZE</span><span class="s1">&#39;nums&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">480040
+</span></div></div>
+</div>
+</div>
+<div class="section" id="workspace-available-wa">
+<h2>Workspace available <code class="docutils literal notranslate"><span class="pre">⎕WA</span></code><a class="headerlink" href="#workspace-available-wa" title="Permalink to this headline">¶</a></h2>
+<p>You might also need to know how much [workspace available] (<code class="docutils literal notranslate"><span class="pre">⎕WA</span></code>) you have:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">nums</span><span class="kd">←</span><span class="o">⍳</span><span class="m">100</span> <span class="m">100</span>
+<span class="nf">⎕SIZE</span><span class="s1">&#39;nums&#39;</span>
+<span class="nf">⎕WA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">480040
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">8564705600
+</span></div></div>
+</div>
+</div>
+<div class="section" id="underscored-alphabetic-chars-a">
+<h2>Underscored Alphabetic Chars <code class="docutils literal notranslate"><span class="pre">⎕Á</span></code><a class="headerlink" href="#underscored-alphabetic-chars-a" title="Permalink to this headline">¶</a></h2>
+<p>Just for reference, you may want to know which <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/Underscored%20Alphabetic%20Characters.htm">non-ASCII characters</a> are allowed in names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span>⎕Á
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">ÁÂÃÇÈÊËÌÍÎÏÐÒÓÔÕÙÚÛÝþãìðòõ
+</span></div></div>
+</div>
+<p>The following expression lists all characters that a name may begin with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">n</span><span class="na">/⍨</span><span class="m">0</span><span class="o">≤</span><span class="nf">⎕NC</span><span class="o">⍪</span><span class="nv">n</span><span class="kd">←</span><span class="nf">⎕UCS</span><span class="o">⍳</span><span class="m">1E6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüþ∆⍙ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ
+</span></div></div>
+</div>
+</div>
+<div class="section" id="screen-dimensions-sd">
+<h2>Screen dimensions <code class="docutils literal notranslate"><span class="pre">⎕SD</span></code><a class="headerlink" href="#screen-dimensions-sd" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">⎕SD</span></code> is the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/sd.htm">Screen Dimensions</a>, which for a Jupyter kernel is something fairly arbitrary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕SD</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">24 80
+</span></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dyalog-kernel"
+        },
+        kernelOptions: {
+            kernelName: "dyalog-kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dyalog-kernel'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="CodeManagement.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Code management, I/O, dates, errors</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+        
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
