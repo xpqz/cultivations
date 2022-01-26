@@ -1,0 +1,716 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regular expressions ⎕R ⎕S &#8212; APL Cultivations</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Stack and workspace info" href="StackWorkspace.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">APL Cultivations</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro.html">
+   APL Cultivations
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Arrays.html">
+   Introduction to arrays
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Functions.html">
+   Primitive functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions1.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +-×÷*⍟⌹○
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions2.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       !?|⌈⌊⊥⊤⊣⊢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions3.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       =≤&lt;&gt;≥≡≢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions4.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ∨∧⍱⍲↑↓
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions5.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊂⊃⊆⌷⍋⍒
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions6.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍳⍸∊⍷∪∩~
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions7.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /\⌿⍀,⍪
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions8.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍴⌽⊖⍉⍎⍕
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Operators.html">
+   Primitive operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="UserFunctions.html">
+   User-defined functions
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="SystemFunctions.html">
+   System functions
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Behaviour.html">
+     Behaviour, session
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Constants.html">
+     Constants, tools and utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CodeManagement.html">
+     Code management, I/O, dates, errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="StackWorkspace.html">
+     Stack and workspace info
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Regular expressions
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕R
+      </span>
+     </code>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕S
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Regex.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FRegex.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-use">
+   Basic use
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-transformation-string-in-depth">
+   The transformation string in depth
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simultaneous-patterns">
+   Simultaneous patterns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variants">
+   Variants
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-operand">
+   Function operand
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="regular-expressions-r-s">
+<h1>Regular expressions <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> <code class="docutils literal notranslate"><span class="pre">⎕S</span></code><a class="headerlink" href="#regular-expressions-r-s" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">⎕R</span></code> and <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> are Dyalog’s <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/r.htm">regex operators</a>; and take note that they are <em>operators</em>, not functions. Occasionally, their operator syntax has unexpected consequences, so it is important to remember this. They are dyadic operators. The left operand is always a character scalar, vector, or vector of such. The right operand may also be any of those, but can also be a function (any type; tacit, dfn or trad), and <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> can also take a scalar integer as right operand.</p>
+<p>They then derive an ambivalent function which is can be named or applied to text. Some of their behaviour can be modified with the ⍠ operator, but since operators can only take functions (or arrays) as operands, <code class="docutils literal notranslate"><span class="pre">⍠</span></code> will be acting on the derived function, not on <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> or <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> themselves. This may sound trivial, but you have to remember that you cannot make a case insensitive (more about that later) version of <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> with <code class="docutils literal notranslate"><span class="pre">MyRegexMachine←⎕S⍠1</span></code>, only <code class="docutils literal notranslate"><span class="pre">MyRegexMachine←'something'⎕S'something</span> <span class="pre">else'⍠1</span></code>.</p>
+<div class="section" id="basic-use">
+<h2>Basic use<a class="headerlink" href="#basic-use" title="Permalink to this headline">¶</a></h2>
+<p>Final note before we really start: The regex flavour is PCRE, which is well documented, so we won’t go too much into details about it. It is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Appendices/PCRE%20Regular%20Expression%20Syntax%20Summary.htm">summarised</a> here and described in detail <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Appendices/PCRE%20Regular%20Expression%20Details.htm">here</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">⎕R</span></code> (Replace) changes text in-place and returns the entire amended argument. <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> only returns the amended match(es). In most other aspects, they are identical, so when we speak of one, it applies to the other unless otherwise noted.</p>
+<p>OK, the basic example is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;and&#39;</span> <span class="nf">⎕R</span> <span class="s1">&#39;or&#39;</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>  <span class="c1">⍝ Replace &#39;and&#39; with &#39;or&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Programming Puzzles or Code Golf
+</span></div></div>
+</div>
+<p>However, the operands are not just simple text vectors, but rather regexes. For the left operand, that’s just regular PCRE to find a match, but the right argument uses something that very much feels like regex, but in fact is a Dyalog-invented notation to indicate what you want the match replaced by.</p>
+<p>The first such notational symbol is <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> which means the match itself; in other words, no change:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;(.)\1&#39;</span> <span class="nf">⎕S</span> <span class="s1">&#39;&amp;&#39;</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>  <span class="c1">⍝ Match repeated pairs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬──┐
+│mm│zz│
+└──┴──┘
+</span></div></div>
+</div>
+<p>The left operand is just PCRE: <code class="docutils literal notranslate"><span class="pre">.</span></code> is any char, the parens is a <em>capture group</em>, which gives it a number, and <code class="docutils literal notranslate"><span class="pre">\1</span></code> is a reference to the first such group. It matches any sequence of two identical characters after each other.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">%</span></code> in the right operand means the entire container (line or document) which contained the match:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;(.)\1&#39;</span> <span class="nf">⎕S</span> <span class="s1">&#39;%&#39;</span> <span class="o">⊢</span> <span class="s1">&#39;Programming&#39;</span> <span class="s1">&#39;Puzzles&#39;</span> <span class="s1">&#39;and&#39;</span> <span class="s1">&#39;Code&#39;</span> <span class="s1">&#39;Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┬───────┐
+│Programming│Puzzles│
+└───────────┴───────┘
+</span></div></div>
+</div>
+<p>So this returned a list of all lines which contained double letters.</p>
+</div>
+<div class="section" id="the-transformation-string-in-depth">
+<h2>The transformation string in depth<a class="headerlink" href="#the-transformation-string-in-depth" title="Permalink to this headline">¶</a></h2>
+<p>We’ve earlier talked about how simple APL’s “string” (i.e. character vector) model is. The only special character is the quote which you need to double. There’s no escaping, rather you have to use <code class="docutils literal notranslate"><span class="pre">…',(⎕UCS</span> <span class="pre">nn),'…</span></code>.</p>
+<p>However, in the transformation string (that’s what the right operand is called), you may also use some common escapes: <code class="docutils literal notranslate"><span class="pre">\n</span></code> and <code class="docutils literal notranslate"><span class="pre">\r</span></code> for newline and carriage return, and <code class="docutils literal notranslate"><span class="pre">\x{nn}</span></code> for any other Unicode character, where <code class="docutils literal notranslate"><span class="pre">nn</span></code> is in hex. Moreover, as <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">\</span></code> are special, you’ll have to escape them too with a prefix backslash.</p>
+<p>You may of course mix and match transformation strings as you please:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;(.)\1&#39;</span> <span class="nf">⎕S</span> <span class="s1">&#39;&quot;%&quot; has &quot;&amp;&quot;&#39;</span> <span class="o">⊢</span> <span class="s1">&#39;Programming&#39;</span> <span class="s1">&#39;Puzzles&#39;</span> <span class="s1">&#39;and&#39;</span> <span class="s1">&#39;Code&#39;</span> <span class="s1">&#39;Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────────────────────┬──────────────────┐
+│"Programming" has "mm"│"Puzzles" has "zz"│
+└──────────────────────┴──────────────────┘
+</span></div></div>
+</div>
+<p>You can also refer to the numbered capture groups with <code class="docutils literal notranslate"><span class="pre">\N</span></code> (or <code class="docutils literal notranslate"><span class="pre">\(NN)</span></code> for two-digit numbers):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;(.)\1&#39;</span> <span class="nf">⎕S</span> <span class="s1">&#39;&quot;%&quot; has two &quot;\1&quot;s&#39;</span> <span class="o">⊢</span> <span class="s1">&#39;Programming&#39;</span> <span class="s1">&#39;Puzzles&#39;</span> <span class="s1">&#39;and&#39;</span> <span class="s1">&#39;Code&#39;</span> <span class="s1">&#39;Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────────────────────────┬──────────────────────┐
+│"Programming" has two "m"s│"Puzzles" has two "z"s│
+└──────────────────────────┴──────────────────────┘
+</span></div></div>
+</div>
+<p>Finally, you can fold to upper or lowercase by inserting <code class="docutils literal notranslate"><span class="pre">u</span></code> or <code class="docutils literal notranslate"><span class="pre">l</span></code> immediately after the backslash (adding a backslash to <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">%</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;(.)\1&#39;</span> <span class="nf">⎕S</span> <span class="s1">&#39;&quot;\u%&quot; has 2 &quot;\u1&quot;s&#39;</span> <span class="o">⊢</span> <span class="s1">&#39;Programming&#39;</span> <span class="s1">&#39;Puzzles&#39;</span> <span class="s1">&#39;and&#39;</span> <span class="s1">&#39;Code&#39;</span> <span class="s1">&#39;Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────────────────────────┬────────────────────┐
+│"PROGRAMMING" has 2 "M"s│"PUZZLES" has 2 "Z"s│
+└────────────────────────┴────────────────────┘
+</span></div></div>
+</div>
+<p>This means that you can also use <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> to just fold case (like <code class="docutils literal notranslate"><span class="pre">⎕C</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;.&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;\u&amp;&#39;</span><span class="o">⊢</span><span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">PROGRAMMING PUZZLES AND CODE GOLF
+</span></div></div>
+</div>
+<p>In addition to using these text-based codes, <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> can also use a few numeric codes which then return numeric results.</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code> is the offset from the start of the input of the start of the match:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;(.)\1&#39;</span><span class="nf">⎕S</span> <span class="m">0</span><span class="o">⊢</span><span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">6 14
+</span></div></div>
+</div>
+<p>The above means that <code class="docutils literal notranslate"><span class="pre">mm</span></code> and <code class="docutils literal notranslate"><span class="pre">zz</span></code> begin 6 and 14 characters offset from the left. Notice that these are <em>offsets</em>, not indices, so they are as indices in origin 0 (<code class="docutils literal notranslate"><span class="pre">⎕IO←0</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">1</span></code> is the length of the match:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;\w+&#39;</span> <span class="nf">⎕S</span> <span class="m">1</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span> <span class="c1">⍝ Length of each word</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">11 7 3 4 4
+</span></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">\w</span></code> is any word character, and <code class="docutils literal notranslate"><span class="pre">+</span></code> means one or more, so this matches whole words, and the result is a list of word lengths.</p>
+<p>Question:</p>
+<blockquote>
+<div><p>Is there a way to get how many uppercased characters there are in a string?</p>
+</div></blockquote>
+<p>You can e.g. match all uppercase letters and then tally the result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">≢</span><span class="s1">&#39;[[:upper:]]&#39;</span> <span class="nf">⎕S</span> <span class="m">0</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>   <span class="c1">⍝ POSIX character class reflecting your locale</span>
+<span class="o">≢</span><span class="s1">&#39;[A-Z]&#39;</span> <span class="nf">⎕S</span> <span class="m">0</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>         <span class="c1">⍝ Ranged character class</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">4
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">4
+</span></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">2</span></code> is the number of the block which had the match:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;(.)\1&#39;</span> <span class="nf">⎕S</span> <span class="m">2</span> <span class="o">⊢</span> <span class="s1">&#39;Programming&#39;</span> <span class="s1">&#39;Puzzles&#39;</span> <span class="s1">&#39;and&#39;</span> <span class="s1">&#39;Code&#39;</span> <span class="s1">&#39;Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1
+</span></div></div>
+</div>
+<p>So we can see that only strings 0 and 1 had double-letters (again, always origin 0.)</p>
+</div>
+<div class="section" id="simultaneous-patterns">
+<h2>Simultaneous patterns<a class="headerlink" href="#simultaneous-patterns" title="Permalink to this headline">¶</a></h2>
+<p>The last one, <code class="docutils literal notranslate"><span class="pre">3</span></code>, is the pattern number, which brings us to an amazing feature of <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> and <code class="docutils literal notranslate"><span class="pre">⎕S</span></code>: multiple simultaneous patterns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;(.)\1&#39;</span> <span class="s1">&#39;P&#39;</span> <span class="nf">⎕S</span> <span class="m">3</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0 1 0
+</span></div></div>
+</div>
+<p>Again, the patterns are numbered in origin 0, so first we find a double-letter (<code class="docutils literal notranslate"><span class="pre">mm</span></code>), then a <code class="docutils literal notranslate"><span class="pre">P</span></code>, then a double-letter (<code class="docutils literal notranslate"><span class="pre">zz</span></code>) and then a <code class="docutils literal notranslate"><span class="pre">P</span></code>. The amazing thing about the multiple patterns is that <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> and <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> step through the input letter by letter, and for each letter they look whether each pattern (from left to right) begins there.</p>
+<p>You can of course also have multiple transformation patterns. This means that you can use a pattern to exclude from other patterns by placing the exclusion first, and replacing with the match (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39; &#39;</span> <span class="s1">&#39;\w&#39;</span> <span class="nf">⎕R</span> <span class="p">(</span><span class="o">,</span><span class="na">¨</span><span class="s1">&#39;&amp;&#39;</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">___________ _______ ___ ____ ____
+</span></div></div>
+</div>
+<p>This replaced spaces with themselves, and word characters with underscores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">,</span><span class="na">¨</span><span class="s1">&#39; &#39;</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="nf">⎕R</span> <span class="p">(</span><span class="o">,</span><span class="na">¨</span><span class="s1">&#39;&amp;&#39;</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">___________ _______ ___ ____ ____
+</span></div></div>
+</div>
+<p>But here, we replaced spaces with themselves, and then <em>any character</em> – including spaces – with underscores.</p>
+<p>The vectorisation also works differently for numeric and text operands. Text goes pairwise, while numbers return the entire list for each. You can have one transformation string for each matching string, or a single transformation string for all the matching strings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">,</span><span class="na">¨</span><span class="s1">&#39;aeiou&#39;</span><span class="p">)</span> <span class="nf">⎕R</span> <span class="p">(</span><span class="o">,</span><span class="na">¨</span><span class="s1">&#39;AEIOU&#39;</span><span class="p">)</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>
+<span class="p">(</span><span class="o">,</span><span class="na">¨</span><span class="s1">&#39;aeiou&#39;</span><span class="p">)</span> <span class="nf">⎕R</span> <span class="s1">&#39;_&#39;</span> <span class="o">⊢</span> <span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Pr_gr_mm_ng P_zzl_s _nd C_d_ G_lf
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">PrOgrAmmIng PUzzlEs And COdE GOlf
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">Pr_gr_mm_ng P_zzl_s _nd C_d_ G_lf
+</span></div></div>
+</div>
+<p>But of course, you can’t have multiple transformation strings for a single matching string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;o&#39;</span><span class="nf">⎕R</span><span class="p">(</span><span class="o">,</span><span class="na">¨</span><span class="s1">&#39;AEIOU&#39;</span><span class="p">)</span><span class="o">⊢</span><span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>  <span class="c1">⍝ LENGTH ERROR</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LENGTH ERROR: Invalid transformation format
+      &#39;o&#39;⎕R(,¨&#39;AEIOU&#39;)⊢&#39;Programming Puzzles and Code Golf&#39;  ⍝ LENGTH ERROR
+         ∧
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variants">
+<h2>Variants<a class="headerlink" href="#variants" title="Permalink to this headline">¶</a></h2>
+<p>We mentioned earlier that you can use <em>variant</em>, <code class="docutils literal notranslate"><span class="pre">⍠</span></code>. The most commonly used option is case sensitivity, so it is the default option which means that you don’t have to use the name-value pair <code class="docutils literal notranslate"><span class="pre">⍠'IC'</span> <span class="pre">1</span></code> (Insensitive Case); <code class="docutils literal notranslate"><span class="pre">⍠1</span></code> is enough:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;g&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;_&#39;</span><span class="na">⍠</span><span class="m">1</span><span class="o">⊢</span><span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Pro_rammin_ Puzzles and Code _olf
+</span></div></div>
+</div>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">g</span></code> matched both upper and lowercase Gs.</p>
+<p>Another cool option is for <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> only: <code class="docutils literal notranslate"><span class="pre">⍠'OM'</span> <span class="pre">1</span></code> (Overlapping Matches):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;[^aeiou]{3}&#39;</span><span class="nf">⎕S</span><span class="s1">&#39;&amp;&#39;</span><span class="o">⊢</span><span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span>  <span class="c1">⍝ Non-overlapping matches</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┬───┐
+│ng │zzl│nd │
+└───┴───┴───┘
+</span></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">[^aeiou]</span></code> is a <em>negated character group</em>, which means NOT any of these letters and <code class="docutils literal notranslate"><span class="pre">{3}</span></code> means exactly three of such.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;[^aeiou]{3}&#39;</span><span class="nf">⎕S</span><span class="s1">&#39;&amp;&#39;</span><span class="na">⍠</span><span class="s1">&#39;OM&#39;</span><span class="m">1</span><span class="o">⊢</span><span class="s1">&#39;Programming Puzzles and Code Golf&#39;</span> <span class="c1">⍝ Overlapping matches</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┬───┬───┬───┐
+│ng │g P│zzl│nd │d C│
+└───┴───┴───┴───┴───┘
+</span></div></div>
+</div>
+<p>Notice how this matched <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">P</span></code> even though its first two letters were already found in the first match. <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> cannot allow overlapping matches because that may lead to infinite substitution looping: <code class="docutils literal notranslate"><span class="pre">'x'</span> <span class="pre">⎕R</span> <span class="pre">'xx'⍠'OM'</span> <span class="pre">1</span></code> would loop forever. In <code class="docutils literal notranslate"><span class="pre">xyz</span></code> it would first replace <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">xx</span></code> to get <code class="docutils literal notranslate"><span class="pre">xxyz</span></code> then continue at the next character, which also matches, and makes <code class="docutils literal notranslate"><span class="pre">xxxyz</span></code>, etc.</p>
+</div>
+<div class="section" id="function-operand">
+<h2>Function operand<a class="headerlink" href="#function-operand" title="Permalink to this headline">¶</a></h2>
+<p>Arguably the most powerful feature of them all is the fact that the right operand may be any monadic (or ambivalent) function. The right argument (which may of course be ignored) will be a namespace with a few members. This namespace survives between matches for the entire time that the current <code class="docutils literal notranslate"><span class="pre">⎕R/⎕S</span></code> call is ongoing, so you further populate the namespace and so use it to convey information from earlier matches to later matches. The only names that are reserved (i.e. get overwritten each time your operand function is called) are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Block</span></code> – same as <code class="docutils literal notranslate"><span class="pre">%</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlockNum</span></code> – same as <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pattern</span></code> – the literal pattern which matched (i.e. not the match itself)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PatternNum</span></code> – the origin <code class="docutils literal notranslate"><span class="pre">0</span></code> number of the above</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Match</span></code> – same as <code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Offsets</span></code> – first element is same as <code class="docutils literal notranslate"><span class="pre">0</span></code> but has additional elements corresponding to capture groups</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Lengths</span></code> – first element is same as <code class="docutils literal notranslate"><span class="pre">1</span></code> but has additional elements corresponding to capture groups</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ReplaceMode</span></code> – <code class="docutils literal notranslate"><span class="pre">0</span></code> for <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> for <code class="docutils literal notranslate"><span class="pre">⎕R</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TextOnly</span></code> – Boolean whether the result of the function must be a character vector (i.e. for <code class="docutils literal notranslate"><span class="pre">⎕R</span></code>) or can be anything (i.e. for <code class="docutils literal notranslate"><span class="pre">⎕S</span></code>).</p></li>
+</ul>
+<p>The function can then do any computation necessary to determine its result, so you could even have it prompt the user for whether to replace this match or not (i.e. when implementing a “Replace All” button in an editor).
+This of course renders <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> and <code class="docutils literal notranslate"><span class="pre">⎕S</span></code> as powerful as Dyalog APL as a whole – they are both supersets and subsets of Dyalog APL!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dyalog-kernel"
+        },
+        kernelOptions: {
+            kernelName: "dyalog-kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dyalog-kernel'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="StackWorkspace.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Stack and workspace info</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+        
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
