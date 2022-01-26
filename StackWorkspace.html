@@ -422,16 +422,6 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#underscored-alphabetic-chars-a">
-   Underscored Alphabetic Chars
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ⎕Á
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#screen-dimensions-sd">
    Screen dimensions
    <code class="docutils literal notranslate">
@@ -490,7 +480,7 @@ An assortment of D Functions and Operators.
 </div>
 <div class="section" id="name-classification-nc">
 <h2>Name classification <code class="docutils literal notranslate"><span class="pre">⎕NC</span></code><a class="headerlink" href="#name-classification-nc" title="Permalink to this headline">¶</a></h2>
-<p>Since APL does not enforce a naming scheme, you may wonder what a certain name is. <code class="docutils literal notranslate"><span class="pre">⎕NC</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/nc.htm">Name Classification</a>) to the rescue! Each type of item has a number. 2 is variable, 3 is function, 4 is operator, 9 is object.</p>
+<p>Since APL does not enforce a naming scheme (although you might want to <a class="reference external" href="https://abrudz.github.io/style/#nc">adopt one</a>), you may wonder what a certain name is. <code class="docutils literal notranslate"><span class="pre">⎕NC</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/nc.htm">Name Classification</a>) to the rescue! Each type of item has a number. 2 is variable, 3 is function, 4 is operator, 9 is object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>   <span class="c1">⍝ Copy the dfns workspace silently</span>
@@ -541,7 +531,7 @@ An assortment of D Functions and Operators.
 </div>
 <div class="section" id="name-list-nl">
 <h2>Name list <code class="docutils literal notranslate"><span class="pre">⎕NL</span></code><a class="headerlink" href="#name-list-nl" title="Permalink to this headline">¶</a></h2>
-<p>Using those same codes, you can also use <code class="docutils literal notranslate"><span class="pre">⎕NL</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/nl.htm">Name List</a>) to enquire which items of those name classifications are visible. For example, here are all of dfns’ operators:</p>
+<p>Using those same codes, you can also use <code class="docutils literal notranslate"><span class="pre">⎕NL</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/nl.htm">Name List</a>) to enquire which items of those name classifications are visible. For example, here are all of the <a class="reference external" href="https://aplwiki.com/wiki/Dfns_workspace">dfns workspace</a>’s operators:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>
@@ -762,31 +752,6 @@ bt
 <div class="cell_output docutils container">
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">480040
 </span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">8564705600
-</span></div></div>
-</div>
-</div>
-<div class="section" id="underscored-alphabetic-chars-a">
-<h2>Underscored Alphabetic Chars <code class="docutils literal notranslate"><span class="pre">⎕Á</span></code><a class="headerlink" href="#underscored-alphabetic-chars-a" title="Permalink to this headline">¶</a></h2>
-<p>Just for reference, you may want to know which <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/Underscored%20Alphabetic%20Characters.htm">non-ASCII characters</a> are allowed in names:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span>⎕Á
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">ÁÂÃÇÈÊËÌÍÎÏÐÒÓÔÕÙÚÛÝþãìðòõ
-</span></div></div>
-</div>
-<p>The following expression lists all characters that a name may begin with:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">n</span><span class="na">/⍨</span><span class="m">0</span><span class="o">≤</span><span class="nf">⎕NC</span><span class="o">⍪</span><span class="nv">n</span><span class="kd">←</span><span class="nf">⎕UCS</span><span class="o">⍳</span><span class="m">1E6</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüþ∆⍙ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ
 </span></div></div>
 </div>
 </div>
