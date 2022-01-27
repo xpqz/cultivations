@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects and classes &#8212; APL Cultivations</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Constructors and destructors" href="CtorsDtors.html" />
+    <link rel="prev" title="Namespaces" href="Namespaces.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">APL Cultivations</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro.html">
+   APL Cultivations
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Arrays.html">
+   Introduction to arrays
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Functions.html">
+   Primitive functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions1.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +-×÷*⍟⌹○
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions2.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       !?|⌈⌊⊥⊤⊣⊢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions3.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       =≤&lt;&gt;≥≡≢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions4.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ∨∧⍱⍲↑↓
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions5.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊂⊃⊆⌷⍋⍒
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions6.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍳⍸∊⍷∪∩~
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions7.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /\⌿⍀,⍪
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions8.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍴⌽⊖⍉⍎⍕
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Operators.html">
+   Primitive operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="UserFunctions.html">
+   User-defined functions
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="SystemFunctions.html">
+   System functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Behaviour.html">
+     Behaviour, session
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Constants.html">
+     Constants, tools and utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CodeManagement.html">
+     Code management, I/O, dates, errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="StackWorkspace.html">
+     Stack and workspace info
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Regex.html">
+     Regular expressions
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕R
+      </span>
+     </code>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕S
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="ObjectOrientation.html">
+   Object-oriented APL
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Namespaces.html">
+     Namespaces
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Objects and classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CtorsDtors.html">
+     Constructors and destructors
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ObjectsClasses.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FObjectsClasses.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="objects-and-classes">
+<h1>Objects and classes<a class="headerlink" href="#objects-and-classes" title="Permalink to this headline">¶</a></h1>
+<p>Next up is a special case of a namespace called a <a class="reference external" href="https://help.dyalog.com/latest/#Language/Object%20Oriented%20Programming/Classes/Introducing%20Classes.htm">class</a>. Remember: All APL objects are namespaces. The ones we just call “namespaces” are the most general ones with no restrictive rules. Classes can hide stuff from the outside onlooker. Adhering to a set of rules, they can be used to create other objects (instances). All this should be familiar to you if you’ve done any OOP (object oriented programming), e.g. in C#, Java or Python.</p>
+<p>Remember that we can tell the editor to begin a new namespace with <code class="docutils literal notranslate"><span class="pre">)ed</span> <span class="pre">⍟myns</span></code>? We can begin editing a new class with <code class="docutils literal notranslate"><span class="pre">)ed</span> <span class="pre">○myclass</span></code>. We could also create a new empty namespace with <code class="docutils literal notranslate"><span class="pre">⎕NS</span></code>. We can’t do that with classes as they need some meta-information.</p>
+<p>Fundamental to a class it that it restricts which of its members can be “seen” from the outside. By default fields (i.e. variables) and methods (i.e. functions) are “private”, but we can make them “public” so that they can be seen. This is convenient to implement black-box things and create layers of abstraction (for those that like such).
+Another feature of fields and methods is whether they are “shared” among all the instances, or whether a separate method/field belongs to each instance. By default, they belong to the instances.</p>
+<p>So what is an instance?</p>
+<p>An instance is a new object which is based on a class, which is then its base class. Instances inherit all methods and fields from their base class, but they may either each have their own or share one (which is then considered as if it remains in the base class).</p>
+<p>Let’s see some code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">f</span><span class="kd">←</span><span class="s1">&#39;f&#39;</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">public</span> <span class="nv">fp</span><span class="kd">←</span><span class="s1">&#39;fp&#39;</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">shared</span> <span class="nv">fs</span><span class="kd">←</span><span class="s1">&#39;fs&#39;</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">public</span> <span class="nv">shared</span> <span class="nv">fps</span><span class="kd">←</span><span class="s1">&#39;fps&#39;</span>
+    <span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">look</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span> <span class="nv">shared</span>
+      <span class="nv">r</span><span class="kd">←</span><span class="nf">⎕NL</span> <span class="o">-⍳</span><span class="m">9</span>
+    <span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above is a script for a class called <code class="docutils literal notranslate"><span class="pre">cl</span></code>. You can see that it has four fields and one method (function). The first field, <code class="docutils literal notranslate"><span class="pre">f</span></code>, has all the defaults, i.e. it is private, and for each instance. The second field, <code class="docutils literal notranslate"><span class="pre">fp</span></code> can be seen from outside each instance. The third, <code class="docutils literal notranslate"><span class="pre">fs</span></code>, is private, but shared among all instances (and their base class, <code class="docutils literal notranslate"><span class="pre">cl</span></code>). The last field, <code class="docutils literal notranslate"><span class="pre">fps</span></code> is both visible to the outside public, and also shared. The method, <code class="docutils literal notranslate"><span class="pre">look</span></code>, is public and shared, just like the field <code class="docutils literal notranslate"><span class="pre">fps</span></code>.</p>
+<p>So, if, from outside <code class="docutils literal notranslate"><span class="pre">cl</span></code>, we try looking into <code class="docutils literal notranslate"><span class="pre">cl</span></code>, which members can we see?  We won’t be able to see <code class="docutils literal notranslate"><span class="pre">fp</span></code> because it is <code class="docutils literal notranslate"><span class="pre">instance</span></code>, not <code class="docutils literal notranslate"><span class="pre">shared</span></code>. So since <code class="docutils literal notranslate"><span class="pre">cl</span></code> is not an instance, it won’t show <code class="docutils literal notranslate"><span class="pre">fp</span></code>. We can verify this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cl</span><span class="na">.</span><span class="nf">⎕NL</span> <span class="o">-⍳</span><span class="m">9</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬────┐
+│fps│look│
+└───┴────┘
+</span></div></div>
+</div>
+<p>Now, let’s step into <code class="docutils literal notranslate"><span class="pre">cl</span></code> and have a look from inside. We do that by running <code class="docutils literal notranslate"><span class="pre">cl.look</span></code>. As you can see, <code class="docutils literal notranslate"><span class="pre">look</span></code> just returns the list of members that it can see.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cl</span><span class="na">.</span><span class="nv">look</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬───┬──┬────┐
+│cl│fps│fs│look│
+└──┴───┴──┴────┘
+</span></div></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">cl</span></code> is in there, just like a function can “see” itself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">f</span><span class="kd">←</span><span class="kt">{</span><span class="nf">⎕NL</span><span class="o">-⍳</span><span class="m">9</span><span class="kt">}</span>
+<span class="nv">f</span> <span class="no">⍬</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬─┐
+│cl│f│
+└──┴─┘
+</span></div></div>
+</div>
+<p>Everything that’s shared (i.e. non-“instance”) can be seen, and also the class itself. This is useful if you work with a class and need to inspect what’s going on inside. You can just trace into any public function, and then leave the system suspended. Now you can work from inside the class. When you’re done, just execute <code class="docutils literal notranslate"><span class="pre">→0</span></code> to quit the function.</p>
+<p>Let’s try to create our first instance of <code class="docutils literal notranslate"><span class="pre">cl</span></code>. We do that using the system function <code class="docutils literal notranslate"><span class="pre">⎕NEW</span></code>. It takes <code class="docutils literal notranslate"><span class="pre">cl</span></code> as right argument and returns an instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inst</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl</span>
+<span class="nv">inst</span><span class="na">.</span><span class="nf">⎕NL</span> <span class="o">-⍳</span><span class="m">9</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬───┬────┐
+│fp│fps│look│
+└──┴───┴────┘
+</span></div></div>
+</div>
+<p>If you expected <code class="docutils literal notranslate"><span class="pre">fs</span></code>, then it is shared alright, but remember that we’re on the outside. It isn’t public. We can see <code class="docutils literal notranslate"><span class="pre">look</span></code>, because it is public (and shared too, but that doesn’t matter here). We can also see <code class="docutils literal notranslate"><span class="pre">fp</span></code> which we couldn’t see before, because it is an instance field. But now we do have an instance, and as it is public too, we can see it.</p>
+<p>Now, let’s run <code class="docutils literal notranslate"><span class="pre">inst.look</span></code>. What do we get?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inst</span><span class="na">.</span><span class="nv">look</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬───┬──┬────┐
+│cl│fps│fs│look│
+└──┴───┴──┴────┘
+</span></div></div>
+</div>
+<p>The reason <code class="docutils literal notranslate"><span class="pre">look</span></code> cannot see <code class="docutils literal notranslate"><span class="pre">f</span></code> is because <code class="docutils literal notranslate"><span class="pre">f</span></code> isn’t public. But we’re <em>inside</em>, you say? Yes, but inside what? Remember that <code class="docutils literal notranslate"><span class="pre">look</span></code> is a <em>shared</em> method. This means that it resides in <code class="docutils literal notranslate"><span class="pre">cl</span></code>, not in <code class="docutils literal notranslate"><span class="pre">inst</span></code>. And from inside <code class="docutils literal notranslate"><span class="pre">cl</span></code>, the private fields of <code class="docutils literal notranslate"><span class="pre">inst</span></code> are invisible. To prove this, we can make a small modification to the class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">f</span><span class="kd">←</span><span class="s1">&#39;f&#39;</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">public</span> <span class="nv">fp</span><span class="kd">←</span><span class="s1">&#39;fp&#39;</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">shared</span> <span class="nv">fs</span><span class="kd">←</span><span class="s1">&#39;fs&#39;</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">public</span> <span class="nv">shared</span> <span class="nv">fps</span><span class="kd">←</span><span class="s1">&#39;fps&#39;</span>
+    <span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">look</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>                  <span class="c1">⍝ Note: no longer &#39;shared&#39;!</span>
+      <span class="nv">r</span><span class="kd">←</span><span class="nf">⎕NL</span> <span class="o">-⍳</span><span class="m">9</span>
+    <span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inst</span><span class="na">.</span><span class="nv">look</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬─┬──┬───┬──┬────┐
+│cl│f│fp│fps│fs│look│
+└──┴─┴──┴───┴──┴────┘
+</span></div></div>
+</div>
+<p>The only difference here is that <code class="docutils literal notranslate"><span class="pre">look</span></code> is now an instance method. This means that we can no longer do <code class="docutils literal notranslate"><span class="pre">cl.look</span></code>.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dyalog-kernel"
+        },
+        kernelOptions: {
+            kernelName: "dyalog-kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dyalog-kernel'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Namespaces.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Namespaces</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="CtorsDtors.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Constructors and destructors</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+        
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

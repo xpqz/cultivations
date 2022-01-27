@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Primitive functions &#8212; APL Cultivations</title>
+    <title>Object-oriented APL &#8212; APL Cultivations</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,8 +52,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="+-×÷*⍟⌹○" href="Functions1.html" />
-    <link rel="prev" title="Introduction to arrays" href="Arrays.html" />
+    <link rel="next" title="Namespaces" href="Namespaces.html" />
+    <link rel="prev" title="Regular expressions ⎕R ⎕S" href="Regex.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -103,11 +103,11 @@
    Introduction to arrays
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Functions.html">
    Primitive functions
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
@@ -244,11 +244,11 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="ObjectOrientation.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    Object-oriented APL
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
@@ -312,7 +312,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Functions.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/ObjectOrientation.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -332,7 +332,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FFunctions.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FObjectOrientation.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -361,11 +361,9 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="primitive-functions">
-<h1>Primitive functions<a class="headerlink" href="#primitive-functions" title="Permalink to this headline">¶</a></h1>
-<p>A <em>primitive function</em> is a function defined by the language. Outside of the array community, such functions may be called “builtin” or “intrinsic” functions. In APL, each is represented with a single <a class="reference external" href="https://aplwiki.com/wiki/Glyph">glyph</a>; in other languages, such as those restricted to <a class="reference external" href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> characters, they may use multiple characters (“bigraphs” and “trigraphs” are combinations of two and three characters, respectively). Other parts of APL which are written with a single glyph include <a class="reference external" href="https://aplwiki.com/wiki/Primitive_operator">primitive operators</a> and <a class="reference external" href="https://aplwiki.com/wiki/Quad_name">Quad</a>.</p>
-<p>A function is distinct from the glyph used to denote it. Different APLs, or even one APL (using <a class="reference external" href="https://aplwiki.com/wiki/Migration_level">migration level</a>) might use the same glyph for multiple functions, or different glyphs for identical or similar functions. The term “function” can, depending on context, refer either to an <a class="reference external" href="https://aplwiki.com/wiki/Ambivalent">ambivalent</a> function which can be applied with one or two arguments, or the <a class="reference external" href="https://aplwiki.com/wiki/Monadic">monadic</a> or <a class="reference external" href="https://aplwiki.com/wiki/Dyadic">dyadic</a> function obtained by restricting that function to either one or two arguments specifically.</p>
-<p>Attribution: <a class="reference external" href="https://aplwiki.com/wiki/Primitive_function">APLWiki</a></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="object-oriented-apl">
+<h1>Object-oriented APL<a class="headerlink" href="#object-oriented-apl" title="Permalink to this headline">¶</a></h1>
+<p>Dyalog has rich support for object-oriented programming in APL. If you are familiar with C# or Java OOP you’ll find this very familiar. Dyalog APL is an official (i.e. listed by Microsoft as a) .NET language and the object orientation is well aligned with C#. This also means that it’s easy to call Dyalog from other .NET languages.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -395,17 +393,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Arrays.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Regex.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction to arrays</p>
+            <p class="prev-next-title">Regular expressions <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> <code class="docutils literal notranslate"><span class="pre">⎕S</span></code></p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Functions1.html" title="next page">
+    <a class='right-next' id="next-link" href="Namespaces.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">+-×÷*⍟⌹○</span></code></p>
+        <p class="prev-next-title">Namespaces</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

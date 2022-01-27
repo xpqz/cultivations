@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constructors and destructors &#8212; APL Cultivations</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Objects and classes" href="ObjectsClasses.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">APL Cultivations</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro.html">
+   APL Cultivations
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Arrays.html">
+   Introduction to arrays
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Functions.html">
+   Primitive functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions1.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +-×÷*⍟⌹○
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions2.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       !?|⌈⌊⊥⊤⊣⊢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions3.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       =≤&lt;&gt;≥≡≢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions4.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ∨∧⍱⍲↑↓
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions5.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊂⊃⊆⌷⍋⍒
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions6.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍳⍸∊⍷∪∩~
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions7.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /\⌿⍀,⍪
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions8.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍴⌽⊖⍉⍎⍕
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Operators.html">
+   Primitive operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="UserFunctions.html">
+   User-defined functions
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="SystemFunctions.html">
+   System functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Behaviour.html">
+     Behaviour, session
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Constants.html">
+     Constants, tools and utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CodeManagement.html">
+     Code management, I/O, dates, errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="StackWorkspace.html">
+     Stack and workspace info
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Regex.html">
+     Regular expressions
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕R
+      </span>
+     </code>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕S
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="ObjectOrientation.html">
+   Object-oriented APL
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Namespaces.html">
+     Namespaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ObjectsClasses.html">
+     Objects and classes
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Constructors and destructors
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/CtorsDtors.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FCtorsDtors.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constructors">
+   Constructors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#destructors">
+   Destructors
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="constructors-and-destructors">
+<h1>Constructors and destructors<a class="headerlink" href="#constructors-and-destructors" title="Permalink to this headline">¶</a></h1>
+<p>When you create an instance of a class using <code class="docutils literal notranslate"><span class="pre">⎕NEW</span> <span class="pre">BaseClass</span></code>, you may want to supply some parameters. For this, we use a special type of method (function) called a <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Object%20Oriented%20Programming/Constructors/Constructors.htm">constructor</a>.</p>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<p>When you create a new instance, a <em>constructor</em> (if one exists in the class script) will be called.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl1</span>
+    <span class="bp">∇</span> <span class="nv">Ctor</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;Hi!&#39;</span>
+    <span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inst</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Hi!
+</span></div></div>
+</div>
+<p>We defined a tradfn called <code class="docutils literal notranslate"><span class="pre">Ctor</span></code> (it could be called anything, though) and declared it available from the outside (it must be, as you can’t be inside yet when you’re just creating the instance). As you saw, creating an instance with <code class="docutils literal notranslate"><span class="pre">⎕NEW</span></code> ran the constructor.</p>
+<p>Here’s a slightly modified version where the constructor sets a field value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl2</span>
+    <span class="bp">:</span><span class="nv">Field</span> <span class="nv">public</span> <span class="nv">value</span>
+    <span class="bp">∇</span> <span class="nv">Ctor</span> <span class="nv">x</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="nv">value</span><span class="kd">←</span><span class="nv">x</span>
+    <span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we have an uninitialised field (<code class="docutils literal notranslate"><span class="pre">value</span></code>) and a monadic constructor (<code class="docutils literal notranslate"><span class="pre">Ctor</span></code>) which sets the field upon construction:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inst</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl2</span> <span class="m">42</span>
+<span class="nv">inst</span><span class="na">.</span><span class="nv">value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">42
+</span></div></div>
+</div>
+<p>A class can have multiple constructors, too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl3</span>
+    <span class="bp">∇</span> <span class="nv">None</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;No arguments.&#39;</span>
+    <span class="bp">∇</span>
+    <span class="bp">∇</span> <span class="nv">One</span> <span class="nv">x</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;1 argument:&#39;</span><span class="nv">x</span>
+    <span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a class with two constructors. APL will call the appropriate one (niladic or monadic):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">instA</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl3</span> <span class="m">42</span>
+<span class="nv">instB</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┬──┐
+│1 argument:│42│
+└───────────┴──┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">No arguments.
+</span></div></div>
+</div>
+<p>Or why not a class with <em>three</em> constructors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl4</span>
+    <span class="bp">∇</span> <span class="nv">None</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;No arguments.&#39;</span>
+    <span class="bp">∇</span>
+    <span class="bp">∇</span> <span class="nv">One</span> <span class="nv">x</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;1 argument:&#39;</span><span class="nv">x</span>
+    <span class="bp">∇</span>
+    <span class="bp">∇</span> <span class="nv">Two</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span><span class="p">)</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;2 arguments&#39;</span><span class="nv">a</span> <span class="nv">b</span>
+    <span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">instA</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl4</span> 
+<span class="nv">instB</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl4</span> <span class="m">42</span>
+<span class="nv">instC</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl4</span> <span class="p">(</span><span class="m">42</span> <span class="m">3.1415</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">No arguments.
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┬──┐
+│1 argument:│42│
+└───────────┴──┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┬──┬──────┐
+│2 arguments│42│3.1415│
+└───────────┴──┴──────┘
+</span></div></div>
+</div>
+<p>So APL calls the right constructor based on the number of arguments (if you’ve provided several). Another approach is to make a fancy constructor that handles everything:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl5</span>
+    <span class="bp">:</span><span class="nv">Field</span> <span class="nv">public</span> <span class="nv">name</span><span class="kd">←</span><span class="s1">&#39;baby&#39;</span>
+    <span class="bp">:</span><span class="nv">Field</span> <span class="nv">public</span> <span class="nv">age</span><span class="kd">←</span><span class="m">0</span>
+    <span class="bp">∇</span> <span class="nv">Ctor</span> <span class="nv">x</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="bp">:</span><span class="nv">If</span> <span class="s1">&#39; &#39;</span><span class="o">=⊃</span><span class="m">0</span><span class="o">⍴</span><span class="nv">x</span>
+          <span class="nv">name</span><span class="kd">←</span><span class="nv">x</span>
+      <span class="bp">:</span><span class="nv">Else</span>
+          <span class="nv">age</span><span class="kd">←</span><span class="nv">x</span>
+      <span class="bp">:</span><span class="nv">EndIf</span>
+    <span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">instA</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl5</span> <span class="m">42</span>
+<span class="nv">instA</span><span class="na">.</span><span class="p">(</span><span class="nv">name</span> <span class="nv">age</span><span class="p">)</span>
+<span class="nv">instB</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl5</span> <span class="s1">&#39;Charlie&#39;</span>
+<span class="nv">instB</span><span class="na">.</span><span class="p">(</span><span class="nv">name</span> <span class="nv">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────┬──┐
+│baby│42│
+└────┴──┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────┬─┐
+│Charlie│0│
+└───────┴─┘
+</span></div></div>
+</div>
+<p>One final example of multiple constructors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl6</span>
+    <span class="bp">∇</span> <span class="nv">None</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;No arguments.&#39;</span>
+    <span class="bp">∇</span>
+    <span class="bp">∇</span> <span class="nv">One</span> <span class="nv">x</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;1 argument:&#39;</span><span class="nv">x</span>
+    <span class="bp">∇</span>
+    <span class="bp">∇</span> <span class="nv">Two</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span><span class="p">)</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;2 arguments&#39;</span><span class="nv">a</span> <span class="nv">b</span>
+
+    <span class="bp">∇</span>
+    <span class="bp">∇</span> <span class="nv">Three</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;3 arguments:&#39;</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span>
+    <span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have 0–3. What happens when I call this with more than 3? Let’s see, shall we?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">instA</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl6</span>
+<span class="nv">instB</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl6</span> <span class="m">42</span>
+<span class="nv">instC</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl6</span> <span class="p">(</span><span class="m">2.7</span> <span class="m">3.1</span> <span class="m">42</span><span class="p">)</span>
+<span class="nv">instD</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl6</span> <span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">No arguments.
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┬──┐
+│1 argument:│42│
+└───────────┴──┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────────────┬───┬───┬──┐
+│3 arguments:│2.7│3.1│42│
+└────────────┴───┴───┴──┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┬─────────────┐
+│1 argument:│1 2 3 4 5 6 7│
+└───────────┴─────────────┘
+</span></div></div>
+</div>
+<p>In other words, APL tries to match the specific number of arguments, but if there is no exact match, it passes the array as a single argument to the constructor that takes one argument.</p>
+</div>
+<div class="section" id="destructors">
+<h2>Destructors<a class="headerlink" href="#destructors" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes when an instance ceases to exist, you want to do some clean-up. For example, when a webserver is closed, you might want to free ports and write a message to the log, etc. This functionality is handled by a <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Object%20Oriented%20Programming/Constructors/Destructors.htm">destructor</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl7</span>
+    <span class="bp">∇</span> <span class="nv">Hi</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;Hello there!&#39;</span>
+    <span class="bp">∇</span>
+
+    <span class="bp">∇</span> <span class="nv">Bye</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">destructor</span>
+      <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;See you later!&#39;</span>
+    <span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inst</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl7</span>
+<span class="m">2</span><span class="o">+</span><span class="m">3</span>            <span class="c1">⍝ do some work</span>
+<span class="nf">⎕EX</span> <span class="s1">&#39;inst&#39;</span>     <span class="c1">⍝ Expunge </span>
+<span class="m">2</span><span class="o">×</span><span class="m">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Hello there!
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">5
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">See you later!
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">6
+</span></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dyalog-kernel"
+        },
+        kernelOptions: {
+            kernelName: "dyalog-kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dyalog-kernel'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="ObjectsClasses.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Objects and classes</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+        
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
