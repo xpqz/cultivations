@@ -24,3 +24,8 @@ chapters:
   - file: CodeManagement
   - file: StackWorkspace
   - file: Regex
+- file: ObjectOrientation
+  sections:
+  - file: Namespaces
+  - file: ObjectsClasses
+  - file: CtorsDtors
