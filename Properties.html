@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Properties &#8212; APL Cultivations</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Inheritance and interfaces" href="Inheritance.html" />
+    <link rel="prev" title="Constructors and destructors" href="CtorsDtors.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">APL Cultivations</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro.html">
+   APL Cultivations
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Arrays.html">
+   Introduction to arrays
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Functions.html">
+   Primitive functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions1.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +-×÷*⍟⌹○
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions2.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       !?|⌈⌊⊥⊤⊣⊢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions3.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       =≤&lt;&gt;≥≡≢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions4.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ∨∧⍱⍲↑↓
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions5.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊂⊃⊆⌷⍋⍒
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions6.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍳⍸∊⍷∪∩~
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions7.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /\⌿⍀,⍪
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions8.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍴⌽⊖⍉⍎⍕
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Operators.html">
+   Primitive operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="UserFunctions.html">
+   User-defined functions
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="SystemFunctions.html">
+   System functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Behaviour.html">
+     Behaviour, session
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Constants.html">
+     Constants, tools and utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CodeManagement.html">
+     Code management, I/O, dates, errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="StackWorkspace.html">
+     Stack and workspace info
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Regex.html">
+     Regular expressions
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕R
+      </span>
+     </code>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕S
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="ObjectOrientation.html">
+   Object-oriented APL
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Namespaces.html">
+     Namespaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ObjectsClasses.html">
+     Objects and classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CtorsDtors.html">
+     Constructors and destructors
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inheritance.html">
+     Inheritance and interfaces
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Properties.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FProperties.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-and-set">
+   Get and Set
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-properties-and-default">
+   Multiple properties and Default
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generic-properties">
+   Generic properties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-form">
+   Display form
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overtaking-objects">
+   Overtaking objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-properties">
+   Advanced properties
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="properties">
+<h1>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h1>
+<p>So far, classes have acted pretty much like restricted namespaces. Properties act much like fields/variables, but allow us to take special action when they are set or used.</p>
+<div class="section" id="get-and-set">
+<h2>Get and Set<a class="headerlink" href="#get-and-set" title="Permalink to this headline">¶</a></h2>
+<p>Have a look at this code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+
+    <span class="bp">:</span><span class="nv">Field</span> <span class="nv">public</span> <span class="nv">name</span><span class="kd">←</span><span class="s1">&#39;-&#39;</span>
+
+    <span class="nv">Upper</span><span class="kd">←</span><span class="m">1</span><span class="na">∘</span><span class="nf">⎕C</span>
+    <span class="nv">Lower</span><span class="kd">←</span><span class="nf">⎕C</span>
+
+    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">Name</span>
+    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
+        <span class="bp">∇</span> <span class="nv">text</span><span class="kd">←</span><span class="nv">Get</span>
+          <span class="bp">:</span><span class="nv">If</span> <span class="s1">&#39;-&#39;</span><span class="o">≡</span><span class="nv">name</span>
+              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;I don&#39;&#39;t have a name!&#39;</span>
+          <span class="bp">:</span><span class="nv">Else</span>
+              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;Hi, my name is &#39;</span><span class="o">,</span><span class="nv">name</span><span class="o">,</span><span class="s1">&#39;!&#39;</span>
+          <span class="bp">:</span><span class="nv">EndIf</span>
+        <span class="bp">∇</span>
+        <span class="bp">∇</span> <span class="nv">Set</span> <span class="nv">text</span>
+          <span class="nv">name</span><span class="kd">←</span><span class="p">(</span><span class="nv">Upper</span> <span class="m">1</span><span class="o">↑</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="o">,</span><span class="p">(</span><span class="nv">Lower</span> <span class="m">1</span><span class="o">↓</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span>
+        <span class="bp">∇</span>
+    <span class="bp">:</span><span class="nv">EndProperty</span>
+
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Upper</span></code> and <code class="docutils literal notranslate"><span class="pre">Lower</span></code> are two functions (methods) which just uppercase and lowercase. Then we have a block which defines the property <code class="docutils literal notranslate"><span class="pre">Name</span></code>. It doesn’t matter that it only has casing difference from the name field, but it is convenient to remember their connection. The way properties work is that they have 1–3 specially named functions. Here, <code class="docutils literal notranslate"><span class="pre">Name</span></code> has <code class="docutils literal notranslate"><span class="pre">Set</span></code> and <code class="docutils literal notranslate"><span class="pre">Get</span></code>. The <code class="docutils literal notranslate"><span class="pre">Get</span></code> and <code class="docutils literal notranslate"><span class="pre">Set</span></code> functions have to be named thus, but you may case them as you want, to fit with whatever coding style you choose. The third one is called <code class="docutils literal notranslate"><span class="pre">Shape</span></code>, but it only applies to a special kind of properties which we won’t cover.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Name</span></code> will be treated as a public (due to the <code class="docutils literal notranslate"><span class="pre">:Access</span></code> declaration) field, but instead of directly setting a variable, the <code class="docutils literal notranslate"><span class="pre">Set</span></code> function will be called whenever one uses assignment syntax for <code class="docutils literal notranslate"><span class="pre">Name</span></code>. However, <code class="docutils literal notranslate"><span class="pre">Set</span></code> doesn’t just get the new value as argument. Rather, it gets a namespace with some members (you’ll see later why). The important member here is <code class="docutils literal notranslate"><span class="pre">NewValue</span></code>, as you can see.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Get</span></code> is called when one attempts to use the value of <code class="docutils literal notranslate"><span class="pre">Name</span></code>.</p>
+<p>In the code abobe, <code class="docutils literal notranslate"><span class="pre">:Field</span></code> initialises <code class="docutils literal notranslate"><span class="pre">name</span></code> to be a dash. <code class="docutils literal notranslate"><span class="pre">Get</span></code> will check whether <code class="docutils literal notranslate"><span class="pre">name</span></code> is a dash or not, and respond accordingly. <code class="docutils literal notranslate"><span class="pre">Set</span></code> will accept a character vector and make sure the casing is right (upper initial, rest lower) before assigning to <code class="docutils literal notranslate"><span class="pre">name</span></code>. Let’s see if it works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">name</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="kd">←</span><span class="s1">&#39;anTON&#39;</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">-
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">I don't have a name!
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">Hi, my name is Anton!
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">Anton
+</span></div></div>
+</div>
+</div>
+<div class="section" id="multiple-properties-and-default">
+<h2>Multiple properties and Default<a class="headerlink" href="#multiple-properties-and-default" title="Permalink to this headline">¶</a></h2>
+<p>A class can have more than one property. Let’s have a look at a fancier version:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+
+    <span class="bp">:</span><span class="nv">Field</span> <span class="nv">age</span><span class="kd">←</span><span class="m">0</span>
+    <span class="bp">:</span><span class="nv">Field</span> <span class="nv">name</span><span class="kd">←</span><span class="s1">&#39;-&#39;</span>
+
+    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">Age</span>
+    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
+        <span class="bp">∇</span> <span class="nv">num</span><span class="kd">←</span><span class="nv">get</span>
+          <span class="nv">num</span><span class="kd">←</span><span class="o">⌊</span><span class="nv">age</span>
+        <span class="bp">∇</span>
+    <span class="bp">:</span><span class="nv">EndProperty</span>
+
+    <span class="bp">∇</span> <span class="nv">Grow</span> <span class="nv">amount</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
+      <span class="nv">age</span><span class="o">+</span><span class="kd">←</span><span class="nv">amount</span>
+    <span class="bp">∇</span>
+
+    <span class="nv">Upper</span><span class="kd">←</span><span class="m">1</span><span class="na">∘</span><span class="nf">⎕C</span>
+    <span class="nv">Lower</span><span class="kd">←</span><span class="nf">⎕C</span>
+
+    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">Default</span> <span class="nv">Name</span>
+    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
+        <span class="bp">∇</span> <span class="nv">text</span><span class="kd">←</span><span class="nv">Get</span>
+          <span class="bp">:</span><span class="nv">If</span> <span class="s1">&#39;-&#39;</span><span class="o">≡</span><span class="nv">name</span>
+              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;I don&#39;&#39;t have a name!&#39;</span>
+          <span class="bp">:</span><span class="nv">Else</span>
+              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;Hi, my name is &#39;</span><span class="o">,</span><span class="nv">name</span><span class="o">,</span><span class="s1">&#39;!&#39;</span>
+          <span class="bp">:</span><span class="nv">EndIf</span>
+        <span class="bp">∇</span>
+        <span class="bp">∇</span> <span class="nv">Set</span> <span class="nv">text</span>
+          <span class="nv">name</span><span class="kd">←</span><span class="p">(</span><span class="nv">Upper</span><span class="o">⊃</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="o">,</span><span class="nv">Lower</span> <span class="m">1</span><span class="o">↓</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span>
+        <span class="bp">∇</span>
+    <span class="bp">:</span><span class="nv">EndProperty</span>
+
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are three changes here. The most obvious one is the <code class="docutils literal notranslate"><span class="pre">Age</span></code> property and the complementary method <code class="docutils literal notranslate"><span class="pre">Grow</span></code>. The third change is the <code class="docutils literal notranslate"><span class="pre">Default</span></code> declaration for the <code class="docutils literal notranslate"><span class="pre">Name</span></code> property.  Normally, objects are passed by reference while arrays are passed by value. But the monadic <code class="docutils literal notranslate"><span class="pre">⌷</span></code> called <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Materialise.htm">Materialise</a> has the ability to transform references into values. So if a method has a <code class="docutils literal notranslate"><span class="pre">Default</span></code> property, then monadic <code class="docutils literal notranslate"><span class="pre">⌷</span></code> will yield this property.</p>
+<p>Let’s look at those changes in action:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="kd">←</span><span class="s1">&#39;BRUNO&#39;</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Age</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Grow</span> <span class="m">3.6</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Age</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Grow</span> <span class="m">0.6</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Age</span>
+<span class="o">⌷</span><span class="nv">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">3
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">4
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">Hi, my name is Bruno!
+</span></div></div>
+</div>
+<p>On the topic of monadic <code class="docutils literal notranslate"><span class="pre">⌷</span></code>, if you apply it on .NET collections, it materialises the collection’s items, returning an array of the .NET items that the collection consisted of. You can of course make your class have that same behaviour by setting the default property appropriately.</p>
+</div>
+<div class="section" id="generic-properties">
+<h2>Generic properties<a class="headerlink" href="#generic-properties" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes a class needs a few properties that have the same or similar getter and setter. Instead of repeating yourself, Dyalog APL lets you collapse the code into a single <code class="docutils literal notranslate"><span class="pre">:Property</span></code> block:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span> 
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">heightVal</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">weightVal</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">ageVal</span><span class="kd">←</span><span class="m">0</span>
+
+    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">height</span><span class="o">,</span><span class="nv">weight</span><span class="o">,</span><span class="nv">age</span>
+    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+        <span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">Get</span> <span class="nv">x</span>
+          <span class="nv">r</span><span class="kd">←</span><span class="o">⌊⍎</span><span class="nv">x</span><span class="na">.</span><span class="nv">Name</span><span class="o">,</span><span class="s1">&#39;Val&#39;</span>
+        <span class="bp">∇</span>
+    <span class="bp">:</span><span class="nv">endproperty</span>
+
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the comma-separated “name list”. You can also see why the argument to <code class="docutils literal notranslate"><span class="pre">Get</span></code> needs to be a namespace: so that we can determine which property was requested. Here’s a complete listing of the <code class="docutils literal notranslate"><span class="pre">Person</span></code> class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">heightVal</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">weightVal</span>
+    <span class="bp">:</span><span class="nv">field</span> <span class="nv">ageVal</span><span class="kd">←</span><span class="m">0</span>
+
+    <span class="bp">∇</span> <span class="nv">Birth</span><span class="p">(</span><span class="nv">h</span> <span class="nv">w</span><span class="p">)</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+      <span class="p">(</span><span class="nv">heightVal</span> <span class="nv">weightVal</span><span class="p">)</span><span class="kd">←</span><span class="nv">h</span> <span class="nv">w</span>
+    <span class="bp">∇</span>
+
+    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">height</span><span class="o">,</span><span class="nv">weight</span><span class="o">,</span><span class="nv">age</span>
+    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+        <span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">Get</span> <span class="nv">x</span>
+          <span class="nv">r</span><span class="kd">←</span><span class="o">⌊⍎</span><span class="nv">x</span><span class="na">.</span><span class="nv">Name</span><span class="o">,</span><span class="s1">&#39;Val&#39;</span>
+        <span class="bp">∇</span>
+    <span class="bp">:</span><span class="nv">endproperty</span>
+
+    <span class="bp">∇</span> <span class="nv">Grow</span> <span class="nv">cm</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="nv">heightVal</span><span class="o">+</span><span class="kd">←</span><span class="nv">cm</span>
+    <span class="bp">∇</span>
+
+    <span class="bp">∇</span> <span class="nv">Gain</span> <span class="nv">kg</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="nv">weightVal</span><span class="o">+</span><span class="kd">←</span><span class="nv">kg</span>
+    <span class="bp">∇</span>
+
+    <span class="bp">∇</span> <span class="nv">Lose</span> <span class="nv">kg</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="nv">weightVal</span><span class="o">-</span><span class="kd">←</span><span class="nv">kg</span>
+    <span class="bp">∇</span>
+
+    <span class="bp">∇</span> <span class="nv">Age</span> <span class="nv">y</span>
+      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+      <span class="nv">ageVal</span><span class="o">+</span><span class="kd">←</span><span class="nv">y</span>
+    <span class="bp">∇</span>
+
+    <span class="bp">:</span><span class="nv">property</span> <span class="nv">BMI</span>
+    <span class="bp">:</span><span class="nv">access</span> <span class="nv">public</span>
+        <span class="bp">∇</span> <span class="nv">bmi</span><span class="kd">←</span><span class="nv">Get</span>
+          <span class="nv">bmi</span><span class="kd">←</span><span class="o">⌊</span><span class="m">0.5</span><span class="o">+</span><span class="nv">weightVal</span><span class="o">÷×</span><span class="na">⍨</span><span class="nv">heightVal</span><span class="o">÷</span><span class="m">100</span>
+        <span class="bp">∇</span>
+    <span class="bp">:</span><span class="nv">endproperty</span>
+
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span> <span class="p">(</span><span class="m">50</span> <span class="m">3</span><span class="p">)</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Gain</span> <span class="m">0.7</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">weight</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Grow</span> <span class="m">2.5</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Gain</span> <span class="m">0.4</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">weight</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">BMI</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">3
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">4
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">15
+</span></div></div>
+</div>
+</div>
+<div class="section" id="display-form">
+<h2>Display form<a class="headerlink" href="#display-form" title="Permalink to this headline">¶</a></h2>
+<p>The normal display of an object is with a namespace path and object name or class name/”namespace” in brackets. Not very useful:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕NS</span> <span class="no">⍬</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">#.[Namespace]
+</span></div></div>
+</div>
+<p>However, the system function <code class="docutils literal notranslate"><span class="pre">⎕DF</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/df.htm">Display Form</a>) allows you to change this to any character array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">ns</span><span class="kd">←</span><span class="nf">⎕NS</span> <span class="no">⍬</span>
+<span class="nv">ns</span><span class="na">.</span><span class="nf">⎕DF</span> <span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="s1">&#39;yo&#39;</span>
+<span class="nv">ns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">yo
+yo
+</span></div></div>
+</div>
+<p>This is similar in spirit to Python’s “dunder” method <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#object.__repr__">__repr__()</a>. Of course, having a static display form like that isn’t much fun. Here is a better usage:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+
+    <span class="bp">∇</span> <span class="nv">Birth</span>
+        <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+        <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+        <span class="nf">⎕DF</span> <span class="s1">&#39;baby&#39;</span>
+    <span class="bp">∇</span>
+
+    <span class="nv">Upper</span><span class="kd">←</span><span class="m">1</span><span class="na">∘</span><span class="nf">⎕C</span>
+    <span class="nv">Lower</span><span class="kd">←</span><span class="nf">⎕C</span>
+
+    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">Name</span>
+    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
+        <span class="bp">∇</span> <span class="nv">text</span><span class="kd">←</span><span class="nv">Get</span>
+          <span class="bp">:</span><span class="nv">If</span> <span class="m">0</span><span class="o">=</span><span class="nf">⎕NC</span><span class="s1">&#39;name&#39;</span>
+              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;I don&#39;&#39;t have a name!&#39;</span>
+          <span class="bp">:</span><span class="nv">Else</span>
+              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;Hi, my name is &#39;</span><span class="o">,</span><span class="nv">name</span><span class="o">,</span><span class="s1">&#39;!&#39;</span>
+          <span class="bp">:</span><span class="nv">EndIf</span>
+        <span class="bp">∇</span>
+        <span class="bp">∇</span> <span class="nv">Set</span> <span class="nv">text</span>
+          <span class="nv">name</span><span class="kd">←</span><span class="p">(</span><span class="nv">Upper</span><span class="o">⊃</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="o">,</span><span class="nv">Lower</span> <span class="m">1</span><span class="o">↓</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span>
+          <span class="nf">⎕DF</span> <span class="nv">name</span>
+        <span class="bp">∇</span>
+    <span class="bp">:</span><span class="nv">EndProperty</span>
+
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a constructor which sets up the initial display form. And every time the <code class="docutils literal notranslate"><span class="pre">Name</span></code> property is <code class="docutils literal notranslate"><span class="pre">Set</span></code>, the display form is updated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span>
+<span class="nv">p</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="kd">←</span><span class="s1">&#39;anTON&#39;</span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span>
+<span class="nv">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">baby
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">I don't have a name!
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">Hi, my name is Anton!
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">Anton
+</span></div></div>
+</div>
+<p>As we now know, objects are passed by reference. This means that if we just try to grab the object value, we get a ref rather than the display form, even if the display form is what shows in the session. How do we get the <em>actual</em> display form? In C# it would be <a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring">ToString</a>, of course. Think about it: if you have a numeric array, how would you get the character array display form? Well, <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Format%20Monadic.htm">Format</a> (<code class="docutils literal notranslate"><span class="pre">⍕</span></code>) is APL’s “ToString”. So <code class="docutils literal notranslate"><span class="pre">⍕object</span></code> will give you whatever argument has been fed to <code class="docutils literal notranslate"><span class="pre">⎕DF</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span>              <span class="c1">⍝ Still a reference, even if it displays as a character array</span>
+<span class="nf">⎕NC</span> <span class="s1">&#39;p&#39;</span>        <span class="c1">⍝ Name class 9: object        </span>
+<span class="m">1</span><span class="nf">⎕C</span><span class="o">⍕</span><span class="nv">p</span>          <span class="c1">⍝ ⍕p is the actual ⎕DF: we can for example upcase it</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Anton
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">9
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">ANTON
+</span></div></div>
+</div>
+</div>
+<div class="section" id="overtaking-objects">
+<h2>Overtaking objects<a class="headerlink" href="#overtaking-objects" title="Permalink to this headline">¶</a></h2>
+<p>Another cool thing you can do is <em>overtaking</em>. Remember how APL pads with the a fill element if there are not enough elements to go?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">10</span><span class="o">↑</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span>   <span class="c1">⍝ Overtake a list of ints pads with 0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">3 1 4 0 0 0 0 0 0 0
+</span></div></div>
+</div>
+<p>If a class has a niladic constructor, then overtaking an instance will create siblings (i.e. new instances of the same class) using the niladic constructor:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
+<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+
+    <span class="bp">∇</span> <span class="nv">Birth</span>
+        <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+        <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+        <span class="s1">&#39;I&#39;&#39;m an orphan!&#39;</span>
+    <span class="bp">∇</span>
+
+    <span class="bp">∇</span> <span class="nv">Naming</span> <span class="nv">name</span>
+        <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
+        <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
+        <span class="s1">&#39;I was born with the name &#39;</span><span class="o">,</span><span class="nv">name</span>
+    <span class="bp">∇</span>
+
+<span class="bp">:</span><span class="nv">EndClass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span> <span class="s1">&#39;Joe&#39;</span>
+<span class="m">3</span><span class="o">↑</span><span class="nv">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">I was born with the name Joe
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">I'm an orphan!
+I'm an orphan!
+ #.[Person]  #.[Person]  #.[Person]
+</span></div></div>
+</div>
+</div>
+<div class="section" id="advanced-properties">
+<h2>Advanced properties<a class="headerlink" href="#advanced-properties" title="Permalink to this headline">¶</a></h2>
+<p>You can also have a <code class="docutils literal notranslate"><span class="pre">:property</span> <span class="pre">numbered</span></code> which acts like a normal property, but if you use indices to set or get, those functions are called with a namespace that has an <code class="docutils literal notranslate"><span class="pre">Indexers</span></code> member to tell the function which elements are being asked for.</p>
+<p>Remember the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> function of a property we mentioned briefly before? This means that a property can have any (pretend) shape. So when <code class="docutils literal notranslate"><span class="pre">Get</span></code> or <code class="docutils literal notranslate"><span class="pre">Set</span></code> are called, the argument has a member called <code class="docutils literal notranslate"><span class="pre">IndexersSpecified</span></code> which is a Boolean vector indicating which dimensions are being addressed. You can use this, for example, to implement sparse arrays.</p>
+<p>You can also have a <code class="docutils literal notranslate"><span class="pre">:Property</span> <span class="pre">keyed</span></code> which instead of numeric indices can use any arrays as keys. It is then up to the <code class="docutils literal notranslate"><span class="pre">Set</span></code> and <code class="docutils literal notranslate"><span class="pre">Get</span></code> functions to handle these. Typically you’d want to use character vectors as keys. For such properties you must use indexing, as APL cannot know how many “elements” there are. You can use this to implement dictionary objects.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dyalog-kernel"
+        },
+        kernelOptions: {
+            kernelName: "dyalog-kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dyalog-kernel'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="CtorsDtors.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Constructors and destructors</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Inheritance.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Inheritance and interfaces</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+        
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
