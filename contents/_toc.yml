@@ -29,3 +29,5 @@ chapters:
   - file: Namespaces
   - file: ObjectsClasses
   - file: CtorsDtors
+  - file: Properties
+  - file: Inheritance
