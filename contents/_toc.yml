@@ -17,6 +17,8 @@ chapters:
   - file: Functions8
 - file: Operators
 - file: UserFunctions
+  sections:
+  - file: Tradfns
 - file: SystemFunctions
   sections:
   - file: Behaviour
