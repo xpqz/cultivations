@@ -191,17 +191,29 @@
    Primitive operators
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="UserFunctions.html">
    User-defined functions
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Tradfns.html">
+     Tradfns
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="SystemFunctions.html">
    System functions
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -247,8 +259,8 @@
   <a class="reference internal" href="ObjectOrientation.html">
    Object-oriented APL
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -711,7 +723,7 @@ Instead of having to look up each customer ID to find its current row in the dat
 </span></div></div>
 </div>
 <p>It looks very much like our first keyed example, but there is an additional <code class="docutils literal notranslate"><span class="pre">Shape</span></code> function which allows APL to know what this imaginary array looks like. Also, note that the setter (and for that sake the getter) gets called once for each element that needs to be set (or retrieved).</p>
-<p>Using this, you implement a sparse array in much the same way as we did the database. Basically, you’d make a 2-column table of indices and values, and then look up any requested index in the first column to find the corresponding value in the right column. When setting, we’d again look whether the index is already used, and then overwrite that, or if not found, add an entry to our “database”.</p>
+<p>Using this, you implement a sparse array in much the same way as we did the database. Basically, you’d make a 2-column table of indices and values, and then look up any requested index in the first column to find the corresponding value in the right column. When setting, we’d again look whether the index is already used, and then overwrite that, or if not found, add an entry to our “database”. This index lookup can be made very performant by means of a <a class="reference external" href="https://help.dyalog.com/latest/#Language/I%20Beam%20Functions/Hash%20Array.htm">hashed array</a>, <code class="docutils literal notranslate"><span class="pre">1500⌶</span></code>.</p>
 </div>
 </div>
 
