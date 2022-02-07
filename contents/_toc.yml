@@ -18,6 +18,7 @@ chapters:
 - file: Operators
 - file: UserFunctions
   sections:
+  - file: Trains
   - file: Tradfns
 - file: SystemFunctions
   sections:
