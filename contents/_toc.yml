@@ -16,6 +16,7 @@ chapters:
   - file: Functions7
   - file: Functions8
 - file: Operators
+- file: Rank
 - file: UserFunctions
   sections:
   - file: Trains
