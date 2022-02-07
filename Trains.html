@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tacit programming &#8212; APL Cultivations</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tradfns" href="Tradfns.html" />
+    <link rel="prev" title="User-defined functions" href="UserFunctions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">APL Cultivations</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro.html">
+   APL Cultivations
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Arrays.html">
+   Introduction to arrays
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Functions.html">
+   Primitive functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions1.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +-×÷*⍟⌹○
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions2.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       !?|⌈⌊⊥⊤⊣⊢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions3.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       =≤&lt;&gt;≥≡≢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions4.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ∨∧⍱⍲↑↓
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions5.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊂⊃⊆⌷⍋⍒
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions6.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍳⍸∊⍷∪∩~
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions7.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /\⌿⍀,⍪
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions8.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍴⌽⊖⍉⍎⍕
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Operators.html">
+   Primitive operators
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="UserFunctions.html">
+   User-defined functions
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Tacit programming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Tradfns.html">
+     Tradfns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="SystemFunctions.html">
+   System functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Behaviour.html">
+     Behaviour, session
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Constants.html">
+     Constants, tools and utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CodeManagement.html">
+     Code management, I/O, dates, errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="StackWorkspace.html">
+     Stack and workspace info
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Regex.html">
+     Regular expressions
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕R
+      </span>
+     </code>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕S
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ObjectOrientation.html">
+   Object-oriented APL
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Namespaces.html">
+     Namespaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ObjectsClasses.html">
+     Objects and classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CtorsDtors.html">
+     Constructors and destructors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Properties.html">
+     Properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inheritance.html">
+     Inheritance and interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AdvancedOO.html">
+     Advanced OO techniques
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Trains.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FTrains.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trains">
+   3-trains
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   2-trains
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   4-trains
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   5-trains
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tacit-rules">
+   Tacit rules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#converting-dfns-to-tacit">
+   Converting dfns to tacit
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="tacit-programming">
+<h1>Tacit programming<a class="headerlink" href="#tacit-programming" title="Permalink to this headline">¶</a></h1>
+<p>Tacit programming is programming without (direct) reference to the argument(s). Of course, you still need to get the data somehow, but the idea is that a function refers to the result of that function when applied to the argument(s) instead of just referring to itself. When you actually need to refer to an argument, you still need to apply a function to it, but since you want nothing done to the data, you’ll need an identity function. Dyalog APL gives you <code class="docutils literal notranslate"><span class="pre">⊣</span></code> and <code class="docutils literal notranslate"><span class="pre">⊢</span></code> which are left and right identity, respectively. This may seem trivial, but becomes very important later.</p>
+<p>Next, we need to understand how a train (sequence) of functions is applied to the argument(s). Since APL functions can be called monadically or dyadically (niladic functions cannot directly be used in trains), there needs to be some rules. We also need a way to specify if we want any subsequent functions to be applied to the result of the previous functions, or on the argument(s) anew.</p>
+<div class="section" id="trains">
+<h2>3-trains<a class="headerlink" href="#trains" title="Permalink to this headline">¶</a></h2>
+<p>Let’s begin with 3-trains, or <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">h</span></code>. They tend to be the simplest to understand. In the following, we’ll call the left and right arguments <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> respectively. First up is the (albeit slightly more complicated) dyadic case, as the monadic case follows very easily from the dyadic one.</p>
+<p>Evaluating <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">(f</span> <span class="pre">g</span> <span class="pre">h)</span> <span class="pre">B</span></code> from the right, we first have <code class="docutils literal notranslate"><span class="pre">h</span></code> which represents <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">h</span> <span class="pre">B</span></code>. Then we move on to <code class="docutils literal notranslate"><span class="pre">g</span></code> which will evaluate to <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code>. So we need to evaluate <code class="docutils literal notranslate"><span class="pre">f</span></code> first. <code class="docutils literal notranslate"><span class="pre">f</span></code> behaves just like <code class="docutils literal notranslate"><span class="pre">h</span></code>, in that it refers to <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">f</span> <span class="pre">B</span></code>. Finally, <code class="docutils literal notranslate"><span class="pre">g</span></code> can be evaluated as <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">f</span> <span class="pre">B)</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code>.</p>
+<p>Note that there is no confusion between this last non-tacit (or <em>explicit</em>) expression and a train. You can always tell the difference between explicit and tacit APL by looking at the rightmost token. If it is an array, it is explicit, otherwise it is tacit. Conversely, this also means that you need to separate a train from any data you want to apply it to, either by naming it in a separate statement, or by parenthesising it. Getting confused regarding this is a very common mistake.</p>
+<p>Going back to our <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">h</span></code> train, what happens in the monadic case? The dyadic was <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">f</span> <span class="pre">B)</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code>, and the monadic is exactly the same, but with the <code class="docutils literal notranslate"><span class="pre">A</span></code>s removed: <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">B)</span> <span class="pre">g</span> <span class="pre">(h</span> <span class="pre">B)</span></code>. This applies universally to all trains: The parsing is identical for monadic and dyadic calls; the functions that would address the left argument are just called monadically. This also means that <code class="docutils literal notranslate"><span class="pre">⊣</span></code> refers to the right argument when the train is called monadically.</p>
+<p>3-trains are known as <em>forks</em> because their structure resembles a fork (like a rail switch) in that the middle function “connects” to the two sides. We can use the interpreter to help us display a visual representation of a fork:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">box</span> <span class="nv">on</span> <span class="o">-</span><span class="nv">t</span><span class="o">=</span><span class="nv">tree</span>    <span class="c1">⍝ Enable tree-display for tacit functions</span>
+<span class="o">+×÷</span>                <span class="c1">⍝ A fork</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Was ON -trains=tree
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┼─┐
++ × ÷
+</span></div></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>2-trains<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>This leads us to 2-trains. Consider <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">h</span></code> again — <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">f</span> <span class="pre">B)</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code>. What if there was no <code class="docutils literal notranslate"><span class="pre">f</span></code>? I.e. we just have <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">h</span></code>. Since <code class="docutils literal notranslate"><span class="pre">g</span></code> would address its left argument, but there isn’t any, it is just called monadically, i.e. <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">(g</span> <span class="pre">h)</span> <span class="pre">B</span> <span class="pre">is</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code>. This is known as an <em>atop</em> because the <code class="docutils literal notranslate"><span class="pre">g</span></code> is evaluated atop (i.e. on the top of) the result of <code class="docutils literal notranslate"><span class="pre">h</span></code>’s application.</p>
+</div>
+<div class="section" id="id2">
+<h2>4-trains<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look at 4-trains. (1-trains are simply single functions.) Consider <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">h</span> <span class="pre">j</span></code>. We begin from the right and grab up to three functions, i.e. <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">h</span> <span class="pre">j</span></code>. Those are evaluated as before. Let’s call the result <code class="docutils literal notranslate"><span class="pre">H</span></code>. Now we have <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">H</span></code>. Really, <code class="docutils literal notranslate"><span class="pre">f</span></code> would have taken a left argument, but there isn’t any, so it is just applied to <code class="docutils literal notranslate"><span class="pre">H</span></code> monadically.
+In total, <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">h</span> <span class="pre">j</span></code> is <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">(g</span> <span class="pre">h</span> <span class="pre">j)</span></code> or to be explicit, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">(f</span> <span class="pre">g</span> <span class="pre">h</span> <span class="pre">j)</span> <span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">((A</span> <span class="pre">g</span> <span class="pre">B)</span> <span class="pre">h</span> <span class="pre">(A</span> <span class="pre">j</span> <span class="pre">B))</span></code>.</p>
+<p>One little exception which fits right in: The left side of the 3-train (left tine of a fork) may be a constant (i.e. not a function that is applied to the argument(s). It is then treated as if there had been a function there which gave that result. Here’s an illustration: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">(42</span> <span class="pre">g</span> <span class="pre">h)</span> <span class="pre">B</span></code> is just like <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">({42}</span> <span class="pre">g</span> <span class="pre">h)</span> <span class="pre">B</span></code> where <code class="docutils literal notranslate"><span class="pre">{42}</span></code> is an ambivalent function which returns a constant value. So it all becomes <code class="docutils literal notranslate"><span class="pre">42</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code> or <code class="docutils literal notranslate"><span class="pre">(A{42}B)</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code> if you want.</p>
+<p>Note that you cannot have a 2-train with a constant left side, like <code class="docutils literal notranslate"><span class="pre">42</span> <span class="pre">f</span></code>. Neither can you have a middle tine be a constant, like <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">42</span> <span class="pre">g</span></code>. Nor can you have a right hand side be a constant, as that would make your code explicit, as per above. So what if you <em>need</em> a constant right-tine? For example, for a “divide-by-42” function? <code class="docutils literal notranslate"><span class="pre">⊢÷42</span></code> won’t work (it’ll give you the identity of the reciprocal of 42). Then you need to supply the constant as a left tine, and swap the arguments of the middle tine, using the <code class="docutils literal notranslate"><span class="pre">⍨</span></code> (Commute) operator: <code class="docutils literal notranslate"><span class="pre">42÷⍨⊢</span></code>.</p>
+</div>
+<div class="section" id="id3">
+<h2>5-trains<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Finally, let’s have a look at a 5-train, which completes the pattern. <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">h</span> <span class="pre">j</span> <span class="pre">k</span></code>: again we begin from the right and take three functions. Now we have <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">(h</span> <span class="pre">j</span> <span class="pre">k)</span></code>. <code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">j</span> <span class="pre">k</span></code> evaluates as a normal 3-train, and its result (let’s call it <code class="docutils literal notranslate"><span class="pre">J</span></code>) becomes the right argument of <code class="docutils literal notranslate"><span class="pre">g</span></code>, so <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">J</span></code>. Then the pattern just repeats. A 4-train is an atop of a fork, and a 5-train is a fork of a fork, and a 6-train is an atop of a fork of a fork, etc.</p>
+</div>
+<div class="section" id="tacit-rules">
+<h2>Tacit rules<a class="headerlink" href="#tacit-rules" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look at some handy identities.</p>
+<ul class="simple">
+<li><p>Because <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)</span> <span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">(g</span> <span class="pre">B)</span></code> then if <code class="docutils literal notranslate"><span class="pre">g</span></code> is <code class="docutils literal notranslate"><span class="pre">⊢</span></code>, then <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)</span></code> is just <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
+<li><p>Because <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">(f</span> <span class="pre">g</span> <span class="pre">h)</span> <span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">f</span> <span class="pre">B)</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code> then if <code class="docutils literal notranslate"><span class="pre">f</span></code> is <code class="docutils literal notranslate"><span class="pre">⊣</span></code> and <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">⊢</span></code>, then <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g</span> <span class="pre">h)</span></code> is just <code class="docutils literal notranslate"><span class="pre">g</span></code>.</p></li>
+<li><p>Because <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">(f</span> <span class="pre">g</span> <span class="pre">h)</span> <span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">f</span> <span class="pre">B)</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code> then if <code class="docutils literal notranslate"><span class="pre">f</span></code> is <code class="docutils literal notranslate"><span class="pre">⊢</span></code> and <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">⊣</span></code>, then <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g</span> <span class="pre">h)</span></code> is just <code class="docutils literal notranslate"><span class="pre">g⍨</span></code>.</p></li>
+</ul>
+<p>We could, of course, make many more such identities, but I’m sure you get the idea, so just one more:</p>
+<ul class="simple">
+<li><p>Because <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)</span> <span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">B</span></code> and <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">B</span></code> is also <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">B</span></code>, we can substitute <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)</span></code> with <code class="docutils literal notranslate"><span class="pre">f∘g</span></code> in monadic cases.</p></li>
+</ul>
+</div>
+<div class="section" id="converting-dfns-to-tacit">
+<h2>Converting dfns to tacit<a class="headerlink" href="#converting-dfns-to-tacit" title="Permalink to this headline">¶</a></h2>
+<p>OK, let’s look at the dfn given <a class="reference external" href="https://codegolf.stackexchange.com/questions/120644/squaring-off-fit-to-smallest-possible-square/138750#138750">here</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">f</span><span class="kd">←</span><span class="kt">{</span><span class="p">(</span><span class="o">,</span><span class="na">⍨</span><span class="o">⍴</span><span class="bp">⍵</span><span class="o">↑</span><span class="na">⍨</span><span class="o">×</span><span class="na">⍨</span><span class="p">)</span><span class="o">⌈</span><span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">≢</span><span class="bp">⍵</span><span class="kt">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that converting to tacit form doesn’t always make the code shorter. This is just for the exercise.  We can begin by substituting <code class="docutils literal notranslate"><span class="pre">⊢</span></code> for every <code class="docutils literal notranslate"><span class="pre">⍵</span></code> (the right argument). That gives us <code class="docutils literal notranslate"><span class="pre">(,⍨⍴⊢↑⍨×⍨)⌈.5*⍨≢⊢</span></code> which won’t work because of how trains are evaluated, so let’s fully parenthesise it:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">,</span><span class="na">⍨</span><span class="o">⍴⊢↑</span><span class="na">⍨</span><span class="o">×</span><span class="na">⍨</span><span class="p">)(</span><span class="o">⌈</span><span class="p">(</span><span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="p">(</span><span class="o">≢⊢</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Note that the left parenthesis is already a train, but this still doesn’t work, because that train used the constant <code class="docutils literal notranslate"><span class="pre">⍵</span></code>, which we’ve substituted with a <code class="docutils literal notranslate"><span class="pre">⊢</span></code>. But <code class="docutils literal notranslate"><span class="pre">⊢</span></code> inside the train refers to the train’s own right argument, and we want the original right argument. So we need to “feed” the left train the unadulterated argument:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span><span class="p">(</span><span class="o">,</span><span class="na">⍨</span><span class="o">⍴</span><span class="p">(</span><span class="o">⊢⊣</span><span class="p">)</span><span class="o">↑</span><span class="na">⍨</span><span class="o">×</span><span class="na">⍨</span><span class="p">)(</span><span class="o">⌈</span><span class="p">(</span><span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="p">(</span><span class="o">≢⊢</span><span class="p">)))</span> 
+</pre></div>
+</div>
+<p>But now we get another issue: the functions in that train assumed the train was called monadically. That’s not the case any more, so let’s insert some tacks to use the correct arguments:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span> <span class="p">((</span><span class="o">,</span><span class="na">⍨</span><span class="o">⊢</span><span class="p">)</span><span class="o">⍴⊣↑</span><span class="na">⍨</span><span class="p">(</span><span class="o">×</span><span class="na">⍨</span><span class="o">⊢</span><span class="p">))</span> <span class="p">(</span><span class="o">⌈</span><span class="p">(</span><span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="p">(</span><span class="o">≢⊢</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>OK, that was the left side. Now for the right side. <code class="docutils literal notranslate"><span class="pre">(≢⊢)</span></code> becomes just <code class="docutils literal notranslate"><span class="pre">≢</span></code> as per above identity, and the rightmost parenthesis isn’t needed:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span> <span class="p">((</span><span class="o">,</span><span class="na">⍨</span><span class="o">⊢</span><span class="p">)</span><span class="o">⍴⊣↑</span><span class="na">⍨</span><span class="p">(</span><span class="o">×</span><span class="na">⍨</span><span class="o">⊢</span><span class="p">))</span> <span class="p">(</span><span class="o">⌈</span><span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">≢</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we can see that <code class="docutils literal notranslate"><span class="pre">⌈</span></code> is applied monadically to its right argument, so we can glue to to the left train instead:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span> <span class="p">((</span><span class="o">,</span><span class="na">⍨</span><span class="o">⊢</span><span class="p">)</span><span class="o">⍴⊣↑</span><span class="na">⍨</span><span class="p">(</span><span class="o">×</span><span class="na">⍨</span><span class="o">⊢</span><span class="p">))</span><span class="na">∘</span><span class="o">⌈</span> <span class="p">(</span><span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">≢</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Of course, we can remove that rightmost parenthesis too:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span> <span class="p">((</span><span class="o">,</span><span class="na">⍨</span><span class="o">⊢</span><span class="p">)</span><span class="o">⍴⊣↑</span><span class="na">⍨</span><span class="p">(</span><span class="o">×</span><span class="na">⍨</span><span class="o">⊢</span><span class="p">))</span><span class="na">∘</span><span class="o">⌈</span> <span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">≢</span>
+</pre></div>
+</div>
+<p>That’s it. But we can do a little better. Note that <code class="docutils literal notranslate"><span class="pre">,⍨</span></code> and <code class="docutils literal notranslate"><span class="pre">×⍨</span></code> are “selfies”. It should be obvious that <code class="docutils literal notranslate"><span class="pre">f⍨</span> <span class="pre">X</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f</span> <span class="pre">X</span></code> (no matter if <code class="docutils literal notranslate"><span class="pre">X</span></code> is a function or a constant), so we can just substitute that:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span> <span class="p">((</span><span class="o">⊢,⊢</span><span class="p">)</span><span class="o">⍴⊣↑</span><span class="na">⍨</span><span class="p">(</span><span class="o">⊢×⊢</span><span class="p">))</span><span class="na">∘</span><span class="o">⌈</span> <span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">≢</span>
+</pre></div>
+</div>
+<p>Now we can remove final unneeded parenthesis and the whitespace:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span><span class="p">((</span><span class="o">⊢,⊢</span><span class="p">)</span><span class="o">⍴⊣↑</span><span class="na">⍨</span><span class="o">⊢×⊢</span><span class="p">)</span><span class="na">∘</span><span class="o">⌈</span><span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">≢</span>
+</pre></div>
+</div>
+<p>There you go. Totally unreadable, but it looks cool!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span><span class="p">((</span><span class="o">⊢,⊢</span><span class="p">)</span><span class="o">⍴⊣↑</span><span class="na">⍨</span><span class="o">⊢×⊢</span><span class="p">)</span><span class="na">∘</span><span class="o">⌈</span><span class="m">.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">≢</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">       ┌─┼────────┐
+       ⊢ ∘    ┌───┼─┐
+      ┌──┴──┐ 0.5 ⍨ ≢
+  ┌───┼───┐ ⌈   ┌─┘
+┌─┼─┐ ⍴ ┌─┼───┐ *
+⊢ , ⊢   ⊣ ⍨ ┌─┼─┐
+        ┌─┘ ⊢ × ⊢
+        ↑
+</span></div></div>
+</div>
+<p>Let’s do one more: <a class="reference external" href="https://codegolf.stackexchange.com/questions/136713/find-the-first-duplicated-element/137189#137189">Moris Zucca’s</a> dfn <code class="docutils literal notranslate"><span class="pre">{⊃⍵[(⍳⍴⍵)~⍵⍳⍵]}</span></code>.</p>
+<p>Right away we can spot an issue: you can’t use bracket indexing in a train, but luckily there is a functional alternative in the <code class="docutils literal notranslate"><span class="pre">⌷</span></code> primitive. So, first let’s substitute that in:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="o">⊃</span><span class="bp">⍵</span><span class="o">⌷</span><span class="na">⍨</span><span class="o">⊂</span><span class="p">(</span><span class="o">⍳⍴</span><span class="bp">⍵</span><span class="p">)</span><span class="o">~</span><span class="bp">⍵</span><span class="o">⍳</span><span class="bp">⍵</span><span class="kt">}</span>
+</pre></div>
+</div>
+<p>Now, let’s do our <code class="docutils literal notranslate"><span class="pre">⍵→⊢</span></code> substitution:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊃⊢⌷</span><span class="na">⍨</span><span class="o">⊂</span><span class="p">(</span><span class="o">⍳⍴⊢</span><span class="p">)</span><span class="o">~⊢⍳⊢</span>
+</pre></div>
+</div>
+<p>Just a couple of things to fix in this one: <code class="docutils literal notranslate"><span class="pre">⍳⍴⊢</span></code> won’t work, and <code class="docutils literal notranslate"><span class="pre">⊂</span></code> is called monadically, but we can easily fix those:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊃⊢⌷</span><span class="na">⍨</span><span class="p">(</span><span class="o">⊂</span><span class="p">((</span><span class="o">⍳⍴</span><span class="p">)</span><span class="o">⊢</span><span class="p">)</span><span class="o">~⊢⍳⊢</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we’ve got an <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">⊢</span></code> case in <code class="docutils literal notranslate"><span class="pre">(⍳⍴)⊢</span></code>, so we’ll simplify as per the identity above:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊃⊢⌷</span><span class="na">⍨</span><span class="p">(</span><span class="o">⊂</span><span class="p">(</span><span class="o">⍳⍴</span><span class="p">)</span><span class="o">~⊢⍳⊢</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">(⍳⍴)</span></code> is called monadically, we can use <code class="docutils literal notranslate"><span class="pre">⍳∘⍴</span></code>:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊃⊢⌷</span><span class="na">⍨</span><span class="p">(</span><span class="o">⊂⍳</span><span class="na">∘</span><span class="o">⍴~⊢⍳⊢</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the rightmost <code class="docutils literal notranslate"><span class="pre">⍳</span></code> uses the same left and right argument, so it is a selfie: <code class="docutils literal notranslate"><span class="pre">⍳⍨</span></code></p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊃⊢⌷</span><span class="na">⍨</span><span class="p">(</span><span class="o">⊂⍳</span><span class="na">∘</span><span class="o">⍴~⍳</span><span class="na">⍨</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, <code class="docutils literal notranslate"><span class="pre">⊂</span></code> is called monadically, so we can glue it to <code class="docutils literal notranslate"><span class="pre">⌷⍨</span></code>:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊃⊢⌷</span><span class="na">⍨∘</span><span class="o">⊂⍳</span><span class="na">∘</span><span class="o">⍴~⍳</span><span class="na">⍨</span> 
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⊃⊢⌷</span><span class="na">⍨∘</span><span class="o">⊂⍳</span><span class="na">∘</span><span class="o">⍴~⍳</span><span class="na">⍨</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┴─┐
+⊃ ┌─┼──────┐
+  ⊢ ∘   ┌──┼─┐
+   ┌┴┐  ∘  ~ ⍨
+   ⍨ ⊂ ┌┴┐ ┌─┘
+ ┌─┘   ⍳ ⍴ ⍳
+ ⌷
+</span></div></div>
+</div>
+<p>Here’s another. <a class="reference external" href="https://codegolf.stackexchange.com/questions/93933/substring-chainification/94054#94054">My dfn</a>
+<code class="docutils literal notranslate"><span class="pre">{⍵⊆⍨(⍴⍵)↑⍺/+\⍺}</span></code>. This one is fun. Let’s start with substitution:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢⊆</span><span class="na">⍨</span><span class="p">(</span><span class="o">⍴⊢</span><span class="p">)</span><span class="o">↑⊣</span><span class="na">/</span><span class="o">+</span><span class="na">\</span><span class="o">⊣</span>
+</pre></div>
+</div>
+<p>OK, on the right we have a monadic <code class="docutils literal notranslate"><span class="pre">+</span></code> so we’ll need to parenthesise it:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢⊆</span><span class="na">⍨</span><span class="p">(</span><span class="o">⍴⊢</span><span class="p">)</span><span class="o">↑⊣</span><span class="na">/</span><span class="p">(</span><span class="o">+</span><span class="na">\</span><span class="o">⊣</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But now note that <code class="docutils literal notranslate"><span class="pre">/</span></code> is used as a function. However, it prefers to be an operator, i.e. doing <code class="docutils literal notranslate"><span class="pre">⊣</span></code> reduction instead of <code class="docutils literal notranslate"><span class="pre">⊣</span></code> replication. To force it into function mode, we need to make it the operand of an operator (since operators cannot be operands). We can use the trick that <code class="docutils literal notranslate"><span class="pre">f⍨⍨</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">f</span></code> (in dyadic cases):</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢⊆</span><span class="na">⍨</span><span class="p">(</span><span class="o">⍴⊢</span><span class="p">)</span><span class="o">↑⊣</span><span class="p">(</span><span class="na">/⍨⍨</span><span class="p">)(</span><span class="o">+</span><span class="na">\</span><span class="o">⊣</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>But since we’re anyway swapping arguments (twice) we may as well just swap the actual <code class="docutils literal notranslate"><span class="pre">⊣</span></code> and <code class="docutils literal notranslate"><span class="pre">(+\⊣)</span></code> instead:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="o">⊢⊆</span><span class="na">⍨</span><span class="p">(</span><span class="o">⍴⊢</span><span class="p">)</span><span class="o">↑</span><span class="p">(</span><span class="o">+</span><span class="na">\</span><span class="o">⊣</span><span class="p">)(</span><span class="na">/⍨</span><span class="p">)</span><span class="o">⊣</span> 
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⊢⊆</span><span class="na">⍨</span><span class="p">(</span><span class="o">⍴⊢</span><span class="p">)</span><span class="o">↑</span><span class="p">(</span><span class="o">+</span><span class="na">\</span><span class="o">⊣</span><span class="p">)(</span><span class="na">/⍨</span><span class="p">)</span><span class="o">⊣</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┼─────┐
+⊢ ⍨  ┌──┼──────┐
+┌─┘ ┌┴┐ ↑ ┌────┼─┐
+⊆   ⍴ ⊢  ┌┴┐   ⍨ ⊣
+         \ ⊣ ┌─┘
+       ┌─┘   /
+       +
+</span></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dyalog-kernel"
+        },
+        kernelOptions: {
+            kernelName: "dyalog-kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dyalog-kernel'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="UserFunctions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">User-defined functions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Tradfns.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tradfns</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+        
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
