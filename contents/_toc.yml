@@ -15,8 +15,6 @@ chapters:
   - file: Functions6
   - file: Functions7
   - file: Functions8
-- file: Operators
-- file: Rank
 - file: UserFunctions
   sections:
   - file: Trains
@@ -28,6 +26,11 @@ chapters:
   - file: CodeManagement
   - file: StackWorkspace
   - file: Regex
+- file: Operators
+- file: InDepth
+  sections:
+  - file: Rank
+  - file: Power1
 - file: ObjectOrientation
   sections:
   - file: Namespaces
