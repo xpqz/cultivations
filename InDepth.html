@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>System functions &#8212; APL Cultivations</title>
+    <title>Operators in depth &#8212; APL Cultivations</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,8 +52,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Behaviour, session" href="Behaviour.html" />
-    <link rel="prev" title="Tradfns" href="Tradfns.html" />
+    <link rel="next" title="Rank in depth ⍤" href="Rank.html" />
+    <link rel="prev" title="Primitive operators" href="Operators.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -209,11 +209,11 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="SystemFunctions.html">
    System functions
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
@@ -261,11 +261,11 @@
    Primitive operators
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="InDepth.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    Operators in depth
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
@@ -376,7 +376,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/SystemFunctions.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/InDepth.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -396,7 +396,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FSystemFunctions.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FInDepth.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -425,10 +425,9 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="system-functions">
-<h1>System functions<a class="headerlink" href="#system-functions" title="Permalink to this headline">¶</a></h1>
-<p>The name <em>System Function</em> is informally applied to all built-in names which begin with the quad symbol (<code class="docutils literal notranslate"><span class="pre">⎕</span></code>), even if they are actually operators, variables, or constants. We’ll cover these roughly in the order presented <a class="reference external" href="help.dyalog.com/latest/index.htm#Language/System%20Functions/Summary%20Tables/System%20Functions%20Categorised.htm">here</a>.</p>
-<p>System functions are things that are not really part of the core language, but have been wrapped into items which conform with normal APL syntax. You can therefore use system functions together with normal APL functions and operators. However, note that many system functions are “shy”, meaning that they suppress implicit display of their result, and some even do this selectively.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="operators-in-depth">
+<h1>Operators in depth<a class="headerlink" href="#operators-in-depth" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter, we’ll dive deeper into some of the more complex operators, showing how they are used in practice.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -458,17 +457,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Tradfns.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Operators.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Tradfns</p>
+            <p class="prev-next-title">Primitive operators</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Behaviour.html" title="next page">
+    <a class='right-next' id="next-link" href="Rank.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Behaviour, session</p>
+        <p class="prev-next-title">Rank in depth <code class="docutils literal notranslate"><span class="pre">⍤</span></code></p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
