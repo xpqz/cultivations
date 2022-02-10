@@ -32,6 +32,7 @@ chapters:
   - file: Rank
   - file: Power1
   - file: Power2
+  - file: Decode
 - file: ObjectOrientation
   sections:
   - file: Namespaces
