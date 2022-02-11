@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encode in depth ⊤ &#8212; APL Cultivations</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Object-oriented APL" href="ObjectOrientation.html" />
+    <link rel="prev" title="Decode in depth ⊥" href="Decode.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">APL Cultivations</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro.html">
+   APL Cultivations
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Arrays.html">
+   Introduction to arrays
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Functions.html">
+   Primitive functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions1.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +-×÷*⍟⌹○
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions2.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       !?|⌈⌊⊥⊤⊣⊢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions3.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       =≤&lt;&gt;≥≡≢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions4.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ∨∧⍱⍲↑↓
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions5.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊂⊃⊆⌷⍋⍒
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions6.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍳⍸∊⍷∪∩~
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions7.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /\⌿⍀,⍪
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions8.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍴⌽⊖⍉⍎⍕
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="UserFunctions.html">
+   User-defined functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Trains.html">
+     Tacit programming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Tradfns.html">
+     Tradfns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="SystemFunctions.html">
+   System functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Behaviour.html">
+     Behaviour, session
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Constants.html">
+     Constants, tools and utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CodeManagement.html">
+     Code management, I/O, dates, errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="StackWorkspace.html">
+     Stack and workspace info
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Regex.html">
+     Regular expressions
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕R
+      </span>
+     </code>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕S
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Operators.html">
+   Primitive operators
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="InDepth.html">
+   Operators in depth
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Rank.html">
+     Rank in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍤
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Power1.html">
+     Power in depth:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       f⍣k
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Power2.html">
+     Power in depth:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       f⍣g
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Decode.html">
+     Decode in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊥
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Encode in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊤
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ObjectOrientation.html">
+   Object-oriented APL
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Namespaces.html">
+     Namespaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ObjectsClasses.html">
+     Objects and classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CtorsDtors.html">
+     Constructors and destructors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Properties.html">
+     Properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inheritance.html">
+     Inheritance and interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AdvancedOO.html">
+     Advanced OO techniques
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Encode.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FEncode.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="encode-in-depth">
+<h1>Encode in depth <code class="docutils literal notranslate"><span class="pre">⊤</span></code><a class="headerlink" href="#encode-in-depth" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">⊤</span></code> is known as “Encode” or “Represent”. It takes a number (or multiple numbers, in the same way as with <code class="docutils literal notranslate"><span class="pre">⊥</span></code>) as right argument and generates a representation in the (mixed) number base(s) given in the left argument. As a memory aid, we can call it N-code (“encode”) to remember that it is typed with APL+n (while <code class="docutils literal notranslate"><span class="pre">⊥</span></code> is clearly a “base”, and indeed evaluates numbers in custom bases, B for base; type it with APL+b).</p>
+<p>As we saw previously, <code class="docutils literal notranslate"><span class="pre">⊥</span></code> is quite simple. In a way, it is a fancier <code class="docutils literal notranslate"><span class="pre">+.×</span></code>: it just gives the given “digits” weights, and sums the result. The weights being determined from the reverse cumulative product of the left argument (and there’s some transposing going on too). <code class="docutils literal notranslate"><span class="pre">⊤</span></code> is much more complex, computationally speaking, but not really conceptually, where it is basically the inverse operation. One way to explain it is to show how <code class="docutils literal notranslate"><span class="pre">⊤</span></code> constructs its result. As a simple example, let’s take:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">7</span> <span class="m">24</span> <span class="m">60</span><span class="o">⊤</span><span class="m">12345</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 13 45
+</span></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">7</span> <span class="pre">24</span> <span class="pre">60</span></code> here represents a number system with 60 of the basic units in the next larger unit, 24 of those larger units in the next larger, etc. It could, for example, be 60 minutes in an hour, 24 hours in a day, and 7 days in a week. The 0 means that there are no larger units, and we’ll keep stacking large value multiple in that position no matter how big the “pile” gets. Compare this to making cash change: there’s nothing larger than a \<span class="math notranslate nohighlight">\(500 unit, so even if we have to pay a million, we'll have to use lots of \\\)</span>500s.</p>
+<p>What are our weights?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⌽×</span><span class="na">\</span><span class="o">⌽</span><span class="m">1</span><span class="o">,</span><span class="na">⍨</span><span class="m">1</span><span class="o">↓</span><span class="m">0</span> <span class="m">7</span> <span class="m">24</span> <span class="m">60</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">10080 1440 60 1
+</span></div></div>
+</div>
+<p>That is, there’s 1 minute in a minute, 60 minutes in an hour, 1440 minutes in a day, and 10080 minutes in a week.
+We can check the result that <code class="docutils literal notranslate"><span class="pre">⊤</span></code> gave us by using these weights:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">1</span> <span class="m">13</span> <span class="m">45</span><span class="o">+</span><span class="na">.</span><span class="o">×⌽×</span><span class="na">\</span><span class="o">⌽</span><span class="m">1</span><span class="o">,</span><span class="na">⍨</span><span class="m">1</span><span class="o">↓</span><span class="m">0</span> <span class="m">7</span> <span class="m">24</span> <span class="m">60</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">12345
+</span></div></div>
+</div>
+<p>Yup, that worked.</p>
+<p>How did <code class="docutils literal notranslate"><span class="pre">⊤</span></code> get the result then? Let’s do it step-by-step, building our result from the right. The first unit rolls over at 60, so we can find how many of the smallest units (here, minutes) we need in order to get the exact total value by applying division remainder:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">60</span><span class="o">|</span><span class="m">12345</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">45
+</span></div></div>
+</div>
+<p>There’s our right-most “digit”. Let’s put that aside in our result. How many minutes are left?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">12345</span><span class="o">-</span><span class="m">45</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">12300
+</span></div></div>
+</div>
+<p>The next unit (the hours) consist roll over at 24 hours of 60 minutes each. Any multiple of 24 hours will be days instead. We only want the remainder of 24-hour-periods, that is, <code class="docutils literal notranslate"><span class="pre">24×60</span></code> minutes, to be counted in hours:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">24</span><span class="o">×</span><span class="m">60</span><span class="p">)</span><span class="o">|</span><span class="m">12300</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">780
+</span></div></div>
+</div>
+<p>This is how many <em>minutes</em> we want counted as hours. How many hours is that, though?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">60</span><span class="o">÷</span><span class="na">⍨</span><span class="p">(</span><span class="m">24</span><span class="o">×</span><span class="m">60</span><span class="p">)</span><span class="o">|</span><span class="m">12300</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">13
+</span></div></div>
+</div>
+<p>There’s the second-from-right element of our result. Let’s prepend it to get a preliminary result of <code class="docutils literal notranslate"><span class="pre">13</span> <span class="pre">45</span></code>.
+We’ve used 780 minutes this time around. How much do we have left (which will be counted in days and maybe weeks)?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">12300</span><span class="o">-</span><span class="m">780</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">11520
+</span></div></div>
+</div>
+<p>Next up are days, which we’ll use to fill until we have a value that can be counted in whole weeks. A week, of course, being how many minutes?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">7</span><span class="o">×</span><span class="m">24</span><span class="o">×</span><span class="m">60</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">10080
+</span></div></div>
+</div>
+<p>So we need the division remainder when divided by that.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">7</span><span class="o">×</span><span class="m">24</span><span class="o">×</span><span class="m">60</span><span class="p">)</span><span class="o">|</span><span class="m">11520</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1440
+</span></div></div>
+</div>
+<p>That’s how many days (stated in minutes) we have. How many actual days does that add up to?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">24</span><span class="o">×</span><span class="m">60</span><span class="p">)</span><span class="o">÷</span><span class="na">⍨</span><span class="p">(</span><span class="m">7</span><span class="o">×</span><span class="m">24</span><span class="o">×</span><span class="m">60</span><span class="p">)</span><span class="o">|</span><span class="m">11520</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
+</span></div></div>
+</div>
+<p>That’s the next value in our result, giving us <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">13</span> <span class="pre">45</span></code>. How much is left now?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">11520</span><span class="o">-</span><span class="m">1440</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">10080
+</span></div></div>
+</div>
+<p>Which you might recognise as a single week (expressed in minutes), giving us another 1 in our result: <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">1</span> <span class="pre">13</span> <span class="pre">45</span></code>.</p>
+<p>Now for the classic question. Why doesn’t this work for making change?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">4</span> <span class="m">2.5</span> <span class="m">2</span> <span class="m">5</span><span class="o">⊤</span><span class="m">42</span> <span class="c1">⍝ 4 quarters in a dollar, 2.5 dimes in a quarter, 2 nickels in a dime, 5 pence in a nickel</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1.5 0 2
+</span></div></div>
+</div>
+<p>I can’t pay 42 pence as 1 quarter, 1.5 dimes, and 2 pennies! Sure, mathematically, it’d work, but I’m not sure the US mint will be too excited if I start chopping dimes in half.</p>
+<p>So what happened here? Let’s walk through the process again. We start by finding what the remainder is, which we’ll have to pay in pennies:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">5</span><span class="o">|</span><span class="m">42</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
+</span></div></div>
+</div>
+<p>That leaves 40 pence. Since 2 nickels go into a dime, we do a mod-10 to find how many nickels we need:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">2</span><span class="o">×</span><span class="m">5</span><span class="p">)</span><span class="o">|</span><span class="m">40</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0
+</span></div></div>
+</div>
+<p>None, of course. So we still have 40p or ¢40 if you want. Continuing on, how many dimes? The dimes roll over at 2.5:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">2.5</span><span class="o">×</span><span class="m">2</span><span class="o">×</span><span class="m">5</span><span class="p">)</span><span class="o">|</span><span class="m">40</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">15
+</span></div></div>
+</div>
+<p>So only 15 pence will need to be paid in dimes. Herein lies our problem. That’s of course 1.5 dimes. Hence our result. Left over is <code class="docutils literal notranslate"><span class="pre">40-15</span></code>, that is, 25 pence, enough for a single quarter. Actually, proper change-making with arbitrarily valued coins is a weakly NP-hard problem. Look at the total amount as a knapsack you need to fill. You only have items of fixed volume to put in there. There’s no obvious way to see exactly how to fill the bag fully. However, mints are careful to only issue pieces in such a way that a greedy algorithm works.</p>
+<p><code class="docutils literal notranslate"><span class="pre">⊤</span></code> gives you the possibility of running a custom counter or odometer which rolls over eventually. Think of the case <code class="docutils literal notranslate"><span class="pre">24</span> <span class="pre">60</span> <span class="pre">60⊤</span></code>. If it didn’t “chop” (mod, really), there’d be no way to know what the next digit value would be.
+So what <code class="docutils literal notranslate"><span class="pre">2⊤13</span></code> means is a base-2 odometer with a single digit display, rolling over whenever the value exceeds 1.
+Now, you could complain that this equates 2 and ,2. You’d be right. There probably never any reason to use a scalar as left argument for <code class="docutils literal notranslate"><span class="pre">⊤</span></code>. If you want mod, use <code class="docutils literal notranslate"><span class="pre">|</span></code>.</p>
+<p>The only difference between <code class="docutils literal notranslate"><span class="pre">⊤</span></code> and <code class="docutils literal notranslate"><span class="pre">|</span></code> for scalar left arguments, is comparison tolerance (<code class="docutils literal notranslate"><span class="pre">⎕CT</span></code>), which <code class="docutils literal notranslate"><span class="pre">|</span></code> cares about, but ⊤ ignores. But if you want <code class="docutils literal notranslate"><span class="pre">⎕CT←0</span></code>, you should set it explicitly rather than obscuring your code with <code class="docutils literal notranslate"><span class="pre">⊤</span></code> and a scalar left argument.</p>
+<p>Let’s look at some neat tricks with <code class="docutils literal notranslate"><span class="pre">⊤</span></code>. You can use 0 1⊤ to split a number into its integer part and fractional part:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">1</span><span class="o">⊤</span><span class="m">3.14</span>
+<span class="m">0</span> <span class="m">1</span><span class="o">⊤</span><span class="m">3.14</span> <span class="m">2.7</span> <span class="m">100.23</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">3 0.14
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">3    2   100
+0.14 0.7   0.23
+</span></div></div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">⊤</span></code> to split “packed integers”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">100</span> <span class="m">100</span><span class="o">⊤</span><span class="m">20200326</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2020 3 26
+</span></div></div>
+</div>
+<p>A golfing trick is getting <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">0⍴0</span></code> (an empty numeric matrix):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">0</span> <span class="m">0</span><span class="o">⍴</span><span class="m">0</span><span class="p">)</span> <span class="o">≡</span> <span class="no">⍬</span><span class="o">⊤</span><span class="no">⍬</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
+</span></div></div>
+</div>
+<p>If fact, you can “silence” anything by making the leading axis have length <code class="docutils literal notranslate"><span class="pre">0</span></code> using <code class="docutils literal notranslate"><span class="pre">⍬⊤</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="no">⍬</span><span class="o">⊤</span><span class="m">2</span> <span class="m">3</span><span class="o">⍴</span><span class="nf">⎕A</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you have a multi-dimensional array, but want the Nth element without having to ravel the array, how do you find the multi-dimensional index of the sought element? Consider</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">4</span> <span class="m">5</span><span class="o">⍴</span><span class="nf">⎕A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCDE
+FGHIJ
+KLMNO
+PQRST
+</span></div></div>
+</div>
+<p>Using 0-based indexing, this is very simple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕IO</span><span class="kd">←</span><span class="m">0</span>
+<span class="m">4</span> <span class="m">5</span><span class="o">⊤</span><span class="m">13</span>
+<span class="p">(</span><span class="m">4</span> <span class="m">5</span><span class="o">⊤</span><span class="m">13</span><span class="p">)</span><span class="o">⌷</span><span class="m">4</span> <span class="m">5</span><span class="o">⍴</span><span class="nf">⎕A</span>
+<span class="m">13</span><span class="o">⊃,</span><span class="m">4</span> <span class="m">5</span><span class="o">⍴</span><span class="nf">⎕A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2 3
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">N
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">N
+</span></div></div>
+</div>
+<p>We need <code class="docutils literal notranslate"><span class="pre">⎕IO←0</span></code> because of how <code class="docutils literal notranslate"><span class="pre">⊤</span></code> works. It does a mod (<code class="docutils literal notranslate"><span class="pre">|</span></code>) all the time. When we “roll over” from one row to the next, we end up in position 0.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dyalog-kernel"
+        },
+        kernelOptions: {
+            kernelName: "dyalog-kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dyalog-kernel'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Decode.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Decode in depth <code class="docutils literal notranslate"><span class="pre">⊥</span></code></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ObjectOrientation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Object-oriented APL</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+        
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
