@@ -33,6 +33,7 @@ chapters:
   - file: Power1
   - file: Power2
   - file: Decode
+  - file: Encode
 - file: ObjectOrientation
   sections:
   - file: Namespaces
