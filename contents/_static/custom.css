@@ -1,10 +1,12 @@
 @font-face {
   font-family: 'codefont';
-  src: local('DejaVu Sans Mono'),
-       local('APL385 Unicode'),
+  src: local('APL385 Unicode'),
+       local('DejaVu Sans Mono'),
        local('SImPL'),
-       url(https://aplwiki.com/images/7/75/DejaVuSansMono.ttf) format('truetype');
+       url(DejaVuSansMono.ttf) format('truetype');
 }
+
+tt,code,kbd,samp,pre,.output.text_html span {font-family:codefont!important}
 
 .CodeMirror pre {font-family: codefont, monospace;}
 
