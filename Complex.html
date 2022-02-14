@@ -462,7 +462,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="complex-numbers">
 <h1>Complex numbers<a class="headerlink" href="#complex-numbers" title="Permalink to this headline">¶</a></h1>
-<p>Instead of <code class="docutils literal notranslate"><span class="pre">a+bi</span></code> or <code class="docutils literal notranslate"><span class="pre">a+b×i</span></code>, APL uses <code class="docutils literal notranslate"><span class="pre">aJb</span></code> for scalar atomic complex numbers. In other words, <code class="docutils literal notranslate"><span class="pre">3+4i</span></code> is <code class="docutils literal notranslate"><span class="pre">3J4</span></code> and i is <code class="docutils literal notranslate"><span class="pre">0J1</span></code>. The arithmetic functions support complex mathematics where sensible. Of special interest are monadic <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">|</span></code> and the circular functions <code class="docutils literal notranslate"><span class="pre">k○Y</span></code>. Monadic <code class="docutils literal notranslate"><span class="pre">+</span></code> is the complex conjugate, that is, <code class="docutils literal notranslate"><span class="pre">a+bi</span> <span class="pre">→</span> <span class="pre">a-bi</span></code>.</p>
+<p>Instead of <code class="docutils literal notranslate"><span class="pre">a+bi</span></code> or <code class="docutils literal notranslate"><span class="pre">a+b×i</span></code>, APL uses <code class="docutils literal notranslate"><span class="pre">aJb</span></code> for scalar atomic complex numbers. In other words, <code class="docutils literal notranslate"><span class="pre">3+4i</span></code> is <code class="docutils literal notranslate"><span class="pre">3J4</span></code> and <em>i</em> is <code class="docutils literal notranslate"><span class="pre">0J1</span></code>. The arithmetic functions support complex mathematics where sensible. Of special interest are monadic <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">|</span></code> and the circular functions <code class="docutils literal notranslate"><span class="pre">k○Y</span></code>. Monadic <code class="docutils literal notranslate"><span class="pre">+</span></code> is the complex conjugate, that is, <code class="docutils literal notranslate"><span class="pre">a+bi</span> <span class="pre">→</span> <span class="pre">a-bi</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2J4</span><span class="o">*</span><span class="m">0.5</span>
@@ -545,7 +545,7 @@
 <p>Complex numbers are not just for hard-core mathematicians. Sometimes they are convenient to use as simple scalar 2D coordinates, where the real part represents offset along one axis, and the imaginary part along the other. One benefit in doing so is that some formulas become vastly simpler with this representation. Let’s say we have two points in 2D space, <code class="docutils literal notranslate"><span class="pre">(a,b)</span></code> and <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code>, and we want to compute the distance between them. The traditional approach is something like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">x</span> <span class="nv">y</span><span class="kd">←</span><span class="m">4</span> <span class="m">6</span> <span class="m">1</span> <span class="m">2</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">)</span><span class="kd">←</span><span class="m">4</span> <span class="m">6</span> <span class="m">1</span> <span class="m">2</span>
 <span class="m">0.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">+</span><span class="na">/</span><span class="m">2</span><span class="o">*</span><span class="na">⍨</span><span class="nv">a</span> <span class="nv">b</span><span class="o">-</span><span class="nv">x</span> <span class="nv">y</span>
 </pre></div>
 </div>
@@ -554,10 +554,10 @@
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">5
 </span></div></div>
 </div>
-<p>Let’s rewrite it given <code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">v←4j6</span> <span class="pre">1j2</span></code>:</p>
+<p>Let’s rewrite it given <code class="docutils literal notranslate"><span class="pre">(u</span> <span class="pre">v)←4j6</span> <span class="pre">1j2</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">u</span> <span class="nv">v</span><span class="kd">←</span><span class="m">4j6</span> <span class="m">1j2</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">u</span> <span class="nv">v</span><span class="p">)</span><span class="kd">←</span><span class="m">4j6</span> <span class="m">1j2</span>
 <span class="o">|</span><span class="nv">u</span><span class="o">-</span><span class="nv">v</span> 
 </pre></div>
 </div>
