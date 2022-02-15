@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>∨∧⍱⍲↑↓ &#8212; APL Cultivations</title>
+    <title>Counting words, faster &#8212; APL Cultivations</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="⊂⊃⊆⌷⍋⍒" href="Functions5.html" />
-    <link rel="prev" title="=≤&lt;&gt;≥≡≢" href="Functions3.html" />
+    <link rel="prev" title="Complex numbers" href="Complex.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -104,16 +103,16 @@
    Introduction to arrays
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="Functions.html">
    Primitive functions
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Functions1.html">
      <code class="docutils literal notranslate">
@@ -141,8 +140,8 @@
      </code>
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions4.html">
      <code class="docutils literal notranslate">
       <span class="pre">
        ∨∧⍱⍲↑↓
@@ -371,8 +370,8 @@
    Complex numbers
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="CountingWords.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Counting words, faster
   </a>
  </li>
@@ -417,7 +416,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Functions4.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/CountingWords.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -437,7 +436,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FFunctions4.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FCountingWords.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -458,84 +457,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#or-gcd">
-   OR, GCD
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ∨
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#and-lcd">
-   AND, LCD
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ∧
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nor-nand">
-   NOR, NAND
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ⍱⍲
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#take">
-   Take
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ↑
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mix">
-   Mix
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ↑
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#drop">
-   Drop
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ↓
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#split">
-   Split
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ↓
-    </span>
-   </code>
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -544,200 +465,172 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><code class="docutils literal notranslate"><span class="pre">∨∧⍱⍲↑↓</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="or-gcd">
-<h2>OR, GCD <code class="docutils literal notranslate"><span class="pre">∨</span></code><a class="headerlink" href="#or-gcd" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">∨</span></code> is logical <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Or%20Greatest%20Common%20Divisor.htm">OR</a>, and it is Greatest Common Divisor for for other numbers (which happens to fit with <em>OR</em> for 0s and 1s):</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="counting-words-faster">
+<h1>Counting words, faster<a class="headerlink" href="#counting-words-faster" title="Permalink to this headline">¶</a></h1>
+<p>As a practical application, let’s consider the counting of words in a string. There are many ways to do that, but I’ll show you how an array oriented approach can give tremendous speed-ups. But first we have to generate some test data. Since actual letters don’t matter, we’ll just have a text consisting of <code class="docutils literal notranslate"><span class="pre">XY,</span></code>.  <code class="docutils literal notranslate"><span class="pre">,</span></code> will be our “space” because it is easier to see that way. Now a Perl programmer would, of course, jump to regular expressions. As we’ve seen, Dyalog APL has a really powerful support for the PCRE-flavour of regular expressions built-in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="o">∨</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span>    <span class="c1">⍝ logical OR</span>
-<span class="m">15</span> <span class="m">1</span> <span class="m">2</span> <span class="m">7</span> <span class="o">∨</span> <span class="m">35</span> <span class="m">1</span> <span class="m">4</span> <span class="m">0</span>  <span class="c1">⍝ GCD</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">≢</span><span class="s1">&#39;[^,]+&#39;</span><span class="nf">⎕S</span> <span class="m">3</span><span class="o">⊢</span><span class="s1">&#39;,YYY,,YYYYYY,,XXXXXX,YYYYYYXXYYY,YYYXXYYYXX,XX,XXYYYXXXX,YYY&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1 1 1
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">5 1 2 7
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">8
 </span></div></div>
 </div>
-</div>
-<div class="section" id="and-lcd">
-<h2>AND, LCD <code class="docutils literal notranslate"><span class="pre">∧</span></code><a class="headerlink" href="#and-lcd" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">∧</span></code> is logical <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/And%20Lowest%20Common%20Multiple.htm">AND</a>, and it is Lowest Common Multiple for for other numbers (which happens to fit with <em>AND</em> for 0s and 1s):</p>
+<p><code class="docutils literal notranslate"><span class="pre">⎕S</span></code> is an operator which takes the regex on its left and what to return for each match on its right. 3 is a special code meaning the pattern number, which is just 0 because we only have one regex. Then we tally (count) that with <code class="docutils literal notranslate"><span class="pre">≢</span></code> and we’re done.</p>
+<p>Another approach is to just split on the delimiter: a good job for <code class="docutils literal notranslate"><span class="pre">⊆</span></code> here. If you give it a Boolean mask as left argument, it isolates runs corresponding to runs of 1s, discarding the elements corresponding to 0s:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="o">∧</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span>     <span class="c1">⍝ logical AND</span>
-<span class="m">15</span> <span class="m">1</span> <span class="m">2</span> <span class="m">7</span> <span class="o">∧</span> <span class="m">35</span> <span class="m">1</span> <span class="m">4</span> <span class="m">0</span>   <span class="c1">⍝ LCM</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="o">≠</span><span class="s1">&#39;,YYY,,YYYYYY,,XXXXXX,YYYYYYXXYYY,YYYXXYYYXX,XX,XXYYYXXXX,YYY&#39;</span>      <span class="c1">⍝ non-delimiters</span>
+<span class="s1">&#39;,&#39;</span><span class="p">(</span><span class="o">≠⊆⊢</span><span class="p">)</span><span class="s1">&#39;,YYY,,YYYYYY,,XXXXXX,YYYYYYXXYYY,YYYXXYYYXX,XX,XXYYYXXXX,YYY&#39;</span>  <span class="c1">⍝ groups corresponding to runs of 1s</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 0 1
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">105 1 4 0
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬──────┬──────┬───────────┬──────────┬──┬─────────┬───┐
+│YYY│YYYYYY│XXXXXX│YYYYYYXXYYY│YYYXXYYYXX│XX│XXYYYXXXX│YYY│
+└───┴──────┴──────┴───────────┴──────────┴──┴─────────┴───┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1 1 1 0 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1
 </span></div></div>
 </div>
-</div>
-<div class="section" id="nor-nand">
-<h2>NOR, NAND <code class="docutils literal notranslate"><span class="pre">⍱⍲</span></code><a class="headerlink" href="#nor-nand" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">⍱</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Nor.htm">NOR</a>, and <code class="docutils literal notranslate"><span class="pre">⍲</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Nand.htm">NAND</a>. They only work on Booleans (arrays with nothing but 1s and 0s). Note that you can use <code class="docutils literal notranslate"><span class="pre">≠</span></code> as <em>XOR</em> and <code class="docutils literal notranslate"><span class="pre">=</span></code> as <em>XNOR</em> (and you can use <code class="docutils literal notranslate"><span class="pre">≤</span></code> as logical implication. Similarly for the other comparisons.)</p>
+<p>Read <code class="docutils literal notranslate"><span class="pre">≠⊆⊢</span></code> as “the difference partitions the right argument”. What remains is to count the partitions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="o">⍱</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="c1">⍝ NOR</span>
-<span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="o">≠</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="c1">⍝ XOR</span>
-<span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="o">=</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="c1">⍝ XNOR</span>
-<span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="o">⍲</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="c1">⍝ NAND</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="p">(</span><span class="o">≢≠⊆⊢</span><span class="p">)</span><span class="s1">&#39;,YYY,,YYYYYY,,XXXXXX,YYYYYYXXYYY,YYYXXYYYXX,XX,XXYYYXXXX,YYY&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0 0 0
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1 1 0
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0 0 1
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 1 0
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">8
 </span></div></div>
 </div>
-</div>
-<div class="section" id="take">
-<h2>Take <code class="docutils literal notranslate"><span class="pre">↑</span></code><a class="headerlink" href="#take" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">A↑B</span></code> <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Take.htm">takes</a> from <code class="docutils literal notranslate"><span class="pre">B</span></code>. If <code class="docutils literal notranslate"><span class="pre">A</span></code> is a scalar/one-element-vector, it takes major cells, if it has two two elements, the first element is the number of major cells, and the second the number of semi-major cells, etc.:</p>
+<p>This solution has an issue, but before we get to that, let’s compare the performance of the “pure” APL solution to the regex solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="nf">⎕A</span>            <span class="c1">⍝ original array</span>
-<span class="m">2</span><span class="o">↑</span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="nf">⎕A</span>          <span class="c1">⍝ take two major cells (a.k.a rows)</span>
-<span class="m">2</span> <span class="m">3</span><span class="o">↑</span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="nf">⎕A</span>        <span class="c1">⍝ two major, and three semi-major cells</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cmpx</span> <span class="s1">&#39;≢&#39;&#39;[^,]+&#39;&#39;⎕S 3⊢t&#39;</span> <span class="s1">&#39;s(≢≠⊆⊢)t&#39;</span> <span class="o">⊣</span> <span class="nv">s</span><span class="kd">←</span><span class="s1">&#39;,&#39;</span> <span class="o">⊣</span> <span class="vg">⎕</span><span class="kd">←</span><span class="o">≢</span><span class="nv">t</span><span class="kd">←</span><span class="s1">&#39;,XY&#39;</span><span class="sr">[</span><span class="na">/⍨</span><span class="o">?</span><span class="m">1e6</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span> <span class="o">⊣</span> <span class="s1">&#39;cmpx&#39;</span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCD
-EFGH
-IJKL
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCD
-EFGH
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">ABC
-EFG
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2000631
+  ≢'[^,]+'⎕S 3⊢t → 1.3E¯1 |   0% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕
+  s(≢≠⊆⊢)t       → 1.3E¯2 | -90% ⎕⎕⎕⎕                                    
 </span></div></div>
 </div>
-<p>If you take more than there is, <code class="docutils literal notranslate"><span class="pre">↑</span></code> will pad with 0s for numeric arguments, and spaces for character arguments:</p>
+<p>On about 2 million characters we’re saving two thirds of the running time by using the split and count approach over regex. Quite a bit faster, but there is more scope: it is problematic that we split the array to count the pieces, as this has to make a new (pointer!) array.</p>
+<p>So our issue is that we need to ignore multiple spaces. We actually need to do <em>edge detection</em>. If we have a text, say <code class="docutils literal notranslate"><span class="pre">,YYY,,YYYYYY,,</span></code> we want to see whenever we go from a non-space to a space (or the opposite). The only gotcha is at the end, if there are no trailing spaces, we will miss the last word. APL has the “find” function <code class="docutils literal notranslate"><span class="pre">⍷</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">6</span><span class="o">↑</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;ss&#39;</span><span class="o">⍷</span><span class="s1">&#39;mississippi&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3 1 4 0 0 0
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 1 0 0 1 0 0 0 0 0
 </span></div></div>
 </div>
-<p>You may also “overtake” a scalar to any number of dimensions:</p>
+<p>It indicates the beginning of its left argument (“the top-left corner”) in its right argument. So now we can create an is-space mask, and look for <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="m">3</span><span class="o">↑</span><span class="m">4</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="o">=</span><span class="s1">&#39;,YYY,,YYYYYY,,&#39;</span>        <span class="c1">⍝ is-space mask</span>
+<span class="m">0</span> <span class="m">1</span><span class="o">⍷</span><span class="s1">&#39;,&#39;</span><span class="o">=</span><span class="s1">&#39;,YYY,,YYYYYY,,&#39;</span>    <span class="c1">⍝ locate star points for 0 1 patterns</span>
+<span class="o">+</span><span class="na">/</span><span class="m">0</span> <span class="m">1</span><span class="o">⍷</span><span class="s1">&#39;,&#39;</span><span class="o">=</span><span class="s1">&#39;,YYY,,YYYYYY,,&#39;</span>  <span class="c1">⍝ count them</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">4 0 0
-0 0 0
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0 0 0 1 1 0 0 0 0 0 0 1 1
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 0 1 0 0 0 0 0 0 0 1 0 0
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">2
 </span></div></div>
 </div>
-<p>Negative numbers indicate taking from the reverse:</p>
+<p>However, it counts wrong here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯6</span><span class="o">↑</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span>
-<span class="m">¯2</span> <span class="m">¯3</span><span class="o">↑</span><span class="m">4</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">/</span><span class="m">0</span> <span class="m">1</span><span class="o">⍷</span><span class="s1">&#39;,&#39;</span><span class="o">=</span><span class="s1">&#39;,YYY,,YYYYYY&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 0 3 1 4
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 0
-0 0 4
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
 </span></div></div>
 </div>
+<p>So we need to add a “space” to the end.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="nf">⎕A</span>
-<span class="m">¯2</span> <span class="m">¯2</span><span class="o">↑</span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="nf">⎕A</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="kt">{</span><span class="o">+</span><span class="na">/</span><span class="m">0</span> <span class="m">1</span><span class="o">⍷</span><span class="m">1</span><span class="o">,</span><span class="na">⍨</span><span class="bp">⍺</span><span class="o">=</span><span class="bp">⍵</span><span class="kt">}</span><span class="s1">&#39;,YYY,,YYYYYY&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCD
-EFGH
-IJKL
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">GH
-KL
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
 </span></div></div>
 </div>
-</div>
-<div class="section" id="mix">
-<h2>Mix <code class="docutils literal notranslate"><span class="pre">↑</span></code><a class="headerlink" href="#mix" title="Permalink to this headline">¶</a></h2>
-<p>Monadic <code class="docutils literal notranslate"><span class="pre">↑</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Mix.htm">mix</a>. It trades one level of depth (nesting) into one level of rank.</p>
+<p>How do they stack up, speed-wise?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">↑</span><span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)(</span><span class="m">4</span> <span class="m">5</span> <span class="m">6</span><span class="p">)</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cmpx</span> <span class="s1">&#39;≢&#39;&#39;[^,]+&#39;&#39;⎕S 3⊢t&#39;</span> <span class="s1">&#39;s(≢≠⊆⊢)t&#39;</span> <span class="s1">&#39;s{+/0 1⍷1,⍨⍺=⍵}t&#39;</span><span class="o">⊣</span> <span class="nv">s</span><span class="kd">←</span><span class="s1">&#39;,&#39;</span> <span class="o">⊣</span> <span class="vg">⎕</span><span class="kd">←</span><span class="o">≢</span><span class="nv">t</span><span class="kd">←</span><span class="s1">&#39;,XY&#39;</span><span class="sr">[</span><span class="na">/⍨</span><span class="o">?</span><span class="m">1e6</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 2 3
-4 5 6
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2000511
+  ≢'[^,]+'⎕S 3⊢t   → 1.0E¯1 |   0% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕
+  s(≢≠⊆⊢)t         → 1.3E¯2 | -88% ⎕⎕⎕⎕⎕                                   
+  s{+/0 1⍷1,⍨⍺=⍵}t → 3.0E¯2 | -71% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕                            
 </span></div></div>
 </div>
-<p>Because rank enforces non-raggedness, monadic <code class="docutils literal notranslate"><span class="pre">↑</span></code> will pad with the prototype element (0 or space) just like dyadic <code class="docutils literal notranslate"><span class="pre">↑</span></code>:</p>
+<p>Unfortunately, that’s a bit slower, but perhaps we can think of another way to exploit our idea to look for the 0 to 1 transition? Since we’re looking for <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span></code>, we can just insert <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> between elements, using a windowed reduction:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">↑</span><span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)(</span><span class="m">4</span> <span class="m">5</span><span class="p">)</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="kt">{</span><span class="o">+</span><span class="na">/</span><span class="m">2</span><span class="o">&lt;</span><span class="na">/</span><span class="m">1</span><span class="o">,</span><span class="na">⍨</span><span class="bp">⍺</span><span class="o">=</span><span class="bp">⍵</span><span class="kt">}</span><span class="s1">&#39;,YYY,,YYYYYY&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 2 3
-4 5 0
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
 </span></div></div>
 </div>
-</div>
-<div class="section" id="drop">
-<h2>Drop <code class="docutils literal notranslate"><span class="pre">↓</span></code><a class="headerlink" href="#drop" title="Permalink to this headline">¶</a></h2>
-<p>Dyadic <code class="docutils literal notranslate"><span class="pre">↓</span></code> is just like dyadic <code class="docutils literal notranslate"><span class="pre">↑</span></code> except it <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Drop.htm">drops</a> instead of taking:</p>
+<p>As before, we append a 1 <em>after</em> we’ve calculated our binary mask. We could, of course, also have written that as</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="nf">⎕A</span> 
-<span class="m">1</span><span class="o">↓</span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="nf">⎕A</span>
-<span class="sr">]</span><span class="nv">display</span> <span class="m">2</span> <span class="m">1</span><span class="o">↓</span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="nf">⎕A</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="kt">{</span><span class="o">+</span><span class="na">/</span><span class="m">2</span><span class="o">&lt;</span><span class="na">/</span><span class="bp">⍺</span><span class="o">=</span><span class="bp">⍵</span><span class="o">,</span><span class="bp">⍺</span><span class="kt">}</span><span class="s1">&#39;,YYY,,YYYYYY&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCD
-EFGH
-IJKL
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">EFGH
-IJKL
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌→──┐
-↓JKL│
-└───┘
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
 </span></div></div>
 </div>
-<p>Note that the last result is still a matrix, it just only has one row.</p>
-</div>
-<div class="section" id="split">
-<h2>Split <code class="docutils literal notranslate"><span class="pre">↓</span></code><a class="headerlink" href="#split" title="Permalink to this headline">¶</a></h2>
-<p>Monadic <code class="docutils literal notranslate"><span class="pre">↓</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Split.htm">split</a>. It is the opposite of dyadic <code class="docutils literal notranslate"><span class="pre">↓</span></code> in that it lowers the rank and increases the depth:</p>
+<p>which is adding an extra ‘,’ at the end, before calculating the mask. When we concatenate the space to the string, APL has to create a copy of the whole string with one additional byte at the end, which is costlier than appending a 1 to a bit-Boolean array as we did in the first version.</p>
+<p>Note also that <code class="docutils literal notranslate"><span class="pre">2&lt;/</span></code> takes care of duplicate spaces. What about performance?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">↓</span><span class="m">3</span> <span class="m">4</span><span class="o">⍴</span><span class="nf">⎕A</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cmpx</span> <span class="s1">&#39;≢&#39;&#39;[^,]+&#39;&#39;⎕S 3⊢t&#39;</span> <span class="s1">&#39;s(≢≠⊆⊢)t&#39;</span> <span class="s1">&#39;s{+/0 1⍷⍺=⍵,⍺}t&#39;</span> <span class="s1">&#39;s{+/2&lt;/1,⍨⍺=⍵}t&#39;</span><span class="o">⊣</span> <span class="nv">s</span><span class="kd">←</span><span class="s1">&#39;,&#39;</span> <span class="o">⊣</span> <span class="vg">⎕</span><span class="kd">←</span><span class="o">≢</span><span class="nv">t</span><span class="kd">←</span><span class="s1">&#39;,XY&#39;</span><span class="sr">[</span><span class="na">/⍨</span><span class="o">?</span><span class="m">1e6</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────┬────┬────┐
-│ABCD│EFGH│IJKL│
-└────┴────┴────┘
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1999250
+  ≢'[^,]+'⎕S 3⊢t  → 1.1E¯1 |    0% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕
+  s(≢≠⊆⊢)t        → 1.4E¯2 |  -88% ⎕⎕⎕⎕⎕                                   
+  s{+/0 1⍷⍺=⍵,⍺}t → 3.1E¯2 |  -71% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕                            
+  s{+/2&lt;/1,⍨⍺=⍵}t → 1.9E¯4 | -100%                                         
 </span></div></div>
 </div>
+<p>That’s a crushing improvement! Let’s zoom in a bit, by removing the slower versions from the comparison:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cmpx</span> <span class="s1">&#39;s(≢≠⊆⊢)t&#39;</span> <span class="s1">&#39;s{+/2&lt;/(⍺=⍵),1}t&#39;</span><span class="o">⊣</span> <span class="nv">s</span><span class="kd">←</span><span class="s1">&#39;,&#39;</span> <span class="o">⊣</span> <span class="vg">⎕</span><span class="kd">←</span><span class="o">≢</span><span class="nv">t</span><span class="kd">←</span><span class="s1">&#39;,XY&#39;</span><span class="sr">[</span><span class="na">/⍨</span><span class="o">?</span><span class="m">1e6</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1999765
+  s(≢≠⊆⊢)t         → 1.6E¯2 |   0% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕
+  s{+/2&lt;/(⍺=⍵),1}t → 5.2E¯4 | -97% ⎕                                       
+</span></div></div>
 </div>
 </div>
 
@@ -766,19 +659,12 @@ IJKL
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Functions3.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Complex.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">=≤&lt;&gt;≥≡≢</span></code></p>
+            <p class="prev-next-title">Complex numbers</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="Functions5.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">⊂⊃⊆⌷⍋⍒</span></code></p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
         
