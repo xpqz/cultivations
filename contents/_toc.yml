@@ -43,3 +43,4 @@ chapters:
   - file: Inheritance
   - file: AdvancedOO
 - file: Complex
+- file: CountingWords
