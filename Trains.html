@@ -322,6 +322,16 @@
      </code>
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AtopOver.html">
+     Atop and Over
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍤⍥
+      </span>
+     </code>
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -531,7 +541,7 @@
 </div>
 <div class="section" id="id1">
 <h2>2-trains<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>This leads us to 2-trains. Consider <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">h</span></code> again — <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">f</span> <span class="pre">B)</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code>. What if there was no <code class="docutils literal notranslate"><span class="pre">f</span></code>? I.e. we just have <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">h</span></code>. Since <code class="docutils literal notranslate"><span class="pre">g</span></code> would address its left argument, but there isn’t any, it is just called monadically, i.e. <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">(g</span> <span class="pre">h)</span> <span class="pre">B</span> <span class="pre">is</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code>. This is known as an <em>atop</em> because the <code class="docutils literal notranslate"><span class="pre">g</span></code> is evaluated atop (i.e. on the top of) the result of <code class="docutils literal notranslate"><span class="pre">h</span></code>’s application.</p>
+<p>This leads us to 2-trains. Consider <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">h</span></code> again — <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">f</span> <span class="pre">B)</span> <span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code>. What if there was no <code class="docutils literal notranslate"><span class="pre">f</span></code>? I.e. we just have <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">h</span></code>. Since <code class="docutils literal notranslate"><span class="pre">g</span></code> would address its left argument, but there isn’t any, it is just called monadically, i.e. <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">(g</span> <span class="pre">h)</span> <span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">(A</span> <span class="pre">h</span> <span class="pre">B)</span></code>. This is known as an <em>atop</em> because the <code class="docutils literal notranslate"><span class="pre">g</span></code> is evaluated atop (i.e. on the top of) the result of <code class="docutils literal notranslate"><span class="pre">h</span></code>’s application.</p>
 </div>
 <div class="section" id="id2">
 <h2>4-trains<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
