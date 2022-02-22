@@ -542,8 +542,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jot">
-   Jot
+  <a class="reference internal nav-link" href="#beside-atop">
+   Beside/atop
    <code class="docutils literal notranslate">
     <span class="pre">
      ∘
@@ -587,6 +587,26 @@
    <code class="docutils literal notranslate">
     <span class="pre">
      ⌸
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#atop-fg">
+   Atop
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f⍤g
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#over-fg">
+   Over
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f⍥g
     </span>
    </code>
   </a>
@@ -886,9 +906,9 @@ done
 </span></div></div>
 </div>
 </div>
-<div class="section" id="jot">
-<h2>Jot <code class="docutils literal notranslate"><span class="pre">∘</span></code><a class="headerlink" href="#jot" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://help.dyalog.com/latest/#Language/Symbols/Jot.htm">jot</a> operator, <code class="docutils literal notranslate"><span class="pre">∘</span></code>.  <code class="docutils literal notranslate"><span class="pre">∘</span></code> comes from function composition, like how <code class="docutils literal notranslate"><span class="pre">f(g(x))</span></code> can be written <code class="docutils literal notranslate"><span class="pre">f∘g(x)</span></code> in mathematics. So, too, in APL, if <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">g</span></code> are functions, then <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">x</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">x</span></code> (APL doesn’t need parentheses for function application). This alone is, of course, not very interesting. However, APL also has dyadic (infix) functions: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">f∘g</span> <span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">f</span> <span class="pre">g</span> <span class="pre">B</span></code>.</p>
+<div class="section" id="beside-atop">
+<h2>Beside/atop <code class="docutils literal notranslate"><span class="pre">∘</span></code><a class="headerlink" href="#beside-atop" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Beside.htm">Beside</a> operator, <code class="docutils literal notranslate"><span class="pre">∘</span></code>.  <code class="docutils literal notranslate"><span class="pre">∘</span></code> comes from function composition, like how <code class="docutils literal notranslate"><span class="pre">f(g(x))</span></code> can be written <code class="docutils literal notranslate"><span class="pre">f∘g(x)</span></code> in mathematics. So, too, in APL, if <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">g</span></code> are functions, then <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">x</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">x</span></code> (APL doesn’t need parentheses for function application). This alone is, of course, not very interesting. However, APL also has dyadic (infix) functions: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">f∘g</span> <span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">f</span> <span class="pre">g</span> <span class="pre">B</span></code>.</p>
 <p>Both of these are very important when writing tacit APL code. For example, if we want to write a function which adds its left argument to the reciprocal (monadic <code class="docutils literal notranslate"><span class="pre">÷</span></code>) of its right argument, it can be written as <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">←</span> <span class="pre">+∘÷</span></code>.</p>
 <p>The golden ratio (phi) can be calculated with the continued fraction</p>
 <p><span class="math notranslate nohighlight">\(\Large \phi = 1 + \frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{\ddots}}}}\)</span></p>
@@ -1453,6 +1473,161 @@ AAA
 </span></div></div>
 </div>
 <p>Instead of returning the indices of the unique elements (of the right – and only – argument), it returns the elements of the right <em>corresponding</em> to the unique elements of the left.</p>
+</div>
+<div class="section" id="atop-fg">
+<h2>Atop <code class="docutils literal notranslate"><span class="pre">f⍤g</span></code><a class="headerlink" href="#atop-fg" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Atop.htm">Atop</a> has been assigned <code class="docutils literal notranslate"><span class="pre">function⍤function</span></code>, thus sharing the symbol with the rank operator’s <code class="docutils literal notranslate"><span class="pre">function⍤array</span></code>. You should be familiar with the 2-train, which is also called “atop”: <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)Y</span></code> and <code class="docutils literal notranslate"><span class="pre">X(f</span> <span class="pre">g)Y</span></code>. Maybe you’ve even been burned by <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">Y</span></code> being an atop, but <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f∘g</span> <span class="pre">Y</span></code> <em>not</em> being an atop. Well, the atop operator is what you would expect, i.e. <code class="docutils literal notranslate"><span class="pre">f⍤g</span> <span class="pre">Y</span></code> is exactly like <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">Y</span></code> but <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f⍤g</span> <span class="pre">Y</span></code> is <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">X</span> <span class="pre">g</span> <span class="pre">Y</span></code> or <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">(f</span> <span class="pre">g)</span> <span class="pre">Y</span></code>. We strongly recommend transitioning to use <code class="docutils literal notranslate"><span class="pre">⍤</span></code> in places where you’ve hitherto used monadic <code class="docutils literal notranslate"><span class="pre">f∘g</span></code>: it will prevent (at least one potential cause of) frustration should you ever decide to add a left argument to your code.</p>
+<p>Let’s say you define a function that returns the magnitude of reciprocal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="na">∘</span><span class="o">÷</span> <span class="m">¯4</span>
+<span class="o">|</span><span class="na">∘</span><span class="o">÷</span> <span class="m">¯5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.25
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.2
+</span></div></div>
+</div>
+<p>(This could be written without the <code class="docutils literal notranslate"><span class="pre">∘</span></code>, but this is a very simple function useful for illustration purposes.)</p>
+<p>Now you get a feature request that the function should take a left argument which is a numerator (instead of the default 1).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="o">|</span><span class="na">∘</span><span class="o">÷</span> <span class="m">¯4</span>
+<span class="m">2</span> <span class="o">|</span><span class="na">∘</span><span class="o">÷</span> <span class="m">¯5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1.75
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1.8
+</span></div></div>
+</div>
+<p>Oops. However:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="na">⍤</span><span class="o">÷</span> <span class="m">¯4</span>
+<span class="o">|</span><span class="na">⍤</span><span class="o">÷</span> <span class="m">¯5</span>
+<span class="m">2</span> <span class="o">|</span><span class="na">⍤</span><span class="o">÷</span> <span class="m">¯4</span>
+<span class="m">2</span> <span class="o">|</span><span class="na">⍤</span><span class="o">÷</span> <span class="m">¯5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.25
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.2
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.5
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.4
+</span></div></div>
+</div>
+<p>One way to look at <code class="docutils literal notranslate"><span class="pre">f∘g</span></code> vs <code class="docutils literal notranslate"><span class="pre">f⍤g</span></code> is that, when given a left argument, <code class="docutils literal notranslate"><span class="pre">∘</span></code> gives it to the left-hand function and <code class="docutils literal notranslate"><span class="pre">⍤</span></code> gives it to the right-hand function. Other than that, they are equivalent.  Another way to look at <code class="docutils literal notranslate"><span class="pre">f∘g</span></code> vs <code class="docutils literal notranslate"><span class="pre">f⍤g</span></code> is simply choosing order of the first two tokens in the equivalent explicit expression: <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f∘g</span> <span class="pre">Y</span></code> computes <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f</span> <span class="pre">g</span> <span class="pre">Y</span></code> and <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f⍤g</span> <span class="pre">Y</span></code> computes <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">X</span> <span class="pre">g</span> <span class="pre">Y</span></code>. So we’re simply swapping <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<p>Then there’s the classic problem with slashes, especially in tacit programming. If you’ve ever tried using replicate/compress in a train, you’ll have bumped into the fact that slashes prefer being operators over being functions. This means that <code class="docutils literal notranslate"><span class="pre">{(5&lt;⍵)/⍵}</span></code> doesn’t convert to <code class="docutils literal notranslate"><span class="pre">(5&lt;⊢)/⊢</span></code>.</p>
+<p>While it may not be obvious at first sight, if we define <code class="docutils literal notranslate"><span class="pre">f←5&lt;⊢</span></code> it might become clearer that <code class="docutils literal notranslate"><span class="pre">f/⊢</span></code> isn’t at all what we want. Now, there’s an axiom in APL that an operator cannot be an operand. (Shh, don’t mention <code class="docutils literal notranslate"><span class="pre">∘.f</span></code>). This means that if a slash ends up in a situation where it has to be an operand, it will resort to being a function. You may even have noticed that constructs like <code class="docutils literal notranslate"><span class="pre">⊢(/⍨)5&lt;⊢</span></code> work fine, though <code class="docutils literal notranslate"><span class="pre">⊢/⍨5&lt;⊢</span></code> doesn’t. This is because the <code class="docutils literal notranslate"><span class="pre">/</span></code> in isolation with the <code class="docutils literal notranslate"><span class="pre">⍨</span></code> is forced to become the operand of <code class="docutils literal notranslate"><span class="pre">⍨</span></code>. But since operators bind from the left, <code class="docutils literal notranslate"><span class="pre">⊢/</span></code> binds first, and so <code class="docutils literal notranslate"><span class="pre">⊢/⍨5&lt;⊢</span></code> becomes <code class="docutils literal notranslate"><span class="pre">(⊢/)⍨5&lt;⊢</span></code> or <code class="docutils literal notranslate"><span class="pre">(5&lt;⊢)⊢/(5&lt;⊢)</span></code> which is usually not what you want.</p>
+<p>So, <code class="docutils literal notranslate"><span class="pre">⍤</span></code> to the rescue. If <code class="docutils literal notranslate"><span class="pre">⍤</span></code> (or any dyadic operator) is found to the immediate left of a slash, then clearly the dyadic operator cannot be the operand of the slash, <code class="docutils literal notranslate"><span class="pre">⍤</span></code> being a dyadic operator itself, and it can’t be part of the function on the left, since it requires a right-operand, too. Therefore, the slash is forced to become a function. So <code class="docutils literal notranslate"><span class="pre">-⍤/</span></code> is the negation of the replicate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">0</span> <span class="m">2</span><span class="o">-</span><span class="na">⍤/</span><span class="m">10</span> <span class="m">20</span> <span class="m">30</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯10 ¯30 ¯30
+</span></div></div>
+</div>
+<p>It is easy to think then that “oh, this is an atop, so I should be able to do this with parentheses too; <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)</span></code>” but that’d be a mistake: <code class="docutils literal notranslate"><span class="pre">(-/)</span></code> is just a normal minus-reduction. Since <code class="docutils literal notranslate"><span class="pre">f⍤g</span></code> is “atop” and <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)</span></code> is “atop”, you might think they are interchangeable.</p>
+<p>Another mistake is to think: “if a slash is an operand, it’ll be a function” and then think that <code class="docutils literal notranslate"><span class="pre">/∘⊢</span></code> would work like <code class="docutils literal notranslate"><span class="pre">⊢⍤/</span></code> by pre-processing the right argument with a no-op rather than post-processing the result with a no-op.</p>
+<p>Let’s say we have a two-element vector of a mask and some data, and you want to “apply” the mask to the data… Perhaps your instinct is to try</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">apply</span> <span class="kd">←</span> <span class="na">//</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>but that gives an enclosed result, which isn’t what we want:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">display</span> <span class="nv">apply</span> <span class="p">(</span><span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="p">)</span><span class="s1">&#39;abc&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────┐
+│ ┌→─┐ │
+│ │ac│ │
+│ └──┘ │
+└∊─────┘
+</span></div></div>
+</div>
+<p>Instead, we can do something like</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">apply</span> <span class="kd">←</span> <span class="o">⊃⊢</span><span class="na">⍤//</span>
+<span class="sr">]</span><span class="nv">display</span> <span class="nv">apply</span> <span class="p">(</span><span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="p">)</span><span class="s1">&#39;abc&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌→─┐
+│ac│
+└──┘
+</span></div></div>
+</div>
+<p>In fact, once <code class="docutils literal notranslate"><span class="pre">⊢⍤/</span></code> becomes a common pattern, you can actually help the reader of your code by using <code class="docutils literal notranslate"><span class="pre">⊢⍤/</span></code> so they don’t have to consider if your slash is Replicate or Reduce. For example, if your code says <code class="docutils literal notranslate"><span class="pre">z←x/y</span></code> it might not be obvious what’s going on. If you instead write <code class="docutils literal notranslate"><span class="pre">z←x⊢⍤/y</span></code> your reader knows exactly what you’re doing.</p>
+<p>Another example. Given a string, replace every character with two copies of itself prefixed and suffixed by a space. For example, <code class="docutils literal notranslate"><span class="pre">'abc'</span></code> becomes <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">aa</span>&#160; <span class="pre">bb</span>&#160; <span class="pre">cc</span> <span class="pre">'</span></code>. Yes, you can do this with regex. Please don’t.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⊢</span> <span class="o">⊢</span><span class="na">⍤⍀</span> <span class="na">⍨</span><span class="m">0</span> <span class="m">2</span> <span class="m">0</span><span class="o">⍴</span><span class="na">⍨</span><span class="m">3</span><span class="o">×≢</span><span class="p">)</span><span class="s1">&#39;abc&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace"> aa  bb  cc 
+</span></div></div>
+</div>
+</div>
+<div class="section" id="over-fg">
+<h2>Over <code class="docutils literal notranslate"><span class="pre">f⍥g</span></code><a class="headerlink" href="#over-fg" title="Permalink to this headline">¶</a></h2>
+<p>Recall how <code class="docutils literal notranslate"><span class="pre">f∘g</span></code> preprocesses the right argument of <code class="docutils literal notranslate"><span class="pre">f</span></code> using <code class="docutils literal notranslate"><span class="pre">g</span></code>. One way to look at <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Over.htm">Over</a> is simply as preprocessing all arguments of <code class="docutils literal notranslate"><span class="pre">f</span></code> using <code class="docutils literal notranslate"><span class="pre">g</span></code>. All, as in both or the only. So again <code class="docutils literal notranslate"><span class="pre">f⍥g</span> <span class="pre">Y</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">f⍤g</span> <span class="pre">Y</span></code> and <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">Y</span></code>. The difference is, again, when we do a dyadic application. While <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f∘g</span> <span class="pre">Y</span></code> is <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f(g</span> <span class="pre">Y)</span></code> we have <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f⍥g</span> <span class="pre">Y</span></code> be <code class="docutils literal notranslate"><span class="pre">(g</span> <span class="pre">X)f(g</span> <span class="pre">Y)</span></code>. This may seem like an overly involved operator, but really, the pattern of preprocessing both arguments comes up a lot. Once you start looking for it, you’ll see it all over.</p>
+<p>For example, a dyadic function computing the sum of absolute values of its arguments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span> <span class="m">¯2</span> <span class="m">3</span> <span class="m">4</span> <span class="o">+</span><span class="na">⍥</span><span class="o">|</span> <span class="m">2</span> <span class="m">3</span> <span class="m">¯8</span> <span class="m">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">3 5 11 9
+</span></div></div>
+</div>
+<p>Given arguments which are vectors, which one has the smallest maximum? Return <code class="docutils literal notranslate"><span class="pre">¯1</span></code> if the left argument has the smallest maximum, <code class="docutils literal notranslate"><span class="pre">1</span></code> if the right one has, or <code class="docutils literal notranslate"><span class="pre">0</span></code> if they are equal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span> <span class="m">¯2</span> <span class="m">3</span> <span class="m">4</span> <span class="o">×</span><span class="na">⍤</span><span class="o">-</span><span class="na">⍥</span><span class="p">(</span><span class="o">⌈</span><span class="na">/</span><span class="p">)</span> <span class="m">2</span> <span class="m">3</span> <span class="m">¯8</span> <span class="m">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1
+</span></div></div>
+</div>
+<p>Beautiful use of both Atop and Over. You can, of course, omit the <code class="docutils literal notranslate"><span class="pre">⍤</span></code> here, unless used inline. OK, how about this: write an alternative to replicate which can take arguments of equal shape, both with rank greater than 1, and replicates the corresponding elements. Since the result might otherwise be ragged, you have to return a vector.</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span>      <span class="p">(</span><span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span><span class="p">)</span> <span class="nv">YourFunction</span> <span class="m">2</span> <span class="m">3</span><span class="o">⍴</span><span class="nf">⎕A</span>
+<span class="nv">ABBCCCDDDDEEEEEFFFFFF</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span><span class="p">)</span> <span class="o">⊢</span><span class="na">⍤/⍥</span><span class="o">,</span> <span class="m">2</span> <span class="m">3</span><span class="o">⍴</span><span class="nf">⎕A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABBCCCDDDDEEEEEFFFFFF
+</span></div></div>
+</div>
+<p>Also, in this case, you don’t <em>need</em> <code class="docutils literal notranslate"><span class="pre">⊢⍤</span></code>, but it is good for clarity, and necessary if used inline in a train. A golfing tip regarding <code class="docutils literal notranslate"><span class="pre">⍥</span></code>: you can sometimes use it to pre-process the left argument, when it is a no-op on the right. For example, <code class="docutils literal notranslate"><span class="pre">1≡⍥,≡,⍴</span></code>, only ravels the left argument, since the right argument already is a vector.</p>
 </div>
 </div>
 
