@@ -34,7 +34,6 @@ chapters:
   - file: Power2
   - file: Decode
   - file: Encode
-  - file: AtopOver
 - file: ObjectOrientation
   sections:
   - file: Namespaces
