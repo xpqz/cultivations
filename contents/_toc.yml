@@ -45,3 +45,4 @@ chapters:
 - file: Complex
 - file: CountingWords
 - file: PDI
+- file: UserCommands
