@@ -534,7 +534,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adoc">
-   ADoc
+   ]ADoc
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -585,6 +585,21 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#peek">
    ]Peek
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aplcart">
+   ]APLCart
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get">
+   ]Get
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repr">
+   ]Repr
   </a>
  </li>
 </ul>
@@ -874,7 +889,7 @@ As you saw above, the notebook uses <code class="docutils literal notranslate"><
 <p>Now we can see what exactly each thing is; we’ve got two empty character vectors and one 0-by-0 numeric matrix. We can also see that the <code class="docutils literal notranslate"><span class="pre">a</span></code> is a scalar, and the <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span></code>s are vectors (not e.g. one-row matrices).</p>
 </div>
 <div class="section" id="adoc">
-<h2>ADoc<a class="headerlink" href="#adoc" title="Permalink to this headline">¶</a></h2>
+<h2>]ADoc<a class="headerlink" href="#adoc" title="Permalink to this headline">¶</a></h2>
 <p>If you comment your code using markdown, you can use <code class="docutils literal notranslate"><span class="pre">]adoc</span></code> to automatically generate some documentation of it. <code class="docutils literal notranslate"><span class="pre">]adoc</span> <span class="pre">MyClass</span></code> will open your browser with a nicely formatted html document that has comments and syntax information gleaned from your code.</p>
 </div>
 <div class="section" id="calendar">
@@ -1007,27 +1022,14 @@ commit:     2019 01 29 Adam: Help
 <p>There’s also the ]locate user command which allows you to search for text anywhere in the workspace (Try it online!) including, among many other features, the ability to search APL-syntactically. As always for user commands; explore the possibilities with ]?locate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">)</span><span class="nv">load</span> <span class="nv">salt</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span> <span class="s1">&#39;salt&#39;</span>
 <span class="sr">]</span><span class="nv">fnslike</span> <span class="o">*</span><span class="nv">l</span><span class="o">?</span>
 <span class="sr">]</span><span class="nv">fnslike</span> <span class="na">\</span><span class="nv">d</span> <span class="o">-</span><span class="nv">regex</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">/Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/ws/salt.dws saved Thu Apr  7 00:21:30 2022
-This workspace is used to make SALT react on or ignore Editor events.
-
-Automatic updating of source files for SALTed items requires reacting on Editor events
-
-To make SALT react to Editor events, enter
-   enableSALT
-
-To make it ignore them, enter
-   disableSALT
-This does not disable User Commands or other SALT functionality
-
-
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">GetUnicodeFile  PutUTF8File  SALTsetFile  regGetHandle  rlb
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">GetUnicodeFile  PutUTF8File  SALTsetFile  regGetHandle  rlb
 </span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">PutUTF8File
 </span></div></div>
 </div>
@@ -1037,7 +1039,7 @@ This does not disable User Commands or other SALT functionality
 <p>A really cool user command is <code class="docutils literal notranslate"><span class="pre">]map</span></code> which draws a tree view of your workspace or (if given an argument) a specific namespace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">Map</span> <span class="nf">⎕SE</span><span class="na">.</span><span class="nv">Dyalog</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">map</span> <span class="nf">⎕SE</span><span class="na">.</span><span class="nv">Dyalog</span>
 </pre></div>
 </div>
 </div>
@@ -1104,6 +1106,142 @@ This does not disable User Commands or other SALT functionality
 </div>
 <p>How to place five queens on a 5-by-5 chess board without them being able to capture each other, all without even loading any utilities! How about that? :-)</p>
 <p>There are, of course, many, many more user commands, and new versions of Dyalog usually adds more.</p>
+</div>
+<div class="section" id="aplcart">
+<h2>]APLCart<a class="headerlink" href="#aplcart" title="Permalink to this headline">¶</a></h2>
+<p>Version 18.2 of Dyalog added the <code class="docutils literal notranslate"><span class="pre">]aplcart</span></code> user command. <a class="reference external" href="https://aplcart.info">APLCart</a> is searchable collection of short APL phrases. It is a goldmine of answers to APL-related questions of the type “How do I do X in APL?” for a surprisingly wide range of X. The <code class="docutils literal notranslate"><span class="pre">]aplcart</span></code> command makes this resource available directly in the session,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">aplcart</span> <span class="nv">Append</span> <span class="nv">scalar</span> <span class="nv">to</span> <span class="nv">each</span> <span class="nv">column</span> <span class="nv">of</span> <span class="nv">matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">X, Y, Z: any type array  M, N: numeric array  I, J: integer array  A, B: Boolean array  C, D: character array  f, g, h: function  ax: bracket axis  s: scalar  v: vector  m: matrix
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Xm⍪Ys  ⍝ Append scalar to each column of matrix
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Showing 1 of 1 matches
+</span></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">]aplcart</span></code> has a number of options and capabilities. You can, for example, filter results by regular expression:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">aplcart</span> <span class="na">/</span><span class="nv">highest</span><span class="o">|</span><span class="nv">lowest</span><span class="na">/</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">X, Y, Z: any type array  M, N: numeric array  I, J: integer array  A, B: Boolean array  C, D: character array  f, g, h: function  ax: bracket axis  s: scalar  v: vector  m: matrix
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+M∨N                       ⍝ Greatest Common Divisor of M and N
+M∧N                       ⍝ Lowest Common Multiple of M and N
+⌈/N                       ⍝ Maximum of N
+⌊/N                       ⍝ Minimum of N
+⍳⍨Nv                      ⍝ Assign ranking based on non-descending scores Nv (ties all get highest ranking of used slots)
+⍸⍨Nv                      ⍝ Assign ranking based on non-descending scores Nv (ties all get lowest ranking of used slots)
+Is(⊃&gt;⍥|⌽,)Js              ⍝ Choose the number closer to zero (the left one if tied)
+Is(⌈(⊃&gt;⍥|⌽,)⌊)Js          ⍝ Choose the number closer to zero (the positive one if tied)
+Ms{⍵×⍺÷⍵[⊃⍒|⍵]}Nv         ⍝ Scale Nv so the maximum element is Ms
+{s←0 ⋄ ⌈/{s⊢←0⌈s+⍵}¨⍵}Nv  ⍝ Largest sum of any contiguous subvector
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Showing 10 of 12 matches (-list=&lt;n&gt; to show up to &lt;n&gt;; -list to show all)
+</span></div></div>
+</div>
+<p>or ask it to generate the URL to the corresponding search query on the website itself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">aplcart</span> <span class="na">/</span><span class="nv">highest</span><span class="o">|</span><span class="nv">lowest</span><span class="na">/</span> <span class="o">-</span><span class="nv">url</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">https://aplcart.info?q=/highest|lowest/
+</span></div></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">-b</span></code> opens your default web browser on the corresponding results page instead of displaying it in the session.</p>
+</div>
+<div class="section" id="get">
+<h2>]Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
+<p>18.2 also added the <code class="docutils literal notranslate"><span class="pre">]Get</span></code> command. There is a lot to this (it comes with comprehensive documentation; see <code class="docutils literal notranslate"><span class="pre">]get</span> <span class="pre">-??</span></code>), and we’ll only skim the surface here. <code class="docutils literal notranslate"><span class="pre">]Get</span></code> provides a unified interface for quickly getting data (and code) into Dyalog from a multitude of different sources, including local files, by URL, or from git repositories. Note that this is intended as a development aid, and not something that should be relied upon during runtime or production.</p>
+<p>From <code class="docutils literal notranslate"><span class="pre">]Get</span> <span class="pre">-??</span></code>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">]Get</span></code> is a development tool intended as a one-stop utility for quickly getting bringing resources into the workspace while programming. Do not use at run time, as exact results may vary. Instead, use precisely documented features like <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code>, <code class="docutils literal notranslate"><span class="pre">⎕CSV</span></code>, <code class="docutils literal notranslate"><span class="pre">⎕XML</span></code>, and <code class="docutils literal notranslate"><span class="pre">⎕FIX</span></code> in combination with loading tools like <code class="docutils literal notranslate"><span class="pre">⎕NGET</span></code>, <code class="docutils literal notranslate"><span class="pre">HttpCommand</span></code>, <code class="docutils literal notranslate"><span class="pre">⎕SE.Link.Import</span></code>, etc.<p>
+<code class="docutils literal notranslate"><span class="pre">]Get</span></code> supports importing directories and the following file extensions (files with any other extensions are imported as character vectors): apla, aplc, aplf, apli, apln, aplo, charlist, charmat, charstring, charvec, class, csv, dcf, dcfg, dws, dyalog, function, interface, js, json, json5, operator, script, tsv, xml, zip</p>
+</div></blockquote>
+<p>Here’s an example of fetching–and decoding–a remote XML-file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">Get</span> <span class="nv">raw</span><span class="na">.</span><span class="nv">githubusercontent</span><span class="na">.</span><span class="nv">com</span><span class="na">/</span><span class="nv">Dyalog</span><span class="na">/</span><span class="nv">MiServer</span><span class="na">/</span><span class="nv">master</span><span class="na">/</span><span class="nv">Config</span><span class="na">/</span><span class="nv">Logger</span><span class="na">.</span><span class="nv">xml</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">#.Logger
+</span></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">disp</span> <span class="c1">#.Logger</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┬────────────┬────────────────┬───┬─┐
+│0│Logger      │                │   │3│
+├─┼────────────┼────────────────┼───┼─┤
+│1│active      │0               │   │5│
+├─┼────────────┼────────────────┼───┼─┤
+│1│anonymousIPs│1               │   │5│
+├─┼────────────┼────────────────┼───┼─┤
+│1│directory   │%SiteRoot%/Logs/│   │5│
+├─┼────────────┼────────────────┼───┼─┤
+│1│interval    │10              │   │5│
+├─┼────────────┼────────────────┼───┼─┤
+│1│prefix      │                │   │1│
+└─┴────────────┴────────────────┴───┴─┘
+</span></div></div>
+</div>
+</div>
+<div class="section" id="repr">
+<h2>]Repr<a class="headerlink" href="#repr" title="Permalink to this headline">¶</a></h2>
+<p>Also making its debut in 18.2 was <code class="docutils literal notranslate"><span class="pre">]repr</span></code>. It takes an APL value and returns (by default) an expression that produces this value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">repr</span> <span class="c1">#.Logger</span>
+<span class="sr">]</span><span class="nv">repr</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">(6 5⍴0 'Logger' '' (0 2⍴⊂'') 3 1 'active' (,'0') (0 2⍴⊂'') 5 1 'anonymousIPs' (,'1') (0 2⍴⊂'') 5 1 'directory' '%SiteRoot%/Logs/' (0 2⍴⊂'') 5 1 'interval' '10' (0 2⍴⊂'') 5 1 'prefix' '' (0 2⍴⊂'') 1)
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">(0,(4/1),0 0 1 0 1 1,(8/0),1 1)
+</span></div></div>
+</div>
+<p>That’s useful enough, but it has a few other handy tricks up its sleeve, too. Perhaps you want to convert a specific APL value to csv?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">repr</span> <span class="s1">&#39;ABC&#39;</span><span class="o">⍪</span><span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span> <span class="o">-</span><span class="nv">f</span><span class="o">=</span><span class="nv">csv</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">"A","B","C"
+1,2,3
+4,5,6
+</span></div></div>
+</div>
+<p>or maybe you need help with showing the correct parenthesing of a train?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">repr</span> <span class="o">+</span><span class="na">⌿</span><span class="o">÷</span><span class="m">1</span><span class="o">⌈≢</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">(+⌿)÷(1⌈≢)
+</span></div></div>
+</div>
 </div>
 </div>
 
