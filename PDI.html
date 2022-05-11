@@ -488,7 +488,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="lookup-without-replacement">
 <h1>Lookup without replacement<a class="headerlink" href="#lookup-without-replacement" title="Permalink to this headline">¶</a></h1>
-<p>“Lookup without replacement” is a very old (and famous) programming problem in the APL world.</p>
+<p>“Lookup without replacement” is a very old (and famous) programming problem in the APL world. You can see a thorough investigation of this in <a class="reference external" href="https://dyalog.tv/Webinar/?v=6SAsgEvUmkU">video</a> form, too.</p>
 <p>Consider two vectors,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -575,7 +575,8 @@ Since we’re going to look up elements of <code class="docutils literal notrans
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">L</span><span class="kd">←</span><span class="s1">&#39;abacba&#39;</span>
 <span class="nv">R</span><span class="kd">←</span><span class="s1">&#39;bcabaa&#39;</span>
-<span class="o">↑</span><span class="nv">L</span><span class="p">(</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">L</span><span class="p">)(</span><span class="o">⍋⍋</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">L</span><span class="p">)</span> <span class="p">⋄</span> <span class="vg">⎕</span><span class="kd">←</span><span class="o">↑</span><span class="nv">R</span><span class="p">(</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">R</span><span class="p">)(</span><span class="o">⍋⍋</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">R</span><span class="p">)</span>
+<span class="o">↑</span><span class="nv">L</span><span class="p">(</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">L</span><span class="p">)(</span><span class="o">⍋⍋</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">L</span><span class="p">)</span>
+<span class="o">↑</span><span class="nv">R</span><span class="p">(</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">R</span><span class="p">)(</span><span class="o">⍋⍋</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">R</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -583,13 +584,12 @@ Since we’re going to look up elements of <code class="docutils literal notrans
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">a b a c b a
 1 2 1 4 2 1
 1 4 2 6 5 3
-b c a b a a
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">b c a b a a
 2 4 1 2 1 1
 4 6 1 5 2 3
 </span></div></div>
 </div>
-<p>You need to read the first three lines and the last three lines separately. The first line (of each group) is the data, the second line is the first-positions of that data in <code class="docutils literal notranslate"><span class="pre">L</span></code>. The third is the progressive labeling of that.
-No you can see that the first a is labeled 1 for both <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code> and the first <code class="docutils literal notranslate"><span class="pre">b</span></code> is labeled 4 for both <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
+<p>The first line (of each group) is the data, the second line is the first-positions of that data in <code class="docutils literal notranslate"><span class="pre">L</span></code>. The third is the progressive labeling of that. Now you can see that the first <code class="docutils literal notranslate"><span class="pre">a</span></code> is labeled 1 for both <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code> and the first <code class="docutils literal notranslate"><span class="pre">b</span></code> is labeled 4 for both <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⍋⍋</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">L</span><span class="p">)</span><span class="o">⍳</span><span class="p">(</span><span class="o">⍋⍋</span><span class="nv">L</span><span class="o">⍳</span><span class="nv">R</span><span class="p">)</span>
@@ -719,7 +719,7 @@ baabaac
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">2 4 1 5 3 6
 </span></div></div>
 </div>
-<p>Here’s an example. We want to fill a plane with multiple classes, using first-come, first-serve. We may want to ask: for each customer, will they fit on the plane?Say we have a plane like ‘11bbbpeepee’ where 1 is first class, b is business, p is economy plus (extra legroom at emergency exits), and e is regular economy. We now have a bunch of customers coming to buy seats: ‘1bbbpppeeeee’. That’s one 1st class customer, three business people, three want more legroom, and a load of regular people.</p>
+<p>Here’s an example. We want to fill a plane with multiple classes, using first-come, first-serve. We may want to ask: for each customer, will they fit on the plane? Say we have a plane like ‘11bbbpeepee’, where 1 is first class, b is business, p is economy plus (extra legroom at emergency exits), and e is regular economy. We now have a bunch of customers coming to buy seats: ‘1bbbpppeeeee’. That’s one 1st class customer, three business people, three want more legroom, and a load of regular people.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;11bbbpeepee&#39;</span> <span class="nv">pdi</span> <span class="s1">&#39;1bbbpppeeeee&#39;</span>
