@@ -583,8 +583,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fnslike-obslike">
-   ]FnsLike ]ObsLike
+  <a class="reference internal nav-link" href="#names">
+   ]Names
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -666,7 +666,29 @@ Sometimes, this non-syntactic way is really useful tor day-to-day stuff, and you
 ]grp.cmd -?  ⍝ for info on the "Cmd" command of the "GRP" group                                                                                                                                                                                                                                                                         
 </span></div></div>
 </div>
-<p>Let’s have a look at some of them.</p>
+<p>At this point, we should mention that all these user commands have a whole host of options which you can specify with various arguments or modifiers. It would be too much to go into details about it all, but you can always get documentation about any user command with <code class="docutils literal notranslate"><span class="pre">]cmdname</span> <span class="pre">-?</span></code>, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">calls</span> <span class="o">-?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">───────────────────────────────────────────────────────────────────────────────
+
+]FN.Calls                                                                      
+
+Produce the calling tree of a function in a class/namespace/scriptfile         
+    ]Calls &lt;function&gt; [&lt;namespace&gt;]                                            
+
+]Calls -?? ⍝ for more information and examples                                 
+
+</span></div></div>
+</div>
+<p>Now that we are talking about the special syntax of user commands, the command processor has another few tricks up its sleeve.</p>
+<p>If for some reason you want to capture the result of a user command, you can do so with <code class="docutils literal notranslate"><span class="pre">]varname←cmdname</span></code>. If you want to silence a user command, you can do that with <code class="docutils literal notranslate"><span class="pre">]←cmdname</span></code>.</p>
+<p>Remember that we said everything after the <code class="docutils literal notranslate"><span class="pre">]</span></code> is passed as argument to <code class="docutils literal notranslate"><span class="pre">⎕SE.UCMD</span></code>? That means that you can even call user command under program control: <code class="docutils literal notranslate"><span class="pre">⎕SE.UCMD</span> <span class="pre">'cmdname'</span></code>. Anything else you’d write on the line just goes inside that character vector.</p>
+<p>Let’s have a look at some of the available user commands.</p>
 <div class="section" id="cd">
 <h2>]CD<a class="headerlink" href="#cd" title="Permalink to this headline">¶</a></h2>
 <p>There are simple things like <code class="docutils literal notranslate"><span class="pre">]cd</span></code>:</p>
@@ -680,13 +702,28 @@ Sometimes, this non-syntactic way is really useful tor day-to-day stuff, and you
 <div class="output text_html"><span style="white-space:pre; font-family: monospace">/Users/stefan/work/notebooks/cultivations/contents
 </span></div></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">]cd</span></code>, in its niladic form, shows the interpreter’s current working directory. You can set the current working directory, too, by</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">cd</span> <span class="na">/</span><span class="nv">Users</span><span class="na">/</span><span class="nv">stefan</span><span class="na">/</span><span class="nv">work</span><span class="na">/</span><span class="nv">notebooks</span>
+<span class="sr">]</span><span class="nv">cd</span> <span class="na">/</span><span class="nv">Users</span><span class="na">/</span><span class="nv">stefan</span><span class="na">/</span><span class="nv">work</span><span class="na">/</span><span class="nv">notebooks</span><span class="na">/</span><span class="nv">cultivations</span><span class="na">/</span><span class="nv">contents</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">/Users/stefan/work/notebooks/cultivations/contents
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">/Users/stefan/work/notebooks
+</span></div></div>
+</div>
+<p>Note that when you set the current working directory this way, <code class="docutils literal notranslate"><span class="pre">]cd</span></code> will echo back the directory it changed <em>from</em>, not the one it changed <em>to</em>.</p>
 </div>
 <div class="section" id="dinput">
 <h2>]DInput<a class="headerlink" href="#dinput" title="Permalink to this headline">¶</a></h2>
-<p>One really cool command is <code class="docutils literal notranslate"><span class="pre">]dinput</span></code>. If you’ve ever wanted to enter or paste a multi-line statement into the session, you’ll like this one.</p>
+<p>If you’ve ever wanted to enter or paste a multi-line statement into the session, you can use <code class="docutils literal notranslate"><span class="pre">]dinput</span></code>. Note, however, that this is likely to be superseded in a future version by the currently experimental multi-line input mode.</p>
 <p>What is a multi-line statement? Remember that you don’t have to assign dfns before you use them; you can insert them inline. And dfns may have multiple lines. Effectively, you then have a single multi-line statement.
 Now, as soon as you press Enter in the session, you code will be executed, and if it has any un-closed braces, e.g. <code class="docutils literal notranslate"><span class="pre">2+{a←⍳10</span></code> it will fail. However, if you enter <code class="docutils literal notranslate"><span class="pre">]dinput</span></code> you will get a new prompt indicated by a dot <code class="docutils literal notranslate"><span class="pre">·</span></code> and then you can begin entering (or pasting) multi-line statements. <code class="docutils literal notranslate"><span class="pre">]dinput</span></code> will keep track of your brace-nesting level and indicate it with more dots.</p>
 <p>You can also just type <code class="docutils literal notranslate"><span class="pre">]dinput</span> <span class="pre">f←</span></code> and then paste a multi-line dfn there, beginning on that line. That’ll define it in the workspace.</p>
+<p>Another important use for <code class="docutils literal notranslate"><span class="pre">]dinput</span></code> is when you write multi-line functions in a Jupyter notebook cell, as you will have seen already in many places in this book.</p>
 </div>
 <div class="section" id="calls">
 <h2>]Calls<a class="headerlink" href="#calls" title="Permalink to this headline">¶</a></h2>
@@ -769,7 +806,7 @@ Level 2: getEnvir→rlb
 </div>
 <div class="section" id="copyreg">
 <h2>]CopyReg<a class="headerlink" href="#copyreg" title="Permalink to this headline">¶</a></h2>
-<p>If you’re on Windows, you have a few goodies especially for you. When the time comes to upgrade your Dyalog between major versions, but you’ve spent a whole year customising the current version to your liking. There is a user command that allowed you to easily migrate your settings between versions:</p>
+<p>If you’re on Windows, you have a few goodies especially for you. When the time comes to upgrade your Dyalog between major versions, but you’ve spent a whole year customising the current version to your liking. There is a user command that allows you to easily migrate your settings between versions:</p>
 <div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">CopyReg</span> <span class="m">17</span><span class="nv">u64</span> <span class="o">-</span><span class="nv">to</span><span class="o">=</span><span class="m">18</span><span class="nv">u64</span>
 </pre></div>
 </div>
@@ -778,27 +815,6 @@ Level 2: getEnvir→rlb
 <div class="section" id="the-command-processor">
 <h2>The command processor<a class="headerlink" href="#the-command-processor" title="Permalink to this headline">¶</a></h2>
 <p>At this point, we should mention that all these user commands have a whole host of options which you can specify with various arguments or modifiers. It would be too much to go into details about it all, but you can always get documentation about any user command with <code class="docutils literal notranslate"><span class="pre">]cmdname</span> <span class="pre">-?</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">calls</span> <span class="o">-?</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">───────────────────────────────────────────────────────────────────────────────
-
-]FN.Calls                                                                      
-
-Produce the calling tree of a function in a class/namespace/scriptfile         
-    ]Calls &lt;function&gt; [&lt;namespace&gt;]                                            
-
-]Calls -?? ⍝ for more information and examples                                 
-
-</span></div></div>
-</div>
-<p>Now that we are talking about the special syntax of user commands, the command processor has another few tricks up its sleeve.</p>
-<p>If for some reason you want to capture the result of a user command, you can do so with <code class="docutils literal notranslate"><span class="pre">]varname←cmdname</span></code>. If you want to silence a user command, you can do that with <code class="docutils literal notranslate"><span class="pre">]←cmdname</span></code>.</p>
-<p>Remember that we said everything after the <code class="docutils literal notranslate"><span class="pre">]</span></code> is passed as argument to <code class="docutils literal notranslate"><span class="pre">⎕SE.UCMD</span></code>? That means that you can even call user command under program control: <code class="docutils literal notranslate"><span class="pre">⎕SE.UCMD</span> <span class="pre">'cmdname'</span></code>. Anything else you’d write on the line just goes inside that character vector.</p>
 </div>
 <div class="section" id="summary">
 <h2>]Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
@@ -943,7 +959,7 @@ Su Mo Tu We Th Fr Sa
 <h2>]Chart (Windows only)<a class="headerlink" href="#chart-windows-only" title="Permalink to this headline">¶</a></h2>
 <p>If you are on Windows, you’ll have a handful more user commands than if not. Perhaps the coolest of them is the Chart Wizard. It has a button in the IDE:</p>
 <p><img alt="Win IDE chart" src="_images/winchart.png" /></p>
-<p>But it is also available as a user command. Try e.g. <code class="docutils literal notranslate"><span class="pre">]chart</span> <span class="pre">(⍳50)×↓|1○(500÷⍨⍳50)∘.×⍳50</span></code>. If you’re not on Windows, you can still generate charts using <a class="reference external" href="https://www.sharpplot.com/">SharpPlot</a> (for which <code class="docutils literal notranslate"><span class="pre">]chart</span></code> is just a GUI). Here’s some <a class="reference external" href="https://forums.dyalog.com/viewtopic.php?t=1338">example code</a> for that.</p>
+<p>But it is also available as a user command. Try e.g. <code class="docutils literal notranslate"><span class="pre">]chart</span> <span class="pre">(⍳50)×↓|1○(500÷⍨⍳50)∘.×⍳50</span></code>. If you’re not on Windows, you can still generate charts using <a class="reference external" href="https://www.sharpplot.com/">SharpPlot</a> (for which <code class="docutils literal notranslate"><span class="pre">]chart</span></code> is just a GUI). Here’s some <a class="reference external" href="https://forums.dyalog.com/viewtopic.php?t=1338">example code</a> for that, and the chapter on <span class="xref myst">plotting</span> in this book.</p>
 </div>
 <div class="section" id="version">
 <h2>]Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
@@ -1026,23 +1042,32 @@ commit:     2019 01 29 Adam: Help
 </span></div></div>
 </div>
 </div>
-<div class="section" id="fnslike-obslike">
-<h2>]FnsLike ]ObsLike<a class="headerlink" href="#fnslike-obslike" title="Permalink to this headline">¶</a></h2>
-<p>You may have used <code class="docutils literal notranslate"><span class="pre">)fns</span></code> and <code class="docutils literal notranslate"><span class="pre">)obs</span></code> to list functions and objects in the workspace. However, they are quite limited in functionality. Instead, you can use the <code class="docutils literal notranslate"><span class="pre">]fnslike</span></code> and <code class="docutils literal notranslate"><span class="pre">]obslike</span></code> user commands which allow you to use globbing or regex to filter the results: Try it online!</p>
-<p>There’s also the ]locate user command which allows you to search for text anywhere in the workspace (Try it online!) including, among many other features, the ability to search APL-syntactically. As always for user commands; explore the possibilities with ]?locate.</p>
+<div class="section" id="names">
+<h2>]Names<a class="headerlink" href="#names" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">]Names</span></code> lists names in workspaces in various ways, with sophisticated means for filtering. For example, to show all tradfns (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/nc.htm">nameclass</a> 3.1) with a name containing a lowercase <code class="docutils literal notranslate"><span class="pre">l</span></code>, we can use a shell-style <em>glob</em> expression:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span> <span class="s1">&#39;salt&#39;</span>
-<span class="sr">]</span><span class="nv">fnslike</span> <span class="o">*</span><span class="nv">l</span><span class="o">?</span>
-<span class="sr">]</span><span class="nv">fnslike</span> <span class="na">\</span><span class="nv">d</span> <span class="o">-</span><span class="nv">regex</span>
+<span class="sr">]</span><span class="nv">names</span> <span class="m">3.1</span> <span class="o">-</span><span class="nv">filter</span><span class="o">=*</span><span class="nv">l</span><span class="o">*</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">GetUnicodeFile  PutUTF8File  SALTsetFile  regGetHandle  rlb
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">PutUTF8File
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">3.1: GetUnicodeFile PutUTF8File SALTsetFile disableSALT enableSALT regClose regGetHandle 
 </span></div></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-filter=</span></code> option can also take full regexes,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">names</span> <span class="m">3.1</span> <span class="o">-</span><span class="nv">filter</span><span class="o">=</span><span class="na">/.</span><span class="o">*</span><span class="na">\</span><span class="nv">d</span><span class="na">.</span><span class="o">*</span><span class="na">/</span> <span class="c1">⍝ Tradfn names containing a digit</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">3.1: PutUTF8File 
+</span></div></div>
+</div>
+<p>Note that the regex pattern is implicitly anchored to the beginning and end, so your pattern must match the whole name.</p>
 </div>
 <div class="section" id="map">
 <h2>]Map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h2>
