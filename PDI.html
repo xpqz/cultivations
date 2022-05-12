@@ -541,8 +541,8 @@ If you recall the chapter about <code class="docutils literal notranslate"><span
 1 4 2 6 5 3
 </span></div></div>
 </div>
-<p>The first line is the data and the second is the indices of the first occurrences (i.e. all identical items will get the same index). The third line is the position that each will occupy when sorted. That means that identical elements get consecutive positions.</p>
-<p>E.g. you can see that the first b gets 4 (because there are 3 as) and the second gets 5. This almost solves the problem.</p>
+<p>The first line is the data and the second is the indices of the first occurrences (in other words, all identical items will get the same index). The third line is the position that each will occupy when sorted. That means that identical elements get consecutive positions.</p>
+<p>For example, you can see that the first <code class="docutils literal notranslate"><span class="pre">b</span></code> gets 4 (because there are 3 <code class="docutils literal notranslate"><span class="pre">a</span></code>s) and the second gets 5. This almost solves the problem.</p>
 <p>However, there are a couple of issues:</p>
 <ol class="simple">
 <li><p>The two arrays must have the same set of elements.</p></li>
@@ -552,7 +552,7 @@ If you recall the chapter about <code class="docutils literal notranslate"><span
 <p>Why these conditions?</p>
 <ol class="simple">
 <li><p>is because otherwise the purely numeric “labels” will match the wrong things.</p></li>
-<li><p>is because otherwise one element’s “label” will be paired up the the label of a different value element of the other array.</p></li>
+<li><p>is because otherwise one element’s “label” will be paired up with the label of a different value element of the other array.</p></li>
 <li><p>is because otherwise identical “labels” numbers refer to two entirely different things, and so the matching won’t give a meaningful result.</p></li>
 </ol>
 <p>But if these conditions are met, we get the right result:</p>
