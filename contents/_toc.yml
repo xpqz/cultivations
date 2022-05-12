@@ -35,6 +35,7 @@ chapters:
   - file: Decode
   - file: Encode
   - file: Variant
+  - file: UniqueMask
 - file: ObjectOrientation
   sections:
   - file: Namespaces
