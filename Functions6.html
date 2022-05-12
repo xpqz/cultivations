@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>⍳⍸∊⍷∪∩~ &#8212; APL Cultivations</title>
+    <title>⍳⍸∊⍷∪≠∩~ &#8212; APL Cultivations</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -163,7 +163,7 @@
     <a class="current reference internal" href="#">
      <code class="docutils literal notranslate">
       <span class="pre">
-       ⍳⍸∊⍷∪∩~
+       ⍳⍸∊⍷∪≠∩~
       </span>
      </code>
     </a>
@@ -330,6 +330,11 @@
        ⍠
       </span>
      </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="UniqueMask.html">
+     Unique mask in depth
     </a>
    </li>
   </ul>
@@ -574,6 +579,16 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unique-mask">
+   Unique mask
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ≠
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intersection">
    Intersection
    <code class="docutils literal notranslate">
@@ -615,7 +630,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><code class="docutils literal notranslate"><span class="pre">⍳⍸∊⍷∪∩~</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">⍳⍸∊⍷∪≠∩~</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="index-generator">
 <h2>Index generator <code class="docutils literal notranslate"><span class="pre">⍳</span></code><a class="headerlink" href="#index-generator" title="Permalink to this headline">¶</a></h2>
 <p>Monadic <code class="docutils literal notranslate"><span class="pre">⍳</span></code> is the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Index%20Generator.htm">index generator</a>. <code class="docutils literal notranslate"><span class="pre">⍳a</span></code> generates an array of shape a where the elements are the indices for that element:</p>
@@ -936,14 +951,33 @@ For higher rank arrays, it works like <em>grade</em>, i.e. on major cells.</p>
 <p>The monadic <code class="docutils literal notranslate"><span class="pre">∪</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Unique.htm">unique</a>. It simply removes duplicates:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">∪</span><span class="s1">&#39;Mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">∪</span><span class="s1">&#39;mississippi&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">Misp
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">misp
 </span></div></div>
 </div>
+</div>
+<div class="section" id="unique-mask">
+<h2>Unique mask <code class="docutils literal notranslate"><span class="pre">≠</span></code><a class="headerlink" href="#unique-mask" title="Permalink to this headline">¶</a></h2>
+<p>Monadic <code class="docutils literal notranslate"><span class="pre">≠</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Unique%20Mask.htm">unique mask</a>. It returns a Boolean vector which, when used as left argument to <code class="docutils literal notranslate"><span class="pre">⌿</span></code> and with the original argument as right argument, returns the same as <code class="docutils literal notranslate"><span class="pre">∪</span></code> would on the original argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">∪</span><span class="s1">&#39;mississippi&#39;</span>
+<span class="o">≠</span><span class="s1">&#39;mississippi&#39;</span>
+<span class="kt">{</span><span class="p">(</span><span class="o">≠</span><span class="bp">⍵</span><span class="p">)</span><span class="na">⌿</span><span class="bp">⍵</span><span class="kt">}</span><span class="s1">&#39;mississippi&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">misp
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 1 0 0 0 0 0 1 0 0
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">misp
+</span></div></div>
+</div>
+<p>We’ll cover this in greater depth in a later <a class="reference internal" href="UniqueMask.html"><span class="doc std std-doc">chapter</span></a>.</p>
 </div>
 <div class="section" id="intersection">
 <h2>Intersection <code class="docutils literal notranslate"><span class="pre">∩</span></code><a class="headerlink" href="#intersection" title="Permalink to this headline">¶</a></h2>
