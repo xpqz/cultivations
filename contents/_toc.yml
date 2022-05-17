@@ -48,3 +48,4 @@ chapters:
 - file: CountingWords
 - file: PDI
 - file: UserCommands
+- file: Plotting
