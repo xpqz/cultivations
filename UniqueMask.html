@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unique mask in depth &#8212; APL Cultivations</title>
+    <title>Unique mask in depth ≠ &#8212; APL Cultivations</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -335,6 +335,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Unique mask in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ≠
+      </span>
+     </code>
     </a>
    </li>
   </ul>
@@ -399,6 +404,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="UserCommands.html">
    User commands
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting.html">
+   Plotting with SharpPlot
   </a>
  </li>
 </ul>
@@ -492,7 +502,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="unique-mask-in-depth">
-<h1>Unique mask in depth<a class="headerlink" href="#unique-mask-in-depth" title="Permalink to this headline">¶</a></h1>
+<h1>Unique mask in depth <code class="docutils literal notranslate"><span class="pre">≠</span></code><a class="headerlink" href="#unique-mask-in-depth" title="Permalink to this headline">¶</a></h1>
 <p>Let’s have a look at monadic <code class="docutils literal notranslate"><span class="pre">≠</span></code>, called called <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Unique%20Mask.htm">unique mask</a> or <em>nub sieve</em>. Note that it isn’t particularly related to the dyadic form (unequal). Instead, it relates to <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Unique.htm">unique</a>, <code class="docutils literal notranslate"><span class="pre">∪</span></code>. <em>Unique</em> returns a subset of the major cells of its argument. <em>Unique mask</em> returns a Boolean vector which, when used as left argument to <code class="docutils literal notranslate"><span class="pre">⌿</span></code> and with the original argument as right argument, returns the same as <em>unique</em> would on the original argument:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

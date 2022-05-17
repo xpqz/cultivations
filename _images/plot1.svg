@@ -1,0 +1,56 @@
+<svg version="1.1" baseProfile="full" width="100%" height="100%" viewBox="0 0 4320 3240"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" >
+<desc>Created by Causeway SVG engine - SharpPlot v3.71.0</desc>
+<g stroke-miterlimit="100">
+<desc>Paint the paper =====</desc>
+ <g fill="White" >
+  <rect x="0" y="0" width="4320" height="3240" />
+ </g>
+<desc>Border =====</desc>
+<desc>Region =====</desc>
+<desc>X-Axis Ticks =====</desc>
+<desc>X-Axis tickmarks</desc>
+ <path fill="none" stroke-width="7.2" stroke="Black" d="M400 2720L400 2764M770 2720L770 2764M1140 2720L1140 2764M1510 2720L1510 2764M1880 2720L1880 2764M2250 2720L2250 2764M2620 2720L2620 2764M2990 2720L2990 2764M3360 2720L3360 2764M3730 2720L3730 2764M4100 2720L4100 2764"/>
+<desc>Y-Axis Ticks =====</desc>
+<desc>Y-Axis tickmarks</desc>
+ <path fill="none" stroke-width="7.2" stroke="Black" d="M400 2720L367 2720M400 2515L367 2515M400 2309L367 2309M400 2104L367 2104M400 1898L367 1898M400 1693L367 1693M400 1487L367 1487M400 1282L367 1282M400 1076L367 1076M400 871L367 871M400 665L367 665M400 460L367 460"/>
+<desc>Axes =====</desc>
+ <path fill="none" stroke-width="12" stroke="Black" d="M400 2764L400 416M356 2720L4144 2720"/>
+<desc>Y-axis labels</desc>
+ <g font-family="Times New Roman" font-size="80" text-anchor="end" >
+  <text x="335" y="2740" >-9</text>
+  <text x="335" y="2535" >-8</text>
+  <text x="335" y="2329" >-7</text>
+  <text x="335" y="2124" >-6</text>
+  <text x="335" y="1918" >-5</text>
+  <text x="335" y="1713" >-4</text>
+  <text x="335" y="1507" >-3</text>
+  <text x="335" y="1302" >-2</text>
+  <text x="335" y="1096" >-1</text>
+  <text x="335" y="891" >0</text>
+  <text x="335" y="685" >1</text>
+  <text x="335" y="480" >2</text>
+ </g>
+<desc>for X-axis labels</desc>
+ <g font-family="Times New Roman" font-size="80" text-anchor="middle" >
+  <text x="400" y="2844" >0</text>
+  <text x="770" y="2844" >10</text>
+  <text x="1140" y="2844" >20</text>
+  <text x="1510" y="2844" >30</text>
+  <text x="1880" y="2844" >40</text>
+  <text x="2250" y="2844" >50</text>
+  <text x="2620" y="2844" >60</text>
+  <text x="2990" y="2844" >70</text>
+  <text x="3360" y="2844" >80</text>
+  <text x="3730" y="2844" >90</text>
+  <text x="4100" y="2844" >100</text>
+ </g>
+<desc>Heading, subheading and footnotes =====</desc>
+<desc>Start of Line Chart ===========</desc>
+<desc>Points follow ...</desc>
+<desc>Line</desc>
+ <g stroke-width="3" stroke="Navy" stroke-linejoin="round" stroke-linecap="round" fill="none" >
+  <path d="M4100 2524L4063 2607 4026 2516 3989 2311 3952 2315 3915 1816 3878 1814 3841 1830 3804 1880 3767 1501 3730 1738 3693 1508 3656 1317 3619 1510 3582 1725 3545 1717 3508 2038 3471 2070 3434 1970 3397 1602 3360 1616 3323 1785 3286 2042 3249 1596 3212 1468 3175 1335 3138 1419 3101 1564 3064 1462 3027 1755 2990 1713 2953 1672 2916 1600 2879 1335 2842 1058 2805 1171 2768 1330 2731 1207 2694 1280 2657 1496 2620 1074 2583 976 2546 1000 2509 1006 2472 1105 2435 1227 2398 1127 2361 1520 2324 1195 2287 1027 2250 982 2213 1005 2176 1285 2139 1115 2102 1361 2065 1543 2028 1378 1991 1241 1954 1232 1917 1020 1880 1188 1843 967 1806 1565 1769 1786 1732 1968 1695 1834 1658 1731 1621 1669 1584 1613 1547 1099 1510 1207 1473 1249 1436 1412 1399 1205 1362 1063 1325 846 1288 847 1251 566 1214 702 1177 1048 1140 830 1103 952 1066 1001 1029 626 992 676 955 754 918 865 881 1081 844 820 807 658 770 571 733 697 696 777 659 927 622 868 585 984 548 1047 511 1430 474 1482 437 1437" />
+ </g>
+<desc>Reset to original origin</desc>
+</g>
+</svg>

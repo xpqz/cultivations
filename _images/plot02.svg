@@ -1,0 +1,101 @@
+<svg version="1.1" baseProfile="full" width="100%" height="100%" viewBox="0 0 4320 3240"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" >
+<desc>Created by Causeway SVG engine - SharpPlot v3.71.0</desc>
+<g stroke-miterlimit="100">
+<desc>Paint the paper =====</desc>
+ <g fill="White" >
+  <rect x="0" y="0" width="4320" height="3240" />
+ </g>
+<desc>Border =====</desc>
+<desc>Region =====</desc>
+<desc>X-Axis Ticks =====</desc>
+<desc>X-Axis Grid</desc>
+ <path fill="none" stroke-width="1.8" stroke="Silver" d="M400 2720L400 460M770 2720L770 460M1140 2720L1140 460M1510 2720L1510 460M1880 2720L1880 460M2250 2720L2250 460M2620 2720L2620 460M2990 2720L2990 460M3360 2720L3360 460M3730 2720L3730 460M4100 2720L4100 460"/>
+<desc>X-Axis tickmarks</desc>
+ <path fill="none" stroke-width="7.2" stroke="Black" d="M400 2720L400 2764M770 2720L770 2764M1140 2720L1140 2764M1510 2720L1510 2764M1880 2720L1880 2764M2250 2720L2250 2764M2620 2720L2620 2764M2990 2720L2990 2764M3360 2720L3360 2764M3730 2720L3730 2764M4100 2720L4100 2764"/>
+<desc>Y-Axis Ticks =====</desc>
+<desc>Y grid</desc>
+ <path fill="none" stroke-width="1.8" stroke="Silver" d="M400 2720L4100 2720M400 2532L4100 2532M400 2343L4100 2343M400 2155L4100 2155M400 1967L4100 1967M400 1778L4100 1778M400 1590L4100 1590M400 1402L4100 1402M400 1213L4100 1213M400 1025L4100 1025M400 837L4100 837M400 648L4100 648M400 460L4100 460"/>
+<desc>Y-Axis tickmarks</desc>
+ <path fill="none" stroke-width="7.2" stroke="Black" d="M400 2720L367 2720M400 2532L367 2532M400 2343L367 2343M400 2155L367 2155M400 1967L367 1967M400 1778L367 1778M400 1590L367 1590M400 1402L367 1402M400 1213L367 1213M400 1025L367 1025M400 837L367 837M400 648L367 648M400 460L367 460"/>
+<desc>Axes =====</desc>
+ <path fill="none" stroke-width="12" stroke="Black" d="M400 2764L400 416M356 2720L4144 2720"/>
+<desc>Y-axis labels</desc>
+ <g font-family="Times New Roman" font-size="80" text-anchor="end" >
+  <text x="335" y="2740" >60</text>
+  <text x="335" y="2552" >65</text>
+  <text x="335" y="2363" >70</text>
+  <text x="335" y="2175" >75</text>
+  <text x="335" y="1987" >80</text>
+  <text x="335" y="1798" >85</text>
+  <text x="335" y="1610" >90</text>
+  <text x="335" y="1422" >95</text>
+  <text x="335" y="1233" >100</text>
+  <text x="335" y="1045" >105</text>
+  <text x="335" y="857" >110</text>
+  <text x="335" y="668" >115</text>
+  <text x="335" y="480" >120</text>
+ </g>
+<desc>for X-axis labels</desc>
+ <g font-family="Times New Roman" font-size="80" text-anchor="middle" >
+  <text x="400" y="2844" >25-04-2019</text>
+  <text x="1140" y="2844" >15-05-2019</text>
+  <text x="1880" y="2844" >04-06-2019</text>
+  <text x="2620" y="2844" >24-06-2019</text>
+  <text x="3360" y="2844" >14-07-2019</text>
+  <text x="4100" y="2844" >03-08-2019</text>
+ </g>
+<desc>Heading, subheading and footnotes =====</desc>
+<desc>Start of Line Chart ===========</desc>
+<desc>Points follow ...</desc>
+<desc>Risers</desc>
+ <path fill="none" stroke-width="3" stroke="Blue" d="M3101 2682L3101 2720M2250 1515L2250 2720M1732 535L1732 2720M1399 1929L1399 2720"/>
+<desc>Markers</desc>
+ <g fill="Blue" stroke="White" >
+  <circle cx="3101" cy="2682" r="15" />
+  <circle cx="2250" cy="1515" r="15" />
+  <circle cx="1732" cy="535" r="15" />
+  <circle cx="1399" cy="1929" r="15" />
+ </g>
+<desc>Points follow ...</desc>
+<desc>Risers</desc>
+ <path fill="none" stroke-width="3" stroke="Red" d="M3175 686L3175 2720M2953 2155L2953 2720M4026 573L4026 2720M3730 950L3730 2720"/>
+<desc>Markers</desc>
+ <g fill="Red" stroke="White" >
+  <circle cx="3175" cy="686" r="15" />
+  <circle cx="2953" cy="2155" r="15" />
+  <circle cx="4026" cy="573" r="15" />
+  <circle cx="3730" cy="950" r="15" />
+ </g>
+<desc>Points follow ...</desc>
+<desc>Risers</desc>
+ <path fill="none" stroke-width="3" stroke="Green" d="M696 2682L696 2720M1917 2155L1917 2720"/>
+<desc>Markers</desc>
+ <g fill="Green" stroke="White" >
+  <circle cx="696" cy="2682" r="15" />
+  <circle cx="1917" cy="2155" r="15" />
+ </g>
+<desc>Key =====</desc>
+<desc>Key - Marker</desc>
+ <g fill="Blue" stroke="White" >
+  <circle cx="523" cy="3005" r="15" />
+ </g>
+<desc>Key - Marker</desc>
+ <g fill="Red" stroke="White" >
+  <circle cx="1065" cy="3005" r="15" />
+ </g>
+<desc>Key - Marker</desc>
+ <g fill="Green" stroke="White" >
+  <circle cx="1712" cy="3005" r="15" />
+ </g>
+ <g fill="Navy" font-family="Times New Roman" font-size="90" >
+  <text x="601" y="3032" >Groceries</text>
+ </g>
+ <g fill="Navy" font-family="Times New Roman" font-size="90" >
+  <text x="1143" y="3032" >Subscription</text>
+ </g>
+ <g fill="Navy" font-family="Times New Roman" font-size="90" >
+  <text x="1790" y="3032" >Entertainment</text>
+ </g>
+<desc>Reset to original origin</desc>
+</g>
+</svg>
