@@ -36,6 +36,7 @@ chapters:
   - file: Encode
   - file: Variant
   - file: UniqueMask
+  - file: Domino
 - file: ObjectOrientation
   sections:
   - file: Namespaces
