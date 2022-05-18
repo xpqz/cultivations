@@ -621,6 +621,36 @@
    </code>
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-conversion-c">
+   Case conversion
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕C
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#date-time-conversions-dt">
+   Date-time conversions
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕DT
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format-date-time-1200">
+   Format Date-Time
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     1200⌶
+    </span>
+   </code>
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -975,6 +1005,203 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
 &lt;/xml&gt;
 </span></div></div>
 </div>
+</div>
+<div class="section" id="case-conversion-c">
+<h2>Case conversion <code class="docutils literal notranslate"><span class="pre">⎕C</span></code><a class="headerlink" href="#case-conversion-c" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">⎕C</span></code> provides various handy <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/c.htm">case conversion</a> operations for strings. The left argument, if given, currently has to be a single simple scalar integer, 1 or ¯1 or ¯3:</p>
+<ul class="simple">
+<li><p>1 does upper-casing</p></li>
+<li><p>¯1 does lower-casing</p></li>
+<li><p>¯3 does case normalisation</p></li>
+</ul>
+<p>For ASCII, and most European languages, there’s no difference between lowercasing and normalising case. However, some languages have multiple forms of a single letter. Normalising makes all those forms the same, so they can be compared easily. For example, Greek has two lowercase forms of Σ: σ and ς. Even Latin script (like in English and German) used to use a medial form of S: ſ. Note that it does <em>not</em> “de-diacriticize”: á and a are still seen as different. Nor does it do decomposition or other length-changing normalisation. The constants 2 and ¯2 and ¯4 are reserved for length-changing mapping (upper/lower) and folding (normalisation) in the future.</p>
+<p>Here’s an example: given a character vector, uppercase the first character.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;hello, world!&#39; → &#39;Hello, world!&#39; 
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="nf">⎕C</span><span class="na">@</span><span class="m">1</span><span class="o">⊢</span><span class="s1">&#39;hello, world!&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">Hello, world!
+</span></div></div>
+</div>
+<p>Next up: a better (still not perfect) palindrome checker. Given a string without diacritics, but which may have spaces, determine if it is a palindrome. Examples:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;race car&#39; → 1
+&#39;Σοφος&#39; → 1
+&#39;hello&#39; → 0
+&#39;Νιψον ανομηματα μη μοναν οψιν&#39; → 1 
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="o">⊢≡⌽</span><span class="p">)</span><span class="m">¯3</span><span class="nf">⎕C</span><span class="o">~</span><span class="na">∘</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="na">¨</span> <span class="s1">&#39;race car&#39;</span> <span class="s1">&#39;Σοφος&#39;</span> <span class="s1">&#39;hello&#39;</span> <span class="s1">&#39;Νιψον ανομηματα μη μοναν οψιν&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 0 1
+</span></div></div>
+</div>
+<p>Here’s a trick too: monadic <code class="docutils literal notranslate"><span class="pre">⎕C</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">¯3∘⎕C</span></code>.</p>
+</div>
+<div class="section" id="date-time-conversions-dt">
+<h2>Date-time conversions <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code><a class="headerlink" href="#date-time-conversions-dt" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">⎕DT</span></code> provides a wealth of <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/dt.htm">date-time conversions</a>. It allows you to convert any numeric representation of a date-time into any other representation. You can use it to glue together two 3rd-party systems that otherwise can’t easily communicate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">20</span> <span class="nf">⎕DT</span> <span class="m">44053.674</span> <span class="c1">⍝ Dyalog to Unix time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1597162233
+</span></div></div>
+</div>
+<p>Dyalog’s basic representation of a moment is the number of days since 1899-12-31. The advantage of Dyalog’s system (which was actually the original one) is that you can then find the day-of-week with <code class="docutils literal notranslate"><span class="pre">7|⌊</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">7</span><span class="o">|⌊</span><span class="m">44053.674</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
+</span></div></div>
+</div>
+<p>0: Sunday, 1: Monday, etc.</p>
+<p>Does anyone use some software that has its own date format? Answer: yes, you all do. APL does. It has the 7-element vector <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code> for the current <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/ts.htm">Time Stamp</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span> <span class="nf">⎕DT</span> <span class="m">44053.674</span> <span class="c1">⍝ to ⎕TS</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────────────────────┐
+│2020 8 11 16 10 33 600│
+└──────────────────────┘
+</span></div></div>
+</div>
+<p>The left argument tells <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code> what you want to convert to. The numbers are largely arbitrary, but not entirely so. Positive codes indicate a scalar format (one number per date-time) and negative numbers indicate a vector format (multiple numbers per date-time). Also, the number divided by 10 and floored indicates the family. So we had 2(0) for UNIX and 4(0) for applications (Excel). The last element of <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code> is the milliseconds. We can get more precision in the <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code>-style result by using <code class="docutils literal notranslate"><span class="pre">¯2</span></code> for microseconds and <code class="docutils literal notranslate"><span class="pre">¯3</span></code> for nanoseconds:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯2</span> <span class="nf">⎕DT</span> <span class="m">44053.674</span>
+<span class="m">¯3</span> <span class="nf">⎕DT</span> <span class="m">44053.674</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────────────────────────┐
+│2020 8 11 16 10 33 600000│
+└─────────────────────────┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────────────────────────────┐
+│2020 8 11 16 10 33 600000000│
+└────────────────────────────┘
+</span></div></div>
+</div>
+<p>Notice also that vector formats are enclosed. This allows <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code> to handle arrays of dates:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span> <span class="nf">⎕DT</span> <span class="m">44053</span><span class="o">+⍳</span><span class="m">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────────────────┬─────────────────┬─────────────────┐
+│2020 8 12 0 0 0 0│2020 8 13 0 0 0 0│2020 8 14 0 0 0 0│
+└─────────────────┴─────────────────┴─────────────────┘
+</span></div></div>
+</div>
+<p>There are many of these codes; we won’t cover them all here, but they are readily available in the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/dt.htm">documentation</a>. What you do need to know is how to convert from one of these formats. Until now, we’ve just used the Dyalog day number. That’s the default for simple scalars in the right argument. The default for enclosed vectors is the <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code> format (<code class="docutils literal notranslate"><span class="pre">¯1</span></code>). If your input is anything else, you need to give <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code> a two-element left argument. The first element is the input type, and the second is the output type.</p>
+<p>For example, this converts an ISO year, week of year, day of week to <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code>-style:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯11</span> <span class="m">¯1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">40</span> <span class="m">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────────────────┐
+│2020 9 30 0 0 0 0│
+└─────────────────┘
+</span></div></div>
+</div>
+<p>Another example: given two ISO-style dates (as a 2 element vector of Y,M,D vectors), compute the inclusive number of days between them. E.g. <code class="docutils literal notranslate"><span class="pre">(2020</span> <span class="pre">6</span> <span class="pre">25)(2020</span> <span class="pre">08</span> <span class="pre">10)</span></code> should give 47. <code class="docutils literal notranslate"><span class="pre">(2020</span> <span class="pre">08</span> <span class="pre">10)(2020</span> <span class="pre">6</span> <span class="pre">25)</span></code> should also give 47. <code class="docutils literal notranslate"><span class="pre">(2020</span> <span class="pre">08</span> <span class="pre">10)(2020</span> <span class="pre">08</span> <span class="pre">10)</span></code> should give 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">diff</span> <span class="kd">←</span> <span class="kt">{</span><span class="m">1</span><span class="o">+|-</span><span class="na">/</span><span class="m">1</span><span class="nf">⎕DT</span><span class="bp">⍵</span><span class="kt">}</span>
+<span class="nv">diff</span> <span class="p">(</span><span class="m">2020</span> <span class="m">6</span> <span class="m">25</span><span class="p">)(</span><span class="m">2020</span> <span class="m">08</span> <span class="m">10</span><span class="p">)</span>
+<span class="nv">diff</span> <span class="p">(</span><span class="m">2020</span> <span class="m">08</span> <span class="m">10</span><span class="p">)(</span><span class="m">2020</span> <span class="m">6</span> <span class="m">25</span><span class="p">)</span>
+<span class="nv">diff</span> <span class="p">(</span><span class="m">2020</span> <span class="m">08</span> <span class="m">10</span><span class="p">)(</span><span class="m">2020</span> <span class="m">08</span> <span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">47
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">47
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1
+</span></div></div>
+</div>
+</div>
+<div class="section" id="format-date-time-1200">
+<h2>Format Date-Time <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code><a class="headerlink" href="#format-date-time-1200" title="Permalink to this headline">¶</a></h2>
+<p>Above we covered how to convert between different numerical date-time representations. What about converting a numeric date-time representation to text? For that we can use the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/I%20Beam%20Functions/Format%20Datetime.htm">Format Date-Time</a> I-beam function, <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code>.</p>
+<p>When you want to convert a numeric date-time to text, the first step is always to convert it to a Dyalog day number. After that, you can use <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code> to convert that to text. It takes a left argument which is a format pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;YYYY DD MM hhmm&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">08</span> <span class="m">11</span> <span class="m">11</span> <span class="m">32</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────────┐
+│2020 11 08 1132│
+└───────────────┘
+</span></div></div>
+</div>
+<p>The system in the pattern for <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code> is that numeric parts of the date are uppercase, while parts of the time are lowercase. You can use a single character for a variable-width pattern, or multi-character for a 0-padded pattern. If instead you want space-padding, use an underscore as the first character:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;YYYY-DD-MM@hh:mm&#39;</span> <span class="s1">&#39;YYYY-D-M@h:m&#39;</span> <span class="s1">&#39;YYYY-_D-_M@_h:_m&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="na">¨</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">8</span> <span class="m">11</span> <span class="m">1</span> <span class="m">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────────────────┬───────────────┬──────────────────┐
+│┌────────────────┐│┌─────────────┐│┌────────────────┐│
+││2020-11-08@01:03│││2020-11-8@1:3│││2020-11- 8@ 1: 3││
+│└────────────────┘│└─────────────┘│└────────────────┘│
+└──────────────────┴───────────────┴──────────────────┘
+</span></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">t</span></code> is for 12-hour. <code class="docutils literal notranslate"><span class="pre">h</span></code> is for 24-hour. Furthermore, the format also allows for casing and languages other than English:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;YYYY MMM D &quot;at&quot; h:mm&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">8</span> <span class="m">1</span> <span class="m">4</span> <span class="m">30</span>
+<span class="s1">&#39;YYYY Mmm D&#39;</span> <span class="s1">&#39;YYYY mmm D&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="na">¨</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">8</span> <span class="m">1</span>
+<span class="s1">&#39;__fr__YYYY Mmmm D&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">8</span> <span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────────────────┐
+│2020 AUG 1 at 4:30│
+└──────────────────┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────────────┬────────────┐
+│┌──────────┐│┌──────────┐│
+││2020 Aug 1│││2020 aug 1││
+│└──────────┘│└──────────┘│
+└────────────┴────────────┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┐
+│2020 Août 1│
+└───────────┘
+</span></div></div>
+</div>
+<p>Like <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code>, <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code> has lots of options, including custom languages. Have a look at the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/I%20Beam%20Functions/Format%20Datetime.htm">documentation</a>.</p>
 </div>
 </div>
 
