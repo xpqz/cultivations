@@ -859,6 +859,142 @@ For higher rank arrays, <code class="docutils literal notranslate"><span class="
 └∊──────────────────┘
 </span></div></div>
 </div>
+<p>The left argument does not have to be a Boolean vector, but can in fact be any simple numeric vector. We can think of each number as specifying the number of steps to the left of its next neighbour it is. In other words, we can generate empty segments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="o">⊂</span> <span class="s1">&#39;ABCDEFGH&#39;</span>
+<span class="m">1</span> <span class="m">0</span> <span class="m">2</span> <span class="m">0</span> <span class="m">5</span> <span class="m">0</span> <span class="m">2</span> <span class="m">0</span> <span class="o">⊂</span> <span class="s1">&#39;ABCDEFGH&#39;</span>
+<span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">2</span> <span class="m">2</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="o">⊂</span> <span class="s1">&#39;KenEIverson&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬──┬──┬──┐
+│AB│CD│EF│GH│
+└──┴──┴──┴──┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬┬──┬┬┬┬┬──┬┬──┐
+│AB││CD│││││EF││GH│
+└──┴┴──┴┴┴┴┴──┴┴──┘
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬┬─┬┬───────┐
+│Ken││E││Iverson│
+└───┴┴─┴┴───────┘
+</span></div></div>
+</div>
+<p>Here’s a practical example. Let’s say we have some sorted data, and we’ll like to group it by interval.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">values</span>  <span class="kd">←</span> <span class="m">3</span> <span class="m">14</span> <span class="m">15</span> <span class="m">35</span> <span class="m">65</span> <span class="m">89</span> <span class="m">92</span>
+<span class="nv">cutoffs</span> <span class="kd">←</span> <span class="m">0</span> <span class="m">20</span> <span class="m">40</span> <span class="m">60</span> <span class="m">80</span> <span class="m">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to end up with <code class="docutils literal notranslate"><span class="pre">(3</span> <span class="pre">14</span> <span class="pre">15)</span> <span class="pre">(,35)</span> <span class="pre">⍬</span> <span class="pre">(,65)</span> <span class="pre">(89</span> <span class="pre">92)</span></code>. That is, all the numbers in the interval <code class="docutils literal notranslate"><span class="pre">[0,20)</span></code> and in <code class="docutils literal notranslate"><span class="pre">[20,40)</span></code> etc. To get the index of each value’s interval, we begin by applying Interval Index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cutoffs</span> <span class="o">⍸</span> <span class="nv">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 1 2 4 5 5
+</span></div></div>
+</div>
+<p>Now, you might think that Key <code class="docutils literal notranslate"><span class="pre">⌸</span></code> could do the trick, but then we’d have to insert all the possible intervals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">cutoffs</span><span class="o">⍸</span><span class="nv">values</span><span class="p">)</span> <span class="kt">{</span><span class="o">⊂</span><span class="m">1</span><span class="o">↓</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌸⍥</span><span class="kt">{</span><span class="bp">⍵</span><span class="o">,</span><span class="na">⍨</span><span class="o">⍳≢</span><span class="nv">cutoffs</span><span class="kt">}</span> <span class="nv">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────┬──┬┬──┬─────┬┐
+│3 14 15│35││65│89 92││
+└───────┴──┴┴──┴─────┴┘
+</span></div></div>
+</div>
+<p>However, using partitioned enclose with a non-Boolean left argument, we can craft a much more elegant solution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">1</span><span class="o">,</span><span class="m">2</span><span class="o">-</span><span class="na">⍨/</span><span class="nv">cutoffs</span><span class="o">⍸</span><span class="nv">values</span><span class="p">)</span><span class="o">⊂</span><span class="nv">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────┬──┬┬──┬─────┐
+│3 14 15│35││65│89 92│
+└───────┴──┴┴──┴─────┘
+</span></div></div>
+</div>
+<p>or, as a train,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cutoffs</span> <span class="p">(</span><span class="o">⊢⊂</span><span class="na">⍨</span><span class="m">1</span><span class="o">,</span><span class="m">2</span><span class="o">-</span><span class="na">⍨/</span><span class="o">⍸</span><span class="p">)</span> <span class="nv">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────┬──┬┬──┬─────┐
+│3 14 15│35││65│89 92│
+└───────┴──┴┴──┴─────┘
+</span></div></div>
+</div>
+<p>Here’s another handy trick. Let’s say we want to split a vector at a given set of indices, in other words,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">mask</span> <span class="kd">←</span> <span class="vg">⎕</span> <span class="kd">←</span><span class="s1">&#39;KenEIverson&#39;</span><span class="o">∊</span><span class="nf">⎕A</span>
+<span class="nv">mask</span> <span class="o">⊂</span> <span class="s1">&#39;KenEIverson&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0 0 1 1 0 0 0 0 0 0
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬─┬───────┐
+│Ken│E│Iverson│
+└───┴─┴───────┘
+</span></div></div>
+</div>
+<p>…but if instead of the mask, we started with the indices of the 1s: 1 4 5?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⍸</span><span class="na">⍣</span><span class="m">¯1</span><span class="o">⊢</span><span class="m">1</span> <span class="m">4</span> <span class="m">5</span><span class="p">)</span><span class="o">⊂</span><span class="s1">&#39;KenEIverson&#39;</span> <span class="c1">⍝ ⍸ has an inverse!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬─┬───────┐
+│Ken│E│Iverson│
+└───┴─┴───────┘
+</span></div></div>
+</div>
+<p>Anyway, this shows another extension introduced in 18.0, namely that <code class="docutils literal notranslate"><span class="pre">⍸⍣¯1</span></code> conveniently works, but what you might not notice is that it also shows a further extension of <code class="docutils literal notranslate"><span class="pre">⊂</span></code>. Observe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="vg">⎕</span><span class="kd">←</span><span class="o">⍸</span><span class="na">⍣</span><span class="m">¯1</span><span class="o">⊢</span><span class="m">1</span> <span class="m">4</span> <span class="m">5</span><span class="p">)</span><span class="o">⊂</span><span class="s1">&#39;KenEIverson&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0 0 1 1
+┌───┬─┬───────┐
+│Ken│E│Iverson│
+└───┴─┴───────┘
+</span></div></div>
+</div>
+<p>Note that the length of <code class="docutils literal notranslate"><span class="pre">⍸⍣¯1⊢1</span> <span class="pre">4</span> <span class="pre">5</span></code> doesn’t match the length of the string. Until 17.1, the arguments of <code class="docutils literal notranslate"><span class="pre">⊂</span></code> had to have exactly the same length. Now, the left argument can have any length up until 1+the length of the right argument, to allow some empty partitions at the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="m">2</span><span class="o">⊂</span><span class="s1">&#39;Hello&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬─┬─┬┬┐
+│Hel│l│o│││
+└───┴─┴─┴┴┘
+</span></div></div>
+</div>
+<p>So <code class="docutils literal notranslate"><span class="pre">⊂</span></code> will assume that any “missing” elements in its left argument are 0.</p>
 </div>
 <div class="section" id="disclose">
 <h2>Disclose <code class="docutils literal notranslate"><span class="pre">⊃</span></code><a class="headerlink" href="#disclose" title="Permalink to this headline">¶</a></h2>
