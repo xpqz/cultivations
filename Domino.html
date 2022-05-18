@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Counting words, faster &#8212; APL Cultivations</title>
+    <title>Domino in depth ⌹ &#8212; APL Cultivations</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -43,6 +43,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -53,8 +55,8 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Lookup without replacement" href="PDI.html" />
-    <link rel="prev" title="Complex numbers" href="Complex.html" />
+    <link rel="next" title="Object-oriented APL" href="ObjectOrientation.html" />
+    <link rel="prev" title="Unique mask in depth ≠" href="UniqueMask.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -262,16 +264,16 @@
    Primitive operators
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="InDepth.html">
    Deep dives
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Rank.html">
      Rank in depth
@@ -342,8 +344,8 @@
      </code>
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Domino.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Domino in depth
      <code class="docutils literal notranslate">
       <span class="pre">
@@ -401,8 +403,8 @@
    Complex numbers
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="CountingWords.html">
    Counting words, faster
   </a>
  </li>
@@ -462,7 +464,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/CountingWords.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Domino.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -482,7 +484,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FCountingWords.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FDomino.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -511,173 +513,191 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="counting-words-faster">
-<h1>Counting words, faster<a class="headerlink" href="#counting-words-faster" title="Permalink to this headline">¶</a></h1>
-<p>As a practical application, let’s consider the counting of words in a string. There are many ways to do that, but I’ll show you how an array oriented approach can give tremendous speed-ups. But first we have to generate some test data. Since actual letters don’t matter, we’ll just have a text consisting of <code class="docutils literal notranslate"><span class="pre">XY,</span></code>.  <code class="docutils literal notranslate"><span class="pre">,</span></code> will be our “space” because it is easier to see that way. Now a Perl programmer would, of course, jump to regular expressions. As we’ve seen, Dyalog APL has a really powerful support for the PCRE-flavour of regular expressions built-in:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="domino-in-depth">
+<h1>Domino in depth <code class="docutils literal notranslate"><span class="pre">⌹</span></code><a class="headerlink" href="#domino-in-depth" title="Permalink to this headline">¶</a></h1>
+<p>Matrix inversion, <code class="docutils literal notranslate"><span class="pre">⌹</span></code>, is often called <em>domino</em> due to its symbol which isn’t really a domino (<code class="docutils literal notranslate"><span class="pre">🁫</span></code>) at all, but rather a division sign in a quad, the latter representing division/inversion (<code class="docutils literal notranslate"><span class="pre">÷</span></code>). You’re of course familiar with the <code class="docutils literal notranslate"><span class="pre">÷</span></code> primitive. Perhaps you also know that matrix multiplication is <code class="docutils literal notranslate"><span class="pre">+.×</span></code> but that we don’t have a corresponding operator for matrix division. You <em>can</em> actually use <code class="docutils literal notranslate"><span class="pre">+.×⍣¯1</span></code> for matrix division, but since <code class="docutils literal notranslate"><span class="pre">⍣</span></code> wasn’t always around (and certainly not <code class="docutils literal notranslate"><span class="pre">⍣¯1</span></code>) and for notational ease, <code class="docutils literal notranslate"><span class="pre">⌹</span></code> provides this functionality too. Matrix inversion, what is that? Well, for a square matrix <span class="math notranslate nohighlight">\(A\)</span>, its inverse <span class="math notranslate nohighlight">\(A^{-1}\)</span> is a matrix such that when the two are multiplied together, the result is the identity matrix:</p>
+<div class="math notranslate nohighlight">
+\[
+AA^{-1} = A^{-1}A = I
+\]</div>
+<p>Let’s keep two easy-to-remember matrices at hand:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">≢</span><span class="s1">&#39;[^,]+&#39;</span><span class="nf">⎕S</span> <span class="m">3</span><span class="o">⊢</span><span class="s1">&#39;,YYY,,YYYYYY,,XXXXXX,YYYYYYXXYYY,YYYXXYYYXX,XX,XXYYYXXXX,YYY&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">E</span><span class="kd">←</span><span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="m">2</span> <span class="m">7</span> <span class="m">1</span> <span class="m">8</span>
+<span class="vg">⎕</span><span class="kd">←</span><span class="nv">P</span><span class="kd">←</span><span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span> <span class="m">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">8
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">2 7
+1 8
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">3 1
+4 1
 </span></div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">⎕S</span></code> is an operator which takes the regex on its left and what to return for each match on its right. 3 is a special code meaning the pattern number, which is just 0 because we only have one regex. Then we tally (count) that with <code class="docutils literal notranslate"><span class="pre">≢</span></code> and we’re done.</p>
-<p>Another approach is to just split on the delimiter: a good job for <code class="docutils literal notranslate"><span class="pre">⊆</span></code> here. If you give it a Boolean mask as left argument, it isolates runs corresponding to runs of 1s, discarding the elements corresponding to 0s:</p>
+<p>If we invert <code class="docutils literal notranslate"><span class="pre">P</span></code> we get:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="o">≠</span><span class="s1">&#39;,YYY,,YYYYYY,,XXXXXX,YYYYYYXXYYY,YYYXXYYYXX,XX,XXYYYXXXX,YYY&#39;</span>      <span class="c1">⍝ non-delimiters</span>
-<span class="s1">&#39;,&#39;</span><span class="p">(</span><span class="o">≠⊆⊢</span><span class="p">)</span><span class="s1">&#39;,YYY,,YYYYYY,,XXXXXX,YYYYYYXXYYY,YYYXXYYYXX,XX,XXYYYXXXX,YYY&#39;</span>  <span class="c1">⍝ groups corresponding to runs of 1s</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⌹</span><span class="nv">P</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬──────┬──────┬───────────┬──────────┬──┬─────────┬───┐
-│YYY│YYYYYY│XXXXXX│YYYYYYXXYYY│YYYXXYYYXX│XX│XXYYYXXXX│YYY│
-└───┴──────┴──────┴───────────┴──────────┴──┴─────────┴───┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1 1 1 0 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1  1
+ 4 ¯3
 </span></div></div>
 </div>
-<p>Read <code class="docutils literal notranslate"><span class="pre">≠⊆⊢</span></code> as “the difference partitions the right argument”. What remains is to count the partitions:</p>
+<p>And indeed:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="p">(</span><span class="o">≢≠⊆⊢</span><span class="p">)</span><span class="s1">&#39;,YYY,,YYYYYY,,XXXXXX,YYYYYYXXYYY,YYYXXYYYXX,XX,XXYYYXXXX,YYY&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">P</span><span class="o">+</span><span class="na">.</span><span class="o">×⌹</span><span class="nv">P</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">8
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0
+0 1
 </span></div></div>
 </div>
-<p>This solution has an issue, but before we get to that, let’s compare the performance of the “pure” APL solution to the regex solution.</p>
+<p>In mathematics, matrix division as a notation isn’t usually used. Instead, mathematicians use multiplication by an inverse. However, the analogy with <code class="docutils literal notranslate"><span class="pre">×</span></code> and <code class="docutils literal notranslate"><span class="pre">÷</span></code> <em>is</em> pretty obvious, so APL defines <code class="docutils literal notranslate"><span class="pre">A⌹B</span></code> as <code class="docutils literal notranslate"><span class="pre">(⌹B)+.×A</span></code> just like <code class="docutils literal notranslate"><span class="pre">a÷b</span></code> is <code class="docutils literal notranslate"><span class="pre">(÷b)×a</span></code> (remember though that matrix multiplication isn’t commutative!):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cmpx</span> <span class="s1">&#39;≢&#39;&#39;[^,]+&#39;&#39;⎕S 3⊢t&#39;</span> <span class="s1">&#39;s(≢≠⊆⊢)t&#39;</span> <span class="o">⊣</span> <span class="nv">s</span><span class="kd">←</span><span class="s1">&#39;,&#39;</span> <span class="o">⊣</span> <span class="vg">⎕</span><span class="kd">←</span><span class="o">≢</span><span class="nv">t</span><span class="kd">←</span><span class="s1">&#39;,XY&#39;</span><span class="sr">[</span><span class="na">/⍨</span><span class="o">?</span><span class="m">1e6</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span> <span class="o">⊣</span> <span class="s1">&#39;cmpx&#39;</span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">E</span><span class="o">⌹</span><span class="nv">P</span>
+<span class="p">(</span><span class="o">⌹</span><span class="nv">P</span><span class="p">)</span><span class="o">+</span><span class="na">.</span><span class="o">×</span><span class="nv">E</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2000631
-  ≢'[^,]+'⎕S 3⊢t → 1.3E¯1 |   0% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕
-  s(≢≠⊆⊢)t       → 1.3E¯2 | -90% ⎕⎕⎕⎕                                    
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1 1
+ 5 4
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1 1
+ 5 4
 </span></div></div>
 </div>
-<p>On about 2 million characters we’re saving two thirds of the running time by using the split and count approach over regex. Quite a bit faster, but there is more scope: it is problematic that we split the array to count the pieces, as this has to make a new (pointer!) array.</p>
-<p>So our issue is that we need to ignore multiple spaces. We actually need to do <em>edge detection</em>. If we have a text, say <code class="docutils literal notranslate"><span class="pre">,YYY,,YYYYYY,,</span></code> we want to see whenever we go from a non-space to a space (or the opposite). The only gotcha is at the end, if there are no trailing spaces, we will miss the last word. APL has the “find” function <code class="docutils literal notranslate"><span class="pre">⍷</span></code>:</p>
+<p>So far, there’s nothing much controversial here. However, <code class="docutils literal notranslate"><span class="pre">⌹</span></code> isn’t just for matrices. You can use it on vectors too, or even on a matrix and a vector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;ss&#39;</span><span class="o">⍷</span><span class="s1">&#39;mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="m">7</span><span class="o">⌹</span><span class="m">3</span> <span class="m">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 1 0 0 1 0 0 0 0 0
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1.3
 </span></div></div>
 </div>
-<p>It indicates the beginning of its left argument (“the top-left corner”) in its right argument. So now we can create an is-space mask, and look for <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span></code>.</p>
+<p>What does this mean? Well, following the above reasoning, we can perhaps see that the following should be equivalent:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="o">=</span><span class="s1">&#39;,YYY,,YYYYYY,,&#39;</span>        <span class="c1">⍝ is-space mask</span>
-<span class="m">0</span> <span class="m">1</span><span class="o">⍷</span><span class="s1">&#39;,&#39;</span><span class="o">=</span><span class="s1">&#39;,YYY,,YYYYYY,,&#39;</span>    <span class="c1">⍝ locate star points for 0 1 patterns</span>
-<span class="o">+</span><span class="na">/</span><span class="m">0</span> <span class="m">1</span><span class="o">⍷</span><span class="s1">&#39;,&#39;</span><span class="o">=</span><span class="s1">&#39;,YYY,,YYYYYY,,&#39;</span>  <span class="c1">⍝ count them</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⌹</span><span class="m">3</span> <span class="m">1</span><span class="p">)</span><span class="o">+</span><span class="na">.</span><span class="o">×</span><span class="m">2</span> <span class="m">7</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0 0 0 1 1 0 0 0 0 0 0 1 1
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 0 1 0 0 0 0 0 0 0 1 0 0
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">2
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1.3
 </span></div></div>
 </div>
-<p>However, it counts wrong here:</p>
+<p>and that <code class="docutils literal notranslate"><span class="pre">⌹</span> <span class="pre">v</span></code> represents the vector divided by the square of its norm:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">/</span><span class="m">0</span> <span class="m">1</span><span class="o">⍷</span><span class="s1">&#39;,&#39;</span><span class="o">=</span><span class="s1">&#39;,YYY,,YYYYYY&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span> <span class="o">⌹</span><span class="m">3</span> <span class="m">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.3 0.1
 </span></div></div>
 </div>
-<p>So we need to add a “space” to the end.</p>
+<p>Another way to think of it is that <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">7⌹3</span> <span class="pre">1</span></code> is the “length” of the component of <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">7</span></code> in the <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">1</span></code>-direction.</p>
+<p><img alt="vectors" src="_images/vectors.gif" />
+In other words, if we project <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">7</span></code> perpendicularly to the extension of <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">1</span></code> we hit a point on <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">1</span></code>’s extension which is <code class="docutils literal notranslate"><span class="pre">1.3×3</span> <span class="pre">1</span></code> from <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">0</span></code>.</p>
+<p>This kind of leads us towards some of the tricks <code class="docutils literal notranslate"><span class="pre">⌹</span></code> can do. We can even use <code class="docutils literal notranslate"><span class="pre">⌹</span></code> on scalars, where it behaves just as <code class="docutils literal notranslate"><span class="pre">÷</span></code> except it errors on <code class="docutils literal notranslate"><span class="pre">0÷0</span></code> (where <code class="docutils literal notranslate"><span class="pre">÷</span></code> doesn’t error). This is convenient if you want to make sure to catch division-by-zero errors.</p>
+<p>A common usage for <code class="docutils literal notranslate"><span class="pre">⌹</span></code> is to solve equation systems. Consider</p>
+<p>\begin{array}{rcrcr} 2x &amp;+&amp; 7y &amp;=&amp; 12 \ x &amp;+&amp; 8y &amp;=&amp; 15 \end{array}</p>
+<p>We can represent this as a matrix (our <code class="docutils literal notranslate"><span class="pre">E</span></code>) on the left of the equal signs and as a vector (<code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">15</span></code>) on the right.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="kt">{</span><span class="o">+</span><span class="na">/</span><span class="m">0</span> <span class="m">1</span><span class="o">⍷</span><span class="m">1</span><span class="o">,</span><span class="na">⍨</span><span class="bp">⍺</span><span class="o">=</span><span class="bp">⍵</span><span class="kt">}</span><span class="s1">&#39;,YYY,,YYYYYY&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">12</span> <span class="m">15</span><span class="o">⌹</span><span class="nv">E</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1 2
 </span></div></div>
 </div>
-<p>How do they stack up, speed-wise?</p>
+<p>This says <code class="docutils literal notranslate"><span class="pre">x←¯1</span></code> and <code class="docutils literal notranslate"><span class="pre">y←2</span></code>. Let’s check the result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cmpx</span> <span class="s1">&#39;≢&#39;&#39;[^,]+&#39;&#39;⎕S 3⊢t&#39;</span> <span class="s1">&#39;s(≢≠⊆⊢)t&#39;</span> <span class="s1">&#39;s{+/0 1⍷1,⍨⍺=⍵}t&#39;</span><span class="o">⊣</span> <span class="nv">s</span><span class="kd">←</span><span class="s1">&#39;,&#39;</span> <span class="o">⊣</span> <span class="vg">⎕</span><span class="kd">←</span><span class="o">≢</span><span class="nv">t</span><span class="kd">←</span><span class="s1">&#39;,XY&#39;</span><span class="sr">[</span><span class="na">/⍨</span><span class="o">?</span><span class="m">1e6</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="m">7</span><span class="o">+</span><span class="na">.</span><span class="o">×</span><span class="m">¯1</span> <span class="m">2</span>
+<span class="m">1</span> <span class="m">8</span><span class="o">+</span><span class="na">.</span><span class="o">×</span><span class="m">¯1</span> <span class="m">2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2000511
-  ≢'[^,]+'⎕S 3⊢t   → 1.0E¯1 |   0% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕
-  s(≢≠⊆⊢)t         → 1.3E¯2 | -88% ⎕⎕⎕⎕⎕                                   
-  s{+/0 1⍷1,⍨⍺=⍵}t → 3.0E¯2 | -71% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕                            
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">12
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">15
 </span></div></div>
 </div>
-<p>Unfortunately, that’s a bit slower, but perhaps we can think of another way to exploit our idea to look for the 0 to 1 transition? Since we’re looking for <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span></code>, we can just insert <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> between elements, using a windowed reduction:</p>
+<p>OK, remember how we found <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">y≡¯1</span> <span class="pre">2</span></code> with <code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">15⌹E</span></code>? It follows that if we add <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> we should get 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="kt">{</span><span class="o">+</span><span class="na">/</span><span class="m">2</span><span class="o">&lt;</span><span class="na">/</span><span class="m">1</span><span class="o">,</span><span class="na">⍨</span><span class="bp">⍺</span><span class="o">=</span><span class="bp">⍵</span><span class="kt">}</span><span class="s1">&#39;,YYY,,YYYYYY&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">12</span> <span class="m">15</span> <span class="m">1</span><span class="o">⌹</span><span class="nv">E</span><span class="o">⍪</span><span class="m">1</span> <span class="m">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1 2
 </span></div></div>
 </div>
-<p>As before, we append a 1 <em>after</em> we’ve calculated our binary mask. We could, of course, also have written that as</p>
+<p>which simply means that</p>
+<p>\begin{array}{rcrcr} 2x &amp;+&amp; 7y &amp;=&amp; 12 \ x &amp;+&amp; 8y &amp;=&amp; 15 \ x &amp;+&amp; y &amp;=&amp; 1\end{array}</p>
+<p>But what if we tell APL that the last sum <em>doesn’t</em> equal 1?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;,&#39;</span><span class="kt">{</span><span class="o">+</span><span class="na">/</span><span class="m">2</span><span class="o">&lt;</span><span class="na">/</span><span class="bp">⍺</span><span class="o">=</span><span class="bp">⍵</span><span class="o">,</span><span class="bp">⍺</span><span class="kt">}</span><span class="s1">&#39;,YYY,,YYYYYY&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">x</span> <span class="nv">y</span><span class="p">)</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="m">12</span> <span class="m">15</span> <span class="m">1.1</span><span class="o">⌹</span><span class="nv">E</span><span class="o">⍪</span><span class="m">1</span> <span class="m">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯0.94129 1.98903
 </span></div></div>
 </div>
-<p>which is adding an extra ‘,’ at the end, before calculating the mask. When we concatenate the space to the string, APL has to create a copy of the whole string with one additional byte at the end, which is costlier than appending a 1 to a bit-Boolean array as we did in the first version.</p>
-<p>Note also that <code class="docutils literal notranslate"><span class="pre">2&lt;/</span></code> takes care of duplicate spaces. What about performance?</p>
+<p>What nonsense <em>is</em> this? It doesn’t even fulfil any of the equations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cmpx</span> <span class="s1">&#39;≢&#39;&#39;[^,]+&#39;&#39;⎕S 3⊢t&#39;</span> <span class="s1">&#39;s(≢≠⊆⊢)t&#39;</span> <span class="s1">&#39;s{+/0 1⍷⍺=⍵,⍺}t&#39;</span> <span class="s1">&#39;s{+/2&lt;/1,⍨⍺=⍵}t&#39;</span><span class="o">⊣</span> <span class="nv">s</span><span class="kd">←</span><span class="s1">&#39;,&#39;</span> <span class="o">⊣</span> <span class="vg">⎕</span><span class="kd">←</span><span class="o">≢</span><span class="nv">t</span><span class="kd">←</span><span class="s1">&#39;,XY&#39;</span><span class="sr">[</span><span class="na">/⍨</span><span class="o">?</span><span class="m">1e6</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="m">7</span><span class="o">+</span><span class="na">.</span><span class="o">×</span><span class="nv">x</span> <span class="nv">y</span>
+<span class="m">1</span> <span class="m">8</span><span class="o">+</span><span class="na">.</span><span class="o">×</span><span class="nv">x</span> <span class="nv">y</span>
+<span class="m">1</span> <span class="m">1</span><span class="o">+</span><span class="na">.</span><span class="o">×</span><span class="nv">x</span> <span class="nv">y</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1999250
-  ≢'[^,]+'⎕S 3⊢t  → 1.1E¯1 |    0% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕
-  s(≢≠⊆⊢)t        → 1.4E¯2 |  -88% ⎕⎕⎕⎕⎕                                   
-  s{+/0 1⍷⍺=⍵,⍺}t → 3.1E¯2 |  -71% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕                            
-  s{+/2&lt;/1,⍨⍺=⍵}t → 1.9E¯4 | -100%                                         
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">12.0406
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">14.971
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1.04774
 </span></div></div>
 </div>
-<p>That’s a crushing improvement! Let’s zoom in a bit, by removing the slower versions from the comparison:</p>
+<p>But as you can see, it is pretty close. This is an over-determined system, so APL found the solution that fits best. It defines “best” by a very common method called the <a class="reference external" href="https://en.wikipedia.org/wiki/Least_squares">least squares</a> fit, which can also be used to make other kinds of fits. What it means is that it tries to minimise the squares of the “errors”. In a sense, it smoothes the errors out, which means we can use it for smooth curve-fitting too.</p>
+<p>Unfortunately, we won’t have the scope to go through many possibilities here, but you can see a few uses if you search APLcart for <a class="reference external" href="https://aplcart.info/?q=%E2%8C%B9+fit"><code class="docutils literal notranslate"><span class="pre">⌹</span></code> fit</a>. Let’s just take the very first one from there: <code class="docutils literal notranslate"><span class="pre">⊢⌹1,∘⍪⊣</span></code>. Let’s say we have</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cmpx</span> <span class="s1">&#39;s(≢≠⊆⊢)t&#39;</span> <span class="s1">&#39;s{+/2&lt;/(⍺=⍵),1}t&#39;</span><span class="o">⊣</span> <span class="nv">s</span><span class="kd">←</span><span class="s1">&#39;,&#39;</span> <span class="o">⊣</span> <span class="vg">⎕</span><span class="kd">←</span><span class="o">≢</span><span class="nv">t</span><span class="kd">←</span><span class="s1">&#39;,XY&#39;</span><span class="sr">[</span><span class="na">/⍨</span><span class="o">?</span><span class="m">1e6</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">x</span> <span class="kd">←</span> <span class="m">0</span> <span class="m">1</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+<span class="nv">y</span> <span class="kd">←</span> <span class="m">0</span> <span class="m">2</span> <span class="m">4</span> <span class="m">7</span> <span class="m">7</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="points" src="_images/points.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">x</span><span class="p">(</span><span class="o">⊢⌹</span><span class="m">1</span><span class="o">,</span><span class="na">∘</span><span class="o">⍪⊣</span><span class="p">)</span><span class="nv">y</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1999765
-  s(≢≠⊆⊢)t         → 1.6E¯2 |   0% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕
-  s{+/2&lt;/(⍺=⍵),1}t → 5.2E¯4 | -97% ⎕                                       
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.22093 1.45349
 </span></div></div>
 </div>
+<p>This means the best linear fit is $<span class="math notranslate nohighlight">\(y(x)=0.22093x+1.45349\)</span>$</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -705,17 +725,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Complex.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="UniqueMask.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Complex numbers</p>
+            <p class="prev-next-title">Unique mask in depth <code class="docutils literal notranslate"><span class="pre">≠</span></code></p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="PDI.html" title="next page">
+    <a class='right-next' id="next-link" href="ObjectOrientation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lookup without replacement</p>
+        <p class="prev-next-title">Object-oriented APL</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
