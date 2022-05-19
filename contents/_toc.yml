@@ -51,3 +51,4 @@ chapters:
 - file: UserCommands
 - file: Plotting
 - file: ArrayProgramming
+- file: FunctionApplication
