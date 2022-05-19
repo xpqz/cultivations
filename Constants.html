@@ -927,7 +927,88 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
 </span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1
 </span></div></div>
 </div>
-<p>Finally, there is also a <code class="docutils literal notranslate"><span class="pre">Dialect</span></code> variant, which is either <code class="docutils literal notranslate"><span class="pre">'JSON'</span></code> (the default) or <code class="docutils literal notranslate"><span class="pre">'JSON5'</span></code>. The latter enables <a class="reference external" href="https://json5.org/">JSON5</a> extensions on import and export.</p>
+<p>The JSON format doesn’t support arrays of higher rank, only lists-of-lists. This means that not all APL constructs can be converted to JSON directly, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span> <span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span> <span class="c1">⍝ DOMAIN ERROR</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DOMAIN ERROR: JSON export: the right argument cannot be converted
+      ⎕JSON 2 3⍴⍳6 ⍝ DOMAIN ERROR
+      ∧
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, when speaking with the world outside, we probably want our matrices to be converted to lists of lists. For this, we have the <code class="docutils literal notranslate"><span class="pre">HighRank</span></code> variant option:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;HighRank&#39;</span> <span class="s1">&#39;Split&#39;</span> <span class="o">⊢</span> <span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">[[1,2,3],[4,5,6]]
+</span></div></div>
+</div>
+<p>This works universally, also recursing into namespaces:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">mat</span><span class="kd">←</span><span class="o">⍳</span><span class="m">2</span> <span class="m">3</span>
+<span class="nv">cube</span><span class="kd">←</span><span class="m">2</span> <span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="m">2</span>
+<span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;HighRank&#39;</span> <span class="s1">&#39;Split&#39;</span><span class="nf">⎕NS</span><span class="s1">&#39;mat&#39;</span> <span class="s1">&#39;cube&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">{"cube":[[[2,2],[2,2]],[[2,2],[2,2]]],"mat":[[[1,1],[1,2],[1,3]],[[2,1],[2,2],[2,3]]]}
+</span></div></div>
+</div>
+<p>Another thing that <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> can now do is to understand and create <a class="reference external" href="https://json5.org/">JSON5</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">ns</span><span class="kd">←</span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span> <span class="s1">&#39;JSON5&#39;</span><span class="o">⊢</span><span class="s1">&#39;{noQuotes: [0xdecaf,0xC0FFEE] /* comment */}&#39;</span><span class="p">)</span><span class="na">.</span><span class="nv">noQuotes</span>
+<span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span> <span class="s1">&#39;JSON5&#39;</span><span class="o">⊢</span><span class="nv">ns</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">912559 12648430
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">{noQuotes:[912559,12648430]}
+</span></div></div>
+</div>
+<p>Maybe most importantly, JSON5 allows trailing commas in lists and objects:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span> <span class="s1">&#39;JSON5&#39;</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="m">0</span><span class="o">⍳</span><span class="m">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">[
+  1,
+  2,
+  3,
+]
+</span></div></div>
+</div>
+<p>Compare with</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span> <span class="s1">&#39;JSON&#39;</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="m">0</span><span class="o">⍳</span><span class="m">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">[
+  1,
+  2,
+  3
+]
+</span></div></div>
+</div>
 </div>
 <div class="section" id="map-file-map">
 <h2>Map file <code class="docutils literal notranslate"><span class="pre">⎕MAP</span></code><a class="headerlink" href="#map-file-map" title="Permalink to this headline">¶</a></h2>
