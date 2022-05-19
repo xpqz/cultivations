@@ -52,3 +52,4 @@ chapters:
 - file: Plotting
 - file: ArrayProgramming
 - file: FunctionApplication
+- file: ConditionControlledLoops
