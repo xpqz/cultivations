@@ -50,3 +50,4 @@ chapters:
 - file: PDI
 - file: UserCommands
 - file: Plotting
+- file: ArrayProgramming
