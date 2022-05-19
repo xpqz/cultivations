@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Objects and classes &#8212; APL Cultivations</title>
+    <title>Condition controlled loops &#8212; APL Cultivations</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Constructors and destructors" href="CtorsDtors.html" />
-    <link rel="prev" title="Namespaces" href="Namespaces.html" />
+    <link rel="prev" title="Function application" href="FunctionApplication.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -354,23 +353,23 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="ObjectOrientation.html">
    Object-oriented APL
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Namespaces.html">
      Namespaces
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ObjectsClasses.html">
      Objects and classes
     </a>
    </li>
@@ -426,8 +425,8 @@
    Function application
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ConditionControlledLoops.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Condition controlled loops
   </a>
  </li>
@@ -472,7 +471,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ObjectsClasses.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/ConditionControlledLoops.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -492,7 +491,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FObjectsClasses.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FConditionControlledLoops.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -513,6 +512,34 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#power">
+   Power
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⍣
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursion">
+   Recursion
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ∇
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -521,133 +548,114 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="objects-and-classes">
-<h1>Objects and classes<a class="headerlink" href="#objects-and-classes" title="Permalink to this headline">¶</a></h1>
-<p>Next up is a special case of a namespace called a <a class="reference external" href="https://help.dyalog.com/latest/#Language/Object%20Oriented%20Programming/Classes/Introducing%20Classes.htm">class</a>. Remember: All APL objects are namespaces. The ones we just call “namespaces” are the most general ones with no restrictive rules. Classes can hide stuff from the outside onlooker. Adhering to a set of rules, they can be used to create other objects (instances). All this should be familiar to you if you’ve done any OOP (object oriented programming), e.g. in C#, Java or Python.</p>
-<p>Remember that we can tell the editor to begin a new namespace with <code class="docutils literal notranslate"><span class="pre">)ed</span> <span class="pre">⍟myns</span></code>? We can begin editing a new class with <code class="docutils literal notranslate"><span class="pre">)ed</span> <span class="pre">○myclass</span></code>. We could also create a new empty namespace with <code class="docutils literal notranslate"><span class="pre">⎕NS</span></code>. We can’t do that with classes as they need some meta-information.</p>
-<p>Fundamental to a class it that it restricts which of its members can be “seen” from the outside. By default fields (i.e. variables) and methods (i.e. functions) are “private”, but we can make them “public” so that they can be seen. This is convenient to implement black-box things and create layers of abstraction (for those that like such).
-Another feature of fields and methods is whether they are “shared” among all the instances, or whether a separate method/field belongs to each instance. By default, they belong to the instances.</p>
-<p>So what is an instance?</p>
-<p>An instance is a new object which is based on a class, which is then its base class. Instances inherit all methods and fields from their base class, but they may either each have their own or share one (which is then considered as if it remains in the base class).</p>
-<p>Let’s see some code:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="condition-controlled-loops">
+<h1>Condition controlled loops<a class="headerlink" href="#condition-controlled-loops" title="Permalink to this headline">¶</a></h1>
+<p>How do you write APL code for “do-while” type problems? Well, modern APL <em>does</em> actually have <code class="docutils literal notranslate"><span class="pre">:While-:EndWhile</span></code> and <code class="docutils literal notranslate"><span class="pre">:Repeat-:Until</span></code> constructs. But we have other options: like the <code class="docutils literal notranslate"><span class="pre">⍣</span></code> operator, and recursion, which isn’t bad in APL, as you can use the optimised tail-recursion.</p>
+<div class="section" id="power">
+<h2>Power <code class="docutils literal notranslate"><span class="pre">⍣</span></code><a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
+<p>About <code class="docutils literal notranslate"><span class="pre">⍣</span></code>, it is important to note that it always applies its left operand at least once. Let’s take a very simple (pun intended) example. Let’s say we have an array like <code class="docutils literal notranslate"><span class="pre">⊂⊂⊂⊂2</span> <span class="pre">2⍴'ok'</span></code>. We want to disclose it until it is simple. If we do <code class="docutils literal notranslate"><span class="pre">⊃⍣≡</span></code> we’ll end up with ‘o’.</p>
+<p>Another common pitfall is to use <code class="docutils literal notranslate"><span class="pre">⍵</span></code> in the right operand (the one that answers “are we done?”) instead of <code class="docutils literal notranslate"><span class="pre">⍺</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
-<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">f</span><span class="kd">←</span><span class="s1">&#39;f&#39;</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">public</span> <span class="nv">fp</span><span class="kd">←</span><span class="s1">&#39;fp&#39;</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">shared</span> <span class="nv">fs</span><span class="kd">←</span><span class="s1">&#39;fs&#39;</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">public</span> <span class="nv">shared</span> <span class="nv">fps</span><span class="kd">←</span><span class="s1">&#39;fps&#39;</span>
-    <span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">look</span>
-      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span> <span class="nv">shared</span>
-      <span class="nv">r</span><span class="kd">←</span><span class="nf">⎕NL</span> <span class="o">-⍳</span><span class="m">9</span>
-    <span class="bp">∇</span>
-<span class="bp">:</span><span class="nv">EndClass</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The above is a script for a class called <code class="docutils literal notranslate"><span class="pre">cl</span></code>. You can see that it has four fields and one method (function). The first field, <code class="docutils literal notranslate"><span class="pre">f</span></code>, has all the defaults, i.e. it is private, and for each instance. The second field, <code class="docutils literal notranslate"><span class="pre">fp</span></code> can be seen from outside each instance. The third, <code class="docutils literal notranslate"><span class="pre">fs</span></code>, is private, but shared among all instances (and their base class, <code class="docutils literal notranslate"><span class="pre">cl</span></code>). The last field, <code class="docutils literal notranslate"><span class="pre">fps</span></code> is both visible to the outside public, and also shared. The method, <code class="docutils literal notranslate"><span class="pre">look</span></code>, is public and shared, just like the field <code class="docutils literal notranslate"><span class="pre">fps</span></code>.</p>
-<p>So, if, from outside <code class="docutils literal notranslate"><span class="pre">cl</span></code>, we try looking into <code class="docutils literal notranslate"><span class="pre">cl</span></code>, which members can we see?  We won’t be able to see <code class="docutils literal notranslate"><span class="pre">fp</span></code> because it is <code class="docutils literal notranslate"><span class="pre">instance</span></code>, not <code class="docutils literal notranslate"><span class="pre">shared</span></code>. So since <code class="docutils literal notranslate"><span class="pre">cl</span></code> is not an instance, it won’t show <code class="docutils literal notranslate"><span class="pre">fp</span></code>. We can verify this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cl</span><span class="na">.</span><span class="nf">⎕NL</span> <span class="o">-⍳</span><span class="m">9</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⊃</span><span class="na">⍣</span><span class="kt">{</span><span class="m">1</span><span class="o">≥|≡</span><span class="bp">⍺</span><span class="kt">}</span> <span class="o">⊂⊂⊂⊂</span><span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="s1">&#39;ok&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬────┐
-│fps│look│
-└───┴────┘
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">ok
+ok
 </span></div></div>
 </div>
-<p>Now, let’s step into <code class="docutils literal notranslate"><span class="pre">cl</span></code> and have a look from inside. We do that by running <code class="docutils literal notranslate"><span class="pre">cl.look</span></code>. As you can see, <code class="docutils literal notranslate"><span class="pre">look</span></code> just returns the list of members that it can see.</p>
+<p>The problem is that our input might have 0 levels of nesting; then we fail:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cl</span><span class="na">.</span><span class="nv">look</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⊃</span><span class="na">⍣</span><span class="kt">{</span><span class="m">1</span><span class="o">≥|≡</span><span class="bp">⍺</span><span class="kt">}</span> <span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="s1">&#39;ok&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬───┬──┬────┐
-│cl│fps│fs│look│
-└──┴───┴──┴────┘
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">o
 </span></div></div>
 </div>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">cl</span></code> is in there, just like a function can “see” itself:</p>
+<p>This is because <code class="docutils literal notranslate"><span class="pre">⊃</span></code> is being applied once before we even ask if we’re done. If instead we move the test inside the left operand we get:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">f</span><span class="kd">←</span><span class="kt">{</span><span class="nf">⎕NL</span><span class="o">-⍳</span><span class="m">9</span><span class="kt">}</span>
-<span class="nv">f</span> <span class="no">⍬</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="m">1</span><span class="o">≥|≡</span><span class="bp">⍵:⍵</span> <span class="p">⋄</span> <span class="o">⊃</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⍣</span><span class="o">≡</span> <span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="s1">&#39;ok&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬─┐
-│cl│f│
-└──┴─┘
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">ok
+ok
 </span></div></div>
 </div>
-<p>Everything that’s shared (i.e. non-“instance”) can be seen, and also the class itself. This is useful if you work with a class and need to inspect what’s going on inside. You can just trace into any public function, and then leave the system suspended. Now you can work from inside the class. When you’re done, just execute <code class="docutils literal notranslate"><span class="pre">→0</span></code> to quit the function.</p>
-<p>Let’s try to create our first instance of <code class="docutils literal notranslate"><span class="pre">cl</span></code>. We do that using the system function <code class="docutils literal notranslate"><span class="pre">⎕NEW</span></code>. It takes <code class="docutils literal notranslate"><span class="pre">cl</span></code> as right argument and returns an instance:</p>
+<p>The left operand will become a no-op when we’re done. In fact, we can even use the power operator instead of the guard!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inst</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">cl</span>
-<span class="nv">inst</span><span class="na">.</span><span class="nf">⎕NL</span> <span class="o">-⍳</span><span class="m">9</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="o">⊃</span><span class="na">⍣</span><span class="p">(</span><span class="m">1</span><span class="o">&lt;|≡</span><span class="bp">⍵</span><span class="p">)</span><span class="o">⊢</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⍣</span><span class="o">≡⊂⊂⊂⊂</span><span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="s1">&#39;ok&#39;</span>
+<span class="kt">{</span><span class="o">⊃</span><span class="na">⍣</span><span class="p">(</span><span class="m">1</span><span class="o">&lt;|≡</span><span class="bp">⍵</span><span class="p">)</span><span class="o">⊢</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⍣</span><span class="o">≡</span> <span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="s1">&#39;ok&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬───┬────┐
-│fp│fps│look│
-└──┴───┴────┘
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">ok
+ok
+</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">ok
+ok
 </span></div></div>
 </div>
-<p>If you expected <code class="docutils literal notranslate"><span class="pre">fs</span></code>, then it is shared alright, but remember that we’re on the outside. It isn’t public. We can see <code class="docutils literal notranslate"><span class="pre">look</span></code>, because it is public (and shared too, but that doesn’t matter here). We can also see <code class="docutils literal notranslate"><span class="pre">fp</span></code> which we couldn’t see before, because it is an instance field. But now we do have an instance, and as it is public too, we can see it.</p>
-<p>Now, let’s run <code class="docutils literal notranslate"><span class="pre">inst.look</span></code>. What do we get?</p>
+<p>Of course, you don’t have to write everything inline. You could use a separate function for the main processing. In your left operand, you can of course place your done-condition at the top or at the bottom, or anywhere else. But let’s say instead that we don’t want the condition to be based on the data processed. Rather, we want to periodically read an outside value to decide whether to continue or not.</p>
+<p>You can try this in your local APL:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>done←0 ⋄ {⎕←⍵⊣⎕dl 5}⍣{done}&amp;&#39;work&#39;
+</pre></div>
+</div>
+<p>It will run in the background, printing “work” every 5 seconds. Of course, it didn’t need to be a single value in <code class="docutils literal notranslate"><span class="pre">{done}</span></code>. It could be an entire function that figures out if we’re done based on a bunch of stuff.</p>
+</div>
+<div class="section" id="recursion">
+<h2>Recursion <code class="docutils literal notranslate"><span class="pre">∇</span></code><a class="headerlink" href="#recursion" title="Permalink to this headline">¶</a></h2>
+<p>Recursion can be done simply by calling the function name. Dfns can also call themselves using <code class="docutils literal notranslate"><span class="pre">∇</span></code>. The benefit of <code class="docutils literal notranslate"><span class="pre">∇</span></code> is that you can rename the function or leave it anonymous. We should also mention <code class="docutils literal notranslate"><span class="pre">∇∇</span></code>. If you are writing your operators, you might want the operator’s code to “use” itself. You do that with <code class="docutils literal notranslate"><span class="pre">∇∇</span></code>. Inside such a dop, you can also use <code class="docutils literal notranslate"><span class="pre">∇</span></code> as a shortcut for <code class="docutils literal notranslate"><span class="pre">⍺⍺∇∇</span></code> or <code class="docutils literal notranslate"><span class="pre">⍺⍺∇∇⍵⍵</span></code> depending on operator valence.</p>
+<p>Other than this, it is actually much the same as with <code class="docutils literal notranslate"><span class="pre">⍣</span></code>: Establish the stop condition with a guard (or a control structure in a tradfn), and do the work otherwise.</p>
+<p>The important thing is that APL detects when the final result will be used unmodified as the result of the previous iteration. Let’s say we wanted the beginning number of the 7-long sequence: <code class="docutils literal notranslate"><span class="pre">{16=+/'2'=⍕⍵:⍵⋄⊃∇1+⍵}⍳7</span></code>. Now APL has to keep track of where came from so we can apply that final <code class="docutils literal notranslate"><span class="pre">⊃</span></code>. Can we detect a tail call? Yes. You can try this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{⎕←≢⎕SI ⋄ 16=+/&#39;2&#39;=⍕⍵:⍵ ⋄ ∇ 1+⍵}2000+⍳7
+</pre></div>
+</div>
+<p>It starts searching at 2000 to prevent output flooding. <code class="docutils literal notranslate"><span class="pre">⎕SI</span></code> is the State Indicator, or stack. Every time around the loop, we count the frames on the stack and print that. It’ll print 1 every time, because the stack “forgets” about the previous call every time.</p>
+<p>However, if you try it with the <code class="docutils literal notranslate"><span class="pre">⊃</span></code>, then:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{⎕←≢⎕SI ⋄ 16=+/&#39;2&#39;=⍕⍵:⍵ ⋄ ⊃ ∇ 1+⍵}2000+⍳7 
+</pre></div>
+</div>
+<p>you should be able to observe the stack frames increasing.</p>
+<p>Let’s try implementing <code class="docutils literal notranslate"><span class="pre">Fib</span> <span class="pre">n</span></code> (which returns the n first Fibonacci numbers) using <code class="docutils literal notranslate"><span class="pre">⍣</span></code> and recursion. We can factor out the fundamental Fibonacci operation, which sums the last two elements of a vector, and tacks on the result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inst</span><span class="na">.</span><span class="nv">look</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">∆</span><span class="kd">←</span><span class="kt">{</span><span class="bp">⍵</span><span class="o">,+</span><span class="na">/</span><span class="m">¯2</span><span class="o">↑</span><span class="bp">⍵</span><span class="kt">}</span>  <span class="c1">⍝ Fundamental Fibonacci function </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using this, we can write a neatly tail-recursive Fibonacci function – note that all processing is to the right of the <code class="docutils literal notranslate"><span class="pre">∇</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="bp">⍺</span><span class="o">≤≢</span><span class="bp">⍵:⍺</span><span class="o">↑</span><span class="bp">⍵</span> <span class="p">⋄</span> <span class="bp">⍺∇</span><span class="nv">∆</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">∘</span><span class="m">1</span><span class="o">⊢</span> <span class="m">10</span> <span class="c1">⍝ Tail-recursive</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬───┬──┬────┐
-│cl│fps│fs│look│
-└──┴───┴──┴────┘
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 2 3 5 8 13 21 34 55
 </span></div></div>
 </div>
-<p>The reason <code class="docutils literal notranslate"><span class="pre">look</span></code> cannot see <code class="docutils literal notranslate"><span class="pre">f</span></code> is because <code class="docutils literal notranslate"><span class="pre">f</span></code> isn’t public. But we’re <em>inside</em>, you say? Yes, but inside what? Remember that <code class="docutils literal notranslate"><span class="pre">look</span></code> is a <em>shared</em> method. This means that it resides in <code class="docutils literal notranslate"><span class="pre">cl</span></code>, not in <code class="docutils literal notranslate"><span class="pre">inst</span></code>. And from inside <code class="docutils literal notranslate"><span class="pre">cl</span></code>, the private fields of <code class="docutils literal notranslate"><span class="pre">inst</span></code> are invisible. To prove this, we can make a small modification to the class:</p>
+<p>And here’s a clever application of the power operator:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
-<span class="bp">:</span><span class="nv">Class</span> <span class="nv">cl</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">f</span><span class="kd">←</span><span class="s1">&#39;f&#39;</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">public</span> <span class="nv">fp</span><span class="kd">←</span><span class="s1">&#39;fp&#39;</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">shared</span> <span class="nv">fs</span><span class="kd">←</span><span class="s1">&#39;fs&#39;</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">public</span> <span class="nv">shared</span> <span class="nv">fps</span><span class="kd">←</span><span class="s1">&#39;fps&#39;</span>
-    <span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">look</span>
-      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>                  <span class="c1">⍝ Note: no longer &#39;shared&#39;!</span>
-      <span class="nv">r</span><span class="kd">←</span><span class="nf">⎕NL</span> <span class="o">-⍳</span><span class="m">9</span>
-    <span class="bp">∇</span>
-<span class="bp">:</span><span class="nv">EndClass</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inst</span><span class="na">.</span><span class="nv">look</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="bp">⍵</span><span class="o">↑</span><span class="nv">∆</span><span class="na">⍣</span><span class="bp">⍵</span><span class="o">⊢</span><span class="m">1</span> <span class="m">1</span><span class="kt">}</span> <span class="m">10</span> <span class="c1">⍝ append 1 1, n times</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬─┬──┬───┬──┬────┐
-│cl│f│fp│fps│fs│look│
-└──┴─┴──┴───┴──┴────┘
+<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 2 3 5 8 13 21 34 55
 </span></div></div>
 </div>
-<p>The only difference here is that <code class="docutils literal notranslate"><span class="pre">look</span></code> is now an instance method. This means that we can no longer do <code class="docutils literal notranslate"><span class="pre">cl.look</span></code>.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -675,19 +683,12 @@ Another feature of fields and methods is whether they are “shared” among all
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Namespaces.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="FunctionApplication.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Namespaces</p>
+            <p class="prev-next-title">Function application</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="CtorsDtors.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Constructors and destructors</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
         
