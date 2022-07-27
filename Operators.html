@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Primitive operators &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -64,7 +65,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +88,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +109,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -424,6 +441,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -436,90 +458,191 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Operators.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FOperators.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FOperators.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Operators.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reduce">
    Reduce
@@ -668,35 +791,199 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Primitive operators</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduce">
+   Reduce
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     /
+    </span>
+   </code>
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⌿
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scan">
+   Scan
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     \
+    </span>
+   </code>
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⍀
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#each">
+   Each
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ¨
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#power">
+   Power
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⍣
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commute-f">
+   Commute
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f
+    </span>
+    <span class="pre">
+     ⍨
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constant-a">
+   Constant
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     A
+    </span>
+    <span class="pre">
+     ⍨
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beside-atop">
+   Beside/atop
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ∘
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#at">
+   At
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     @
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#i-beam">
+   I-beam
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⌶
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stencil">
+   Stencil
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⌺
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key">
+   Key
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⌸
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#atop-fg">
+   Atop
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f⍤g
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#over-fg">
+   Over
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f⍥g
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="primitive-operators">
-<h1>Primitive operators<a class="headerlink" href="#primitive-operators" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="primitive-operators">
+<h1>Primitive operators<a class="headerlink" href="#primitive-operators" title="Permalink to this headline">#</a></h1>
 <p>Operators take <em>operands</em>, which may be functions, and derive a function. You can think of APL’s operators as higher-order functions.</p>
-<div class="section" id="reduce">
-<h2>Reduce <code class="docutils literal notranslate"><span class="pre">/</span></code> <code class="docutils literal notranslate"><span class="pre">⌿</span></code><a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h2>
+<section id="reduce">
+<h2>Reduce <code class="docutils literal notranslate"><span class="pre">/</span></code> <code class="docutils literal notranslate"><span class="pre">⌿</span></code><a class="headerlink" href="#reduce" title="Permalink to this headline">#</a></h2>
 <p>The first operator is <code class="docutils literal notranslate"><span class="pre">/</span></code>, called <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Operators/Reduce.htm">reduce</a>. It is a monadic operator which derives an ambivalent function. An ambivalent function is one which can be called either monadically or dyadically. For example, <code class="docutils literal notranslate"><span class="pre">-</span></code> is ambivalent. Monadically, it is negate; dyadically, it is subtraction.</p>
 <p><code class="docutils literal notranslate"><span class="pre">+/</span></code> is a derived ambivalent function. The monadic function is plus-reduction (i.e. sum) and the dyadic function is windowed sum, as in sliding windows of size <code class="docutils literal notranslate"><span class="pre">⍺</span></code> (shorthand for “left argument”).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">/</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span> <span class="m">1</span> <span class="m">5</span>
-<span class="m">2</span> <span class="o">+</span><span class="na">/</span> <span class="m">3</span> <span class="m">1</span> <span class="m">4</span> <span class="m">1</span> <span class="m">5</span>
-<span class="m">3</span> <span class="o">+</span><span class="na">/</span> <span class="m">3</span> <span class="m">1</span> <span class="m">4</span> <span class="m">1</span> <span class="m">5</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">/</span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
+<span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="na">/</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
+<span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="na">/</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">14
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">4 5 5 6
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">8 6 10
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">14
+</pre></div><div class="output text_html"><pre class="language-APL">4 5 5 6
+</pre></div><div class="output text_html"><pre class="language-APL">8 6 10
+</pre></div></div>
 </div>
 <p>Question:</p>
 <blockquote>
@@ -704,265 +991,259 @@
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="o">-</span><span class="na">/</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="o">-</span><span class="na">/</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2 3 4
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">2 3 4
+</pre></div></div>
 </div>
 <p>As functions in APL are right-associative, <code class="docutils literal notranslate"><span class="pre">-/⍵</span></code> (this is a shorthand which means the monadic form of <code class="docutils literal notranslate"><span class="pre">-/</span></code>) is alternating sum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="o">-</span> <span class="p">(</span><span class="m">2</span> <span class="o">-</span> <span class="m">3</span><span class="p">)</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">2
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">f/⍵</span></code> is called <em>reduce</em> because it reduces the rank of its argument by 1. For example, if we apply it to a matrix, we’ll get back a vector, even if the function we provide does not “combine” its arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="s1">&#39;(&#39;</span><span class="o">,</span><span class="bp">⍺</span><span class="o">,</span><span class="bp">⍵</span><span class="o">,</span><span class="s1">&#39;)&#39;</span><span class="kt">}</span><span class="na">/</span><span class="s1">&#39;Hello&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="s1">&#39;(&#39;</span><span class="o">,</span><span class="bp">⍺</span><span class="o">,</span><span class="bp">⍵</span><span class="o">,</span><span class="s1">&#39;)&#39;</span><span class="kt">}</span><span class="na">/</span><span class="s1">&#39;Hello&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────────────┐
+<div class="output text_html"><pre class="language-APL">┌─────────────┐
 │(H(e(l(lo))))│
 └─────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Here, the function we gave concatenates its arguments and parentheses. With output boxing turned on, it is clear to see that there is a space in front of the leftmost <code class="docutils literal notranslate"><span class="pre">(</span></code>. Without output boxing, that space is still there, but you may have to look a bit more carefully in order to notice it. This is APLs way to indicate that the array (a character vector) is enclosed. In other words, it returned <code class="docutils literal notranslate"><span class="pre">⊂'(H(e(l(lo))))'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;(H(e(l(lo))))&#39;</span><span class="p">)</span> <span class="o">≡</span> <span class="kt">{</span><span class="s1">&#39;(&#39;</span><span class="o">,</span><span class="bp">⍺</span><span class="o">,</span><span class="bp">⍵</span><span class="o">,</span><span class="s1">&#39;)&#39;</span><span class="kt">}</span><span class="na">/</span><span class="s1">&#39;Hello&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;(H(e(l(lo))))&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">≡</span><span class="w"> </span><span class="kt">{</span><span class="s1">&#39;(&#39;</span><span class="o">,</span><span class="bp">⍺</span><span class="o">,</span><span class="bp">⍵</span><span class="o">,</span><span class="s1">&#39;)&#39;</span><span class="kt">}</span><span class="na">/</span><span class="s1">&#39;Hello&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1
+</pre></div></div>
 </div>
 <p>We can also apply reductions to higher-rank arrays:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">12</span>
-<span class="o">+</span><span class="na">/</span><span class="m">3</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">12</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="o">⍴⍳</span><span class="m">12</span><span class="w"></span>
+<span class="o">+</span><span class="na">/</span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="o">⍴⍳</span><span class="m">12</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1  2  3  4
+<div class="output text_html"><pre class="language-APL">1  2  3  4
 5  6  7  8
 9 10 11 12
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">10 26 42
-</span></div></div>
+</pre></div><div class="output text_html"><pre class="language-APL">10 26 42
+</pre></div></div>
 </div>
 <p>Notice how the rank went down from 2 to 1 (i.e. matrix to vector). Reductions lower the rank. <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">f/</span></code> is called N-wise reduce, and does not lower the rank. Notice that <code class="docutils literal notranslate"><span class="pre">/</span></code> goes along the trailing axis, i.e. the it reduced the rows of the matrix. It has a twin, <code class="docutils literal notranslate"><span class="pre">⌿</span></code>, which goes along the first axis, i.e. the columns of a matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">⌿</span><span class="m">3</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">12</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">⌿</span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="o">⍴⍳</span><span class="m">12</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">15 18 21 24
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">15 18 21 24
+</pre></div></div>
 </div>
 <p>If you have higher-rank arrays, you can reduce along any axis with a bracket axis specification:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="m">3</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">24</span>
-<span class="p">(</span><span class="o">+</span><span class="na">⌿</span><span class="m">2</span> <span class="m">3</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">24</span><span class="p">)(</span><span class="o">+</span><span class="na">/</span><span class="sr">[</span><span class="m">2</span><span class="sr">]</span><span class="m">2</span> <span class="m">3</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">24</span><span class="p">)(</span><span class="o">+</span><span class="na">/</span><span class="m">2</span> <span class="m">3</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">24</span><span class="p">)</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="o">⍴⍳</span><span class="m">24</span><span class="w"></span>
+<span class="p">(</span><span class="o">+</span><span class="na">⌿</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="o">⍴⍳</span><span class="m">24</span><span class="p">)(</span><span class="o">+</span><span class="na">/</span><span class="sr">[</span><span class="m">2</span><span class="sr">]</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="o">⍴⍳</span><span class="m">24</span><span class="p">)(</span><span class="o">+</span><span class="na">/</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="o">⍴⍳</span><span class="m">24</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace"> 1  2  3  4
+<div class="output text_html"><pre class="language-APL"> 1  2  3  4
  5  6  7  8
  9 10 11 12
 
 13 14 15 16
 17 18 19 20
 21 22 23 24
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┬───────────┬────────┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌───────────┬───────────┬────────┐
 │14 16 18 20│15 18 21 24│10 26 42│
 │22 24 26 28│51 54 57 60│58 74 90│
 │30 32 34 36│           │        │
 └───────────┴───────────┴────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">f/[1]</span></code> is the same thing as <code class="docutils literal notranslate"><span class="pre">f⌿</span></code>.</p>
-</div>
-<div class="section" id="scan">
-<h2>Scan <code class="docutils literal notranslate"><span class="pre">\</span></code>  <code class="docutils literal notranslate"><span class="pre">⍀</span></code><a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="scan">
+<h2>Scan <code class="docutils literal notranslate"><span class="pre">\</span></code>  <code class="docutils literal notranslate"><span class="pre">⍀</span></code><a class="headerlink" href="#scan" title="Permalink to this headline">#</a></h2>
 <p>While <code class="docutils literal notranslate"><span class="pre">/</span></code> is reduction, <code class="docutils literal notranslate"><span class="pre">\</span></code> is cumulative reduction, known as <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Scan.htm">scan</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">\</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span> <span class="m">1</span> <span class="m">5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">\</span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3 4 8 9 14
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">3 4 8 9 14
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">/</span></code>’s cousin <code class="docutils literal notranslate"><span class="pre">\</span></code> of course has a twin, too; <code class="docutils literal notranslate"><span class="pre">⍀</span></code>, behaving analogously.</p>
-</div>
-<div class="section" id="each">
-<h2>Each <code class="docutils literal notranslate"><span class="pre">¨</span></code><a class="headerlink" href="#each" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="each">
+<h2>Each <code class="docutils literal notranslate"><span class="pre">¨</span></code><a class="headerlink" href="#each" title="Permalink to this headline">#</a></h2>
 <p>The next operator is <code class="docutils literal notranslate"><span class="pre">¨</span></code> which is called <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Each%20with%20Monadic%20Operand.htm">each</a> for a good reason. <code class="docutils literal notranslate"><span class="pre">f¨⍵</span></code> applies the function <code class="docutils literal notranslate"><span class="pre">f</span></code> monadically to each element of <code class="docutils literal notranslate"><span class="pre">⍵</span></code>. <code class="docutils literal notranslate"><span class="pre">⍺</span> <span class="pre">f¨</span> <span class="pre">⍵</span></code> applies <code class="docutils literal notranslate"><span class="pre">f</span></code> between the paired-up elements of <code class="docutils literal notranslate"><span class="pre">⍺</span></code> and <code class="docutils literal notranslate"><span class="pre">⍵</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="o">,</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> 
-<span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="o">,</span><span class="na">¨</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span>
-<span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="o">,</span><span class="na">¨</span> <span class="p">(</span><span class="m">10</span> <span class="m">20</span><span class="p">)(</span><span class="m">30</span> <span class="m">40</span><span class="p">)(</span><span class="m">5</span> <span class="m">6</span><span class="p">)</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">,</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span>
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">,</span><span class="na">¨</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"></span>
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">,</span><span class="na">¨</span><span class="w"> </span><span class="p">(</span><span class="m">10</span><span class="w"> </span><span class="m">20</span><span class="p">)(</span><span class="m">30</span><span class="w"> </span><span class="m">40</span><span class="p">)(</span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 2 3 4 5 6
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┬───┐
+<div class="output text_html"><pre class="language-APL">1 2 3 4 5 6
+</pre></div><div class="output text_html"><pre class="language-APL">┌───┬───┬───┐
 │1 4│2 5│3 6│
 └───┴───┴───┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────┬───────┬─────┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌───────┬───────┬─────┐
 │1 10 20│2 30 40│3 5 6│
 └───────┴───────┴─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Most arithmetic functions are “scalar” meaning they penetrate to the very leaves of the arrays. <code class="docutils literal notranslate"><span class="pre">¨</span></code> is meaningless for scalar functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="o">+</span><span class="na">¨</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span> <span class="m">1</span> <span class="m">5</span> <span class="m">9</span> <span class="m">2</span> <span class="m">6</span> <span class="m">5</span>  <span class="c1">⍝ works; but pointless</span>
-<span class="m">3</span><span class="o">+</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span> <span class="m">1</span> <span class="m">5</span> <span class="m">9</span> <span class="m">2</span> <span class="m">6</span> <span class="m">5</span>   <span class="c1">⍝ scalar function + is pervasive</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="o">+</span><span class="na">¨</span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">5</span><span class="w">  </span><span class="c1">⍝ works; but pointless</span><span class="w"></span>
+<span class="m">3</span><span class="o">+</span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">5</span><span class="w">   </span><span class="c1">⍝ scalar function + is pervasive</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">6 4 7 4 8 12 5 9 8
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">6 4 7 4 8 12 5 9 8
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">6 4 7 4 8 12 5 9 8
+</pre></div><div class="output text_html"><pre class="language-APL">6 4 7 4 8 12 5 9 8
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="power">
-<h2>Power <code class="docutils literal notranslate"><span class="pre">⍣</span></code><a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="power">
+<h2>Power <code class="docutils literal notranslate"><span class="pre">⍣</span></code><a class="headerlink" href="#power" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⍣</span></code> is the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Power%20Operator.htm">power</a> operator. <code class="docutils literal notranslate"><span class="pre">f⍣n</span></code> applies the function <code class="docutils literal notranslate"><span class="pre">f</span></code> n times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="o">×</span><span class="m">3</span>
-<span class="m">2</span><span class="o">×</span><span class="m">2</span><span class="o">×</span><span class="m">3</span>
-<span class="m">2</span><span class="o">×</span><span class="m">2</span><span class="o">×</span><span class="m">2</span><span class="o">×</span><span class="m">3</span>
-<span class="m">2</span><span class="p">(</span><span class="o">×</span><span class="na">⍣</span><span class="m">3</span><span class="p">)</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="o">×</span><span class="m">3</span><span class="w"></span>
+<span class="m">2</span><span class="o">×</span><span class="m">2</span><span class="o">×</span><span class="m">3</span><span class="w"></span>
+<span class="m">2</span><span class="o">×</span><span class="m">2</span><span class="o">×</span><span class="m">2</span><span class="o">×</span><span class="m">3</span><span class="w"></span>
+<span class="m">2</span><span class="p">(</span><span class="o">×</span><span class="na">⍣</span><span class="m">3</span><span class="p">)</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">6
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">12
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">24
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">24
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">6
+</pre></div><div class="output text_html"><pre class="language-APL">12
+</pre></div><div class="output text_html"><pre class="language-APL">24
+</pre></div><div class="output text_html"><pre class="language-APL">24
+</pre></div></div>
 </div>
 <p>It did the multiplication 3 times. We need parentheses here to separate the two 3s to make sure the two 3s don’t strand into a single array. Note that <code class="docutils literal notranslate"><span class="pre">⍺</span> <span class="pre">(f⍣n)</span> <span class="pre">⍵</span></code> is defined as <code class="docutils literal notranslate"><span class="pre">(⍺∘f⍣n)</span> <span class="pre">⍵</span></code>. In the case above, <code class="docutils literal notranslate"><span class="pre">⍺</span> <span class="pre">(×⍣3)</span> <span class="pre">⍵</span></code> therefore is <code class="docutils literal notranslate"><span class="pre">⍺</span> <span class="pre">×</span> <span class="pre">⍺</span> <span class="pre">×</span> <span class="pre">⍺</span> <span class="pre">×</span> <span class="pre">⍵</span></code>. Operators are never ambivalent. Their derived functions can be, but they are either monadic or dyadic. <code class="docutils literal notranslate"><span class="pre">⍣</span></code> is dyadic. <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">¨</span></code> are monadic. The result of <code class="docutils literal notranslate"><span class="pre">×⍣3</span></code> is a new function which takes arrays as arguments.</p>
 <p><code class="docutils literal notranslate"><span class="pre">f⍣≡</span></code> is the fixpoint of <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0.5</span><span class="o">×</span><span class="na">⍣</span><span class="o">≡</span><span class="m">1</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0.5</span><span class="o">×</span><span class="na">⍣</span><span class="o">≡</span><span class="m">1</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">
-Rebuilding user command cache... 
-done
-
-Rebuilding user command cache... 
-done
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0
+</pre></div></div>
 </div>
 <p>If you keep halving 1 you end up with 0. <code class="docutils literal notranslate"><span class="pre">0.5×⍣≡</span></code> means keep multiplying 0.5 with the argument until it stops changing. The power operator can take a custom right function operator, too. See the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Power%20Operator.htm">documentation</a>.</p>
-</div>
-<div class="section" id="commute-f">
-<h2>Commute <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">⍨</span></code><a class="headerlink" href="#commute-f" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="commute-f">
+<h2>Commute <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">⍨</span></code><a class="headerlink" href="#commute-f" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Commute.htm">Commute</a>, <code class="docutils literal notranslate"><span class="pre">⍨</span></code>, is a monadic operator taking a dyadic function and deriving an ambivalent function. <code class="docutils literal notranslate"><span class="pre">⍺</span> <span class="pre">f⍨</span> <span class="pre">⍵</span></code> is <code class="docutils literal notranslate"><span class="pre">⍵</span> <span class="pre">f</span> <span class="pre">⍺</span></code>. <code class="docutils literal notranslate"><span class="pre">f⍨</span> <span class="pre">⍵</span></code> is <code class="docutils literal notranslate"><span class="pre">⍵</span> <span class="pre">f</span> <span class="pre">⍵</span></code>. We sometimes informally refer to <code class="docutils literal notranslate"><span class="pre">⍨</span></code> as “selfie” when the derived function is used monadically, because that’s what it does, and it looks like a selfie (photo) too. <code class="docutils literal notranslate"><span class="pre">⍨</span></code> seems very simple, but it has some neat applications. Monadic <code class="docutils literal notranslate"><span class="pre">+⍨</span></code> is double. Monadic <code class="docutils literal notranslate"><span class="pre">×⍨</span></code> is square.</p>
-</div>
-<div class="section" id="constant-a">
-<h2>Constant <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">⍨</span></code><a class="headerlink" href="#constant-a" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="constant-a">
+<h2>Constant <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">⍨</span></code><a class="headerlink" href="#constant-a" title="Permalink to this headline">#</a></h2>
 <p>With an array operator, <code class="docutils literal notranslate"><span class="pre">⍨</span></code> is <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Operators/Constant.htm">constant</a>. It always returns the operator array. It might not be immediately obvious when this is useful. Consider the following examples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">neg</span><span class="kd">←</span><span class="kt">{</span><span class="o">-</span><span class="na">@</span><span class="p">(</span><span class="bp">⍺</span><span class="na">⍨</span><span class="p">)</span><span class="bp">⍵</span><span class="kt">}</span>
-<span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="nv">neg</span> <span class="o">⍳</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">neg</span><span class="kd">←</span><span class="kt">{</span><span class="o">-</span><span class="na">@</span><span class="p">(</span><span class="bp">⍺</span><span class="na">⍨</span><span class="p">)</span><span class="bp">⍵</span><span class="kt">}</span><span class="w"></span>
+<span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nv">neg</span><span class="w"> </span><span class="o">⍳</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1 2 ¯3
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯1 2 ¯3
+</pre></div></div>
 </div>
 <p>Here we have a function that uses a Boolean left argument to indicate where to apply negation in the right argument. Whilst it’s certainly possible to achieve this without <em>constant</em>, it’d be a bit more cumbersome, for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="kt">{</span><span class="nv">a</span><span class="kd">←</span><span class="bp">⍺</span><span class="p">⋄</span><span class="o">-</span><span class="na">@</span><span class="kt">{</span><span class="nv">a</span><span class="kt">}</span><span class="bp">⍵</span><span class="kt">}</span> <span class="o">⍳</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="kt">{</span><span class="nv">a</span><span class="kd">←</span><span class="bp">⍺</span><span class="p">⋄</span><span class="o">-</span><span class="na">@</span><span class="kt">{</span><span class="nv">a</span><span class="kt">}</span><span class="bp">⍵</span><span class="kt">}</span><span class="w"> </span><span class="o">⍳</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1 2 ¯3
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯1 2 ¯3
+</pre></div></div>
 </div>
 <p>We could use <code class="docutils literal notranslate"><span class="pre">⍸</span></code> to expand the left argument into indices, but that introduces an unnecessary inefficiency we avoid when using <em>constant</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="kt">{</span><span class="o">-</span><span class="na">@</span><span class="p">(</span><span class="o">⍸</span><span class="bp">⍺</span><span class="p">)</span><span class="o">⊢</span><span class="bp">⍵</span><span class="kt">}</span> <span class="o">⍳</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="kt">{</span><span class="o">-</span><span class="na">@</span><span class="p">(</span><span class="o">⍸</span><span class="bp">⍺</span><span class="p">)</span><span class="o">⊢</span><span class="bp">⍵</span><span class="kt">}</span><span class="w"> </span><span class="o">⍳</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1 2 ¯3
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯1 2 ¯3
+</pre></div></div>
 </div>
 <p>Another usecase is when you want to use one array’s structure as a model, but use a particular element instead:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">?</span><span class="m">3</span><span class="p">)</span><span class="na">⍨¨</span><span class="s1">&#39;this is a string&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">?</span><span class="m">3</span><span class="p">)</span><span class="na">⍨¨</span><span class="s1">&#39;this is a string&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+</pre></div></div>
 </div>
 <p>The alternatives, again, tend to be either more cumbersome, or inefficient</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⍴</span><span class="s1">&#39;this is a string&#39;</span><span class="p">)</span><span class="o">⍴?</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⍴</span><span class="s1">&#39;this is a string&#39;</span><span class="p">)</span><span class="o">⍴?</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+</pre></div></div>
 </div>
 <p>Note that we can’t do</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="o">?</span><span class="m">3</span><span class="kt">}</span><span class="na">¨</span><span class="s1">&#39;this is a string&#39;</span>  <span class="c1">⍝ Not the same thing!</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="o">?</span><span class="m">3</span><span class="kt">}</span><span class="na">¨</span><span class="s1">&#39;this is a string&#39;</span><span class="w">  </span><span class="c1">⍝ Not the same thing!</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2 2 1 2 2 1 2 2 2 1 1 2 1 2 3 3
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1 1 3 3 2 2 2 2 1 1 2 2 2 2 3 2
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="beside-atop">
-<h2>Beside/atop <code class="docutils literal notranslate"><span class="pre">∘</span></code><a class="headerlink" href="#beside-atop" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="beside-atop">
+<h2>Beside/atop <code class="docutils literal notranslate"><span class="pre">∘</span></code><a class="headerlink" href="#beside-atop" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Beside.htm">Beside</a> operator, <code class="docutils literal notranslate"><span class="pre">∘</span></code>.  <code class="docutils literal notranslate"><span class="pre">∘</span></code> comes from function composition, like how <code class="docutils literal notranslate"><span class="pre">f(g(x))</span></code> can be written <code class="docutils literal notranslate"><span class="pre">f∘g(x)</span></code> in mathematics. So, too, in APL, if <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">g</span></code> are functions, then <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">x</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">g</span> <span class="pre">x</span></code> (APL doesn’t need parentheses for function application). This alone is, of course, not very interesting. However, APL also has dyadic (infix) functions: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">f∘g</span> <span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">f</span> <span class="pre">g</span> <span class="pre">B</span></code>.</p>
 <p>Both of these are very important when writing tacit APL code. For example, if we want to write a function which adds its left argument to the reciprocal (monadic <code class="docutils literal notranslate"><span class="pre">÷</span></code>) of its right argument, it can be written as <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">←</span> <span class="pre">+∘÷</span></code>.</p>
 <p>The golden ratio (phi) can be calculated with the continued fraction</p>
@@ -970,60 +1251,60 @@ done
 <p>So <span class="math notranslate nohighlight">\(\phi\)</span> is <code class="docutils literal notranslate"><span class="pre">1+÷1+÷1+÷…</span></code>. We can insert the same function between elements of a list with the <code class="docutils literal notranslate"><span class="pre">/</span></code> operator, for example,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">/</span><span class="m">1</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">/</span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">7
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">7
+</pre></div></div>
 </div>
 <p>In our case, we want to insert <code class="docutils literal notranslate"><span class="pre">…+÷…</span></code>, but that isn’t a single function. However, we can use <code class="docutils literal notranslate"><span class="pre">+∘÷</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">∘</span><span class="o">÷</span><span class="na">/</span><span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">∘</span><span class="o">÷</span><span class="na">/</span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1.618181818181818181818181818181818
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1.618181818
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">X⍴Y</span></code> reshapes <code class="docutils literal notranslate"><span class="pre">Y</span></code> into shape <code class="docutils literal notranslate"><span class="pre">X</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">∘</span><span class="o">÷</span><span class="na">/</span><span class="m">1000</span><span class="o">⍴</span><span class="m">1</span>  <span class="c1">⍝ A good approximation of phi.</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">∘</span><span class="o">÷</span><span class="na">/</span><span class="m">1000</span><span class="o">⍴</span><span class="m">1</span><span class="w">  </span><span class="c1">⍝ A good approximation of phi.</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1.618033988749894848204586834365638
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1.618033989
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">∘</span></code> also allows you to compose with argumnents. <code class="docutils literal notranslate"><span class="pre">g←f∘A</span></code> where <code class="docutils literal notranslate"><span class="pre">f</span></code> is a dyadic function and <code class="docutils literal notranslate"><span class="pre">A</span></code> an array (any data) gives <code class="docutils literal notranslate"><span class="pre">g</span></code>, a new monadic function which calculates <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">f</span> <span class="pre">A</span></code>. Similarly, <code class="docutils literal notranslate"><span class="pre">g←A∘f</span></code> makes <code class="docutils literal notranslate"><span class="pre">g</span></code> a function which calculates <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">f</span> <span class="pre">x</span></code>.</p>
 <p>For <em>operators</em> you can “curry” their right operand. So <code class="docutils literal notranslate"><span class="pre">WithTwo←∘2</span></code> is a new monadic operator which can in turn modify a dyadic function to become monadic (using 2 as its right argument). For example, <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">WithTwo</span> <span class="pre">3</span></code> will give 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">WithTwo</span><span class="kd">←</span><span class="na">∘</span><span class="m">2</span>
-<span class="o">+</span> <span class="nv">WithTwo</span> <span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">WithTwo</span><span class="kd">←</span><span class="na">∘</span><span class="m">2</span><span class="w"></span>
+<span class="o">+</span><span class="w"> </span><span class="nv">WithTwo</span><span class="w"> </span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">5
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">5
+</pre></div></div>
 </div>
 <p>This is especially useful with the <code class="docutils literal notranslate"><span class="pre">f⍣n</span></code> <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Power%20Operator.htm">power operator</a> which applies its <code class="docutils literal notranslate"><span class="pre">f</span></code> operand function <code class="docutils literal notranslate"><span class="pre">n</span></code> times. <code class="docutils literal notranslate"><span class="pre">twice←⍣2</span></code> is an operator which applies a function twice. For example, <code class="docutils literal notranslate"><span class="pre">2+twice</span> <span class="pre">3</span></code> is 7.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">twice</span><span class="kd">←</span><span class="na">⍣</span><span class="m">2</span>
-<span class="m">2</span><span class="o">+</span><span class="nv">twice</span> <span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">twice</span><span class="kd">←</span><span class="na">⍣</span><span class="m">2</span><span class="w"></span>
+<span class="m">2</span><span class="o">+</span><span class="nv">twice</span><span class="w"> </span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">7
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">7
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">inv←⍣¯1</span></code> is an operator which will apply a function -1 times, i.e. applies the inverse of that function.</p>
 <p>Question:</p>
@@ -1033,125 +1314,125 @@ done
 <p>No, but surprisingly many do. If you derive new functions tacitly using only operators and invertible functions, then the resulting function can also (generally) be inverted automatically. Even structural functions can be inverted:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="na">∘</span><span class="o">,</span><span class="na">⍣</span><span class="m">¯1</span><span class="p">)</span> <span class="s1">&#39;x&#39;</span><span class="na">∘</span><span class="o">,</span> <span class="s1">&#39;abc&#39;</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="na">∘</span><span class="o">,</span><span class="na">⍣</span><span class="m">¯1</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="na">∘</span><span class="o">,</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">abc
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">abc
+</pre></div></div>
 </div>
 <p>So what happened there is that we applied the function <code class="docutils literal notranslate"><span class="pre">'x'∘</span></code>, which prepends the letter <code class="docutils literal notranslate"><span class="pre">x</span></code>, and then we applied its inverse, which removes an <code class="docutils literal notranslate"><span class="pre">x</span></code> from the left side. The specific function <code class="docutils literal notranslate"><span class="pre">'x'∘</span></code>, is not hardcoded. Instead the interpreter has a bunch of rules which lets it determine the inverse of various compositions.</p>
 <p>That’s really all there is to say about <code class="docutils literal notranslate"><span class="pre">∘</span></code>. However, a warning is in place: <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)Y</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">Y</span></code> which may fool you into thinking that <code class="docutils literal notranslate"><span class="pre">X(f</span> <span class="pre">g)Y</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f∘g</span> <span class="pre">Y</span></code>. However, they are not the same!</p>
 <p>A nice golfing trick using <code class="docutils literal notranslate"><span class="pre">∘</span></code> is having the left operand be <code class="docutils literal notranslate"><span class="pre">⊢</span></code>. This allows using a monadic function on the right argument while ignoring the left argument.</p>
-</div>
-<div class="section" id="at">
-<h2>At <code class="docutils literal notranslate"><span class="pre">&#64;</span></code><a class="headerlink" href="#at" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="at">
+<h2>At <code class="docutils literal notranslate"><span class="pre">&#64;</span></code><a class="headerlink" href="#at" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Operators/At.htm">at</a> operator, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, does exactly what it says. What’s on its left gets done at the position indicated by its right operand.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="na">@</span><span class="m">2</span> <span class="m">5</span><span class="p">)</span> <span class="s1">&#39;Hello&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="na">@</span><span class="m">2</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">HXllX
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">HXllX
+</pre></div></div>
 </div>
 <p>So we put an <code class="docutils literal notranslate"><span class="pre">X</span></code> at positions 2 and 5 (APL is 1-indexed by default – you can change to 0-indexing if you want). We can also give an array which matches the selected elements:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;XY&#39;</span><span class="na">@</span><span class="m">2</span> <span class="m">5</span><span class="p">)</span> <span class="s1">&#39;Hello&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;XY&#39;</span><span class="na">@</span><span class="m">2</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">HXllY
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">HXllY
+</pre></div></div>
 </div>
 <p>So far, we’ve only used <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> to substitute elements. We can also use it to modify them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">-</span><span class="na">@</span><span class="m">2</span> <span class="m">5</span><span class="p">)</span><span class="m">10</span> <span class="m">20</span> <span class="m">30</span> <span class="m">40</span> <span class="m">50</span> <span class="m">60</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">-</span><span class="na">@</span><span class="m">2</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="m">10</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">40</span><span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">60</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">10 ¯20 30 40 ¯50 60
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">10 ¯20 30 40 ¯50 60
+</pre></div></div>
 </div>
 <p>Here we applied the monadic function <code class="docutils literal notranslate"><span class="pre">-</span></code> (negate) at positions 2 and 5. We can do the same with a dyadic function, too:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">7</span><span class="p">(</span><span class="o">+</span><span class="na">@</span><span class="m">2</span> <span class="m">5</span><span class="p">)</span><span class="m">10</span> <span class="m">20</span> <span class="m">30</span> <span class="m">40</span> <span class="m">50</span> <span class="m">60</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">7</span><span class="p">(</span><span class="o">+</span><span class="na">@</span><span class="m">2</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="m">10</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">40</span><span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">60</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">10 27 30 40 57 60
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">10 27 30 40 57 60
+</pre></div></div>
 </div>
 <p>So far, we have been using an array right operand. If we use a function right operand it gets applied to the right argument, and the result must be a Boolean mask instead of a list of indices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕A</span> <span class="c1">⍝ uppercase alphabet </span>
-<span class="s1">&#39;x&#39;</span><span class="na">@</span><span class="p">(</span><span class="o">∊</span><span class="na">∘</span><span class="nf">⎕A</span><span class="p">)</span><span class="s1">&#39;Hello World&#39;</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕A</span><span class="w"> </span><span class="c1">⍝ uppercase alphabet </span><span class="w"></span>
+<span class="s1">&#39;x&#39;</span><span class="na">@</span><span class="p">(</span><span class="o">∊</span><span class="na">∘</span><span class="nf">⎕A</span><span class="p">)</span><span class="s1">&#39;Hello World&#39;</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCDEFGHIJKLMNOPQRSTUVWXYZ
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">xello xorld
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</pre></div><div class="output text_html"><pre class="language-APL">xello xorld
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">∊</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Membership.htm">membership</a>, so the derived function <code class="docutils literal notranslate"><span class="pre">∊∘⎕A</span></code> gives a Boolean for where elements of the right (and only) argument are members of the uppercase alphabet:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">∊</span><span class="na">∘</span><span class="nf">⎕A</span><span class="p">)</span><span class="s1">&#39;Hello World&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">∊</span><span class="na">∘</span><span class="nf">⎕A</span><span class="p">)</span><span class="s1">&#39;Hello World&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0 0 0 0 0 1 0 0 0 0
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1 0 0 0 0 0 1 0 0 0 0
+</pre></div></div>
 </div>
 <p>which is then used as mask by <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> to determine where to substitute with <code class="docutils literal notranslate"><span class="pre">x</span></code>. See, for example <a class="reference external" href="https://codegolf.stackexchange.com/questions/147318/goto-the-nth-page/147339#147339">Goto the Nth Page</a> which uses <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> twice.</p>
-</div>
-<div class="section" id="i-beam">
-<h2>I-beam <code class="docutils literal notranslate"><span class="pre">⌶</span></code><a class="headerlink" href="#i-beam" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="i-beam">
+<h2>I-beam <code class="docutils literal notranslate"><span class="pre">⌶</span></code><a class="headerlink" href="#i-beam" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Operators/I%20Beam.htm">I-beam</a>, <code class="docutils literal notranslate"><span class="pre">⌶</span></code>, is a special monadic operator (although it follows normal APL syntax) which uses a positive integer operand to select a functionality, typically from a range of system related services. Note that although documentation is provided for <code class="docutils literal notranslate"><span class="pre">⌶</span></code> functions, any service provided this way should be considered as “experimental” and subject to change – without notice – from one release to the next.</p>
 <p>One example is <a class="reference external" href="https://help.dyalog.com/latest/#Language/I%20Beam%20Functions/Format%20Datetime.htm">Format Date-Time</a>, <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code>, which formats <em>Dyalog Date Numbers</em> according to a set of pattern rules.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;%ISO%&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="s1">&#39;J&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;%ISO%&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="s1">&#39;J&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────────────┐
-│2022-01-04T17:42:49│
+<div class="output text_html"><pre class="language-APL">┌───────────────────┐
+│2022-07-27T08:38:44│
 └───────────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="stencil">
-<h2>Stencil <code class="docutils literal notranslate"><span class="pre">⌺</span></code><a class="headerlink" href="#stencil" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="stencil">
+<h2>Stencil <code class="docutils literal notranslate"><span class="pre">⌺</span></code><a class="headerlink" href="#stencil" title="Permalink to this headline">#</a></h2>
 <p>Next up is <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Operators/Stencil.htm">stencil</a> (as in <a class="reference external" href="https://en.wikipedia.org/wiki/Iterative_Stencil_Loops">stencil code</a>), <code class="docutils literal notranslate"><span class="pre">⌺</span></code>. The symbol is supposed to evoke the picture of a stencil over a paper. Stencil is useful for <a class="reference external" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Game of Life</a> and related problems. It is a dyadic operator which derives a monadic function. The left operand must be a function and the right operand must be an array.</p>
 <p>The right operand specifies what neighbourhoods to apply to. For example, in Game of Life, the neighbourhoods are 3-by-3 sub-matrices centred on each element in the input array. The operand gets called dyadically. The right argument is a neighbourhood and the left is information about whether he neighbourhood overlaps an edge of the original argument world.</p>
 <p>To see how it works, we’ll use <code class="docutils literal notranslate"><span class="pre">{⊂⍵}</span></code> as left operand. It just encloses the neighbourhood so we can see it. As right operand we use <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">3</span></code>, i.e. the neighbourhood size:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">4</span> <span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span> <span class="c1">⍝ our argument</span>
-<span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span> <span class="m">3</span><span class="p">)</span> <span class="m">4</span> <span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">4</span><span class="w"> </span><span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"> </span><span class="c1">⍝ our argument</span><span class="w"></span>
+<span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCDEF
+<div class="output text_html"><pre class="language-APL">ABCDEF
 GHIJKL
 MNOPQR
 STUVWX
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┬───┬───┬───┬───┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌───┬───┬───┬───┬───┬───┐
 │   │   │   │   │   │   │
 │ AB│ABC│BCD│CDE│DEF│EF │
 │ GH│GHI│HIJ│IJK│JKL│KL │
@@ -1168,18 +1449,18 @@ STUVWX
 │ ST│STU│TUV│UVW│VWX│WX │
 │   │   │   │   │   │   │
 └───┴───┴───┴───┴───┴───┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Here you see that we returned a 4-by-6 matrix of neighbourhoods. Notice that all the neighbourhoods are 3-by-3, even at the edges. They were padded with spaces.</p>
 <p>The padding was done sometimes on top, sometimes on left, sometimes on right, and sometimes on the bottom. The information about that is in the left argument (<code class="docutils literal notranslate"><span class="pre">⍺</span></code>) of the operand function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span> <span class="m">3</span><span class="p">)</span> <span class="m">4</span> <span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────┬────┬────┬────┬────┬─────┐
+<div class="output text_html"><pre class="language-APL">┌────┬────┬────┬────┬────┬─────┐
 │1 1 │1 0 │1 0 │1 0 │1 0 │1 ¯1 │
 ├────┼────┼────┼────┼────┼─────┤
 │0 1 │0 0 │0 0 │0 0 │0 0 │0 ¯1 │
@@ -1188,18 +1469,18 @@ STUVWX
 ├────┼────┼────┼────┼────┼─────┤
 │¯1 1│¯1 0│¯1 0│¯1 0│¯1 0│¯1 ¯1│
 └────┴────┴────┴────┴────┴─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Each cell contains two elements, one for rows, and one for columns. Positive indicates left/top. Negative is right/bottom. The magnitude indicates how many rows/columns were padded.</p>
 <p>This fits nicely with the dyadic <code class="docutils literal notranslate"><span class="pre">↓</span></code> <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Drop.htm">drop</a> primitive, which takes the number of rows,columns as left argument to drop from the right argument:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺</span><span class="o">↓</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span> <span class="m">3</span><span class="p">)</span> <span class="m">4</span> <span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺</span><span class="o">↓</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬───┬───┬───┬───┬──┐
+<div class="output text_html"><pre class="language-APL">┌──┬───┬───┬───┬───┬──┐
 │AB│ABC│BCD│CDE│DEF│EF│
 │GH│GHI│HIJ│IJK│JKL│KL│
 ├──┼───┼───┼───┼───┼──┤
@@ -1214,18 +1495,18 @@ STUVWX
 │MN│MNO│NOP│OPQ│PQR│QR│
 │ST│STU│TUV│UVW│VWX│WX│
 └──┴───┴───┴───┴───┴──┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>As you can see, the padding was removed.</p>
 <p>Another example. Here you can see that on the far left and right, we have to pad two columns to get a 5-wide neighbourhood centred on the first column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span> <span class="m">5</span><span class="p">)</span> <span class="m">4</span> <span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────┬────┬────┬────┬─────┬─────┐
+<div class="output text_html"><pre class="language-APL">┌────┬────┬────┬────┬─────┬─────┐
 │1 2 │1 1 │1 0 │1 0 │1 ¯1 │1 ¯2 │
 ├────┼────┼────┼────┼─────┼─────┤
 │0 2 │0 1 │0 0 │0 0 │0 ¯1 │0 ¯2 │
@@ -1234,7 +1515,7 @@ STUVWX
 ├────┼────┼────┼────┼─────┼─────┤
 │¯1 2│¯1 1│¯1 0│¯1 0│¯1 ¯1│¯1 ¯2│
 └────┴────┴────┴────┴─────┴─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Now, let’s try implementing <em>Game of Life</em>.</p>
 <p>Here are the rules:</p>
@@ -1246,26 +1527,26 @@ STUVWX
 <p>Let’s make a world:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">4</span> <span class="m">5</span><span class="o">⍴</span><span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">⍴</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 1 0 0
+<div class="output text_html"><pre class="language-APL">0 0 1 0 0
 1 0 0 0 1
 0 0 1 0 0
 0 1 0 0 1
-</span></div></div>
+</pre></div></div>
 </div>
 <p>The 1s indicate live cells while the 0s indicate dead cells. Let’s look at our neighbourhoods:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span> <span class="m">3</span><span class="p">)</span> <span class="m">4</span> <span class="m">5</span><span class="o">⍴</span><span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">⍴</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────┬─────┬─────┬─────┬─────┐
+<div class="output text_html"><pre class="language-APL">┌─────┬─────┬─────┬─────┬─────┐
 │0 0 0│0 0 0│0 0 0│0 0 0│0 0 0│
 │0 0 0│0 0 1│0 1 0│1 0 0│0 0 0│
 │0 1 0│1 0 0│0 0 0│0 0 1│0 1 0│
@@ -1282,45 +1563,45 @@ STUVWX
 │0 0 1│0 1 0│1 0 0│0 0 1│0 1 0│
 │0 0 0│0 0 0│0 0 0│0 0 0│0 0 0│
 └─────┴─────┴─────┴─────┴─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>We can get the number of neighbours by summing. So we make a list with <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Ravel.htm">ravel</a>, <code class="docutils literal notranslate"><span class="pre">,</span></code>, and use <code class="docutils literal notranslate"><span class="pre">+/</span></code> to sum:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">+</span><span class="na">/</span><span class="o">,</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span> <span class="m">3</span><span class="p">)</span> <span class="m">4</span> <span class="m">5</span><span class="o">⍴</span><span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">+</span><span class="na">/</span><span class="o">,</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">⍴</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 2 1 2 1
+<div class="output text_html"><pre class="language-APL">1 2 1 2 1
 1 3 2 3 1
 2 3 2 3 2
 1 2 2 2 1
-</span></div></div>
+</pre></div></div>
 </div>
 <p>We also need to know what the current value is. That is the 5th value in the ravelled neighbourhood:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="m">5</span><span class="o">⌷,</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span> <span class="m">3</span><span class="p">)</span> <span class="m">4</span> <span class="m">5</span><span class="o">⍴</span><span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="m">5</span><span class="o">⌷,</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">⍴</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 1 0 0
+<div class="output text_html"><pre class="language-APL">0 0 1 0 0
 1 0 0 0 1
 0 0 1 0 0
 0 1 0 0 1
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Now we can say that <code class="docutils literal notranslate"><span class="pre">self←5⌷,⍵</span></code> and <code class="docutils literal notranslate"><span class="pre">total←+/,⍵</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="nv">self</span><span class="kd">←</span><span class="m">5</span><span class="o">⌷,</span><span class="bp">⍵</span> <span class="p">⋄</span> <span class="nv">total</span><span class="kd">←</span><span class="o">+</span><span class="na">/</span><span class="o">,</span><span class="bp">⍵</span> <span class="p">⋄</span> <span class="o">⊂</span><span class="nv">self</span> <span class="nv">total</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span> <span class="m">3</span><span class="p">)</span> <span class="m">4</span> <span class="m">5</span><span class="o">⍴</span><span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="nv">self</span><span class="kd">←</span><span class="m">5</span><span class="o">⌷,</span><span class="bp">⍵</span><span class="w"> </span><span class="p">⋄</span><span class="w"> </span><span class="nv">total</span><span class="kd">←</span><span class="o">+</span><span class="na">/</span><span class="o">,</span><span class="bp">⍵</span><span class="w"> </span><span class="p">⋄</span><span class="w"> </span><span class="o">⊂</span><span class="nv">self</span><span class="w"> </span><span class="nv">total</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">⍴</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┬───┬───┬───┐
+<div class="output text_html"><pre class="language-APL">┌───┬───┬───┬───┬───┐
 │0 1│0 2│1 1│0 2│0 1│
 ├───┼───┼───┼───┼───┤
 │1 1│0 3│0 2│0 3│1 1│
@@ -1329,37 +1610,37 @@ STUVWX
 ├───┼───┼───┼───┼───┤
 │0 1│1 2│0 2│0 2│1 1│
 └───┴───┴───┴───┴───┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Here we have the self and the total for each cell.</p>
 <p>The logic is that in the next generation the cell is alive if itself was alive and had 2–3 neighbours (3 or 4 total, including self), or if it was dead and had 3 neighbours.  That is</p>
-<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">self</span> <span class="o">∧</span> <span class="p">(</span><span class="nv">total</span><span class="o">∊</span><span class="m">3</span> <span class="m">4</span><span class="p">))</span> <span class="o">∨</span> <span class="p">((</span><span class="o">~</span><span class="nv">self</span><span class="p">)</span> <span class="o">∧</span> <span class="p">(</span><span class="nv">total</span><span class="o">=</span><span class="m">3</span><span class="p">))</span>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">self</span><span class="w"> </span><span class="o">∧</span><span class="w"> </span><span class="p">(</span><span class="nv">total</span><span class="o">∊</span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="p">))</span><span class="w"> </span><span class="o">∨</span><span class="w"> </span><span class="p">((</span><span class="o">~</span><span class="nv">self</span><span class="p">)</span><span class="w"> </span><span class="o">∧</span><span class="w"> </span><span class="p">(</span><span class="nv">total</span><span class="o">=</span><span class="m">3</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Let’s plug that in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="nv">self</span><span class="kd">←</span><span class="m">5</span><span class="o">⌷,</span><span class="bp">⍵</span> <span class="p">⋄</span> <span class="nv">total</span><span class="kd">←</span><span class="o">+</span><span class="na">/</span><span class="o">,</span><span class="bp">⍵</span> <span class="p">⋄</span> <span class="p">(</span><span class="nv">self</span> <span class="o">∧</span> <span class="p">(</span><span class="nv">total</span><span class="o">∊</span><span class="m">3</span> <span class="m">4</span><span class="p">))</span> <span class="o">∨</span> <span class="p">((</span><span class="o">~</span><span class="nv">self</span><span class="p">)</span> <span class="o">∧</span> <span class="p">(</span><span class="nv">total</span><span class="o">=</span><span class="m">3</span><span class="p">))</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span> <span class="m">3</span><span class="p">)</span> <span class="m">4</span> <span class="m">5</span><span class="o">⍴</span><span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="nv">self</span><span class="kd">←</span><span class="m">5</span><span class="o">⌷,</span><span class="bp">⍵</span><span class="w"> </span><span class="p">⋄</span><span class="w"> </span><span class="nv">total</span><span class="kd">←</span><span class="o">+</span><span class="na">/</span><span class="o">,</span><span class="bp">⍵</span><span class="w"> </span><span class="p">⋄</span><span class="w"> </span><span class="p">(</span><span class="nv">self</span><span class="w"> </span><span class="o">∧</span><span class="w"> </span><span class="p">(</span><span class="nv">total</span><span class="o">∊</span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="p">))</span><span class="w"> </span><span class="o">∨</span><span class="w"> </span><span class="p">((</span><span class="o">~</span><span class="nv">self</span><span class="p">)</span><span class="w"> </span><span class="o">∧</span><span class="w"> </span><span class="p">(</span><span class="nv">total</span><span class="o">=</span><span class="m">3</span><span class="p">))</span><span class="kt">}</span><span class="na">⌺</span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">⍴</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 0 0 0
+<div class="output text_html"><pre class="language-APL">0 0 0 0 0
 0 1 0 1 0
 0 1 0 1 0
 0 0 0 0 0
-</span></div></div>
+</pre></div></div>
 </div>
 <p>This can be shortened considerably, if we so wished. For a detailed walk-though of the shortest possible <em>Game of Life</em> using <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Stencil.htm">stencil</a>, see the webinar on <a class="reference external" href="https://dyalog.tv/Webinar/?v=3FjYly2G_QI">dyalog.tv</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">⌺</span></code> can do a further trick, too. If the right operand is a matrix, then the second row indicates the step size. By default it is 1 in every dimension. Consider the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="p">(</span><span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="m">3</span><span class="p">))</span><span class="m">7</span> <span class="m">7</span><span class="o">⍴</span><span class="nf">⎕A</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="o">⍴</span><span class="m">3</span><span class="p">))</span><span class="m">7</span><span class="w"> </span><span class="m">7</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┬───┐
+<div class="output text_html"><pre class="language-APL">┌───┬───┬───┐
 │   │   │   │
 │ AB│CDE│FG │
 │ HI│JKL│MN │
@@ -1372,18 +1653,18 @@ STUVWX
 │ QR│STU│VW │
 │   │   │   │
 └───┴───┴───┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Here we used a 2-by-2 matrix of all 3s. In other words, we get 3-by-3 neighbourhoods going over 3 rows and 3 columns. Thus, we “chop” the argument, with no overlaps. We can also use even sizes, in which case every “space” between elements (rather than elements themselves) gets to be the centre of a neighbourhood:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="p">(</span><span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="m">2</span><span class="p">))</span><span class="m">6</span> <span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span>
-<span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="p">(</span><span class="m">2</span> <span class="m">4</span><span class="p">))</span><span class="m">4</span> <span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="o">⍴</span><span class="m">2</span><span class="p">))</span><span class="m">6</span><span class="w"> </span><span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"></span>
+<span class="p">(</span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌺</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="p">))</span><span class="m">4</span><span class="w"> </span><span class="m">6</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬──┬──┐
+<div class="output text_html"><pre class="language-APL">┌──┬──┬──┐
 │AB│CD│EF│
 │GH│IJ│KL│
 ├──┼──┼──┤
@@ -1393,7 +1674,7 @@ STUVWX
 │YZ│AB│CD│
 │EF│GH│IJ│
 └──┴──┴──┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────┬────┬────┬────┬────┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌────┬────┬────┬────┬────┐
 │ ABC│ABCD│BCDE│CDEF│DEF │
 │ GHI│GHIJ│HIJK│IJKL│JKL │
 ├────┼────┼────┼────┼────┤
@@ -1403,178 +1684,178 @@ STUVWX
 │ MNO│MNOP│NOPQ│OPQR│PQR │
 │ STU│STUV│TUVW│UVWX│VWX │
 └────┴────┴────┴────┴────┘
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="key">
-<h2>Key <code class="docutils literal notranslate"><span class="pre">⌸</span></code><a class="headerlink" href="#key" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="key">
+<h2>Key <code class="docutils literal notranslate"><span class="pre">⌸</span></code><a class="headerlink" href="#key" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⌸</span></code> is <a class="reference external" href="https://help.dyalog.com/latest/#Language/Primitive%20Operators/Key.htm">key</a>, a monadic operator deriving an ambivalent function (i.e. monadic or dyadic depending on usage). The lone operand must be a function, and it gets called dyadically in a manner not too different from <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Stencil.htm">stencil’s</a> left operand.</p>
 <p>Let’s do the monadic derived function first, i.e. <code class="docutils literal notranslate"><span class="pre">(f⌸)</span> <span class="pre">data</span></code>.</p>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Key.htm">Key</a> will group identical major cells of the data together and call the operand <code class="docutils literal notranslate"><span class="pre">f</span></code> with the unique element as left argument, and the indices of that element in the data as right argument:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="s1">&#39;Mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="s1">&#39;Mississippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────┬────────────┬───────────┬────────┐
+<div class="output text_html"><pre class="language-APL">┌─────┬────────────┬───────────┬────────┐
 │┌─┬─┐│┌─┬────────┐│┌─┬───────┐│┌─┬────┐│
 ││M│1│││i│2 5 8 11│││s│3 4 6 7│││p│9 10││
 │└─┴─┘│└─┴────────┘│└─┴───────┘│└─┴────┘│
 └─────┴────────────┴───────────┴────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>This tells us that “M” is at index 1, “i” at 2 5 8 11, etc. It is very common to use <code class="docutils literal notranslate"><span class="pre">≢</span></code> to tally the indices:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="bp">⍺</span><span class="o">,≢</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="s1">&#39;Mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="bp">⍺</span><span class="o">,≢</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="s1">&#39;Mississippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">M 1
+<div class="output text_html"><pre class="language-APL">M 1
 i 4
 s 4
 p 2
-</span></div></div>
+</pre></div></div>
 </div>
 <p>which gives us the count of each unique element. We can, for example, use this to remove elements which only occur once. We first use <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Key.htm">key</a> to make a Boolean vector for each unique element:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="m">1</span><span class="o">≠≢</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="s1">&#39;Mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="m">1</span><span class="o">≠≢</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="s1">&#39;Mississippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1 1 1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0 1 1 1
+</pre></div></div>
 </div>
 <p>Monadic <code class="docutils literal notranslate"><span class="pre">∪</span></code> gives us the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Unique.htm">unique</a> elements:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">∪</span><span class="s1">&#39;Mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">∪</span><span class="s1">&#39;Mississippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">Misp
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">Misp
+</pre></div></div>
 </div>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">/</span></code> to filter one by the other:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span><span class="na">/</span><span class="s1">&#39;Misp&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="na">/</span><span class="s1">&#39;Misp&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">isp
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">isp
+</pre></div></div>
 </div>
 <p>Putting it all together, we get</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="p">(</span><span class="kt">{</span><span class="m">1</span><span class="o">≠≢</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="bp">⍵</span><span class="p">)</span><span class="na">/</span><span class="o">∪</span><span class="bp">⍵</span><span class="kt">}</span><span class="s1">&#39;Mississippi&#39;</span> <span class="c1">⍝ Unique elements occurring more than once</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="kt">{</span><span class="p">(</span><span class="kt">{</span><span class="m">1</span><span class="o">≠≢</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="bp">⍵</span><span class="p">)</span><span class="na">/</span><span class="o">∪</span><span class="bp">⍵</span><span class="kt">}</span><span class="s1">&#39;Mississippi&#39;</span><span class="w"> </span><span class="c1">⍝ Unique elements occurring more than once</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">isp
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">isp
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">⌸</span></code> works on higher rank arrays, too (matrices, 3D blocks, etc.), where it will use the major cells (rows for matrices, layers for 3D blocks…) as “items”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">5</span> <span class="m">3</span><span class="o">⍴</span><span class="s1">&#39;AAAABCAAAABBAAA&#39;</span> 
-<span class="kt">{</span><span class="bp">⍺⍵</span><span class="kt">}</span><span class="na">⌸</span> <span class="m">5</span> <span class="m">3</span><span class="o">⍴</span><span class="s1">&#39;AAAABCAAAABBAAA&#39;</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">5</span><span class="w"> </span><span class="m">3</span><span class="o">⍴</span><span class="s1">&#39;AAAABCAAAABBAAA&#39;</span><span class="w"> </span>
+<span class="kt">{</span><span class="bp">⍺⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">3</span><span class="o">⍴</span><span class="s1">&#39;AAAABCAAAABBAAA&#39;</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">AAA
+<div class="output text_html"><pre class="language-APL">AAA
 ABC
 AAA
 ABB
 AAA
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬─────┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌───┬─────┐
 │AAA│1 3 5│
 ├───┼─────┤
 │ABC│2    │
 ├───┼─────┤
 │ABB│4    │
 └───┴─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Dyadic <em>key</em> then. Behold:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Mississippi&#39;</span> <span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺⍵</span><span class="kt">}</span><span class="na">⌸</span> <span class="o">⍳</span><span class="m">11</span>
-<span class="s1">&#39;Mississippi&#39;</span> <span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺⍵</span><span class="kt">}</span><span class="na">⌸</span> <span class="s1">&#39;ABCDEFGHIJK&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Mississippi&#39;</span><span class="w"> </span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="w"> </span><span class="o">⍳</span><span class="m">11</span><span class="w"></span>
+<span class="s1">&#39;Mississippi&#39;</span><span class="w"> </span><span class="kt">{</span><span class="o">⊂</span><span class="bp">⍺⍵</span><span class="kt">}</span><span class="na">⌸</span><span class="w"> </span><span class="s1">&#39;ABCDEFGHIJK&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────┬────────────┬───────────┬────────┐
+<div class="output text_html"><pre class="language-APL">┌─────┬────────────┬───────────┬────────┐
 │┌─┬─┐│┌─┬────────┐│┌─┬───────┐│┌─┬────┐│
 ││M│1│││i│2 5 8 11│││s│3 4 6 7│││p│9 10││
 │└─┴─┘│└─┴────────┘│└─┴───────┘│└─┴────┘│
 └─────┴────────────┴───────────┴────────┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────┬────────┬────────┬──────┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌─────┬────────┬────────┬──────┐
 │┌─┬─┐│┌─┬────┐│┌─┬────┐│┌─┬──┐│
 ││M│A│││i│BEHK│││s│CDFG│││p│IJ││
 │└─┴─┘│└─┴────┘│└─┴────┘│└─┴──┘│
 └─────┴────────┴────────┴──────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Instead of returning the indices of the unique elements (of the right – and only – argument), it returns the elements of the right <em>corresponding</em> to the unique elements of the left.</p>
-</div>
-<div class="section" id="atop-fg">
-<h2>Atop <code class="docutils literal notranslate"><span class="pre">f⍤g</span></code><a class="headerlink" href="#atop-fg" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="atop-fg">
+<h2>Atop <code class="docutils literal notranslate"><span class="pre">f⍤g</span></code><a class="headerlink" href="#atop-fg" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Atop.htm">Atop</a> has been assigned <code class="docutils literal notranslate"><span class="pre">function⍤function</span></code>, thus sharing the symbol with the rank operator’s <code class="docutils literal notranslate"><span class="pre">function⍤array</span></code>. You should be familiar with the 2-train, which is also called “atop”: <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)Y</span></code> and <code class="docutils literal notranslate"><span class="pre">X(f</span> <span class="pre">g)Y</span></code>. Maybe you’ve even been burned by <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">Y</span></code> being an atop, but <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f∘g</span> <span class="pre">Y</span></code> <em>not</em> being an atop. Well, the atop operator is what you would expect, i.e. <code class="docutils literal notranslate"><span class="pre">f⍤g</span> <span class="pre">Y</span></code> is exactly like <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">Y</span></code> but <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f⍤g</span> <span class="pre">Y</span></code> is <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">X</span> <span class="pre">g</span> <span class="pre">Y</span></code> or <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">(f</span> <span class="pre">g)</span> <span class="pre">Y</span></code>. We strongly recommend transitioning to use <code class="docutils literal notranslate"><span class="pre">⍤</span></code> in places where you’ve hitherto used monadic <code class="docutils literal notranslate"><span class="pre">f∘g</span></code>: it will prevent (at least one potential cause of) frustration should you ever decide to add a left argument to your code.</p>
 <p>Let’s say you define a function that returns the magnitude of reciprocal:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="na">∘</span><span class="o">÷</span> <span class="m">¯4</span>
-<span class="o">|</span><span class="na">∘</span><span class="o">÷</span> <span class="m">¯5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="na">∘</span><span class="o">÷</span><span class="w"> </span><span class="m">¯4</span><span class="w"></span>
+<span class="o">|</span><span class="na">∘</span><span class="o">÷</span><span class="w"> </span><span class="m">¯5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.25
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.2
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0.25
+</pre></div><div class="output text_html"><pre class="language-APL">0.2
+</pre></div></div>
 </div>
 <p>(This could be written without the <code class="docutils literal notranslate"><span class="pre">∘</span></code>, but this is a very simple function useful for illustration purposes.)</p>
 <p>Now you get a feature request that the function should take a left argument which is a numerator (instead of the default 1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="o">|</span><span class="na">∘</span><span class="o">÷</span> <span class="m">¯4</span>
-<span class="m">2</span> <span class="o">|</span><span class="na">∘</span><span class="o">÷</span> <span class="m">¯5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="w"> </span><span class="o">|</span><span class="na">∘</span><span class="o">÷</span><span class="w"> </span><span class="m">¯4</span><span class="w"></span>
+<span class="m">2</span><span class="w"> </span><span class="o">|</span><span class="na">∘</span><span class="o">÷</span><span class="w"> </span><span class="m">¯5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1.75
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1.8
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1.75
+</pre></div><div class="output text_html"><pre class="language-APL">1.8
+</pre></div></div>
 </div>
 <p>Oops. However:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="na">⍤</span><span class="o">÷</span> <span class="m">¯4</span>
-<span class="o">|</span><span class="na">⍤</span><span class="o">÷</span> <span class="m">¯5</span>
-<span class="m">2</span> <span class="o">|</span><span class="na">⍤</span><span class="o">÷</span> <span class="m">¯4</span>
-<span class="m">2</span> <span class="o">|</span><span class="na">⍤</span><span class="o">÷</span> <span class="m">¯5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="na">⍤</span><span class="o">÷</span><span class="w"> </span><span class="m">¯4</span><span class="w"></span>
+<span class="o">|</span><span class="na">⍤</span><span class="o">÷</span><span class="w"> </span><span class="m">¯5</span><span class="w"></span>
+<span class="m">2</span><span class="w"> </span><span class="o">|</span><span class="na">⍤</span><span class="o">÷</span><span class="w"> </span><span class="m">¯4</span><span class="w"></span>
+<span class="m">2</span><span class="w"> </span><span class="o">|</span><span class="na">⍤</span><span class="o">÷</span><span class="w"> </span><span class="m">¯5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.25
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.2
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.5
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.4
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0.25
+</pre></div><div class="output text_html"><pre class="language-APL">0.2
+</pre></div><div class="output text_html"><pre class="language-APL">0.5
+</pre></div><div class="output text_html"><pre class="language-APL">0.4
+</pre></div></div>
 </div>
 <p>One way to look at <code class="docutils literal notranslate"><span class="pre">f∘g</span></code> vs <code class="docutils literal notranslate"><span class="pre">f⍤g</span></code> is that, when given a left argument, <code class="docutils literal notranslate"><span class="pre">∘</span></code> gives it to the left-hand function and <code class="docutils literal notranslate"><span class="pre">⍤</span></code> gives it to the right-hand function. Other than that, they are equivalent.  Another way to look at <code class="docutils literal notranslate"><span class="pre">f∘g</span></code> vs <code class="docutils literal notranslate"><span class="pre">f⍤g</span></code> is simply choosing order of the first two tokens in the equivalent explicit expression: <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f∘g</span> <span class="pre">Y</span></code> computes <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f</span> <span class="pre">g</span> <span class="pre">Y</span></code> and <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f⍤g</span> <span class="pre">Y</span></code> computes <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">X</span> <span class="pre">g</span> <span class="pre">Y</span></code>. So we’re simply swapping <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
 <p>Then there’s the classic problem with slashes, especially in tacit programming. If you’ve ever tried using replicate/compress in a train, you’ll have bumped into the fact that slashes prefer being operators over being functions. This means that <code class="docutils literal notranslate"><span class="pre">{(5&lt;⍵)/⍵}</span></code> doesn’t convert to <code class="docutils literal notranslate"><span class="pre">(5&lt;⊢)/⊢</span></code>.</p>
@@ -1582,20 +1863,20 @@ AAA
 <p>So, <code class="docutils literal notranslate"><span class="pre">⍤</span></code> to the rescue. If <code class="docutils literal notranslate"><span class="pre">⍤</span></code> (or any dyadic operator) is found to the immediate left of a slash, then clearly the dyadic operator cannot be the operand of the slash, <code class="docutils literal notranslate"><span class="pre">⍤</span></code> being a dyadic operator itself, and it can’t be part of the function on the left, since it requires a right-operand, too. Therefore, the slash is forced to become a function. So <code class="docutils literal notranslate"><span class="pre">-⍤/</span></code> is the negation of the replicate:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="m">0</span> <span class="m">2</span><span class="o">-</span><span class="na">⍤/</span><span class="m">10</span> <span class="m">20</span> <span class="m">30</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="o">-</span><span class="na">⍤/</span><span class="m">10</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">30</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯10 ¯30 ¯30
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯10 ¯30 ¯30
+</pre></div></div>
 </div>
 <p>It is easy to think then that “oh, this is an atop, so I should be able to do this with parentheses too; <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)</span></code>” but that’d be a mistake: <code class="docutils literal notranslate"><span class="pre">(-/)</span></code> is just a normal minus-reduction. Since <code class="docutils literal notranslate"><span class="pre">f⍤g</span></code> is “atop” and <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">g)</span></code> is “atop”, you might think they are interchangeable.</p>
 <p>Another mistake is to think: “if a slash is an operand, it’ll be a function” and then think that <code class="docutils literal notranslate"><span class="pre">/∘⊢</span></code> would work like <code class="docutils literal notranslate"><span class="pre">⊢⍤/</span></code> by pre-processing the right argument with a no-op rather than post-processing the result with a no-op.</p>
 <p>Let’s say we have a two-element vector of a mask and some data, and you want to “apply” the mask to the data… Perhaps your instinct is to try</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">apply</span> <span class="kd">←</span> <span class="na">//</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">apply</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="na">//</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -1603,88 +1884,88 @@ AAA
 <p>but that gives an enclosed result, which isn’t what we want:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">display</span> <span class="nv">apply</span> <span class="p">(</span><span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="p">)</span><span class="s1">&#39;abc&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">display</span><span class="w"> </span><span class="nv">apply</span><span class="w"> </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="s1">&#39;abc&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────┐
+<div class="output text_html"><pre class="language-APL">┌──────┐
 │ ┌→─┐ │
 │ │ac│ │
 │ └──┘ │
 └∊─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Instead, we can do something like</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">apply</span> <span class="kd">←</span> <span class="o">⊃⊢</span><span class="na">⍤//</span>
-<span class="sr">]</span><span class="nv">display</span> <span class="nv">apply</span> <span class="p">(</span><span class="m">1</span> <span class="m">0</span> <span class="m">1</span><span class="p">)</span><span class="s1">&#39;abc&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">apply</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">⊃⊢</span><span class="na">⍤//</span><span class="w"></span>
+<span class="sr">]</span><span class="nv">display</span><span class="w"> </span><span class="nv">apply</span><span class="w"> </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="s1">&#39;abc&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌→─┐
+<div class="output text_html"><pre class="language-APL">┌→─┐
 │ac│
 └──┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>In fact, once <code class="docutils literal notranslate"><span class="pre">⊢⍤/</span></code> becomes a common pattern, you can actually help the reader of your code by using <code class="docutils literal notranslate"><span class="pre">⊢⍤/</span></code> so they don’t have to consider if your slash is Replicate or Reduce. For example, if your code says <code class="docutils literal notranslate"><span class="pre">z←x/y</span></code> it might not be obvious what’s going on. If you instead write <code class="docutils literal notranslate"><span class="pre">z←x⊢⍤/y</span></code> your reader knows exactly what you’re doing.</p>
 <p>Another example. Given a string, replace every character with two copies of itself prefixed and suffixed by a space. For example, <code class="docutils literal notranslate"><span class="pre">'abc'</span></code> becomes <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">aa</span>&#160; <span class="pre">bb</span>&#160; <span class="pre">cc</span> <span class="pre">'</span></code>. Yes, you can do this with regex. Please don’t.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⊢</span> <span class="o">⊢</span><span class="na">⍤⍀</span> <span class="na">⍨</span><span class="m">0</span> <span class="m">2</span> <span class="m">0</span><span class="o">⍴</span><span class="na">⍨</span><span class="m">3</span><span class="o">×≢</span><span class="p">)</span><span class="s1">&#39;abc&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⊢</span><span class="w"> </span><span class="o">⊢</span><span class="na">⍤⍀</span><span class="w"> </span><span class="na">⍨</span><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">0</span><span class="o">⍴</span><span class="na">⍨</span><span class="m">3</span><span class="o">×≢</span><span class="p">)</span><span class="s1">&#39;abc&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace"> aa  bb  cc 
-</span></div></div>
+<div class="output text_html"><pre class="language-APL"> aa  bb  cc 
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="over-fg">
-<h2>Over <code class="docutils literal notranslate"><span class="pre">f⍥g</span></code><a class="headerlink" href="#over-fg" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="over-fg">
+<h2>Over <code class="docutils literal notranslate"><span class="pre">f⍥g</span></code><a class="headerlink" href="#over-fg" title="Permalink to this headline">#</a></h2>
 <p>Recall how <code class="docutils literal notranslate"><span class="pre">f∘g</span></code> preprocesses the right argument of <code class="docutils literal notranslate"><span class="pre">f</span></code> using <code class="docutils literal notranslate"><span class="pre">g</span></code>. One way to look at <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Over.htm">Over</a> is simply as preprocessing all arguments of <code class="docutils literal notranslate"><span class="pre">f</span></code> using <code class="docutils literal notranslate"><span class="pre">g</span></code>. All, as in both or the only. So again <code class="docutils literal notranslate"><span class="pre">f⍥g</span> <span class="pre">Y</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">f⍤g</span> <span class="pre">Y</span></code> and <code class="docutils literal notranslate"><span class="pre">f∘g</span> <span class="pre">Y</span></code>. The difference is, again, when we do a dyadic application. While <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f∘g</span> <span class="pre">Y</span></code> is <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f(g</span> <span class="pre">Y)</span></code> we have <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">f⍥g</span> <span class="pre">Y</span></code> be <code class="docutils literal notranslate"><span class="pre">(g</span> <span class="pre">X)f(g</span> <span class="pre">Y)</span></code>. This may seem like an overly involved operator, but really, the pattern of preprocessing both arguments comes up a lot. Once you start looking for it, you’ll see it all over.</p>
 <p>For example, a dyadic function computing the sum of absolute values of its arguments:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span> <span class="m">¯2</span> <span class="m">3</span> <span class="m">4</span> <span class="o">+</span><span class="na">⍥</span><span class="o">|</span> <span class="m">2</span> <span class="m">3</span> <span class="m">¯8</span> <span class="m">5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span><span class="w"> </span><span class="m">¯2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">+</span><span class="na">⍥</span><span class="o">|</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">¯8</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3 5 11 9
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">3 5 11 9
+</pre></div></div>
 </div>
 <p>Given arguments which are vectors, which one has the smallest maximum? Return <code class="docutils literal notranslate"><span class="pre">¯1</span></code> if the left argument has the smallest maximum, <code class="docutils literal notranslate"><span class="pre">1</span></code> if the right one has, or <code class="docutils literal notranslate"><span class="pre">0</span></code> if they are equal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span> <span class="m">¯2</span> <span class="m">3</span> <span class="m">4</span> <span class="o">×</span><span class="na">⍤</span><span class="o">-</span><span class="na">⍥</span><span class="p">(</span><span class="o">⌈</span><span class="na">/</span><span class="p">)</span> <span class="m">2</span> <span class="m">3</span> <span class="m">¯8</span> <span class="m">5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span><span class="w"> </span><span class="m">¯2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">×</span><span class="na">⍤</span><span class="o">-</span><span class="na">⍥</span><span class="p">(</span><span class="o">⌈</span><span class="na">/</span><span class="p">)</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">¯8</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯1
+</pre></div></div>
 </div>
 <p>Beautiful use of both Atop and Over. You can, of course, omit the <code class="docutils literal notranslate"><span class="pre">⍤</span></code> here, unless used inline. OK, how about this: write an alternative to replicate which can take arguments of equal shape, both with rank greater than 1, and replicates the corresponding elements. Since the result might otherwise be ragged, you have to return a vector.</p>
-<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span>      <span class="p">(</span><span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span><span class="p">)</span> <span class="nv">YourFunction</span> <span class="m">2</span> <span class="m">3</span><span class="o">⍴</span><span class="nf">⎕A</span>
-<span class="nv">ABBCCCDDDDEEEEEFFFFFF</span>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="w">      </span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span><span class="p">)</span><span class="w"> </span><span class="nv">YourFunction</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"></span>
+<span class="nv">ABBCCCDDDDEEEEEFFFFFF</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span><span class="p">)</span> <span class="o">⊢</span><span class="na">⍤/⍥</span><span class="o">,</span> <span class="m">2</span> <span class="m">3</span><span class="o">⍴</span><span class="nf">⎕A</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span><span class="p">)</span><span class="w"> </span><span class="o">⊢</span><span class="na">⍤/⍥</span><span class="o">,</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">⍴</span><span class="nf">⎕A</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABBCCCDDDDEEEEEFFFFFF
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">ABBCCCDDDDEEEEEFFFFFF
+</pre></div></div>
 </div>
 <p>Also, in this case, you don’t <em>need</em> <code class="docutils literal notranslate"><span class="pre">⊢⍤</span></code>, but it is good for clarity, and necessary if used inline in a train. A golfing tip regarding <code class="docutils literal notranslate"><span class="pre">⍥</span></code>: you can sometimes use it to pre-process the left argument, when it is a no-op on the right. For example, <code class="docutils literal notranslate"><span class="pre">1≡⍥,≡,⍴</span></code>, only ravels the left argument, since the right argument already is a vector.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1708,9 +1989,11 @@ AAA
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Regex.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1726,32 +2009,34 @@ AAA
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

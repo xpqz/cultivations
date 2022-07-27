@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Behaviour, session &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -62,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -422,6 +439,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -434,90 +456,191 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Behaviour.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FBehaviour.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FBehaviour.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Behaviour.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparison-tolerance-ct">
    Comparison tolerance
@@ -670,228 +793,396 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Behaviour, session</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-tolerance-ct">
+   Comparison tolerance
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕CT
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#division-method-div">
+   Division method
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕DIV
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#index-origin-io">
+   Index origin
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕IO
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#print-precision-pp">
+   Print precision
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕PP
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#floating-point-representation-fr">
+   Floating-point representation
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕FR
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-link-rl">
+   Random link
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕RL
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#account-info-ai">
+   Account info
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕AI
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#account-name-an">
+   Account name
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕AN
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clear-workspace-clear">
+   Clear workspace
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕CLEAR
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copy-workspace-cy">
+   Copy workspace
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕CY
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delay-dl">
+   Delay
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕DL
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-load">
+   Load
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕LOAD
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#off-off">
+   Off
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕OFF
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-save">
+   Save
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕SAVE
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-stamp-ts">
+   Time stamp
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕TS
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="behaviour-session">
-<h1>Behaviour, session<a class="headerlink" href="#behaviour-session" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="behaviour-session">
+<h1>Behaviour, session<a class="headerlink" href="#behaviour-session" title="Permalink to this headline">#</a></h1>
 <p>There are several system functions that control behavioural aspects of the interpreter and the session itself.</p>
-<div class="section" id="comparison-tolerance-ct">
-<h2>Comparison tolerance <code class="docutils literal notranslate"><span class="pre">⎕CT</span></code><a class="headerlink" href="#comparison-tolerance-ct" title="Permalink to this headline">¶</a></h2>
+<section id="comparison-tolerance-ct">
+<h2>Comparison tolerance <code class="docutils literal notranslate"><span class="pre">⎕CT</span></code><a class="headerlink" href="#comparison-tolerance-ct" title="Permalink to this headline">#</a></h2>
 <p>To deal with inexactness in floating point representation, we have <code class="docutils literal notranslate"><span class="pre">⎕CT</span></code>, which is <a class="reference external" href="help.dyalog.com/latest/index.htm#Language/System%20Functions/ct.htm">Comparison Tolerance</a>. Some APL primitives have implicit arguments, i.e. arguments which are given as values to (semi) global variables instead of on the right or left.</p>
 <p><code class="docutils literal notranslate"><span class="pre">⎕CT</span></code> is a tiny value:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CT</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CT</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1E¯14
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1E¯14
+</pre></div></div>
 </div>
 <p>Two floating point numbers <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> are considered to be equal if <code class="docutils literal notranslate"><span class="pre">(|X-Y)≤⎕CT×(|X)⌈|Y</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">=</span><span class="m">1</span><span class="o">+</span><span class="m">1e¯15</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">=</span><span class="m">1</span><span class="o">+</span><span class="m">1e¯15</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1
+</pre></div></div>
 </div>
 <p>You can set <code class="docutils literal notranslate"><span class="pre">⎕CT</span></code> within reasonable limits (you can’t make two unequal ints the same), so you can just set it to something else if you need to modify (or even disable) this behaviour:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CT</span><span class="kd">←</span><span class="m">1E¯10</span>    <span class="c1">⍝ More tolerant</span>
-<span class="m">1</span><span class="o">=</span><span class="m">1</span><span class="o">+</span><span class="m">1e¯11</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CT</span><span class="kd">←</span><span class="m">1E¯10</span><span class="w">    </span><span class="c1">⍝ More tolerant</span><span class="w"></span>
+<span class="m">1</span><span class="o">=</span><span class="m">1</span><span class="o">+</span><span class="m">1e¯11</span><span class="w"></span>
 
-<span class="nf">⎕CT</span><span class="kd">←</span><span class="m">0</span>        <span class="c1">⍝ Disable comparison tolerance</span>
-<span class="m">1</span><span class="o">=</span><span class="m">1</span><span class="o">+</span><span class="m">1e¯15</span>
+<span class="nf">⎕CT</span><span class="kd">←</span><span class="m">0</span><span class="w">        </span><span class="c1">⍝ Disable comparison tolerance</span><span class="w"></span>
+<span class="m">1</span><span class="o">=</span><span class="m">1</span><span class="o">+</span><span class="m">1e¯15</span><span class="w"></span>
 
-<span class="nf">⎕CT</span><span class="kd">←</span><span class="m">1E¯14</span>    <span class="c1">⍝ Reset to default</span>
+<span class="nf">⎕CT</span><span class="kd">←</span><span class="m">1E¯14</span><span class="w">    </span><span class="c1">⍝ Reset to default</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1
+</pre></div><div class="output text_html"><pre class="language-APL">0
+</pre></div></div>
 </div>
 <p>If you use 128-bit decimal floats (we’ll get back to that), you can instead use <code class="docutils literal notranslate"><span class="pre">⎕DCT</span></code>, <a class="reference external" href="help.dyalog.com/latest/index.htm#Language/System%20Functions/dct.htm">Decimal Comparison Tolerance</a>.</p>
-</div>
-<div class="section" id="division-method-div">
-<h2>Division method <code class="docutils literal notranslate"><span class="pre">⎕DIV</span></code><a class="headerlink" href="#division-method-div" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="division-method-div">
+<h2>Division method <code class="docutils literal notranslate"><span class="pre">⎕DIV</span></code><a class="headerlink" href="#division-method-div" title="Permalink to this headline">#</a></h2>
 <p>Some of you may be uncomfortable with the default divide by zero behaviour:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="o">÷</span><span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="o">÷</span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1
+</pre></div></div>
 </div>
 <p>Dyalog has this thing called <code class="docutils literal notranslate"><span class="pre">⎕DIV</span></code>, <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/div.htm">Division method</a>, which, when you set it to 1, lets all divisions by 0 give 0:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕DIV</span><span class="kd">←</span><span class="m">1</span>
-<span class="m">0</span> <span class="m">0</span> <span class="m">3</span> <span class="m">3</span><span class="o">÷</span><span class="m">0</span> <span class="m">3</span> <span class="m">0</span> <span class="m">3</span>
-<span class="nf">⎕DIV</span><span class="kd">←</span><span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕DIV</span><span class="kd">←</span><span class="m">1</span><span class="w"></span>
+<span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="o">÷</span><span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"></span>
+<span class="nf">⎕DIV</span><span class="kd">←</span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 0 1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0 0 0 1
+</pre></div></div>
 </div>
 <p>If you want to error on division by zero, just use <code class="docutils literal notranslate"><span class="pre">×∘÷</span></code> instead of <code class="docutils literal notranslate"><span class="pre">÷</span></code> under the default <code class="docutils literal notranslate"><span class="pre">⎕DIV←0</span></code>.</p>
-</div>
-<div class="section" id="index-origin-io">
-<h2>Index origin <code class="docutils literal notranslate"><span class="pre">⎕IO</span></code><a class="headerlink" href="#index-origin-io" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="index-origin-io">
+<h2>Index origin <code class="docutils literal notranslate"><span class="pre">⎕IO</span></code><a class="headerlink" href="#index-origin-io" title="Permalink to this headline">#</a></h2>
 <p>There is an old debate on whether to begin indexing with 0 or with 1. APL lets you choose by setting the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/io.htm">Index Origin</a>, <code class="docutils literal notranslate"><span class="pre">⎕IO</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⍳</span><span class="m">4</span> <span class="o">⊣</span> <span class="nf">⎕IO</span><span class="kd">←</span><span class="m">0</span>
-<span class="o">⍳</span><span class="m">4</span> <span class="o">⊣</span> <span class="nf">⎕IO</span><span class="kd">←</span><span class="m">1</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⍳</span><span class="m">4</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕IO</span><span class="kd">←</span><span class="m">0</span><span class="w"></span>
+<span class="o">⍳</span><span class="m">4</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕IO</span><span class="kd">←</span><span class="m">1</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1 2 3
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1 2 3 4
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0 1 2 3
+</pre></div><div class="output text_html"><pre class="language-APL">1 2 3 4
+</pre></div></div>
 </div>
 <p>Note that using <code class="docutils literal notranslate"><span class="pre">⎕IO←0</span></code> means you have to accept negative indices in some cases:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="m">4</span> <span class="m">5</span><span class="o">⍸</span><span class="m">2</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">⍸</span><span class="m">2</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0
+</pre></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕IO</span><span class="kd">←</span><span class="m">0</span>
-<span class="m">3</span> <span class="m">4</span> <span class="m">5</span><span class="o">⍸</span><span class="m">2</span>
-<span class="nf">⎕IO</span><span class="kd">←</span><span class="m">1</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕IO</span><span class="kd">←</span><span class="m">0</span><span class="w"></span>
+<span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">⍸</span><span class="m">2</span><span class="w"></span>
+<span class="nf">⎕IO</span><span class="kd">←</span><span class="m">1</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯1
+</pre></div></div>
 </div>
 <p>Also note that these system variables can be localised. So if your dfn sets <code class="docutils literal notranslate"><span class="pre">⎕IO</span></code> it only applies to that function (and its children), but does not permanently affect the environment:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕IO</span><span class="o">,</span><span class="p">(</span><span class="kt">{</span><span class="nf">⎕IO</span><span class="kd">←</span><span class="m">0</span> <span class="p">⋄</span> <span class="nf">⎕IO</span><span class="kt">}</span><span class="no">⍬</span><span class="p">)</span><span class="o">,</span><span class="nf">⎕IO</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕IO</span><span class="o">,</span><span class="p">(</span><span class="kt">{</span><span class="nf">⎕IO</span><span class="kd">←</span><span class="m">0</span><span class="w"> </span><span class="p">⋄</span><span class="w"> </span><span class="nf">⎕IO</span><span class="kt">}</span><span class="no">⍬</span><span class="p">)</span><span class="o">,</span><span class="nf">⎕IO</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 0 1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1 0 1
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="print-precision-pp">
-<h2>Print precision <code class="docutils literal notranslate"><span class="pre">⎕PP</span></code><a class="headerlink" href="#print-precision-pp" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="print-precision-pp">
+<h2>Print precision <code class="docutils literal notranslate"><span class="pre">⎕PP</span></code><a class="headerlink" href="#print-precision-pp" title="Permalink to this headline">#</a></h2>
 <p>By default, APL prints 10 significant digits in floats. You can select how many to show by setting <code class="docutils literal notranslate"><span class="pre">⎕PP</span></code>, <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/pp.htm">Print Precision</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕PP</span><span class="kd">←</span><span class="m">3</span>
-<span class="o">÷</span><span class="m">7</span>
-<span class="nf">⎕PP</span><span class="kd">←</span><span class="m">10</span>
-<span class="o">÷</span><span class="m">7</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕PP</span><span class="kd">←</span><span class="m">3</span><span class="w"></span>
+<span class="o">÷</span><span class="m">7</span><span class="w"></span>
+<span class="nf">⎕PP</span><span class="kd">←</span><span class="m">10</span><span class="w"></span>
+<span class="o">÷</span><span class="m">7</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.143
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.1428571429
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0.143
+</pre></div><div class="output text_html"><pre class="language-APL">0.1428571429
+</pre></div></div>
 </div>
 <p>This affects <code class="docutils literal notranslate"><span class="pre">⍕</span></code>, too:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">≢⍕÷</span><span class="m">7</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">≢⍕÷</span><span class="m">7</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">12
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">12
+</pre></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">≢⍕÷</span><span class="m">7</span> <span class="o">⊣</span> <span class="nf">⎕PP</span><span class="kd">←</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">≢⍕÷</span><span class="m">7</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕PP</span><span class="kd">←</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">5
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">5
+</pre></div></div>
 </div>
 <p>In other words, how many characters are needed to represent a seventh using that precision?</p>
 <p>Now we can also get <em>more</em> precision:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">○</span><span class="m">1</span> <span class="o">⊣</span> <span class="nf">⎕PP</span><span class="kd">←</span><span class="m">17</span> <span class="c1">⍝ 𝜋</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">○</span><span class="m">1</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕PP</span><span class="kd">←</span><span class="m">17</span><span class="w"> </span><span class="c1">⍝ 𝜋</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3.141592653589793
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">3.141592653589793
+</pre></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕PP</span><span class="kd">←</span><span class="m">10</span> <span class="c1">⍝ Set back to default value</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕PP</span><span class="kd">←</span><span class="m">10</span><span class="w"> </span><span class="c1">⍝ Set back to default value</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="floating-point-representation-fr">
-<h2>Floating-point representation <code class="docutils literal notranslate"><span class="pre">⎕FR</span></code><a class="headerlink" href="#floating-point-representation-fr" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="floating-point-representation-fr">
+<h2>Floating-point representation <code class="docutils literal notranslate"><span class="pre">⎕FR</span></code><a class="headerlink" href="#floating-point-representation-fr" title="Permalink to this headline">#</a></h2>
 <p>What if we want even <em>more</em> decimal places in our 𝜋 from above? Bumping the print precision higher doesn’t work:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">○</span><span class="m">1</span> <span class="o">⊣</span> <span class="nf">⎕PP</span><span class="kd">←</span><span class="m">34</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">○</span><span class="m">1</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕PP</span><span class="kd">←</span><span class="m">34</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3.141592653589793
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">3.141592653589793
+</pre></div></div>
 </div>
 <p>The system simply doesn’t keep that much precision. For this we need to set <code class="docutils literal notranslate"><span class="pre">⎕FR</span></code>, <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/fr.htm">Floating-point Representation</a>. By default it is 645, meaning 64-bit binary. We can set it to 1287, meaning 128-bit decimal:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">○</span><span class="m">1</span> <span class="o">⊣</span> <span class="nf">⎕PP</span><span class="kd">←</span><span class="m">34</span> <span class="o">⊣</span> <span class="nf">⎕FR</span><span class="kd">←</span><span class="m">1287</span>
-<span class="nf">⎕FR</span><span class="kd">←</span><span class="m">645</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">○</span><span class="m">1</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕PP</span><span class="kd">←</span><span class="m">34</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕FR</span><span class="kd">←</span><span class="m">1287</span><span class="w"></span>
+<span class="nf">⎕FR</span><span class="kd">←</span><span class="m">645</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3.141592653589793238462643383279503
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">3.141592653589793238462643383279503
+</pre></div></div>
 </div>
 <p>Recall also that you can set decimal comparison tolerance with <code class="docutils literal notranslate"><span class="pre">⎕DCT</span></code>.</p>
-</div>
-<div class="section" id="random-link-rl">
-<h2>Random link <code class="docutils literal notranslate"><span class="pre">⎕RL</span></code><a class="headerlink" href="#random-link-rl" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="random-link-rl">
+<h2>Random link <code class="docutils literal notranslate"><span class="pre">⎕RL</span></code><a class="headerlink" href="#random-link-rl" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/rl.htm">Random link</a>, <code class="docutils literal notranslate"><span class="pre">⎕RL</span></code>, lets you set a seed value for random numbers so you can reproduce the same random numbers again. It also lets you choose which method to use for calculating the next random number based on the seed.</p>
 <p><code class="docutils literal notranslate"><span class="pre">⎕RL</span></code> is a two element array, but as opposed to normal arrays, you cannot modify <code class="docutils literal notranslate"><span class="pre">⎕RL</span></code> in-place; you have to assign to the entire array at once. The first element is the seed; an integer in the range <code class="docutils literal notranslate"><span class="pre">1</span></code> to <code class="docutils literal notranslate"><span class="pre">¯2+2*31</span></code>. You can also use <code class="docutils literal notranslate"><span class="pre">0</span></code> to auto-randomise, or <code class="docutils literal notranslate"><span class="pre">⍬</span></code> to optimise by not keeping track of the seed.</p>
 <p>The second element is the method:</p>
@@ -903,131 +1194,131 @@
 <p>If you ask the OS, you can’t provide a seed, so you have to use <code class="docutils literal notranslate"><span class="pre">⍬</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span> <span class="o">⊣</span> <span class="nf">⎕RL</span> <span class="no">⍬</span> <span class="m">2</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕RL</span><span class="w"> </span><span class="no">⍬</span><span class="w"> </span><span class="m">2</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.1279318855
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0.12793188553860924
+</pre></div></div>
 </div>
 <p>When asking our OS we get a different result each time:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span> <span class="o">⊣</span> <span class="nf">⎕RL</span> <span class="no">⍬</span> <span class="m">2</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕RL</span><span class="w"> </span><span class="no">⍬</span><span class="w"> </span><span class="m">2</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.528921036
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0.5289210360276925
+</pre></div></div>
 </div>
 <p>Let’s use Mersenne (the default) with a specific seed instead:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span> <span class="o">⊣</span> <span class="nf">⎕RL</span><span class="kd">←</span><span class="m">42</span> <span class="m">1</span>
-<span class="o">?</span><span class="m">0</span> <span class="o">⊣</span> <span class="nf">⎕RL</span><span class="kd">←</span><span class="m">42</span> <span class="m">1</span>   <span class="c1">⍝ Start the sequence at the same place</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="m">0</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕RL</span><span class="kd">←</span><span class="m">42</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
+<span class="o">?</span><span class="m">0</span><span class="w"> </span><span class="o">⊣</span><span class="w"> </span><span class="nf">⎕RL</span><span class="kd">←</span><span class="m">42</span><span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1">⍝ Start the sequence at the same place</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.00195337832
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.00195337832
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0.0019533783197548393
+</pre></div><div class="output text_html"><pre class="language-APL">0.0019533783197548393
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="account-info-ai">
-<h2>Account info <code class="docutils literal notranslate"><span class="pre">⎕AI</span></code><a class="headerlink" href="#account-info-ai" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="account-info-ai">
+<h2>Account info <code class="docutils literal notranslate"><span class="pre">⎕AI</span></code><a class="headerlink" href="#account-info-ai" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/ai.htm">Account info</a>, <code class="docutils literal notranslate"><span class="pre">⎕AI</span></code>, isn’t very interesting these days, except you can use <code class="docutils literal notranslate"><span class="pre">⎕AI[3]</span></code> as an absolute counter of milliseconds since the beginning of the session. This is useful to avoid having to deal with roll-overs when timing stuff.</p>
 <p>How long does it take to wait a second?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">a</span><span class="kd">←</span><span class="m">3</span><span class="o">⊃</span><span class="nf">⎕AI</span>
-<span class="nf">⎕DL</span> <span class="m">1</span>      <span class="c1">⍝ Sleep for 1s</span>
-<span class="nv">a</span><span class="o">-</span><span class="na">⍨</span><span class="m">3</span><span class="o">⊃</span><span class="nf">⎕AI</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">a</span><span class="kd">←</span><span class="m">3</span><span class="o">⊃</span><span class="nf">⎕AI</span><span class="w"></span>
+<span class="nf">⎕DL</span><span class="w"> </span><span class="m">1</span><span class="w">      </span><span class="c1">⍝ Sleep for 1s</span><span class="w"></span>
+<span class="nv">a</span><span class="o">-</span><span class="na">⍨</span><span class="m">3</span><span class="o">⊃</span><span class="nf">⎕AI</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1335
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1289
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="account-name-an">
-<h2>Account name <code class="docutils literal notranslate"><span class="pre">⎕AN</span></code><a class="headerlink" href="#account-name-an" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="account-name-an">
+<h2>Account name <code class="docutils literal notranslate"><span class="pre">⎕AN</span></code><a class="headerlink" href="#account-name-an" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕AN</span></code> is the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/an.htm">account name</a>, which for me is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕AN</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕AN</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">stefan
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">stefan
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="clear-workspace-clear">
-<h2>Clear workspace <code class="docutils literal notranslate"><span class="pre">⎕CLEAR</span></code><a class="headerlink" href="#clear-workspace-clear" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="clear-workspace-clear">
+<h2>Clear workspace <code class="docutils literal notranslate"><span class="pre">⎕CLEAR</span></code><a class="headerlink" href="#clear-workspace-clear" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/clear.htm">Clear workspace</a>, <code class="docutils literal notranslate"><span class="pre">⎕CLEAR</span></code>, is a special constant, which when referenced will clear the workspace just like <code class="docutils literal notranslate"><span class="pre">)clear</span></code> does. This means you can use it in code.</p>
-</div>
-<div class="section" id="copy-workspace-cy">
-<h2>Copy workspace <code class="docutils literal notranslate"><span class="pre">⎕CY</span></code><a class="headerlink" href="#copy-workspace-cy" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="copy-workspace-cy">
+<h2>Copy workspace <code class="docutils literal notranslate"><span class="pre">⎕CY</span></code><a class="headerlink" href="#copy-workspace-cy" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/cy.htm">Copy workspace</a>, <code class="docutils literal notranslate"><span class="pre">⎕CY</span></code>, is a function which copies from a workspace file to the current workspace. You give it the name of a workspace file as right argument, and optionally a name list on the left of items to copy. By default, it will copy everything.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;iotag&#39;</span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>   <span class="c1">⍝ Copy the iotag function from the dfns workspace</span>
-<span class="m">¯5</span> <span class="nv">iotag</span> <span class="m">5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;iotag&#39;</span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span><span class="w">   </span><span class="c1">⍝ Copy the iotag function from the dfns workspace</span><span class="w"></span>
+<span class="m">¯5</span><span class="w"> </span><span class="nv">iotag</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯5 ¯4 ¯3 ¯2 ¯1 0 1 2 3 4 5
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯5 ¯4 ¯3 ¯2 ¯1 0 1 2 3 4 5
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="delay-dl">
-<h2>Delay <code class="docutils literal notranslate"><span class="pre">⎕DL</span></code><a class="headerlink" href="#delay-dl" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="delay-dl">
+<h2>Delay <code class="docutils literal notranslate"><span class="pre">⎕DL</span></code><a class="headerlink" href="#delay-dl" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕DL</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/dl.htm">delay</a> as you saw before. It takes a number (floats are fine) of seconds and (shyly) returns the number of seconds actually used. <code class="docutils literal notranslate"><span class="pre">⎕DL</span></code> guarantees a delay of <em>at least</em> what you specified:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="vg">⎕</span><span class="kd">←</span><span class="nf">⎕DL</span> <span class="m">1</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="vg">⎕</span><span class="kd">←</span><span class="nf">⎕DL</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1.0179829999999999
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1.020727
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="load-load">
-<h2>Load <code class="docutils literal notranslate"><span class="pre">⎕LOAD</span></code><a class="headerlink" href="#load-load" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="load-load">
+<h2>Load <code class="docutils literal notranslate"><span class="pre">⎕LOAD</span></code><a class="headerlink" href="#load-load" title="Permalink to this headline">#</a></h2>
 <p>You may have already used <code class="docutils literal notranslate"><span class="pre">)LOAD</span></code>. <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/load.htm">⎕LOAD</a> is basically the same, but in a function form. Give it the name of a workspace to load.</p>
-</div>
-<div class="section" id="off-off">
-<h2>Off <code class="docutils literal notranslate"><span class="pre">⎕OFF</span></code><a class="headerlink" href="#off-off" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="off-off">
+<h2>Off <code class="docutils literal notranslate"><span class="pre">⎕OFF</span></code><a class="headerlink" href="#off-off" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/off.htm">⎕OFF</a> is similar to <code class="docutils literal notranslate"><span class="pre">⎕CLEAR</span></code> in that referencing its value causes the workspace to be closed, but it also terminates APL. <code class="docutils literal notranslate"><span class="pre">⎕OFF</span></code> has a special syntax though. If you put a value immediately to its right, that will become APL’s exit code.</p>
-</div>
-<div class="section" id="save-save">
-<h2>Save <code class="docutils literal notranslate"><span class="pre">⎕SAVE</span></code><a class="headerlink" href="#save-save" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="save-save">
+<h2>Save <code class="docutils literal notranslate"><span class="pre">⎕SAVE</span></code><a class="headerlink" href="#save-save" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/save.htm">⎕SAVE</a> is similar to <code class="docutils literal notranslate"><span class="pre">)SAVE</span></code> in that it saves the current workspace to disk. However, <code class="docutils literal notranslate"><span class="pre">⎕SAVE</span></code> has a trick up its sleeve. If you use <code class="docutils literal notranslate"><span class="pre">⎕SAVE</span></code> under program control, you can then use <code class="docutils literal notranslate"><span class="pre">⎕LOAD</span></code> on the generated workspace file, and execution will continue where the <code class="docutils literal notranslate"><span class="pre">⎕SAVE</span></code> happened, with <code class="docutils literal notranslate"><span class="pre">⎕SAVE</span></code> giving the result 0. This allows you to write applications where the user can close the application and then resume the left-off state when opening the application again.</p>
-</div>
-<div class="section" id="time-stamp-ts">
-<h2>Time stamp <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code><a class="headerlink" href="#time-stamp-ts" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="time-stamp-ts">
+<h2>Time stamp <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code><a class="headerlink" href="#time-stamp-ts" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕TS</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/ts.htm">time stamp</a>, which returns the current system time as a 7-element vector; year, month, day, hour, minute, second, millisecond:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕TS</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕TS</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2022 1 14 9 35 27 312
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">2022 7 27 8 37 2 31
+</pre></div></div>
 </div>
 <p>When dealing with times and dates, there is also the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/dt.htm">date-time</a> system function, <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code>, which can convert between pretty much any date and time formats around.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1051,9 +1342,11 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="SystemFunctions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1069,32 +1362,34 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

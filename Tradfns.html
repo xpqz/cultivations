@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tradfns &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -62,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -422,6 +439,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -434,90 +456,191 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Tradfns.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FTradfns.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FTradfns.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Tradfns.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#function-body">
    Function body
@@ -564,166 +687,228 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tradfns</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-body">
+   Function body
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#control-structures">
+     Control structures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ambivalence">
+     Ambivalence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#advanced-control-structures">
+     Advanced control structures
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-flow-structures">
+   Non-flow structures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-header">
+   The header
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#result">
+     Result
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calling-syntax">
+     Calling syntax
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="tradfns">
-<h1>Tradfns<a class="headerlink" href="#tradfns" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tradfns">
+<h1>Tradfns<a class="headerlink" href="#tradfns" title="Permalink to this headline">#</a></h1>
 <p>Tradfns are the original way to write your own functions in APL. Tradfns are procedural in style, unlike dfns, which are functional.</p>
 <p>The basic structure of a tradfn is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">header</span> <span class="nv">line</span>
-<span class="nv">function</span> <span class="nv">body</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">header</span><span class="w"> </span><span class="nv">line</span><span class="w"></span>
+<span class="nv">function</span><span class="w"> </span><span class="nv">body</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="function-body">
-<h2>Function body<a class="headerlink" href="#function-body" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="control-structures">
-<h3>Control structures<a class="headerlink" href="#control-structures" title="Permalink to this headline">¶</a></h3>
+<section id="function-body">
+<h2>Function body<a class="headerlink" href="#function-body" title="Permalink to this headline">#</a></h2>
+<section id="control-structures">
+<h3>Control structures<a class="headerlink" href="#control-structures" title="Permalink to this headline">#</a></h3>
 <p>Let’s consider the body first. We have available to us the full set of control structures from procedural languages. All such key words begin with a colon, <code class="docutils literal notranslate"><span class="pre">:</span></code>, for example <code class="docutils literal notranslate"><span class="pre">If</span> <span class="pre">…</span> <span class="pre">:EndIf</span></code>. Lines with such keywords must begin with the keyword, and have nothing else on them, although parameters (like a condition) are considered parenthesised expressions. For example,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">Ex</span> <span class="sr">;</span><span class="nv">i</span><span class="sr">;</span><span class="nv">j</span><span class="sr">;</span><span class="nv">k</span>
-  <span class="bp">:</span><span class="nv">For</span> <span class="nv">i</span> <span class="nv">j</span> <span class="nv">k</span> <span class="bp">:</span><span class="nv">In</span> <span class="s1">&#39;abc&#39;</span><span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)</span><span class="s1">&#39;ABC&#39;</span>
-      <span class="vg">⎕</span><span class="kd">←</span><span class="nv">i</span> <span class="nv">j</span> <span class="nv">k</span>
-  <span class="bp">:</span><span class="nv">EndFor</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">Ex</span><span class="w"> </span><span class="sr">;</span><span class="nv">i</span><span class="sr">;</span><span class="nv">j</span><span class="sr">;</span><span class="nv">k</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">For</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="bp">:</span><span class="nv">In</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="s1">&#39;ABC&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="nv">k</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">EndFor</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ex</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ex</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">abc
+<div class="output text_html"><pre class="language-APL">abc
 1 2 3
 ABC
-</span></div></div>
+</pre></div></div>
 </div>
 <p>This assigns <code class="docutils literal notranslate"><span class="pre">(i</span> <span class="pre">j</span> <span class="pre">k)←'abc'</span></code> during the first loop, then <code class="docutils literal notranslate"><span class="pre">(i</span> <span class="pre">j</span> <span class="pre">k)←1</span> <span class="pre">2</span> <span class="pre">3</span></code>, etc. <code class="docutils literal notranslate"><span class="pre">:For</span></code> can also “transpose”, using <code class="docutils literal notranslate"><span class="pre">:InEach</span></code> instead of <code class="docutils literal notranslate"><span class="pre">:In</span></code> which makes <code class="docutils literal notranslate"><span class="pre">(i</span> <span class="pre">j</span> <span class="pre">k)←'a'1'A'</span></code> etc:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">Ex</span> <span class="sr">;</span><span class="nv">i</span><span class="sr">;</span><span class="nv">j</span><span class="sr">;</span><span class="nv">k</span>
-  <span class="bp">:</span><span class="nv">For</span> <span class="nv">i</span> <span class="nv">j</span> <span class="nv">k</span> <span class="bp">:</span><span class="nv">InEach</span> <span class="s1">&#39;abc&#39;</span><span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)</span><span class="s1">&#39;ABC&#39;</span>
-      <span class="vg">⎕</span><span class="kd">←</span><span class="nv">i</span> <span class="nv">j</span> <span class="nv">k</span>
-  <span class="bp">:</span><span class="nv">EndFor</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">Ex</span><span class="w"> </span><span class="sr">;</span><span class="nv">i</span><span class="sr">;</span><span class="nv">j</span><span class="sr">;</span><span class="nv">k</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">For</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="nv">k</span><span class="w"> </span><span class="bp">:</span><span class="nv">InEach</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="s1">&#39;ABC&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="nv">k</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">EndFor</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ex</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ex</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">a 1 A
+<div class="output text_html"><pre class="language-APL">a 1 A
 b 2 B
 c 3 C
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Any unpacking is possible, for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">Ex</span> <span class="sr">;</span><span class="nv">i</span><span class="sr">;</span><span class="nv">j</span><span class="sr">;</span><span class="nv">k</span>
-  <span class="bp">:</span><span class="nv">For</span> <span class="nv">i</span><span class="p">(</span><span class="nv">j</span> <span class="nv">k</span><span class="p">)</span> <span class="bp">:</span><span class="nv">InEach</span> <span class="p">(</span><span class="o">⍳</span><span class="m">3</span><span class="p">)(</span><span class="s1">&#39;aA&#39;</span> <span class="s1">&#39;bB&#39;</span> <span class="s1">&#39;cC&#39;</span><span class="p">)</span>
-      <span class="vg">⎕</span><span class="kd">←</span><span class="nv">i</span> <span class="nv">j</span> <span class="nv">k</span>
-  <span class="bp">:</span><span class="nv">EndFor</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">Ex</span><span class="w"> </span><span class="sr">;</span><span class="nv">i</span><span class="sr">;</span><span class="nv">j</span><span class="sr">;</span><span class="nv">k</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">For</span><span class="w"> </span><span class="nv">i</span><span class="p">(</span><span class="nv">j</span><span class="w"> </span><span class="nv">k</span><span class="p">)</span><span class="w"> </span><span class="bp">:</span><span class="nv">InEach</span><span class="w"> </span><span class="p">(</span><span class="o">⍳</span><span class="m">3</span><span class="p">)(</span><span class="s1">&#39;aA&#39;</span><span class="w"> </span><span class="s1">&#39;bB&#39;</span><span class="w"> </span><span class="s1">&#39;cC&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="nv">k</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">EndFor</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ex</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ex</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 aA
+<div class="output text_html"><pre class="language-APL">1 aA
 2 bB
 3 cC
-</span></div></div>
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">:If</span></code>, of course, has <code class="docutils literal notranslate"><span class="pre">:Else</span></code>, but also <code class="docutils literal notranslate"><span class="pre">:ElseIf</span></code>. While <code class="docutils literal notranslate"><span class="pre">∧</span></code> and <code class="docutils literal notranslate"><span class="pre">∨</span></code> are normal arithmetic functions, it is allowed to write one or more <code class="docutils literal notranslate"><span class="pre">:AndIfs</span></code> or <code class="docutils literal notranslate"><span class="pre">:OrIfs</span></code> which <em>will</em> shortcut. A quite common pattern used to check if a variable exists and then, for example, set it to a default value if it doesn’t:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">Ex</span> <span class="sr">;</span><span class="nv">state</span>
-  <span class="bp">:</span><span class="nv">If</span> <span class="m">0</span><span class="o">=</span><span class="nf">⎕NC</span><span class="s1">&#39;state&#39;</span>
-      <span class="nv">state</span><span class="kd">←</span><span class="m">42</span>
-  <span class="bp">:</span><span class="nv">EndIf</span>
-  <span class="vg">⎕</span><span class="kd">←</span><span class="nv">state</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">Ex</span><span class="w"> </span><span class="sr">;</span><span class="nv">state</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="m">0</span><span class="o">=</span><span class="nf">⎕NC</span><span class="s1">&#39;state&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="nv">state</span><span class="kd">←</span><span class="m">42</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
+<span class="w">  </span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">state</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ex</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ex</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">42
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">42
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="ambivalence">
-<h3>Ambivalence<a class="headerlink" href="#ambivalence" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ambivalence">
+<h3>Ambivalence<a class="headerlink" href="#ambivalence" title="Permalink to this headline">#</a></h3>
 <p>While dfns are always ambivalent (though <code class="docutils literal notranslate"><span class="pre">⍺</span></code> will give value error if called monadically and there’s no <code class="docutils literal notranslate"><span class="pre">⍺←</span></code> statement), Dyalog tradfns have to be explicitly declared ambivalent in the header: <code class="docutils literal notranslate"><span class="pre">∇result←{lAarg}</span> <span class="pre">FnName</span> <span class="pre">rArg</span></code>.
 Then one can test for <code class="docutils literal notranslate"><span class="pre">⎕NC'lArg'</span></code>, but there’s also a faster way: <a class="reference external" href="https://help.dyalog.com/latest/#Language/I%20Beam%20Functions/Called%20Monadically.htm">900⌶</a> which ignores its argument and returns whether the function was called monadically:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">res</span><span class="kd">←</span><span class="kt">{</span><span class="nv">lArg</span><span class="kt">}</span> <span class="nv">Ambiv</span> <span class="nv">rArg</span>
-  <span class="bp">:</span><span class="nv">If</span> <span class="m">900</span><span class="na">⌶</span><span class="no">⍬</span>
-      <span class="nv">lArg</span><span class="kd">←</span><span class="m">42</span>
-  <span class="bp">:</span><span class="nv">EndIf</span>
-  <span class="nv">res</span><span class="kd">←</span><span class="nv">lArg</span> <span class="c1">⍝ Return the left argument</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">res</span><span class="kd">←</span><span class="kt">{</span><span class="nv">lArg</span><span class="kt">}</span><span class="w"> </span><span class="nv">Ambiv</span><span class="w"> </span><span class="nv">rArg</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="m">900</span><span class="na">⌶</span><span class="no">⍬</span><span class="w"></span>
+<span class="w">      </span><span class="nv">lArg</span><span class="kd">←</span><span class="m">42</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
+<span class="w">  </span><span class="nv">res</span><span class="kd">←</span><span class="nv">lArg</span><span class="w"> </span><span class="c1">⍝ Return the left argument</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ambiv</span> <span class="s1">&#39;hello&#39;</span>
-<span class="m">99</span> <span class="nv">Ambiv</span> <span class="s1">&#39;world&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Ambiv</span><span class="w"> </span><span class="s1">&#39;hello&#39;</span><span class="w"></span>
+<span class="m">99</span><span class="w"> </span><span class="nv">Ambiv</span><span class="w"> </span><span class="s1">&#39;world&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">42
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">99
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">42
+</pre></div><div class="output text_html"><pre class="language-APL">99
+</pre></div></div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">900⌶</span></code> only works for tradfns, although dfns don’t need it so much since they have <code class="docutils literal notranslate"><span class="pre">⍺←</span></code>.</p>
-</div>
-<div class="section" id="advanced-control-structures">
-<h3>Advanced control structures<a class="headerlink" href="#advanced-control-structures" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="advanced-control-structures">
+<h3>Advanced control structures<a class="headerlink" href="#advanced-control-structures" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">:If</span></code> and <code class="docutils literal notranslate"><span class="pre">:While</span></code> should feel familiar, but the <code class="docutils literal notranslate"><span class="pre">:Select</span></code> statement warrants specification:</p>
-<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="bp">:</span><span class="nv">Select</span> <span class="nv">expression</span>
-<span class="bp">:</span><span class="nv">Case</span> <span class="nv">value</span>
-<span class="bp">:</span><span class="nv">CaseList</span> <span class="nv">values</span>
-<span class="bp">:</span><span class="nv">Else</span>
-<span class="bp">:</span><span class="nv">EndSelect</span>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="bp">:</span><span class="nv">Select</span><span class="w"> </span><span class="nv">expression</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">Case</span><span class="w"> </span><span class="nv">value</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">CaseList</span><span class="w"> </span><span class="nv">values</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">Else</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">EndSelect</span><span class="w"></span>
 </pre></div>
 </div>
 <p>No need “break”, like in C’s <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement. It jumps to the end when reaching the next case.</p>
@@ -731,153 +916,153 @@ Then one can test for <code class="docutils literal notranslate"><span class="pr
 <p>You can even insert statements between :<code class="docutils literal notranslate"><span class="pre">If/:ElseIf/:While/:Until</span></code> and <code class="docutils literal notranslate"><span class="pre">:AndIf/:OrIf</span></code>, but this can be hard to read. For example, consider the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span> <span class="nv">val</span><span class="sr">;</span><span class="nv">b</span>
-  <span class="nv">b</span><span class="kd">←</span><span class="m">1</span>
-  <span class="bp">:</span><span class="nv">If</span> <span class="m">10</span><span class="o">&lt;</span><span class="nv">val</span>
-      <span class="nv">b</span><span class="kd">←</span><span class="m">2</span>
-  <span class="bp">:</span><span class="nv">AndIf</span> <span class="m">100</span><span class="o">&gt;</span><span class="nv">val</span>
-      <span class="nv">r</span><span class="kd">←</span><span class="nv">b</span><span class="o">,</span><span class="nv">val</span>
-  <span class="bp">:</span><span class="nv">Else</span>
-      <span class="nv">r</span><span class="kd">←</span><span class="nv">val</span><span class="o">,</span><span class="nv">b</span>
-  <span class="bp">:</span><span class="nv">EndIf</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span><span class="w"> </span><span class="nv">val</span><span class="sr">;</span><span class="nv">b</span><span class="w"></span>
+<span class="w">  </span><span class="nv">b</span><span class="kd">←</span><span class="m">1</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="m">10</span><span class="o">&lt;</span><span class="nv">val</span><span class="w"></span>
+<span class="w">      </span><span class="nv">b</span><span class="kd">←</span><span class="m">2</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">AndIf</span><span class="w"> </span><span class="m">100</span><span class="o">&gt;</span><span class="nv">val</span><span class="w"></span>
+<span class="w">      </span><span class="nv">r</span><span class="kd">←</span><span class="nv">b</span><span class="o">,</span><span class="nv">val</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">Else</span><span class="w"></span>
+<span class="w">      </span><span class="nv">r</span><span class="kd">←</span><span class="nv">val</span><span class="o">,</span><span class="nv">b</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Foo</span> <span class="m">5</span>
-<span class="nv">Foo</span> <span class="m">50</span>
-<span class="nv">Foo</span> <span class="m">500</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Foo</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
+<span class="nv">Foo</span><span class="w"> </span><span class="m">50</span><span class="w"></span>
+<span class="nv">Foo</span><span class="w"> </span><span class="m">500</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">5 1
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">2 50
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">500 2
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">5 1
+</pre></div><div class="output text_html"><pre class="language-APL">2 50
+</pre></div><div class="output text_html"><pre class="language-APL">500 2
+</pre></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">:AndIf</span></code> and <code class="docutils literal notranslate"><span class="pre">:OrIf</span></code> allows you to build up Boolean expressions that have the same kind of short-circuiting behaviour as that found in mainstream languages, but with the added option of statements between them. Whilst this can be confusing to read, it has its place, for example, where you have some costly set-up code required in order to evaluate one of the expressions making up a boolean condition in an if-statement. You can do work that needs to be prepared so we’re ready to do the next check. For example,</p>
-<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="bp">:</span><span class="nv">If</span> <span class="nf">⎕NEXISTS</span> <span class="nv">file</span>
-    <span class="nv">content</span><span class="kd">←</span><span class="o">⊃</span><span class="nf">⎕NGET</span> <span class="nv">file</span> <span class="m">1</span>
-<span class="bp">:</span><span class="nv">AndIf</span> <span class="o">×≢</span><span class="nv">content</span>
-    <span class="nv">Process</span><span class="na">¨</span><span class="nv">content</span>
-<span class="bp">:</span><span class="nv">EndIf</span>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="nf">⎕NEXISTS</span><span class="w"> </span><span class="nv">file</span><span class="w"></span>
+<span class="w">    </span><span class="nv">content</span><span class="kd">←</span><span class="o">⊃</span><span class="nf">⎕NGET</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">AndIf</span><span class="w"> </span><span class="o">×≢</span><span class="nv">content</span><span class="w"></span>
+<span class="w">    </span><span class="nv">Process</span><span class="na">¨</span><span class="nv">content</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
 </pre></div>
 </div>
 <p>That sort of thing would be painful to write in as a dfn.</p>
 <p>You can do the same with loops, too:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span> <span class="nv">val</span>
-  <span class="nv">r</span><span class="kd">←</span><span class="nv">val</span>
-  <span class="bp">:</span><span class="nv">Repeat</span>
-      <span class="nv">r</span><span class="o">+</span><span class="kd">←</span><span class="o">?</span><span class="m">5</span>
-  <span class="bp">:</span><span class="nv">Until</span> <span class="nv">r</span><span class="o">&gt;</span><span class="m">11</span>
-  <span class="bp">:</span><span class="nv">OrIf</span> <span class="nv">r</span><span class="o">=</span><span class="m">9</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span><span class="w"> </span><span class="nv">val</span><span class="w"></span>
+<span class="w">  </span><span class="nv">r</span><span class="kd">←</span><span class="nv">val</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">Repeat</span><span class="w"></span>
+<span class="w">      </span><span class="nv">r</span><span class="o">+</span><span class="kd">←</span><span class="o">?</span><span class="m">5</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">Until</span><span class="w"> </span><span class="nv">r</span><span class="o">&gt;</span><span class="m">11</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">OrIf</span><span class="w"> </span><span class="nv">r</span><span class="o">=</span><span class="m">9</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Foo</span> <span class="m">1</span>
-<span class="nv">Foo</span> <span class="m">¯100</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Foo</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
+<span class="nv">Foo</span><span class="w"> </span><span class="m">¯100</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">13
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">16
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">12
+</pre></div><div class="output text_html"><pre class="language-APL">13
+</pre></div></div>
 </div>
 <p>When looping, you can also continue with the next iteration without finishing this one, by stating <code class="docutils literal notranslate"><span class="pre">:Continue</span></code> and you can quit the loop immediately with <code class="docutils literal notranslate"><span class="pre">:Leave</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span>
-  <span class="nv">r</span><span class="kd">←</span><span class="m">0</span>
-  <span class="bp">:</span><span class="nv">While</span> <span class="m">1</span>
-      <span class="nv">r</span><span class="o">+</span><span class="kd">←</span><span class="m">1</span>
-      <span class="bp">:</span><span class="nv">If</span> <span class="nv">r</span><span class="o">&gt;</span><span class="m">10</span>
-          <span class="bp">:</span><span class="nv">Leave</span>     <span class="c1">⍝ Like &#39;break&#39; in C or Python</span>
-      <span class="bp">:</span><span class="nv">EndIf</span>
-  <span class="bp">:</span><span class="nv">EndWhile</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span><span class="w"></span>
+<span class="w">  </span><span class="nv">r</span><span class="kd">←</span><span class="m">0</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">While</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
+<span class="w">      </span><span class="nv">r</span><span class="o">+</span><span class="kd">←</span><span class="m">1</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="nv">r</span><span class="o">&gt;</span><span class="m">10</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">Leave</span><span class="w">     </span><span class="c1">⍝ Like &#39;break&#39; in C or Python</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">EndWhile</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Foo</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Foo</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">11
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">11
+</pre></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="non-flow-structures">
-<h2>Non-flow structures<a class="headerlink" href="#non-flow-structures" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="non-flow-structures">
+<h2>Non-flow structures<a class="headerlink" href="#non-flow-structures" title="Permalink to this headline">#</a></h2>
 <p>There’s actually another couple of interesting structures, which aren’t really flow control per se. <code class="docutils literal notranslate"><span class="pre">:Section…:EndSection</span></code> is like <code class="docutils literal notranslate"><span class="pre">:If</span> <span class="pre">1</span></code> which is useful for organising your code, and they don’t need a comment symbol on their right. You can put any text there. The <code class="docutils literal notranslate"><span class="pre">:Section</span></code> itself provides no actual visible functionality.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span> <span class="nv">arg</span>
-  <span class="nv">r</span><span class="kd">←</span><span class="nv">arg</span>
-  <span class="bp">:</span><span class="nv">Section</span> <span class="nv">We</span> <span class="nv">can</span> <span class="nv">group</span> <span class="nv">code</span> <span class="nv">that</span> <span class="nv">belongs</span> <span class="nv">together</span> <span class="nv">in</span> <span class="nv">sections</span>
-      <span class="bp">:</span><span class="nv">If</span> <span class="nv">r</span><span class="o">&gt;</span><span class="m">10</span>
-          <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;Greater than 10&#39;</span>
-      <span class="bp">:</span><span class="nv">EndIf</span>
-  <span class="bp">:</span><span class="nv">EndSection</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span><span class="w"> </span><span class="nv">arg</span><span class="w"></span>
+<span class="w">  </span><span class="nv">r</span><span class="kd">←</span><span class="nv">arg</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">Section</span><span class="w"> </span><span class="nv">We</span><span class="w"> </span><span class="nv">can</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nv">code</span><span class="w"> </span><span class="nv">that</span><span class="w"> </span><span class="nv">belongs</span><span class="w"> </span><span class="nv">together</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">sections</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="nv">r</span><span class="o">&gt;</span><span class="m">10</span><span class="w"></span>
+<span class="w">          </span><span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;Greater than 10&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">EndSection</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Foo</span> <span class="m">4</span>
-<span class="nv">Foo</span> <span class="m">15</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Foo</span><span class="w"> </span><span class="m">4</span><span class="w"></span>
+<span class="nv">Foo</span><span class="w"> </span><span class="m">15</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">4
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">Greater than 10
+<div class="output text_html"><pre class="language-APL">4
+</pre></div><div class="output text_html"><pre class="language-APL">Greater than 10
 15
-</span></div></div>
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">:Trap</span></code> takes one or more error numbers exactly like dfns’ error guards. Then the main code, and then <code class="docutils literal notranslate"><span class="pre">:Case</span></code> or <code class="docutils literal notranslate"><span class="pre">:CaseList</span></code> with error numbers. You can also/instead use <code class="docutils literal notranslate"><span class="pre">:Else</span></code> for all (other) errors.</p>
 <p>Tradfns can also do advanced stuff that dfns can’t do. If you write <code class="docutils literal notranslate"><span class="pre">:Implements</span> <span class="pre">trigger</span> <span class="pre">var</span></code> then the function gets called every time var is changed in that namespace.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span>
-  <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">trigger</span> <span class="nv">var</span>
-  <span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;var changed!&#39;</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">r</span><span class="kd">←</span><span class="nv">Foo</span><span class="w"></span>
+<span class="w">  </span><span class="bp">:</span><span class="nv">Implements</span><span class="w"> </span><span class="nv">trigger</span><span class="w"> </span><span class="nv">var</span><span class="w"></span>
+<span class="w">  </span><span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;var changed!&#39;</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">var</span><span class="kd">←</span><span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">var</span><span class="kd">←</span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">var changed!
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">var changed!
+</pre></div></div>
 </div>
 <p>If you want a callback on <em>all</em> variable changes, you can use <code class="docutils literal notranslate"><span class="pre">*</span></code> instead of a name. You can also use <code class="docutils literal notranslate"><span class="pre">var1,var2</span></code> to only react to those. <code class="docutils literal notranslate"><span class="pre">:Implements</span></code> is just a declaration, not a structure.</p>
-</div>
-<div class="section" id="the-header">
-<h2>The header<a class="headerlink" href="#the-header" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-header">
+<h2>The header<a class="headerlink" href="#the-header" title="Permalink to this headline">#</a></h2>
 <p>There can be up to four parts of the header:</p>
 <ul class="simple">
 <li><p>result</p></li>
@@ -885,13 +1070,13 @@ Then one can test for <code class="docutils literal notranslate"><span class="pr
 <li><p>locals</p></li>
 <li><p>comment</p></li>
 </ul>
-<div class="section" id="result">
-<h3>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h3>
+<section id="result">
+<h3>Result<a class="headerlink" href="#result" title="Permalink to this headline">#</a></h3>
 <p>The result is optional and must be terminated by <code class="docutils literal notranslate"><span class="pre">←</span></code> if present. It contains the result name or a parenthesised list of space-separated names.</p>
 <p>If one needs to return a vector of various values, then using a name list is nice, because one can assign to each name separately, and only upon return are they collected together:</p>
-<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="p">(</span><span class="nv">vertices</span> <span class="nv">results</span><span class="p">)</span><span class="kd">←</span><span class="o">…</span>
-  <span class="nv">vertices</span><span class="kd">←</span><span class="o">…</span>
-  <span class="nv">results</span><span class="kd">←</span>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="p">(</span><span class="nv">vertices</span><span class="w"> </span><span class="nv">results</span><span class="p">)</span><span class="kd">←</span><span class="o">…</span><span class="w"></span>
+<span class="w">  </span><span class="nv">vertices</span><span class="kd">←</span><span class="o">…</span><span class="w"></span>
+<span class="w">  </span><span class="nv">results</span><span class="kd">←</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Fun fact: a name can occur multiple places in the header, including in a single name list, so you can actually write somewhat useful function without any body, just a header. For example, <code class="docutils literal notranslate"><span class="pre">∇(x</span> <span class="pre">x)←dup</span> <span class="pre">x</span></code> makes two of its argument. And <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">y)←x</span> <span class="pre">juxtapose</span> <span class="pre">y</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">{⍺</span> <span class="pre">⍵}</span></code>.</p>
@@ -899,13 +1084,13 @@ Then one can test for <code class="docutils literal notranslate"><span class="pr
 <p>If the result variable name is a function, then the function will return that function! Behold:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">Fn</span><span class="kd">←</span><span class="nv">PlusMinus</span>
- <span class="bp">:</span><span class="nv">If</span> <span class="m">1</span><span class="o">=?</span><span class="m">2</span>
-     <span class="nv">Fn</span><span class="kd">←</span><span class="o">+</span>
- <span class="bp">:</span><span class="nv">Else</span>
-     <span class="nv">Fn</span><span class="kd">←</span><span class="o">-</span>
- <span class="bp">:</span><span class="nv">EndIf</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">Fn</span><span class="kd">←</span><span class="nv">PlusMinus</span><span class="w"></span>
+<span class="w"> </span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="m">1</span><span class="o">=?</span><span class="m">2</span><span class="w"></span>
+<span class="w">     </span><span class="nv">Fn</span><span class="kd">←</span><span class="o">+</span><span class="w"></span>
+<span class="w"> </span><span class="bp">:</span><span class="nv">Else</span><span class="w"></span>
+<span class="w">     </span><span class="nv">Fn</span><span class="kd">←</span><span class="o">-</span><span class="w"></span>
+<span class="w"> </span><span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -913,30 +1098,30 @@ Then one can test for <code class="docutils literal notranslate"><span class="pr
 <p>Then <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">PlusMinus</span> <span class="pre">4</span></code> will give either <code class="docutils literal notranslate"><span class="pre">¯1</span></code> or <code class="docutils literal notranslate"><span class="pre">7</span></code>, each time it is run, it is random.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="nv">PlusMinus</span> <span class="m">4</span>
-<span class="m">3</span> <span class="nv">PlusMinus</span> <span class="m">4</span>
-<span class="m">3</span> <span class="nv">PlusMinus</span> <span class="m">4</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="w"> </span><span class="nv">PlusMinus</span><span class="w"> </span><span class="m">4</span><span class="w"></span>
+<span class="m">3</span><span class="w"> </span><span class="nv">PlusMinus</span><span class="w"> </span><span class="m">4</span><span class="w"></span>
+<span class="m">3</span><span class="w"> </span><span class="nv">PlusMinus</span><span class="w"> </span><span class="m">4</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">7
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯1
+</pre></div><div class="output text_html"><pre class="language-APL">7
+</pre></div><div class="output text_html"><pre class="language-APL">¯1
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="calling-syntax">
-<h3>Calling syntax<a class="headerlink" href="#calling-syntax" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="calling-syntax">
+<h3>Calling syntax<a class="headerlink" href="#calling-syntax" title="Permalink to this headline">#</a></h3>
 <p>The calling syntax of the header is always be present. It is basically an image of how the function needs to be called. For example, a monadic function would have <code class="docutils literal notranslate"><span class="pre">FunctionName</span> <span class="pre">argumentName</span></code>. A dyadic function would have <code class="docutils literal notranslate"><span class="pre">leftArg</span> <span class="pre">FnName</span> <span class="pre">rightArg</span></code>. The right argument can also be a name list like the result. In that case, APL will refuse to call the function with anything but a vector argument of the correct length. This is pretty neat for “type” checking. A tradfn can be made ambivalent by putting braces around the left argument name, as we discussed before. The left and right arguments are not allowed to be the same, but multiple names in the right argument can be the same (last will prevail) which is convenient if you’re writing a function that needs to take multiple arguments, some of which it doesn’t need, for example, <code class="docutils literal notranslate"><span class="pre">∇</span> <span class="pre">foo(important</span> <span class="pre">_</span> <span class="pre">critical</span> <span class="pre">_</span> <span class="pre">_)</span></code>.</p>
 <p>A tradfn can be also be <em>niladic</em>, unlike a dfn. Then the syntax part is just the function name. This is usually used for returning caches, bootstrapping, constants, etc. Another useful thing is for a niladic tradfn is to return a derived function, since that allows you to use the editor on it, and also to construct it over multiple lines.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">f</span><span class="kd">←</span><span class="nv">Avg</span>
-  <span class="nv">sum</span><span class="kd">←</span><span class="o">+</span><span class="na">⌿</span>
-  <span class="nv">count</span><span class="kd">←</span><span class="m">1</span><span class="o">⌈≢</span>
-  <span class="nv">f</span><span class="kd">←</span><span class="nv">sum</span><span class="o">÷</span><span class="nv">count</span>
-<span class="bp">∇</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">f</span><span class="kd">←</span><span class="nv">Avg</span><span class="w"></span>
+<span class="w">  </span><span class="nv">sum</span><span class="kd">←</span><span class="o">+</span><span class="na">⌿</span><span class="w"></span>
+<span class="w">  </span><span class="nv">count</span><span class="kd">←</span><span class="m">1</span><span class="o">⌈≢</span><span class="w"></span>
+<span class="w">  </span><span class="nv">f</span><span class="kd">←</span><span class="nv">sum</span><span class="o">÷</span><span class="nv">count</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -944,18 +1129,18 @@ Then one can test for <code class="docutils literal notranslate"><span class="pr
 <p>So, about operators. The “central” part of the syntax declaration for an operator needs to be parenthesised. It then has two names for a monadic operator <code class="docutils literal notranslate"><span class="pre">(Operand</span> <span class="pre">OPERATOR)</span></code> or three names for a dyadic operator <code class="docutils literal notranslate"><span class="pre">(Operand1</span> <span class="pre">OPERATOR</span> <span class="pre">Operand2)</span></code>. Outside the parenthesis there must be a name or namelist on the right for the right argument(s), and optionally an optionally optional left argument on the left. In other words, that is either no left argument or yes a left argument or a braced left argument.</p>
 <p>Now we can also understand why allowing a left argument namelist would make it really hard to understand what the header stood for: things like <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">b)(c</span> <span class="pre">d)</span></code> and <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">b</span> <span class="pre">c)d</span> <span class="pre">e</span></code> would certainly be tougher to parse for humans. In practice, if multiple “arguments” are needed, people tend to use multiple right arguments. Of course, you can always unpack any array into any structure, not just a simple list.</p>
 <p>As opposed to dfns, tradfns do not auto-localise. This means that it is important that you do so by declaring all your locals. After the syntax part, one can write one or more names, each prefixed by <code class="docutils literal notranslate"><span class="pre">;</span></code> to localise them. There’s no need to localise other names that occur in the header. They’re all local. The only exception is the function/operator’s own name. If you really want to reuse that name, you can localise it explicitly. As a relatively new feature (17.0), you can continue localising names up until you have any actual code (so comments and empty lines are fine):</p>
-<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="nv">foo</span><span class="sr">;</span><span class="nv">local</span>
-<span class="sr">;</span><span class="nv">more</span><span class="sr">;</span><span class="nv">locals</span>
-<span class="c1">⍝ finally:</span>
-<span class="sr">;</span><span class="nv">last</span><span class="sr">;</span><span class="nv">ones</span>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="nv">foo</span><span class="sr">;</span><span class="nv">local</span><span class="w"></span>
+<span class="sr">;</span><span class="nv">more</span><span class="sr">;</span><span class="nv">locals</span><span class="w"></span>
+<span class="c1">⍝ finally:</span><span class="w"></span>
+<span class="sr">;</span><span class="nv">last</span><span class="sr">;</span><span class="nv">ones</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Finally, the header line allows a comment. Nothing fancy there. Just a comment :-)</p>
 <p>So in summary:</p>
 <p><code class="docutils literal notranslate"><span class="pre">∇{(result1</span> <span class="pre">result2)}←{left}(Op1</span> <span class="pre">OP</span> <span class="pre">Op2)(right</span> <span class="pre">args);local;local2</span> <span class="pre">⍝</span> <span class="pre">comment</span></code></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -979,9 +1164,11 @@ Then one can test for <code class="docutils literal notranslate"><span class="pr
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Trains.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -997,32 +1184,34 @@ Then one can test for <code class="docutils literal notranslate"><span class="pr
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

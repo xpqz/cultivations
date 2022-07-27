@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>User commands &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -62,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -422,6 +439,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -434,90 +456,191 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/UserCommands.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FUserCommands.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FUserCommands.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/UserCommands.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cd">
    ]CD
@@ -650,17 +773,165 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>User commands</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cd">
+   ]CD
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dinput">
+   ]DInput
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calls">
+   ]Calls
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   ]Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reorderlocals">
+   ]ReorderLocals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copyreg">
+   ]CopyReg
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-command-processor">
+   The command processor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   ]Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xref">
+   ]XRef
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#box">
+   ]Box
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rows">
+   ]Rows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#disp-display">
+   ]Disp, ]Display
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adoc">
+   ]ADoc
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calendar">
+   ]Calendar
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chart-windows-only">
+   ]Chart (Windows only)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version">
+   ]Version
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uversion">
+   ]UVersion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare">
+   ]Compare
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#document">
+   ]Document
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#findrefs">
+   ]FindRefs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#names">
+   ]Names
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map">
+   ]Map
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#peek">
+   ]Peek
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aplcart">
+   ]APLCart
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get">
+   ]Get
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repr">
+   ]Repr
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="user-commands">
-<h1>User commands<a class="headerlink" href="#user-commands" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="user-commands">
+<h1>User commands<a class="headerlink" href="#user-commands" title="Permalink to this headline">#</a></h1>
 <p>We’ve used the user command <code class="docutils literal notranslate"><span class="pre">]RunTime</span></code> to compare the speed of two otherwise equivalent expressions elsewhere.
 You may also have encountered <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Commands/Introduction.htm">system commands</a> like <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Commands/save.htm">)save</a>, <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Commands/clear.htm">)clear</a> and <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Commands/off.htm">)off</a>. The system commands are an integral part of the interpreter (and have been so for a very long time). That is, for Dyalog APL, they are written in C.</p>
 <p>System commands are not APL functions, but rather a way to directly interact with the system. Thus, they do not follow APL syntax. Instead, they act more like commands on a command line. That’s why they’re called commands.
@@ -668,12 +939,12 @@ Sometimes, this non-syntactic way is really useful tor day-to-day stuff, and you
 <p>The only thing built into the interpreter is that whenever it sees a line in the session beginning with ] it takes the rest of that line and calls <code class="docutils literal notranslate"><span class="pre">⎕SE.UCMD</span></code> with the line as a character vector argument. Dyalog APL comes pre-installed with a “user command processor”, i.e. a function <code class="docutils literal notranslate"><span class="pre">⎕SE.UCMD</span></code> which takes care of the rest. The default user command system is tightly integrated with <code class="docutils literal notranslate"><span class="pre">SALT</span></code>, but you could write your own drop-in, should you with to do so. Dyalog APL also comes loaded with more than 100 pre-defined user commands, some are simple and complex. All are written in APL, and you can change them as you see fit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span> <span class="o">-?</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="w"> </span><span class="o">-?</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">───────────────────────────────────────────────────────────────────────────────                                                                                                                                                                                                                                                         
+<div class="output text_html"><pre class="language-APL">───────────────────────────────────────────────────────────────────────────────                                                                                                                                                                                                                                                         
 
 140 commands:                                                                                                                                                                                                                                                                                                                           
 
@@ -700,17 +971,17 @@ Sometimes, this non-syntactic way is really useful tor day-to-day stuff, and you
 ] -??        ⍝ for brief info on each command                                                                                                                                                                                                                                                                                           
 ]grp -?      ⍝ for info on the "GRP" group                                                                                                                                                                                                                                                                                              
 ]grp.cmd -?  ⍝ for info on the "Cmd" command of the "GRP" group                                                                                                                                                                                                                                                                         
-</span></div></div>
+</pre></div></div>
 </div>
 <p>At this point, we should mention that all these user commands have a whole host of options which you can specify with various arguments or modifiers. It would be too much to go into details about it all, but you can always get documentation about any user command with <code class="docutils literal notranslate"><span class="pre">]cmdname</span> <span class="pre">-?</span></code>, for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">calls</span> <span class="o">-?</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">calls</span><span class="w"> </span><span class="o">-?</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">───────────────────────────────────────────────────────────────────────────────
+<div class="output text_html"><pre class="language-APL">───────────────────────────────────────────────────────────────────────────────
 
 ]FN.Calls                                                                      
 
@@ -719,59 +990,59 @@ Produce the calling tree of a function in a class/namespace/scriptfile
 
 ]Calls -?? ⍝ for more information and examples                                 
 
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Now that we are talking about the special syntax of user commands, the command processor has another few tricks up its sleeve.</p>
 <p>If for some reason you want to capture the result of a user command, you can do so with <code class="docutils literal notranslate"><span class="pre">]varname←cmdname</span></code>. If you want to silence a user command, you can do that with <code class="docutils literal notranslate"><span class="pre">]←cmdname</span></code>.</p>
 <p>Remember that we said everything after the <code class="docutils literal notranslate"><span class="pre">]</span></code> is passed as argument to <code class="docutils literal notranslate"><span class="pre">⎕SE.UCMD</span></code>? That means that you can even call user command under program control: <code class="docutils literal notranslate"><span class="pre">⎕SE.UCMD</span> <span class="pre">'cmdname'</span></code>. Anything else you’d write on the line just goes inside that character vector.</p>
 <p>Let’s have a look at some of the available user commands.</p>
-<div class="section" id="cd">
-<h2>]CD<a class="headerlink" href="#cd" title="Permalink to this headline">¶</a></h2>
+<section id="cd">
+<h2>]CD<a class="headerlink" href="#cd" title="Permalink to this headline">#</a></h2>
 <p>There are simple things like <code class="docutils literal notranslate"><span class="pre">]cd</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">cd</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">cd</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">/Users/stefan/work/notebooks/cultivations/contents
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">/Users/stefan/work/notebooks/cultivations/contents
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">]cd</span></code>, in its niladic form, shows the interpreter’s current working directory. You can set the current working directory, too, by</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">cd</span> <span class="na">/</span><span class="nv">Users</span><span class="na">/</span><span class="nv">stefan</span><span class="na">/</span><span class="nv">work</span><span class="na">/</span><span class="nv">notebooks</span>
-<span class="sr">]</span><span class="nv">cd</span> <span class="na">/</span><span class="nv">Users</span><span class="na">/</span><span class="nv">stefan</span><span class="na">/</span><span class="nv">work</span><span class="na">/</span><span class="nv">notebooks</span><span class="na">/</span><span class="nv">cultivations</span><span class="na">/</span><span class="nv">contents</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">cd</span><span class="w"> </span><span class="na">/</span><span class="nv">Users</span><span class="na">/</span><span class="nv">stefan</span><span class="na">/</span><span class="nv">work</span><span class="na">/</span><span class="nv">notebooks</span><span class="w"></span>
+<span class="sr">]</span><span class="nv">cd</span><span class="w"> </span><span class="na">/</span><span class="nv">Users</span><span class="na">/</span><span class="nv">stefan</span><span class="na">/</span><span class="nv">work</span><span class="na">/</span><span class="nv">notebooks</span><span class="na">/</span><span class="nv">cultivations</span><span class="na">/</span><span class="nv">contents</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">/Users/stefan/work/notebooks/cultivations/contents
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">/Users/stefan/work/notebooks
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">/Users/stefan/work/notebooks/cultivations/contents
+</pre></div><div class="output text_html"><pre class="language-APL">/Users/stefan/work/notebooks
+</pre></div></div>
 </div>
 <p>Note that when you set the current working directory this way, <code class="docutils literal notranslate"><span class="pre">]cd</span></code> will echo back the directory it changed <em>from</em>, not the one it changed <em>to</em>.</p>
-</div>
-<div class="section" id="dinput">
-<h2>]DInput<a class="headerlink" href="#dinput" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dinput">
+<h2>]DInput<a class="headerlink" href="#dinput" title="Permalink to this headline">#</a></h2>
 <p>If you’ve ever wanted to enter or paste a multi-line statement into the session, you can use <code class="docutils literal notranslate"><span class="pre">]dinput</span></code>. Note, however, that this is likely to be superseded in a future version by the currently experimental multi-line input mode.</p>
 <p>What is a multi-line statement? Remember that you don’t have to assign dfns before you use them; you can insert them inline. And dfns may have multiple lines. Effectively, you then have a single multi-line statement.
 Now, as soon as you press Enter in the session, you code will be executed, and if it has any un-closed braces, e.g. <code class="docutils literal notranslate"><span class="pre">2+{a←⍳10</span></code> it will fail. However, if you enter <code class="docutils literal notranslate"><span class="pre">]dinput</span></code> you will get a new prompt indicated by a dot <code class="docutils literal notranslate"><span class="pre">·</span></code> and then you can begin entering (or pasting) multi-line statements. <code class="docutils literal notranslate"><span class="pre">]dinput</span></code> will keep track of your brace-nesting level and indicate it with more dots.</p>
 <p>You can also just type <code class="docutils literal notranslate"><span class="pre">]dinput</span> <span class="pre">f←</span></code> and then paste a multi-line dfn there, beginning on that line. That’ll define it in the workspace.</p>
 <p>Another important use for <code class="docutils literal notranslate"><span class="pre">]dinput</span></code> is when you write multi-line functions in a Jupyter notebook cell, as you will have seen already in many places in this book.</p>
-</div>
-<div class="section" id="calls">
-<h2>]Calls<a class="headerlink" href="#calls" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calls">
+<h2>]Calls<a class="headerlink" href="#calls" title="Permalink to this headline">#</a></h2>
 <p>There are also various code analysis tools, like <code class="docutils literal notranslate"><span class="pre">]calls</span></code>. It will produce a calling tree:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">calls</span>  <span class="nv">getEnvir</span>  <span class="nf">⎕se</span><span class="na">.</span><span class="nv">SALTUtils</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">calls</span><span class="w">  </span><span class="nv">getEnvir</span><span class="w">  </span><span class="nf">⎕se</span><span class="na">.</span><span class="nv">SALTUtils</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">Level 1:  →getEnvir
+<div class="output text_html"><pre class="language-APL">Level 1:  →getEnvir
   F:rlb               F:splitOn           F:splitOn1st        F:GetUnicodeFile    F:SALTsetFile       F:UnixFileExists
 
 Level 2: getEnvir→UnixFileExists
@@ -805,23 +1076,23 @@ Level 2: getEnvir→splitOn1st
 Level 2: getEnvir→splitOn
 
 Level 2: getEnvir→rlb
-</span></div></div>
+</pre></div></div>
 </div>
 <p>This says that the <code class="docutils literal notranslate"><span class="pre">getEnvir</span></code> function in <code class="docutils literal notranslate"><span class="pre">⎕SE.SALTUtils</span></code> calls these six functions, which in turn call the other listed functions, each at its level. This is really useful if you’re trying to extract some utility function and need to know its dependencies.</p>
-</div>
-<div class="section" id="settings">
-<h2>]Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="settings">
+<h2>]Settings<a class="headerlink" href="#settings" title="Permalink to this headline">#</a></h2>
 <p>A workspace stores information about each function; who was it last modified by, and when. This information can also be saved in script files with <code class="docutils literal notranslate"><span class="pre">]save</span></code> if you turn on “atinfo tracking”. You can turn turn that on with <code class="docutils literal notranslate"><span class="pre">]settings</span> <span class="pre">track</span> <span class="pre">atinfo</span></code>. Then you can list which functions were recently modified: <code class="docutils literal notranslate"><span class="pre">]Latest</span> <span class="pre">20180501</span> <span class="pre">-by=Fred</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">track</span></code> isn’t the only setting:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">settings</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">settings</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace"> compare        APL                                                                                                                                                                                                       
- cmddir         /opt/anaconda3/envs/py39/lib/python3.9/dyalog_kernel/:/Users/stefan/MyUCMDs:/Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/SALT/spice                                                            
+<div class="output text_html"><pre class="language-APL"> compare        APL                                                                                                                                                                                                       
+ cmddir         /Users/stefan/.local/lib/python3.10/site-packages/dyalog_kernel/:/Users/stefan/MyUCMDs:/Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/SALT/spice                                                 
  debug          0                                                                                                                                                                                                         
  editor         notepad                                                                                                                                                                                                   
  edprompt       1                                                                                                                                                                                                         
@@ -831,38 +1102,38 @@ Level 2: getEnvir→rlb
  track                                                                                                                                                                                                                    
  varfmt         xml                                                                                                                                                                                                       
  workdir        .:/Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/Library/Core:/Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/Library/Conga:/Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/SALT 
-</span></div></div>
+</pre></div></div>
 </div>
 <p>These are basically like OS environment variables, but used just by <code class="docutils literal notranslate"><span class="pre">SALT</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">edprompt</span></code> determines if the editor should ask you before writing changes to scripted items back to their source file. <code class="docutils literal notranslate"><span class="pre">varfmt</span></code> determines how <code class="docutils literal notranslate"><span class="pre">]save</span></code> should save variables; as XML or as APL statements that produce the value. <code class="docutils literal notranslate"><span class="pre">cmddir</span></code> tells <code class="docutils literal notranslate"><span class="pre">SALT</span></code> where to look for user commands.</p>
 <p>As you can gather, you can just drop your own or downloaded user commands into the mentioned <code class="docutils literal notranslate"><span class="pre">/MyUCMDs</span></code> dir and you’re in business. Watch the <a class="reference external" href="https://dyalog.tv/Webinar/?v=LWJzRGrOC3k">webinar</a> about how to write your own user commands!</p>
-</div>
-<div class="section" id="reorderlocals">
-<h2>]ReorderLocals<a class="headerlink" href="#reorderlocals" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="reorderlocals">
+<h2>]ReorderLocals<a class="headerlink" href="#reorderlocals" title="Permalink to this headline">#</a></h2>
 <p>If you’ve ever written anything moderately complex as a tradfn, you may have been annoyed that, as you edit along, your list of local variables on the header line is not neatly ordered. <code class="docutils literal notranslate"><span class="pre">]reorderlocals</span></code> allows you to sort the header row of all (or some of) the functions currently in the workspace: <code class="docutils literal notranslate"><span class="pre">]reorderlocals</span> <span class="pre">MyFn</span></code> or <code class="docutils literal notranslate"><span class="pre">]reorderlocals</span> <span class="pre">F*</span></code> or just <code class="docutils literal notranslate"><span class="pre">]reorderlocals</span></code>.</p>
-</div>
-<div class="section" id="copyreg">
-<h2>]CopyReg<a class="headerlink" href="#copyreg" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="copyreg">
+<h2>]CopyReg<a class="headerlink" href="#copyreg" title="Permalink to this headline">#</a></h2>
 <p>If you’re on Windows, you have a few goodies especially for you. When the time comes to upgrade your Dyalog between major versions, but you’ve spent a whole year customising the current version to your liking. There is a user command that allows you to easily migrate your settings between versions:</p>
-<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">CopyReg</span> <span class="m">17</span><span class="nv">u64</span> <span class="o">-</span><span class="nv">to</span><span class="o">=</span><span class="m">18</span><span class="nv">u64</span>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">CopyReg</span><span class="w"> </span><span class="m">17</span><span class="nv">u64</span><span class="w"> </span><span class="o">-</span><span class="nv">to</span><span class="o">=</span><span class="m">18</span><span class="nv">u64</span><span class="w"></span>
 </pre></div>
 </div>
 <p>does the job (you may need admin privileges, though).</p>
-</div>
-<div class="section" id="the-command-processor">
-<h2>The command processor<a class="headerlink" href="#the-command-processor" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-command-processor">
+<h2>The command processor<a class="headerlink" href="#the-command-processor" title="Permalink to this headline">#</a></h2>
 <p>At this point, we should mention that all these user commands have a whole host of options which you can specify with various arguments or modifiers. It would be too much to go into details about it all, but you can always get documentation about any user command with <code class="docutils literal notranslate"><span class="pre">]cmdname</span> <span class="pre">-?</span></code>:</p>
-</div>
-<div class="section" id="summary">
-<h2>]Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="summary">
+<h2>]Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>There are also commands that let you get an overview of things:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">summary</span> <span class="nf">⎕se</span><span class="na">.</span><span class="nv">Parser</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">summary</span><span class="w"> </span><span class="nf">⎕se</span><span class="na">.</span><span class="nv">Parser</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace"> Name        Scope   Size  Syntax 
+<div class="output text_html"><pre class="language-APL"> Name        Scope   Size  Syntax 
  Parse       P      17128   r1f   
  Propagate           2744   r2f   
  Quotes              2256   r1f   
@@ -875,70 +1146,70 @@ Level 2: getEnvir→rlb
  sqz                10872   r2f   
  upperCase          10960   r2f   
  xCut               10648   r2f   
-</span></div></div>
+</pre></div></div>
 </div>
 <p>This analyses the <code class="docutils literal notranslate"><span class="pre">⎕SE.Parser</span></code> class and tells you a little bit about each function. <code class="docutils literal notranslate"><span class="pre">P</span></code> means public, <code class="docutils literal notranslate"><span class="pre">C</span></code> constructor, and the syntax is whether they have a result, number of arguments, and type (function/monadic operator/dyadic operator).</p>
-</div>
-<div class="section" id="xref">
-<h2>]XRef<a class="headerlink" href="#xref" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="xref">
+<h2>]XRef<a class="headerlink" href="#xref" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">]xref</span></code> will produce a cross reference of all items in a namespace, which ones call or reference which, how they do so (global/local) and what type they all are.</p>
-</div>
-<div class="section" id="box">
-<h2>]Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="box">
+<h2>]Box<a class="headerlink" href="#box" title="Permalink to this headline">#</a></h2>
 <p>You may already know about <code class="docutils literal notranslate"><span class="pre">]box</span></code>. It is, for example, responsible for that nice boxed output you can see on TryAPL. You can turn that on and off, and decide exactly how you want it to display things with the user command. For now, let’s just see what the current settings are in this notebook:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">box</span> <span class="o">?</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">box</span><span class="w"> </span><span class="o">?</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">]Box ON -style=min -view=min -trains=tree -fns=on
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">]Box ON -style=min -view=min -trains=tree -fns=on
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="rows">
-<h2>]Rows<a class="headerlink" href="#rows" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rows">
+<h2>]Rows<a class="headerlink" href="#rows" title="Permalink to this headline">#</a></h2>
 <p>There is a lesser known, but very useful, companion to <code class="docutils literal notranslate"><span class="pre">]box</span></code> called <code class="docutils literal notranslate"><span class="pre">]rows</span></code>. Probably, by now, you’ve entered a statement that caused way too much output, so your session would just scroll and scroll. Right? Well, the <code class="docutils literal notranslate"><span class="pre">]rows</span></code> user command can protect you against that but limiting output to the current height and width of your window.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">rows</span> <span class="o">?</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">rows</span><span class="w"> </span><span class="o">?</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">]Rows OFF -style=long -fold=off -fns=off -dots=·
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">]Rows OFF -style=long -fold=off -fns=off -dots=·
+</pre></div></div>
 </div>
 <p>So if you do <code class="docutils literal notranslate"><span class="pre">]rows</span> <span class="pre">on</span> <span class="pre">-fold=3</span></code> it will cut any output four lines before the bottom of your screen, insert a row of dots (or whichever character you choose, e.g. <code class="docutils literal notranslate"><span class="pre">]rows</span> <span class="pre">on</span> <span class="pre">-fold=3</span> <span class="pre">-dots=~</span></code>) and then display the last three lines of the output. It will then also (by default) not wrap lines that are too long, but rather will cause them to continue beyond the right edge of the screen (scroll horizontally to see it). Again, see <code class="docutils literal notranslate"><span class="pre">]box</span> <span class="pre">-?</span></code> and <code class="docutils literal notranslate"><span class="pre">]rows</span> <span class="pre">-?</span></code> for the full details.</p>
-</div>
-<div class="section" id="disp-display">
-<h2>]Disp, ]Display<a class="headerlink" href="#disp-display" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="disp-display">
+<h2>]Disp, ]Display<a class="headerlink" href="#disp-display" title="Permalink to this headline">#</a></h2>
 <p>If you prefer boxing off during normal work, but want to display some results boxed here and there, you can use <code class="docutils literal notranslate"><span class="pre">]disp</span></code> and <code class="docutils literal notranslate"><span class="pre">]display</span></code> for that. <code class="docutils literal notranslate"><span class="pre">]disp</span></code> is much like <code class="docutils literal notranslate"><span class="pre">]box</span> <span class="pre">-style=mid</span></code> and <code class="docutils literal notranslate"><span class="pre">]display</span></code> is like <code class="docutils literal notranslate"><span class="pre">]box</span> <span class="pre">-style=max</span></code>.
 As you saw above, the notebook uses <code class="docutils literal notranslate"><span class="pre">-style=min</span></code>, but that doesn’t always give you enough information:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="m">3</span><span class="o">⍴</span><span class="s1">&#39;&#39;</span> <span class="p">(</span><span class="o">⍳</span><span class="m">3</span><span class="p">)</span> <span class="p">(</span><span class="m">0</span> <span class="m">0</span><span class="o">⍴</span><span class="m">0</span><span class="p">)</span> <span class="s1">&#39;a&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">⍴</span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="p">(</span><span class="o">⍳</span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="o">⍴</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┬─────┬─────┐
+<div class="output text_html"><pre class="language-APL">┌─┬─────┬─────┐
 │ │1 2 3│     │
 ├─┼─────┼─────┤
 │a│     │1 2 3│
 └─┴─────┴─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>OK, we’ve go three empty (or are they filled with spaces?) elements. But what are they <em>really</em>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">display</span> <span class="m">2</span> <span class="m">3</span><span class="o">⍴</span><span class="s1">&#39;&#39;</span> <span class="p">(</span><span class="o">⍳</span><span class="m">3</span><span class="p">)</span> <span class="p">(</span><span class="m">0</span> <span class="m">0</span><span class="o">⍴</span><span class="m">0</span><span class="p">)</span> <span class="s1">&#39;a&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">display</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">⍴</span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="p">(</span><span class="o">⍳</span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="o">⍴</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌→────────────────────┐
+<div class="output text_html"><pre class="language-APL">┌→────────────────────┐
 ↓ ┌⊖┐ ┌→────┐ ┌⊖┐     │
 │ │ │ │1 2 3│ ⌽0│     │
 │ └─┘ └~────┘ └~┘     │
@@ -946,176 +1217,176 @@ As you saw above, the notebook uses <code class="docutils literal notranslate"><
 │ a   │ │     │1 2 3│ │
 │ -   └─┘     └~────┘ │
 └∊────────────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Now we can see what exactly each thing is; we’ve got two empty character vectors and one 0-by-0 numeric matrix. We can also see that the <code class="docutils literal notranslate"><span class="pre">a</span></code> is a scalar, and the <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span></code>s are vectors (not e.g. one-row matrices).</p>
-</div>
-<div class="section" id="adoc">
-<h2>]ADoc<a class="headerlink" href="#adoc" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="adoc">
+<h2>]ADoc<a class="headerlink" href="#adoc" title="Permalink to this headline">#</a></h2>
 <p>If you comment your code using markdown, you can use <code class="docutils literal notranslate"><span class="pre">]adoc</span></code> to automatically generate some documentation of it. <code class="docutils literal notranslate"><span class="pre">]adoc</span> <span class="pre">MyClass</span></code> will open your browser with a nicely formatted html document that has comments and syntax information gleaned from your code.</p>
-</div>
-<div class="section" id="calendar">
-<h2>]Calendar<a class="headerlink" href="#calendar" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calendar">
+<h2>]Calendar<a class="headerlink" href="#calendar" title="Permalink to this headline">#</a></h2>
 <p>For a quick calendar, do:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">Calendar</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">Calendar</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">      May 2022      
+<div class="output text_html"><pre class="language-APL">     July 2022      
 Su Mo Tu We Th Fr Sa
- 1  2  3  4  5  6  7
- 8  9 10 11 12 13 14
-15 16 17 18 19 20 21
-22 23 24 25 26 27 28
-29 30 31            
-</span></div></div>
+                1  2
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+31                  
+</pre></div></div>
 </div>
 <p>You can also specify a year or a month and a year, for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">Calendar</span> <span class="nv">January</span> <span class="m">1969</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">Calendar</span><span class="w"> </span><span class="nv">January</span><span class="w"> </span><span class="m">1969</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">    January 1969    
+<div class="output text_html"><pre class="language-APL">    January 1969    
 Su Mo Tu We Th Fr Sa
           1  2  3  4
  5  6  7  8  9 10 11
 12 13 14 15 16 17 18
 19 20 21 22 23 24 25
 26 27 28 29 30 31   
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="chart-windows-only">
-<h2>]Chart (Windows only)<a class="headerlink" href="#chart-windows-only" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="chart-windows-only">
+<h2>]Chart (Windows only)<a class="headerlink" href="#chart-windows-only" title="Permalink to this headline">#</a></h2>
 <p>If you are on Windows, you’ll have a handful more user commands than if not. Perhaps the coolest of them is the Chart Wizard. It has a button in the IDE:</p>
 <p><img alt="Win IDE chart" src="_images/winchart.png" /></p>
 <p>But it is also available as a user command. Try e.g. <code class="docutils literal notranslate"><span class="pre">]chart</span> <span class="pre">(⍳50)×↓|1○(500÷⍨⍳50)∘.×⍳50</span></code>. If you’re not on Windows, you can still generate charts using <a class="reference external" href="https://www.sharpplot.com/">SharpPlot</a> (for which <code class="docutils literal notranslate"><span class="pre">]chart</span></code> is just a GUI). Here’s some <a class="reference external" href="https://forums.dyalog.com/viewtopic.php?t=1338">example code</a> for that, and the chapter on <a class="reference internal" href="Plotting.html"><span class="doc std std-doc">plotting</span></a> in this book.</p>
-</div>
-<div class="section" id="version">
-<h2>]Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="version">
+<h2>]Version<a class="headerlink" href="#version" title="Permalink to this headline">#</a></h2>
 <p>If you ever run into trouble with your APL system, you may want to know the version numbers of various parts and dependencies of your APL system:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">version</span> <span class="o">-</span><span class="nv">extended</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">version</span><span class="w"> </span><span class="o">-</span><span class="nv">extended</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">* Assuming "TOOLS.Version"; to see a list of all valid user commands that start with "version", type 
+<div class="output text_html"><pre class="language-APL">* Assuming "TOOLS.Version"; to see a list of all valid user commands that start with "version", type 
       ]version* -?
 
- Dyalog  18.2.45505 64-bit Unicode, BuildID 50b14a3f                                                                            
-         /Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/lib/htmlrenderer.dylib: 2022-04-07 00:35:16                    
- OS      Darwin 21.4.0 Darwin Kernel Version 21.4.0: Fri Mar 18 00:45:05 PDT 2022; root:xnu-8020.101.4~15/RELEASE_X86_64 x86_64 
- CPUs    4                                                                                                                      
- Link    3.0.19                                                                                                                 
- SALT    2.9                                                                                                                    
- UCMD    2.51                                                                                                                   
- .NET    .NET Core 3.1.12                                                                                                       
-         Dyalog.Net.Bridge, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null                                               
- WS      18.2                                                                                                                   
- Conga   Version: 3.4.1612                                                                                                      
-         loaded from: /Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/lib/conga34_64.dylib                              
-         Copyright 2002-2022 Dyalog Ltd. GnuTLS 3.6.15                                                                          
-         Copyright (c) 2000-2021 Free Software Foundation, Inc.  Copyright 2002-2022 Dyalog Ltd.                                
- SQAPL   (unavailable)                                                                                                          
-</span></div></div>
+ Dyalog  18.2.45505 64-bit Unicode, BuildID 50b14a3f                                                                                
+         /Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/lib/htmlrenderer.dylib: 2022-04-07 00:35:16                        
+ OS      Darwin 21.5.0 Darwin Kernel Version 21.5.0: Tue Apr 26 21:08:37 PDT 2022; root:xnu-8020.121.3~4/RELEASE_ARM64_T6000 x86_64 
+ CPUs    8                                                                                                                          
+ Link    3.0.19                                                                                                                     
+ SALT    2.9                                                                                                                        
+ UCMD    2.51                                                                                                                       
+ .NET    (unavailable)                                                                                                              
+ WS      18.2                                                                                                                       
+ Conga   Version: 3.4.1612                                                                                                          
+         loaded from: /Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/lib/conga34_64.dylib                                  
+         Copyright 2002-2022 Dyalog Ltd. GnuTLS 3.6.15                                                                              
+         Copyright (c) 2000-2021 Free Software Foundation, Inc.  Copyright 2002-2022 Dyalog Ltd.                                    
+ SQAPL   (unavailable)                                                                                                              
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="uversion">
-<h2>]UVersion<a class="headerlink" href="#uversion" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="uversion">
+<h2>]UVersion<a class="headerlink" href="#uversion" title="Permalink to this headline">#</a></h2>
 <p>If you’re having trouble with a user command, you can get the version number of it with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">uversion</span> <span class="nv">calendar</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">uversion</span><span class="w"> </span><span class="nv">calendar</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">framework:  2.51                                                                             
+<div class="output text_html"><pre class="language-APL">framework:  2.51                                                                             
 command:    ]TOOLS.Calendar                                                                  
 source:     /Applications/Dyalog-18.2.app/Contents/Resources/Dyalog/SALT/spice/jsutils.dyalog
 version:    1.18                                                                             
 revision:   1574                                                                             
 commit:     2019 01 29 Adam: Help                                                            
 
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="compare">
-<h2>]Compare<a class="headerlink" href="#compare" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="compare">
+<h2>]Compare<a class="headerlink" href="#compare" title="Permalink to this headline">#</a></h2>
 <p>There is actually a whole family user commands, all called <code class="docutils literal notranslate"><span class="pre">Compare</span></code>. They are in the groups <code class="docutils literal notranslate"><span class="pre">SALT</span></code>, <code class="docutils literal notranslate"><span class="pre">WS</span></code>, <code class="docutils literal notranslate"><span class="pre">ARRAY</span></code>, <code class="docutils literal notranslate"><span class="pre">FN</span></code>, and <code class="docutils literal notranslate"><span class="pre">FILE</span></code>. You can use them to compare two similar items, just may have done file diffs, but here you can do them on various things related to APL. For example, <code class="docutils literal notranslate"><span class="pre">]WS.Compare</span> <span class="pre">path1/ws1</span> <span class="pre">path2/ws2</span></code> compares two workspaces, and <code class="docutils literal notranslate"><span class="pre">]NS.Compare</span> <span class="pre">#.ns1</span> <span class="pre">#.ns2</span></code> compares two namespaces. Of course, if your items are stored in script files, you could use your favourite diff tool, but it probably doesn’t have any understanding of the APL code involved.</p>
-</div>
-<div class="section" id="document">
-<h2>]Document<a class="headerlink" href="#document" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="document">
+<h2>]Document<a class="headerlink" href="#document" title="Permalink to this headline">#</a></h2>
 <p>If you want a “hardcopy” of your workspace or part of it, you can use <code class="docutils literal notranslate"><span class="pre">]document</span></code> to list all items, describe what they are, and show how they look if typed into the session.</p>
-</div>
-<div class="section" id="findrefs">
-<h2>]FindRefs<a class="headerlink" href="#findrefs" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="findrefs">
+<h2>]FindRefs<a class="headerlink" href="#findrefs" title="Permalink to this headline">#</a></h2>
 <p>If you work with a lot of objects, especially if they point to each other, you may find <code class="docutils literal notranslate"><span class="pre">]findrefs</span></code> useful. It will follow all pointers (refs) and report everything. For example,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span> <span class="kd">←</span> <span class="nf">⎕NS</span> <span class="s1">&#39;&#39;</span> <span class="p">⋄</span> <span class="nv">B</span><span class="kd">←</span><span class="nv">C</span><span class="kd">←</span><span class="nv">D</span><span class="kd">←</span><span class="nv">A</span>                                                     
-<span class="nv">V</span> <span class="kd">←</span> <span class="m">0</span> <span class="nv">C</span> <span class="m">2</span> <span class="m">99</span>
-      
-<span class="sr">]</span><span class="nv">findrefs</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nf">⎕NS</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="p">⋄</span><span class="w"> </span><span class="nv">B</span><span class="kd">←</span><span class="nv">C</span><span class="kd">←</span><span class="nv">D</span><span class="kd">←</span><span class="nv">A</span><span class="w">                                                     </span>
+<span class="nv">V</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">C</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">99</span><span class="w"></span>
+<span class="w">      </span>
+<span class="sr">]</span><span class="nv">findrefs</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace"> #: followed 6 pointers to reach a total of 2 "refs" 
+<div class="output text_html"><pre class="language-APL"> #: followed 6 pointers to reach a total of 2 "refs" 
 
   Name                                               
   #                                                  
   #.B+4 more                                         
 
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="names">
-<h2>]Names<a class="headerlink" href="#names" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="names">
+<h2>]Names<a class="headerlink" href="#names" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">]Names</span></code> lists names in workspaces in various ways, with sophisticated means for filtering. For example, to show all tradfns (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/nc.htm">nameclass</a> 3.1) with a name containing a lowercase <code class="docutils literal notranslate"><span class="pre">l</span></code>, we can use a shell-style <em>glob</em> expression:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span> <span class="s1">&#39;salt&#39;</span>
-<span class="sr">]</span><span class="nv">names</span> <span class="m">3.1</span> <span class="o">-</span><span class="nv">filter</span><span class="o">=*</span><span class="nv">l</span><span class="o">*</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CY</span><span class="w"> </span><span class="s1">&#39;salt&#39;</span><span class="w"></span>
+<span class="sr">]</span><span class="nv">names</span><span class="w"> </span><span class="m">3.1</span><span class="w"> </span><span class="o">-</span><span class="nv">filter</span><span class="o">=*</span><span class="nv">l</span><span class="o">*</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3.1: GetUnicodeFile PutUTF8File SALTsetFile disableSALT enableSALT regClose regGetHandle 
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">3.1: GetUnicodeFile PutUTF8File SALTsetFile disableSALT enableSALT regClose regGetHandle 
+</pre></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">-filter=</span></code> option can also take full regexes,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">names</span> <span class="m">3.1</span> <span class="o">-</span><span class="nv">filter</span><span class="o">=</span><span class="na">/.</span><span class="o">*</span><span class="na">\</span><span class="nv">d</span><span class="na">.</span><span class="o">*</span><span class="na">/</span> <span class="c1">⍝ Tradfn names containing a digit</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">names</span><span class="w"> </span><span class="m">3.1</span><span class="w"> </span><span class="o">-</span><span class="nv">filter</span><span class="o">=</span><span class="na">/.</span><span class="o">*</span><span class="na">\</span><span class="nv">d</span><span class="na">.</span><span class="o">*</span><span class="na">/</span><span class="w"> </span><span class="c1">⍝ Tradfn names containing a digit</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3.1: PutUTF8File 
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">3.1: PutUTF8File 
+</pre></div></div>
 </div>
 <p>Note that the regex pattern is implicitly anchored to the beginning and end, so your pattern must match the whole name.</p>
-</div>
-<div class="section" id="map">
-<h2>]Map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="map">
+<h2>]Map<a class="headerlink" href="#map" title="Permalink to this headline">#</a></h2>
 <p>A really cool user command is <code class="docutils literal notranslate"><span class="pre">]map</span></code> which draws a tree view of your workspace or (if given an argument) a specific namespace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">map</span> <span class="nf">⎕SE</span><span class="na">.</span><span class="nv">Dyalog</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">map</span><span class="w"> </span><span class="nf">⎕SE</span><span class="na">.</span><span class="nv">Dyalog</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">⎕SE.Dyalog
+<div class="output text_html"><pre class="language-APL">⎕SE.Dyalog
 ·   ∇ Serial
 ·   Array
 ·   ·   ~ DEBUG sysVars
@@ -1152,58 +1423,58 @@ commit:     2019 01 29 Adam: Help
 ·   ·   SALT_Data → ⎕SE.[Namespace]
 ·   ·   qa
 ·   ·   ·   ∇ ExpandConfig
-</span></div></div>
+</pre></div></div>
 </div>
 <p>The tree structure itself are the nested namespaces, while the lists of names are ordered by type; <code class="docutils literal notranslate"><span class="pre">~</span></code> are variables, <code class="docutils literal notranslate"><span class="pre">∇</span></code> are functions, <code class="docutils literal notranslate"><span class="pre">∘</span></code> are operators. It also displays ref-names and where they point.</p>
-</div>
-<div class="section" id="peek">
-<h2>]Peek<a class="headerlink" href="#peek" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="peek">
+<h2>]Peek<a class="headerlink" href="#peek" title="Permalink to this headline">#</a></h2>
 <p>But perhaps the most powerful user command of them all is <code class="docutils literal notranslate"><span class="pre">]peek</span></code>. It allows you to “peek” into a different workspace, execute an expression there, then come back with the result, all without polluting or modifying neither the current workspace, nor the workspace that was peeked into:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">peek</span> <span class="nv">dfns</span> <span class="nv">queens</span> <span class="m">5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">peek</span><span class="w"> </span><span class="nv">dfns</span><span class="w"> </span><span class="nv">queens</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────────┬─────────┐
+<div class="output text_html"><pre class="language-APL">┌─────────┬─────────┐
 │⍟ · · · ·│· ⍟ · · ·│
 │· · ⍟ · ·│· · · · ⍟│
 │· · · · ⍟│· · ⍟ · ·│
 │· ⍟ · · ·│⍟ · · · ·│
 │· · · ⍟ ·│· · · ⍟ ·│
 └─────────┴─────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>How to place five queens on a 5-by-5 chess board without them being able to capture each other, all without even loading any utilities! How about that? :-)</p>
 <p>There are, of course, many, many more user commands, and new versions of Dyalog usually adds more.</p>
-</div>
-<div class="section" id="aplcart">
-<h2>]APLCart<a class="headerlink" href="#aplcart" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="aplcart">
+<h2>]APLCart<a class="headerlink" href="#aplcart" title="Permalink to this headline">#</a></h2>
 <p>Version 18.2 of Dyalog added the <code class="docutils literal notranslate"><span class="pre">]aplcart</span></code> user command. <a class="reference external" href="https://aplcart.info">APLCart</a> is searchable collection of short APL phrases. It is a goldmine of answers to APL-related questions of the type “How do I do X in APL?” for a surprisingly wide range of X. The <code class="docutils literal notranslate"><span class="pre">]aplcart</span></code> command makes this resource available directly in the session,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">aplcart</span> <span class="nv">Append</span> <span class="nv">scalar</span> <span class="nv">to</span> <span class="nv">each</span> <span class="nv">column</span> <span class="nv">of</span> <span class="nv">matrix</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">aplcart</span><span class="w"> </span><span class="nv">Append</span><span class="w"> </span><span class="nv">scalar</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">each</span><span class="w"> </span><span class="nv">column</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">matrix</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">X, Y, Z: any type array  M, N: numeric array  I, J: integer array  A, B: Boolean array  C, D: character array  f, g, h: function  ax: bracket axis  s: scalar  v: vector  m: matrix
+<div class="output text_html"><pre class="language-APL">X, Y, Z: any type array  M, N: numeric array  I, J: integer array  A, B: Boolean array  C, D: character array  f, g, h: function  ax: bracket axis  s: scalar  v: vector  m: matrix
 ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Xm⍪Ys  ⍝ Append scalar to each column of matrix
 ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Showing 1 of 1 matches
-</span></div></div>
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">]aplcart</span></code> has a number of options and capabilities. You can, for example, filter results by regular expression:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">aplcart</span> <span class="na">/</span><span class="nv">highest</span><span class="o">|</span><span class="nv">lowest</span><span class="na">/</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">aplcart</span><span class="w"> </span><span class="na">/</span><span class="nv">highest</span><span class="o">|</span><span class="nv">lowest</span><span class="na">/</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">X, Y, Z: any type array  M, N: numeric array  I, J: integer array  A, B: Boolean array  C, D: character array  f, g, h: function  ax: bracket axis  s: scalar  v: vector  m: matrix
+<div class="output text_html"><pre class="language-APL">X, Y, Z: any type array  M, N: numeric array  I, J: integer array  A, B: Boolean array  C, D: character array  f, g, h: function  ax: bracket axis  s: scalar  v: vector  m: matrix
 ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 M∨N                       ⍝ Greatest Common Divisor of M and N
 M∧N                       ⍝ Lowest Common Multiple of M and N
@@ -1217,23 +1488,23 @@ Ms{⍵×⍺÷⍵[⊃⍒|⍵]}Nv         ⍝ Scale Nv so the maximum element is M
 {s←0 ⋄ ⌈/{s⊢←0⌈s+⍵}¨⍵}Nv  ⍝ Largest sum of any contiguous subvector
 ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Showing 10 of 12 matches (-list=&lt;n&gt; to show up to &lt;n&gt;; -list to show all)
-</span></div></div>
+</pre></div></div>
 </div>
 <p>or ask it to generate the URL to the corresponding search query on the website itself:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">aplcart</span> <span class="na">/</span><span class="nv">highest</span><span class="o">|</span><span class="nv">lowest</span><span class="na">/</span> <span class="o">-</span><span class="nv">url</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">aplcart</span><span class="w"> </span><span class="na">/</span><span class="nv">highest</span><span class="o">|</span><span class="nv">lowest</span><span class="na">/</span><span class="w"> </span><span class="o">-</span><span class="nv">url</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">https://aplcart.info?q=/highest|lowest/
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">https://aplcart.info?q=/highest|lowest/
+</pre></div></div>
 </div>
 <p>A <code class="docutils literal notranslate"><span class="pre">-b</span></code> opens your default web browser on the corresponding results page instead of displaying it in the session.</p>
-</div>
-<div class="section" id="get">
-<h2>]Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="get">
+<h2>]Get<a class="headerlink" href="#get" title="Permalink to this headline">#</a></h2>
 <p>18.2 also added the <code class="docutils literal notranslate"><span class="pre">]Get</span></code> command. There is a lot to this (it comes with comprehensive documentation; see <code class="docutils literal notranslate"><span class="pre">]get</span> <span class="pre">-??</span></code>), and we’ll only skim the surface here. <code class="docutils literal notranslate"><span class="pre">]Get</span></code> provides a unified interface for quickly getting data (and code) into Dyalog from a multitude of different sources, including local files, by URL, or from git repositories. Note that this is intended as a development aid, and not something that should be relied upon during runtime or production.</p>
 <p>From <code class="docutils literal notranslate"><span class="pre">]Get</span> <span class="pre">-??</span></code>:</p>
 <blockquote>
@@ -1243,22 +1514,22 @@ Showing 10 of 12 matches (-list=&lt;n&gt; to show up to &lt;n&gt;; -list to show
 <p>Here’s an example of fetching–and decoding–a remote XML-file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">Get</span> <span class="nv">raw</span><span class="na">.</span><span class="nv">githubusercontent</span><span class="na">.</span><span class="nv">com</span><span class="na">/</span><span class="nv">Dyalog</span><span class="na">/</span><span class="nv">MiServer</span><span class="na">/</span><span class="nv">master</span><span class="na">/</span><span class="nv">Config</span><span class="na">/</span><span class="nv">Logger</span><span class="na">.</span><span class="nv">xml</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">Get</span><span class="w"> </span><span class="nv">raw</span><span class="na">.</span><span class="nv">githubusercontent</span><span class="na">.</span><span class="nv">com</span><span class="na">/</span><span class="nv">Dyalog</span><span class="na">/</span><span class="nv">MiServer</span><span class="na">/</span><span class="nv">master</span><span class="na">/</span><span class="nv">Config</span><span class="na">/</span><span class="nv">Logger</span><span class="na">.</span><span class="nv">xml</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">#.Logger
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">#.Logger
+</pre></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">disp</span> <span class="c1">#.Logger</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">disp</span><span class="w"> </span><span class="c1">#.Logger</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┬────────────┬────────────────┬───┬─┐
+<div class="output text_html"><pre class="language-APL">┌─┬────────────┬────────────────┬───┬─┐
 │0│Logger      │                │   │3│
 ├─┼────────────┼────────────────┼───┼─┤
 │1│active      │0               │   │5│
@@ -1271,50 +1542,50 @@ Showing 10 of 12 matches (-list=&lt;n&gt; to show up to &lt;n&gt;; -list to show
 ├─┼────────────┼────────────────┼───┼─┤
 │1│prefix      │                │   │1│
 └─┴────────────┴────────────────┴───┴─┘
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="repr">
-<h2>]Repr<a class="headerlink" href="#repr" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="repr">
+<h2>]Repr<a class="headerlink" href="#repr" title="Permalink to this headline">#</a></h2>
 <p>Also making its debut in 18.2 was <code class="docutils literal notranslate"><span class="pre">]repr</span></code>. It takes an APL value and returns (by default) an expression that produces this value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">repr</span> <span class="c1">#.Logger</span>
-<span class="sr">]</span><span class="nv">repr</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">repr</span><span class="w"> </span><span class="c1">#.Logger</span><span class="w"></span>
+<span class="sr">]</span><span class="nv">repr</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">(6 5⍴0 'Logger' '' (0 2⍴⊂'') 3 1 'active' (,'0') (0 2⍴⊂'') 5 1 'anonymousIPs' (,'1') (0 2⍴⊂'') 5 1 'directory' '%SiteRoot%/Logs/' (0 2⍴⊂'') 5 1 'interval' '10' (0 2⍴⊂'') 5 1 'prefix' '' (0 2⍴⊂'') 1)
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">(0,(4/1),0 0 1 0 1 1,(8/0),1 1)
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">(6 5⍴0 'Logger' '' (0 2⍴⊂'') 3 1 'active' (,'0') (0 2⍴⊂'') 5 1 'anonymousIPs' (,'1') (0 2⍴⊂'') 5 1 'directory' '%SiteRoot%/Logs/' (0 2⍴⊂'') 5 1 'interval' '10' (0 2⍴⊂'') 5 1 'prefix' '' (0 2⍴⊂'') 1)
+</pre></div><div class="output text_html"><pre class="language-APL">(0,(4/1),0 0 1 0 1 1,(8/0),1 1)
+</pre></div></div>
 </div>
 <p>That’s useful enough, but it has a few other handy tricks up its sleeve, too. Perhaps you want to convert a specific APL value to csv?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">repr</span> <span class="s1">&#39;ABC&#39;</span><span class="o">⍪</span><span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span> <span class="o">-</span><span class="nv">f</span><span class="o">=</span><span class="nv">csv</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">repr</span><span class="w"> </span><span class="s1">&#39;ABC&#39;</span><span class="o">⍪</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span><span class="w"> </span><span class="o">-</span><span class="nv">f</span><span class="o">=</span><span class="nv">csv</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">"A","B","C"
+<div class="output text_html"><pre class="language-APL">"A","B","C"
 1,2,3
 4,5,6
-</span></div></div>
+</pre></div></div>
 </div>
 <p>or maybe you need help with showing the correct parenthesing of a train?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">repr</span> <span class="o">+</span><span class="na">⌿</span><span class="o">÷</span><span class="m">1</span><span class="o">⌈≢</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">repr</span><span class="w"> </span><span class="o">+</span><span class="na">⌿</span><span class="o">÷</span><span class="m">1</span><span class="o">⌈≢</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">(+⌿)÷(1⌈≢)
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">(+⌿)÷(1⌈≢)
+</pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1338,9 +1609,11 @@ Showing 10 of 12 matches (-list=&lt;n&gt; to show up to &lt;n&gt;; -list to show
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="PDI.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1356,32 +1629,34 @@ Showing 10 of 12 matches (-list=&lt;n&gt; to show up to &lt;n&gt;; -list to show
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

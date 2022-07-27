@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Plotting with SharpPlot &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,42 +20,41 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Function application" href="FunctionApplication.html" />
+    <link rel="next" title="Array programming techniques" href="ArrayProgramming.html" />
     <link rel="prev" title="User commands" href="UserCommands.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -62,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -422,6 +439,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -434,12 +456,17 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -447,95 +474,190 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Plotting.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FPlotting.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Plotting.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FPlotting.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
 </div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        </div>
     </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Plotting with SharpPlot</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="plotting-with-sharpplot">
-<h1>Plotting with SharpPlot<a class="headerlink" href="#plotting-with-sharpplot" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="plotting-with-sharpplot">
+<h1>Plotting with SharpPlot<a class="headerlink" href="#plotting-with-sharpplot" title="Permalink to this headline">#</a></h1>
 <p>This Cultivation was hosted by Nicolas Delcros. Nicolas also gave a <a class="reference external" href="https://dyalog.tv/Dyalog13/?v=Xo3vRQMaPxo">presentation</a> on SharpPlot at the Dyalog ‘13 user conference, and there are several <a class="reference external" href="https://www.dyalog.com/blog/category/sharpplot/">blog posts</a> available on the topic, too.</p>
 <p><a class="reference external" href="https://sharpplot.com">SharpPlot</a> is a professional charting and typesetting engine that ships with Dyalog APL. If you want to draw graphs or plot functions using APL, SharpPlot has you covered. SharpPlot comes in two versions, firstly a native .NET bundle that can be used through Dyalog’s .NET integration, and secondly as a pure APL workspace, referred to as <code class="docutils literal notranslate"><span class="pre">Causeway</span></code>. Whilst they’re identical in terms of functionality, the former tends to be faster, but the latter obviously has the advantage of working everywhere Dyalog works, without the need to have access to .NET. We’ll be using the <code class="docutils literal notranslate"><span class="pre">Causeway</span></code> approach here.</p>
 <p>Let’s kick this off with an example! First we need to pull in two functions from the <code class="docutils literal notranslate"><span class="pre">sharpplot</span></code> workspace.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;InitCauseway&#39;</span> <span class="s1">&#39;View&#39;</span> <span class="nf">⎕CY</span><span class="s1">&#39;sharpplot&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;InitCauseway&#39;</span><span class="w"> </span><span class="s1">&#39;View&#39;</span><span class="w"> </span><span class="nf">⎕CY</span><span class="s1">&#39;sharpplot&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕RL</span><span class="kd">←</span><span class="m">16807</span> <span class="m">1</span>   <span class="c1">⍝ fixed seed for random numbers</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕RL</span><span class="kd">←</span><span class="m">16807</span><span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1">⍝ fixed seed for random numbers</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -543,12 +665,12 @@
 <p>Let’s write a function we can use to generate some data to plot,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
-<span class="nv">NormalRandom</span> <span class="kd">←</span> <span class="kt">{</span>
-  <span class="nv">depth</span> <span class="kd">←</span> <span class="m">1000000000</span>                    <span class="c1">⍝ Randomness depth</span>
-  <span class="p">(</span><span class="nv">x</span> <span class="nv">y</span><span class="p">)</span> <span class="kd">←</span> <span class="o">⊂</span><span class="sr">[</span><span class="m">1</span><span class="o">+⍳⍴,</span><span class="bp">⍵</span><span class="sr">]</span><span class="p">(</span><span class="o">?</span><span class="p">(</span><span class="m">2</span><span class="o">,</span><span class="bp">⍵</span><span class="p">)</span><span class="o">⍴</span><span class="nv">depth</span><span class="p">)</span><span class="o">÷</span><span class="nv">depth</span> <span class="c1">⍝ Two random variables within ]0;1]</span>
-  <span class="p">((</span><span class="o">-</span><span class="m">2</span><span class="o">×⍟</span><span class="nv">x</span><span class="p">)</span><span class="o">*</span><span class="m">0.5</span><span class="p">)</span><span class="o">×</span><span class="m">1</span><span class="o">○○</span><span class="m">2</span><span class="o">×</span><span class="nv">y</span>                  <span class="c1">⍝ https://en.wikipedia.org/wiki/Box-Muller_transform    </span>
-<span class="kt">}</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"></span>
+<span class="nv">NormalRandom</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="w"></span>
+<span class="w">  </span><span class="nv">depth</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="m">1000000000</span><span class="w">                    </span><span class="c1">⍝ Randomness depth</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">⊂</span><span class="sr">[</span><span class="m">1</span><span class="o">+⍳⍴,</span><span class="bp">⍵</span><span class="sr">]</span><span class="p">(</span><span class="o">?</span><span class="p">(</span><span class="m">2</span><span class="o">,</span><span class="bp">⍵</span><span class="p">)</span><span class="o">⍴</span><span class="nv">depth</span><span class="p">)</span><span class="o">÷</span><span class="nv">depth</span><span class="w"> </span><span class="c1">⍝ Two random variables within ]0;1]</span><span class="w"></span>
+<span class="w">  </span><span class="p">((</span><span class="o">-</span><span class="m">2</span><span class="o">×⍟</span><span class="nv">x</span><span class="p">)</span><span class="o">*</span><span class="m">0.5</span><span class="p">)</span><span class="o">×</span><span class="m">1</span><span class="o">○○</span><span class="m">2</span><span class="o">×</span><span class="nv">y</span><span class="w">                  </span><span class="c1">⍝ https://en.wikipedia.org/wiki/Box-Muller_transform    </span><span class="w"></span>
+<span class="kt">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -556,12 +678,12 @@
 <p>Now we can draw a SharpPlot <a class="reference external" href="https://sharpplot.com/SharpPlot-DrawLineGraph.htm">line graph</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">line</span> <span class="kd">←</span> <span class="o">⊃↓+</span><span class="na">\</span><span class="nv">NormalRandom</span> <span class="m">5</span> <span class="m">100</span>
-<span class="nv">InitCauseway</span> <span class="no">⍬</span>
-<span class="nv">sp</span> <span class="kd">←</span> <span class="nf">⎕NEW</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">SharpPlot</span>
-<span class="nv">sp</span><span class="na">.</span><span class="nv">DrawLineGraph</span> <span class="o">⊂</span><span class="nv">line</span>                  <span class="c1">⍝ Single argument must be enclosed</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">line</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">⊃↓+</span><span class="na">\</span><span class="nv">NormalRandom</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">100</span><span class="w"></span>
+<span class="nv">InitCauseway</span><span class="w"> </span><span class="no">⍬</span><span class="w"></span>
+<span class="nv">sp</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nf">⎕NEW</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">SharpPlot</span><span class="w"></span>
+<span class="nv">sp</span><span class="na">.</span><span class="nv">DrawLineGraph</span><span class="w"> </span><span class="o">⊂</span><span class="nv">line</span><span class="w">                  </span><span class="c1">⍝ Single argument must be enclosed</span><span class="w"></span>
 
-<span class="nv">sp</span><span class="na">.</span><span class="nv">SaveSvg</span> <span class="s1">&#39;plot1.svg&#39;</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">SvgMode</span><span class="na">.</span><span class="nv">FixedAspect</span> <span class="c1">⍝ Write the graph image to disk</span>
+<span class="nv">sp</span><span class="na">.</span><span class="nv">SaveSvg</span><span class="w"> </span><span class="s1">&#39;plot1.svg&#39;</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">SvgMode</span><span class="na">.</span><span class="nv">FixedAspect</span><span class="w"> </span><span class="c1">⍝ Write the graph image to disk</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -570,14 +692,14 @@
 <p>Unfortunately, many of the SharpPlot functions don’t actually return anything, making them tricky to use inside a dfn. Here’s a somewhat hideous workaround for this,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
-<span class="nv">Plot</span> <span class="kd">←</span> <span class="kt">{</span>
-    <span class="nv">do</span> <span class="kd">←</span> <span class="kt">{</span><span class="o">⍎</span><span class="s1">&#39;⍺⍺ ⍵ ⋄ ⍵&#39;</span> <span class="p">⋄</span> <span class="bp">⍺⍺</span><span class="kt">}</span>
-    <span class="nv">_</span> <span class="kd">←</span> <span class="nv">InitCauseway</span> <span class="nv">do</span> <span class="no">⍬</span>
-    <span class="nv">sp</span> <span class="kd">←</span> <span class="nf">⎕NEW</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">SharpPlot</span>
-    <span class="nv">_</span> <span class="kd">←</span> <span class="nv">sp</span><span class="na">.</span><span class="nv">DrawLineGraph</span> <span class="nv">do</span> <span class="bp">⍵</span>
-    <span class="nv">sp</span>
-<span class="kt">}</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"></span>
+<span class="nv">Plot</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="w"></span>
+<span class="w">    </span><span class="nv">do</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="o">⍎</span><span class="s1">&#39;⍺⍺ ⍵ ⋄ ⍵&#39;</span><span class="w"> </span><span class="p">⋄</span><span class="w"> </span><span class="bp">⍺⍺</span><span class="kt">}</span><span class="w"></span>
+<span class="w">    </span><span class="nv">_</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">InitCauseway</span><span class="w"> </span><span class="nv">do</span><span class="w"> </span><span class="no">⍬</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nf">⎕NEW</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">SharpPlot</span><span class="w"></span>
+<span class="w">    </span><span class="nv">_</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">sp</span><span class="na">.</span><span class="nv">DrawLineGraph</span><span class="w"> </span><span class="nv">do</span><span class="w"> </span><span class="bp">⍵</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="w"></span>
+<span class="kt">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -586,47 +708,47 @@
 <p>Ok, let’s plot some more involved data. Here we have some personal account-keeping, showing expenditures of different types across a set of dates. A quirk here is that SharpPlot uses so-called “OLE dates” which are one-off to international day numbers (IDN ― the number of days since the beginning of 1899-12-31).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;date&#39;</span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span>
-<span class="o">↑</span><span class="p">(</span><span class="nv">date</span><span class="na">¨</span><span class="m">43578</span><span class="o">+?</span><span class="m">20</span><span class="o">⍴</span><span class="m">100</span><span class="p">)((</span><span class="s1">&#39;Groceries&#39;</span> <span class="s1">&#39;Entertainment&#39;</span> <span class="s1">&#39;Subscription&#39;</span><span class="p">)</span><span class="sr">[</span><span class="o">?</span><span class="m">20</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span><span class="p">)(</span><span class="m">20</span><span class="o">+?</span><span class="m">20</span><span class="o">⍴</span><span class="m">100</span><span class="p">)</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;date&#39;</span><span class="nf">⎕CY</span><span class="s1">&#39;dfns&#39;</span><span class="w"></span>
+<span class="o">↑</span><span class="p">(</span><span class="nv">date</span><span class="na">¨</span><span class="m">43578</span><span class="o">+?</span><span class="m">20</span><span class="o">⍴</span><span class="m">100</span><span class="p">)((</span><span class="s1">&#39;Groceries&#39;</span><span class="w"> </span><span class="s1">&#39;Entertainment&#39;</span><span class="w"> </span><span class="s1">&#39;Subscription&#39;</span><span class="p">)</span><span class="sr">[</span><span class="o">?</span><span class="m">20</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span><span class="p">)(</span><span class="m">20</span><span class="o">+?</span><span class="m">20</span><span class="o">⍴</span><span class="m">100</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────────────────┬─────────────────┬────────────────┬─────────────────┬─────────────────┬─────────────────┬────────────────┬─────────────────┬─────────────────┬────────────────┬─────────────────┬─────────────────┬────────────────┬────────────────┬─────────────────┬─────────────────┬────────────────┬─────────────────┬─────────────────┬─────────────────┐
+<div class="output text_html"><pre class="language-APL">┌─────────────────┬─────────────────┬────────────────┬─────────────────┬─────────────────┬─────────────────┬────────────────┬─────────────────┬─────────────────┬────────────────┬─────────────────┬─────────────────┬────────────────┬────────────────┬─────────────────┬─────────────────┬────────────────┬─────────────────┬─────────────────┬─────────────────┐
 │2019 5 19 0 0 0 0│2019 7 24 0 0 0 0│2019 8 1 0 0 0 0│2019 7 14 0 0 0 0│2019 7 31 0 0 0 0│2019 6 26 0 0 0 0│2019 6 1 0 0 0 0│2019 6 30 0 0 0 0│2019 4 26 0 0 0 0│2019 7 7 0 0 0 0│2019 5 22 0 0 0 0│2019 6 28 0 0 0 0│2019 6 7 0 0 0 0│2019 6 2 0 0 0 0│2019 6 29 0 0 0 0│2019 5 27 0 0 0 0│2019 7 5 0 0 0 0│2019 7 13 0 0 0 0│2019 7 25 0 0 0 0│2019 6 22 0 0 0 0│
 ├─────────────────┼─────────────────┼────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────┼─────────────────┼─────────────────┼────────────────┼─────────────────┼─────────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼────────────────┼─────────────────┼─────────────────┼─────────────────┤
 │Groceries        │Entertainment    │Entertainment   │Groceries        │Entertainment    │Groceries        │Groceries       │Groceries        │Groceries        │Entertainment   │Subscription     │Groceries        │Groceries       │Subscription    │Entertainment    │Groceries        │Subscription    │Groceries        │Groceries        │Subscription     │
 ├─────────────────┼─────────────────┼────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────┼─────────────────┼─────────────────┼────────────────┼─────────────────┼─────────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼────────────────┼─────────────────┼─────────────────┼─────────────────┤
 │107              │36               │105             │58               │116              │53               │96              │115              │91               │43              │63               │81               │57              │45              │91               │114              │74              │73               │33               │41               │
 └─────────────────┴─────────────────┴────────────────┴─────────────────┴─────────────────┴─────────────────┴────────────────┴─────────────────┴─────────────────┴────────────────┴─────────────────┴─────────────────┴────────────────┴────────────────┴─────────────────┴─────────────────┴────────────────┴─────────────────┴─────────────────┴─────────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="nv">sp</span> <span class="kd">←</span> <span class="nv">Budget</span> <span class="nv">size</span><span class="sr">;</span><span class="nv">count</span><span class="sr">;</span><span class="nv">dates</span><span class="sr">;</span><span class="nv">oledates</span><span class="sr">;</span><span class="nv">type</span>
-  <span class="nv">dates</span> <span class="kd">←</span> <span class="nv">date</span><span class="na">¨</span><span class="m">43578</span><span class="o">+</span><span class="nv">size</span><span class="o">?</span><span class="m">10</span><span class="o">×</span><span class="nv">size</span>
-  <span class="nv">type</span> <span class="kd">←</span> <span class="s1">&#39;Groceries&#39;</span> <span class="s1">&#39;Entertainment&#39;</span> <span class="s1">&#39;Subscription&#39;</span><span class="sr">[</span><span class="o">?</span><span class="nv">size</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span>
-  <span class="nv">count</span> <span class="kd">←</span> <span class="m">20</span><span class="o">+?</span><span class="nv">size</span><span class="o">⍴</span><span class="m">100</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="nv">sp</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">Budget</span><span class="w"> </span><span class="nv">size</span><span class="sr">;</span><span class="nv">count</span><span class="sr">;</span><span class="nv">dates</span><span class="sr">;</span><span class="nv">oledates</span><span class="sr">;</span><span class="nv">type</span><span class="w"></span>
+<span class="w">  </span><span class="nv">dates</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">date</span><span class="na">¨</span><span class="m">43578</span><span class="o">+</span><span class="nv">size</span><span class="o">?</span><span class="m">10</span><span class="o">×</span><span class="nv">size</span><span class="w"></span>
+<span class="w">  </span><span class="nv">type</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="s1">&#39;Groceries&#39;</span><span class="w"> </span><span class="s1">&#39;Entertainment&#39;</span><span class="w"> </span><span class="s1">&#39;Subscription&#39;</span><span class="sr">[</span><span class="o">?</span><span class="nv">size</span><span class="o">⍴</span><span class="m">3</span><span class="sr">]</span><span class="w"></span>
+<span class="w">  </span><span class="nv">count</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="m">20</span><span class="o">+?</span><span class="nv">size</span><span class="o">⍴</span><span class="m">100</span><span class="w"></span>
 
-  <span class="nv">oledates</span> <span class="kd">←</span> <span class="kt">{</span><span class="m">1</span><span class="o">+</span><span class="m">2</span> <span class="nf">⎕NQ</span><span class="s1">&#39;.&#39;</span> <span class="s1">&#39;DateToIDN&#39;</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">¨</span><span class="nv">dates</span> 
-  <span class="nv">InitCauseway</span> <span class="no">⍬</span>
-  <span class="nv">sp</span> <span class="kd">←</span> <span class="nf">⎕NEW</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">SharpPlot</span>
-  <span class="nv">sp</span><span class="na">.</span><span class="nv">SplitBy</span><span class="o">⊂</span><span class="nv">type</span> <span class="c1">⍝ single argument must be enclosed</span>
-  <span class="nv">sp</span><span class="na">.</span><span class="nv">ScatterPlotStyle</span> <span class="kd">←</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">ScatterPlotStyles</span><span class="na">.</span><span class="p">(</span><span class="nv">GridLines</span><span class="o">+</span><span class="nv">Risers</span><span class="p">)</span>
-  <span class="nv">sp</span><span class="na">.</span><span class="nv">SetColors</span> <span class="nv">System</span><span class="na">.</span><span class="nv">Drawing</span><span class="na">.</span><span class="nv">Color</span><span class="na">.</span><span class="p">(</span><span class="nv">Blue</span> <span class="nv">Red</span> <span class="nv">Green</span><span class="p">)</span>
-  <span class="nv">sp</span><span class="na">.</span><span class="nv">SetMarkers</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">Marker</span><span class="na">.</span><span class="nv">Bullet</span>
-  <span class="nv">sp</span><span class="na">.</span><span class="nv">XAxisStyle</span> <span class="kd">←</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">XAxisStyles</span><span class="na">.</span><span class="p">(</span><span class="nv">Date</span><span class="p">)</span>
-  <span class="nv">sp</span><span class="na">.</span><span class="nv">XDateFormat</span> <span class="kd">←</span><span class="s1">&#39;dd-MM-yyyy&#39;</span>
-  <span class="nv">sp</span><span class="na">.</span><span class="nv">DrawScatterPlot</span> <span class="nv">count</span> <span class="nv">oledates</span>
-<span class="bp">∇</span>
+<span class="w">  </span><span class="nv">oledates</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="m">1</span><span class="o">+</span><span class="m">2</span><span class="w"> </span><span class="nf">⎕NQ</span><span class="s1">&#39;.&#39;</span><span class="w"> </span><span class="s1">&#39;DateToIDN&#39;</span><span class="bp">⍵</span><span class="kt">}</span><span class="na">¨</span><span class="nv">dates</span><span class="w"> </span>
+<span class="w">  </span><span class="nv">InitCauseway</span><span class="w"> </span><span class="no">⍬</span><span class="w"></span>
+<span class="w">  </span><span class="nv">sp</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nf">⎕NEW</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">SharpPlot</span><span class="w"></span>
+<span class="w">  </span><span class="nv">sp</span><span class="na">.</span><span class="nv">SplitBy</span><span class="o">⊂</span><span class="nv">type</span><span class="w"> </span><span class="c1">⍝ single argument must be enclosed</span><span class="w"></span>
+<span class="w">  </span><span class="nv">sp</span><span class="na">.</span><span class="nv">ScatterPlotStyle</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">ScatterPlotStyles</span><span class="na">.</span><span class="p">(</span><span class="nv">GridLines</span><span class="o">+</span><span class="nv">Risers</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nv">sp</span><span class="na">.</span><span class="nv">SetColors</span><span class="w"> </span><span class="nv">System</span><span class="na">.</span><span class="nv">Drawing</span><span class="na">.</span><span class="nv">Color</span><span class="na">.</span><span class="p">(</span><span class="nv">Blue</span><span class="w"> </span><span class="nv">Red</span><span class="w"> </span><span class="nv">Green</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nv">sp</span><span class="na">.</span><span class="nv">SetMarkers</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">Marker</span><span class="na">.</span><span class="nv">Bullet</span><span class="w"></span>
+<span class="w">  </span><span class="nv">sp</span><span class="na">.</span><span class="nv">XAxisStyle</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">XAxisStyles</span><span class="na">.</span><span class="p">(</span><span class="nv">Date</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nv">sp</span><span class="na">.</span><span class="nv">XDateFormat</span><span class="w"> </span><span class="kd">←</span><span class="s1">&#39;dd-MM-yyyy&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nv">sp</span><span class="na">.</span><span class="nv">DrawScatterPlot</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="nv">oledates</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">gr</span> <span class="kd">←</span> <span class="nv">Budget</span> <span class="m">10</span>
-<span class="nv">gr</span><span class="na">.</span><span class="nv">SaveSvg</span> <span class="s1">&#39;plot02.svg&#39;</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">SvgMode</span><span class="na">.</span><span class="nv">FixedAspect</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">gr</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">Budget</span><span class="w"> </span><span class="m">10</span><span class="w"></span>
+<span class="nv">gr</span><span class="na">.</span><span class="nv">SaveSvg</span><span class="w"> </span><span class="s1">&#39;plot02.svg&#39;</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">SvgMode</span><span class="na">.</span><span class="nv">FixedAspect</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -635,54 +757,54 @@
 <p>Here’s a subset of Our World In Data’s <a class="reference external" href="https://github.com/owid/covid-19-data/tree/master/public/data">dataset on COVID-19</a>. We’ve picked out the data for United States, Canada, United Kingdom, France and Denmark, plotting the new cases per million, and new deaths per million over time, starting from January, 2022. We did a bit of data slicing and date conversion outside APL, detailed <a class="reference external" href="https://github.com/xpqz/owidp">here</a>, in order for us to be able to focus mainly on the plotting aspect.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span> <span class="kt">{</span><span class="nv">sp</span><span class="kt">}</span><span class="kd">←</span><span class="nv">OwidCovidData</span><span class="sr">;</span><span class="nv">Causeway</span><span class="sr">;</span><span class="nv">InitCauseway</span><span class="sr">;</span><span class="nv">View</span><span class="sr">;</span><span class="nv">countries_to_plot</span><span class="sr">;</span><span class="nv">csv</span><span class="sr">;</span><span class="nv">data</span><span class="sr">;</span><span class="nv">date</span><span class="sr">;</span><span class="nv">dates</span><span class="sr">;</span><span class="nv">field</span><span class="sr">;</span><span class="nv">fields_to_plot</span><span class="sr">;</span><span class="nv">location</span><span class="sr">;</span><span class="nv">locations</span><span class="sr">;</span><span class="nv">miss</span><span class="sr">;</span><span class="nv">row</span><span class="sr">;</span><span class="nv">sp</span><span class="sr">;</span><span class="nv">values</span>
-<span class="nv">miss</span> <span class="kd">←</span> <span class="m">¯1E300</span> <span class="c1">⍝ missing value</span>
-<span class="nv">csv</span> <span class="kd">←</span> <span class="kt">{</span><span class="nf">⎕CSV</span> <span class="bp">⍵</span> <span class="no">⍬</span> <span class="m">4</span><span class="kt">}</span> <span class="s1">&#39;/Users/stefan/work/data/covid_subset2.csv&#39;</span>
-<span class="nv">dates</span> <span class="kd">←</span> <span class="kt">{</span><span class="bp">⍵</span><span class="sr">[</span><span class="o">⍋</span><span class="bp">⍵</span><span class="sr">]</span><span class="kt">}</span><span class="o">∪</span><span class="nv">date</span> <span class="kd">←</span> <span class="m">20</span> <span class="m">1</span><span class="nf">⎕DT</span> <span class="nv">csv</span><span class="sr">[;</span><span class="m">2</span><span class="sr">]</span>
-<span class="nv">csv</span><span class="sr">[;</span><span class="m">2</span><span class="sr">]</span> <span class="kd">←</span> <span class="nv">date</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="bp">∇</span><span class="w"> </span><span class="kt">{</span><span class="nv">sp</span><span class="kt">}</span><span class="kd">←</span><span class="nv">OwidCovidData</span><span class="sr">;</span><span class="nv">Causeway</span><span class="sr">;</span><span class="nv">InitCauseway</span><span class="sr">;</span><span class="nv">View</span><span class="sr">;</span><span class="nv">countries_to_plot</span><span class="sr">;</span><span class="nv">csv</span><span class="sr">;</span><span class="nv">data</span><span class="sr">;</span><span class="nv">date</span><span class="sr">;</span><span class="nv">dates</span><span class="sr">;</span><span class="nv">field</span><span class="sr">;</span><span class="nv">fields_to_plot</span><span class="sr">;</span><span class="nv">location</span><span class="sr">;</span><span class="nv">locations</span><span class="sr">;</span><span class="nv">miss</span><span class="sr">;</span><span class="nv">row</span><span class="sr">;</span><span class="nv">sp</span><span class="sr">;</span><span class="nv">values</span><span class="w"></span>
+<span class="nv">miss</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="m">¯1E300</span><span class="w"> </span><span class="c1">⍝ missing value</span><span class="w"></span>
+<span class="nv">csv</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="nf">⎕CSV</span><span class="w"> </span><span class="bp">⍵</span><span class="w"> </span><span class="no">⍬</span><span class="w"> </span><span class="m">4</span><span class="kt">}</span><span class="w"> </span><span class="s1">&#39;/Users/stefan/work/data/covid_subset2.csv&#39;</span><span class="w"></span>
+<span class="nv">dates</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="bp">⍵</span><span class="sr">[</span><span class="o">⍋</span><span class="bp">⍵</span><span class="sr">]</span><span class="kt">}</span><span class="o">∪</span><span class="nv">date</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">1</span><span class="nf">⎕DT</span><span class="w"> </span><span class="nv">csv</span><span class="sr">[;</span><span class="m">2</span><span class="sr">]</span><span class="w"></span>
+<span class="nv">csv</span><span class="sr">[;</span><span class="m">2</span><span class="sr">]</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">date</span><span class="w"></span>
 
-<span class="nv">locations</span> <span class="kd">←</span> <span class="o">∪</span><span class="nv">location</span><span class="kd">←</span><span class="nv">csv</span><span class="sr">[;</span><span class="m">1</span><span class="sr">]</span>
-<span class="nv">row</span> <span class="kd">←</span> <span class="nv">csv</span><span class="sr">[;</span><span class="m">1</span> <span class="m">2</span><span class="sr">]</span><span class="o">⍳↑</span><span class="nv">locations</span><span class="na">∘.</span><span class="kt">{</span><span class="bp">⍺</span> <span class="bp">⍵</span><span class="kt">}</span><span class="nv">dates</span>
-<span class="nv">csv</span> <span class="o">⍪</span><span class="kd">←</span> <span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;&#39;</span><span class="p">)(</span><span class="o">⊂</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="nv">miss</span> <span class="nv">miss</span>
-<span class="nv">data</span> <span class="kd">←</span> <span class="nv">csv</span><span class="sr">[</span><span class="nv">row</span><span class="sr">;</span><span class="m">3</span> <span class="m">4</span><span class="sr">]</span>
+<span class="nv">locations</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">∪</span><span class="nv">location</span><span class="kd">←</span><span class="nv">csv</span><span class="sr">[;</span><span class="m">1</span><span class="sr">]</span><span class="w"></span>
+<span class="nv">row</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">csv</span><span class="sr">[;</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="sr">]</span><span class="o">⍳↑</span><span class="nv">locations</span><span class="na">∘.</span><span class="kt">{</span><span class="bp">⍺</span><span class="w"> </span><span class="bp">⍵</span><span class="kt">}</span><span class="nv">dates</span><span class="w"></span>
+<span class="nv">csv</span><span class="w"> </span><span class="o">⍪</span><span class="kd">←</span><span class="w"> </span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;&#39;</span><span class="p">)(</span><span class="o">⊂</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="nv">miss</span><span class="w"> </span><span class="nv">miss</span><span class="w"></span>
+<span class="nv">data</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">csv</span><span class="sr">[</span><span class="nv">row</span><span class="sr">;</span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="sr">]</span><span class="w"></span>
 
-<span class="nv">fields_to_plot</span> <span class="kd">←</span> <span class="s1">&#39;New cases per million&#39;</span> <span class="s1">&#39;New deaths per million&#39;</span>
-<span class="nv">countries_to_plot</span> <span class="kd">←</span> <span class="s1">&#39;United States&#39;</span> <span class="s1">&#39;Canada&#39;</span> <span class="s1">&#39;United Kingdom&#39;</span> <span class="s1">&#39;France&#39;</span> <span class="s1">&#39;Denmark&#39;</span>
+<span class="nv">fields_to_plot</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="s1">&#39;New cases per million&#39;</span><span class="w"> </span><span class="s1">&#39;New deaths per million&#39;</span><span class="w"></span>
+<span class="nv">countries_to_plot</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="s1">&#39;United States&#39;</span><span class="w"> </span><span class="s1">&#39;Canada&#39;</span><span class="w"> </span><span class="s1">&#39;United Kingdom&#39;</span><span class="w"> </span><span class="s1">&#39;France&#39;</span><span class="w"> </span><span class="s1">&#39;Denmark&#39;</span><span class="w"></span>
 
-<span class="s1">&#39;InitCauseway&#39;</span> <span class="s1">&#39;View&#39;</span><span class="nf">⎕CY</span><span class="s1">&#39;sharpplot&#39;</span>
-<span class="nv">InitCauseway</span> <span class="no">⍬</span> 
-<span class="nv">sp</span> <span class="kd">←</span> <span class="nf">⎕NEW</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">SharpPlot</span>
-<span class="nv">sp</span><span class="na">.</span><span class="nv">MissingValue</span> <span class="kd">←</span> <span class="nv">miss</span>
-<span class="nv">sp</span><span class="na">.</span><span class="nv">SetTrellis</span> <span class="o">≢</span><span class="nv">fields_to_plot</span>
+<span class="s1">&#39;InitCauseway&#39;</span><span class="w"> </span><span class="s1">&#39;View&#39;</span><span class="nf">⎕CY</span><span class="s1">&#39;sharpplot&#39;</span><span class="w"></span>
+<span class="nv">InitCauseway</span><span class="w"> </span><span class="no">⍬</span><span class="w"> </span>
+<span class="nv">sp</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nf">⎕NEW</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">SharpPlot</span><span class="w"></span>
+<span class="nv">sp</span><span class="na">.</span><span class="nv">MissingValue</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">miss</span><span class="w"></span>
+<span class="nv">sp</span><span class="na">.</span><span class="nv">SetTrellis</span><span class="w"> </span><span class="o">≢</span><span class="nv">fields_to_plot</span><span class="w"></span>
 
-<span class="bp">:</span><span class="nv">For</span> <span class="nv">field</span> <span class="bp">:</span><span class="nv">In</span> <span class="o">⍳≢</span><span class="nv">fields_to_plot</span>
-    <span class="nv">sp</span><span class="na">.</span><span class="nv">NewCell</span>
-    <span class="nv">sp</span><span class="na">.</span><span class="nv">Heading</span> <span class="kd">←</span> <span class="nv">field</span><span class="o">⊃</span><span class="nv">fields_to_plot</span>
-    <span class="nv">sp</span><span class="na">.</span><span class="nv">MarginBottom</span> <span class="kd">←</span> <span class="m">70</span>
-    <span class="nv">sp</span><span class="na">.</span><span class="nv">SetKeyText</span> <span class="o">⊂</span><span class="nv">countries_to_plot</span>
-    <span class="nv">sp</span><span class="na">.</span><span class="nv">YAxisStyle</span> <span class="kd">←</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">YAxisStyles</span><span class="na">.</span><span class="nv">LogScale</span>
-    <span class="nv">sp</span><span class="na">.</span><span class="nv">XAxisStyle</span> <span class="kd">←</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">XAxisStyles</span><span class="na">.</span><span class="p">(</span><span class="nv">Date</span><span class="o">+</span><span class="nv">MonthlyTicks</span><span class="p">)</span>
-    <span class="nv">sp</span><span class="na">.</span><span class="nv">XDateFormat</span> <span class="kd">←</span> <span class="s1">&#39;MMM-yy&#39;</span>
-    <span class="nv">values</span> <span class="kd">←</span> <span class="o">↓</span><span class="nv">data</span><span class="sr">[;;</span><span class="nv">field</span><span class="sr">]</span>
-    <span class="nv">sp</span><span class="na">.</span><span class="nv">DrawLineGraph</span> <span class="nv">values</span> <span class="nv">dates</span>
-    <span class="nv">sp</span><span class="na">.</span><span class="nv">DrawKey</span> <span class="no">⍬</span>
-<span class="bp">:</span><span class="nv">EndFor</span>
-<span class="bp">∇</span>
+<span class="bp">:</span><span class="nv">For</span><span class="w"> </span><span class="nv">field</span><span class="w"> </span><span class="bp">:</span><span class="nv">In</span><span class="w"> </span><span class="o">⍳≢</span><span class="nv">fields_to_plot</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="na">.</span><span class="nv">NewCell</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="na">.</span><span class="nv">Heading</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">field</span><span class="o">⊃</span><span class="nv">fields_to_plot</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="na">.</span><span class="nv">MarginBottom</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="m">70</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="na">.</span><span class="nv">SetKeyText</span><span class="w"> </span><span class="o">⊂</span><span class="nv">countries_to_plot</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="na">.</span><span class="nv">YAxisStyle</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">YAxisStyles</span><span class="na">.</span><span class="nv">LogScale</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="na">.</span><span class="nv">XAxisStyle</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">XAxisStyles</span><span class="na">.</span><span class="p">(</span><span class="nv">Date</span><span class="o">+</span><span class="nv">MonthlyTicks</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="na">.</span><span class="nv">XDateFormat</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="s1">&#39;MMM-yy&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">values</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">↓</span><span class="nv">data</span><span class="sr">[;;</span><span class="nv">field</span><span class="sr">]</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="na">.</span><span class="nv">DrawLineGraph</span><span class="w"> </span><span class="nv">values</span><span class="w"> </span><span class="nv">dates</span><span class="w"></span>
+<span class="w">    </span><span class="nv">sp</span><span class="na">.</span><span class="nv">DrawKey</span><span class="w"> </span><span class="no">⍬</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">EndFor</span><span class="w"></span>
+<span class="bp">∇</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">InitCauseway</span> <span class="no">⍬</span> 
-<span class="nv">cov</span> <span class="kd">←</span> <span class="nv">OwidCovidData</span>
-<span class="nv">cov</span><span class="na">.</span><span class="nv">SaveSvg</span> <span class="s1">&#39;plot03.svg&#39;</span> <span class="nv">Causeway</span><span class="na">.</span><span class="nv">SvgMode</span><span class="na">.</span><span class="nv">FixedAspect</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">InitCauseway</span><span class="w"> </span><span class="no">⍬</span><span class="w"> </span>
+<span class="nv">cov</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">OwidCovidData</span><span class="w"></span>
+<span class="nv">cov</span><span class="na">.</span><span class="nv">SaveSvg</span><span class="w"> </span><span class="s1">&#39;plot03.svg&#39;</span><span class="w"> </span><span class="nv">Causeway</span><span class="na">.</span><span class="nv">SvgMode</span><span class="na">.</span><span class="nv">FixedAspect</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <p><img alt="plot3" src="_images/plot03.svg" /></p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -706,9 +828,11 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="UserCommands.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -716,40 +840,42 @@
             <p class="prev-next-title">User commands</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="FunctionApplication.html" title="next page">
+    <a class='right-next' id="next-link" href="ArrayProgramming.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Function application</p>
+        <p class="prev-next-title">Array programming techniques</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

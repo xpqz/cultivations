@@ -1,0 +1,1083 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Array programming techniques &#8212; APL Cultivations</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Function application" href="FunctionApplication.html" />
+    <link rel="prev" title="Plotting with SharpPlot" href="Plotting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">APL Cultivations</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Arrays.html">
+   Introduction to arrays
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Functions.html">
+   Primitive functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions1.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +-×÷*⍟⌹○
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions2.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       !?|⌈⌊⊥⊤⊣⊢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions3.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       =≤&lt;&gt;≥≡≢
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions4.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ∨∧⍱⍲↑↓
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions5.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊂⊃⊆⌷⍋⍒
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions6.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍳⍸∊⍷∪≠∩~
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions7.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /\⌿⍀,⍪
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Functions8.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍴⌽⊖⍉⍎⍕
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="UserFunctions.html">
+   User-defined functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Trains.html">
+     Tacit programming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Tradfns.html">
+     Tradfns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="SystemFunctions.html">
+   System functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Behaviour.html">
+     Behaviour, session
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Constants.html">
+     Constants, tools and utils
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CodeManagement.html">
+     Code management, I/O, dates, errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="StackWorkspace.html">
+     Stack and workspace info
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Regex.html">
+     Regular expressions
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕R
+      </span>
+     </code>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⎕S
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Operators.html">
+   Primitive operators
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="InDepth.html">
+   Deep dives
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Rank.html">
+     Rank in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍤
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Power1.html">
+     Power in depth:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       f⍣k
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Power2.html">
+     Power in depth:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       f⍣g
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Decode.html">
+     Decode in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊥
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Encode.html">
+     Encode in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⊤
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Variant.html">
+     Variant in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⍠
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="UniqueMask.html">
+     Unique mask in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ≠
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Domino.html">
+     Domino in depth
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ⌹
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ObjectOrientation.html">
+   Object-oriented APL
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Namespaces.html">
+     Namespaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ObjectsClasses.html">
+     Objects and classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="CtorsDtors.html">
+     Constructors and destructors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Properties.html">
+     Properties
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inheritance.html">
+     Inheritance and interfaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AdvancedOO.html">
+     Advanced OO techniques
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Complex.html">
+   Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CountingWords.html">
+   Counting words, faster
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PDI.html">
+   Lookup without replacement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="UserCommands.html">
+   User commands
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Plotting.html">
+   Plotting with SharpPlot
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FunctionApplication.html">
+   Function application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ConditionControlledLoops.html">
+   Condition controlled loops
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FArrayProgramming.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ArrayProgramming.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fizzbuzz">
+   FizzBuzz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#justify-it">
+   Justify it
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Array programming techniques</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fizzbuzz">
+   FizzBuzz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#justify-it">
+   Justify it
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="array-programming-techniques">
+<h1>Array programming techniques<a class="headerlink" href="#array-programming-techniques" title="Permalink to this headline">#</a></h1>
+<p>There are a few things one can do to make APL look more… APL. What really characterises “classic” code is control structures and especially loops. Modern APL has control structures, too, and loops can easily be done with <code class="docutils literal notranslate"><span class="pre">¨</span></code>. So those are really the features you want to <em>avoid</em>.</p>
+<p>Try to think of differentiation between cases in terms of any of:</p>
+<ul class="simple">
+<li><p>Boolean masks</p></li>
+<li><p>Mathematical relationships</p></li>
+<li><p>Commonality between cases</p></li>
+</ul>
+<section id="fizzbuzz">
+<h2>FizzBuzz<a class="headerlink" href="#fizzbuzz" title="Permalink to this headline">#</a></h2>
+<p>Maybe <a class="reference external" href="https://en.wikipedia.org/wiki/Fizz_buzz">FizzBuzz</a> would be a good example. The classic approach (other than “I don’t think that’s possible”!) is a loop. Possibly two loops, an outer one for N and an inner one for the 3, 5 list. Instead, let’s try processing the entire list <code class="docutils literal notranslate"><span class="pre">⍳35</span></code> at once, using any one or more of the above.</p>
+<p>To start off, we can find which numbers are divisible by 3 or 5 with an outer product:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">mask</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="m">0</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="na">∘.</span><span class="o">|⍳</span><span class="m">35</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+</pre></div></div>
+</div>
+<p>which gives us a nice mask for when we need Fizz and when we need Buzz, but when do we need the number itself? Let’s create an additional row in the mask array that holds 1 if neither of the Fizz or Buzz mask holds a 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⍱</span><span class="na">⌿</span><span class="o">⍪⊢</span><span class="p">)</span><span class="nv">mask</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">1 1 0 1 0 0 1 1 0 0 1 0 1 1 0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0 1 1 0 1 0
+0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+</pre></div></div>
+</div>
+<p>So far, everything has been pretty clean. Things will start to get dirty now because FizzBuzz essentially is a mixed-type problem, but we can still try to stick with Array operations until the very end.</p>
+<p>We can zero out unwanted numbers by multiplying the mask with the numbers,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⍳</span><span class="m">35</span><span class="p">)</span><span class="o">×</span><span class="na">@</span><span class="m">1</span><span class="o">⊢</span><span class="p">(</span><span class="o">⍱</span><span class="na">⌿</span><span class="o">⍪⊢</span><span class="p">)</span><span class="nv">mask</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">1 2 0 4 0 0 7 8 0 0 11 0 13 14 0 16 17 0 19 0 0 22 23 0 0 26 0 28 29 0 31 32 0 34 0
+0 0 1 0 0 1 0 0 1 0  0 1  0  0 1  0  0 1  0 0 1  0  0 1 0  0 1  0  0 1  0  0 1  0 0
+0 0 0 0 1 0 0 0 0 1  0 0  0  0 1  0  0 0  0 1 0  0  0 0 1  0 0  0  0 1  0  0 0  0 1
+</pre></div></div>
+</div>
+<p>If we split that up a bit, we end up with</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">nums</span><span class="kd">←</span><span class="o">⍳</span><span class="m">35</span><span class="w"></span>
+<span class="nv">mat</span><span class="kd">←</span><span class="p">(</span><span class="o">⍱</span><span class="na">⌿</span><span class="o">⍪⊢</span><span class="p">)</span><span class="m">0</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="na">∘.</span><span class="o">|</span><span class="nv">nums</span><span class="w"></span>
+<span class="nv">mat</span><span class="o">×</span><span class="na">@</span><span class="m">1</span><span class="na">⍨</span><span class="kd">←</span><span class="nv">nums</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next step is to replace all 1s in row 2 with ‘Fizz’, and the 1s in row 3 with ‘Buzz’:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">mat</span><span class="kd">←</span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;Fizz&#39;</span><span class="p">)</span><span class="na">@</span><span class="o">⊢</span><span class="na">@</span><span class="m">2</span><span class="o">⊢</span><span class="nv">mat</span><span class="w"></span>
+<span class="nv">mat</span><span class="kd">←</span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;Buzz&#39;</span><span class="p">)</span><span class="na">@</span><span class="o">⊢</span><span class="na">@</span><span class="m">3</span><span class="o">⊢</span><span class="nv">mat</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">mat</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">┌─┬─┬────┬─┬────┬────┬─┬─┬────┬────┬──┬────┬──┬──┬────┬──┬──┬────┬──┬────┬────┬──┬──┬────┬────┬──┬────┬──┬──┬────┬──┬──┬────┬──┬────┐
+│1│2│0   │4│0   │0   │7│8│0   │0   │11│0   │13│14│0   │16│17│0   │19│0   │0   │22│23│0   │0   │26│0   │28│29│0   │31│32│0   │34│0   │
+├─┼─┼────┼─┼────┼────┼─┼─┼────┼────┼──┼────┼──┼──┼────┼──┼──┼────┼──┼────┼────┼──┼──┼────┼────┼──┼────┼──┼──┼────┼──┼──┼────┼──┼────┤
+│0│0│Fizz│0│0   │Fizz│0│0│Fizz│0   │0 │Fizz│0 │0 │Fizz│0 │0 │Fizz│0 │0   │Fizz│0 │0 │Fizz│0   │0 │Fizz│0 │0 │Fizz│0 │0 │Fizz│0 │0   │
+├─┼─┼────┼─┼────┼────┼─┼─┼────┼────┼──┼────┼──┼──┼────┼──┼──┼────┼──┼────┼────┼──┼──┼────┼────┼──┼────┼──┼──┼────┼──┼──┼────┼──┼────┤
+│0│0│0   │0│Buzz│0   │0│0│0   │Buzz│0 │0   │0 │0 │Buzz│0 │0 │0   │0 │Buzz│0   │0 │0 │0   │Buzz│0 │0   │0 │0 │Buzz│0 │0 │0   │0 │Buzz│
+└─┴─┴────┴─┴────┴────┴─┴─┴────┴────┴──┴────┴──┴──┴────┴──┴──┴────┴──┴────┴────┴──┴──┴────┴────┴──┴────┴──┴──┴────┴──┴──┴────┴──┴────┘
+</pre></div></div>
+</div>
+<p>Now we have to combine everything by joining vertically and then removing the 0s. The final step forces us to use <code class="docutils literal notranslate"><span class="pre">¨</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"></span>
+<span class="nv">FizzBuzz</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="w"></span>
+<span class="w">    </span><span class="nv">nums</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">⍳</span><span class="bp">⍵</span><span class="w"></span>
+<span class="w">    </span><span class="nv">mat</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="p">(</span><span class="o">⍱</span><span class="na">⌿</span><span class="o">⍪⊢</span><span class="p">)</span><span class="m">0</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="na">∘.</span><span class="o">|</span><span class="nv">nums</span><span class="w"></span>
+<span class="w">    </span><span class="nv">mat</span><span class="o">×</span><span class="na">@</span><span class="m">1</span><span class="na">⍨</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">nums</span><span class="w"></span>
+<span class="w">    </span><span class="nv">mat</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;Fizz&#39;</span><span class="p">)</span><span class="na">@</span><span class="o">⊢</span><span class="na">@</span><span class="m">2</span><span class="o">⊢</span><span class="nv">mat</span><span class="w"></span>
+<span class="w">    </span><span class="nv">mat</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;Buzz&#39;</span><span class="p">)</span><span class="na">@</span><span class="o">⊢</span><span class="na">@</span><span class="m">3</span><span class="o">⊢</span><span class="nv">mat</span><span class="w"></span>
+<span class="w">    </span><span class="m">0</span><span class="o">~</span><span class="na">⍨¨</span><span class="o">,</span><span class="na">⌿</span><span class="nv">mat</span><span class="w"></span>
+<span class="kt">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">FizzBuzz</span><span class="w"> </span><span class="m">35</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">┌─┬─┬────┬─┬────┬────┬─┬─┬────┬────┬──┬────┬──┬──┬────────┬──┬──┬────┬──┬────┬────┬──┬──┬────┬────┬──┬────┬──┬──┬────────┬──┬──┬────┬──┬────┐
+│1│2│Fizz│4│Buzz│Fizz│7│8│Fizz│Buzz│11│Fizz│13│14│FizzBuzz│16│17│Fizz│19│Buzz│Fizz│22│23│Fizz│Buzz│26│Fizz│28│29│FizzBuzz│31│32│Fizz│34│Buzz│
+└─┴─┴────┴─┴────┴────┴─┴─┴────┴────┴──┴────┴──┴──┴────────┴──┴──┴────┴──┴────┴────┴──┴──┴────┴────┴──┴────┴──┴──┴────────┴──┴──┴────┴──┴────┘
+</pre></div></div>
+</div>
+<p>This isn’t, perhaps, how you should implement FizzBuzz in an industrial context, and it does do things that impact performance, but it is a pretty good demonstration of applying the array approach to a traditionally loopy problem.</p>
+</section>
+<section id="justify-it">
+<h2>Justify it<a class="headerlink" href="#justify-it" title="Permalink to this headline">#</a></h2>
+<p>Let’s do another example: take a character matrix and justify it without looping over the lines. This means distributing the trailing spaces into the existing word separations.</p>
+<p>For example,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In publishing and graphic design,
+Lorem ipsum is a placeholder text
+commonly used to demonstrate the visual form
+of a document or a typeface
+without relying on meaningful content.
+</pre></div>
+</div>
+<p>becomes</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In    publishing    and    graphic   design,
+Lorem    ipsum   is   a   placeholder   text
+commonly used to demonstrate the visual form
+of     a     document    or    a    typeface
+without   relying   on  meaningful  content.
+</pre></div>
+</div>
+<p>This isn’t a particularly difficult problem for a single line, but if we enforce treating the contiguous ravelled data in one go, it becomes a bit more tricky. So, let’s say we have <code class="docutils literal notranslate"><span class="pre">t</span></code> as the above 5-by-44 matrix. It follows that our result must also be a 5-by-44 matrix.</p>
+<p>There are two obvious approaches. One is to move some spaces from the end of the lines to the middle by reordering elements. The other is to determine for each space how many copies if it we need (0 to remove it, 1 to keep it, and more to extend it). Let’s go with the latter method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">t</span><span class="kd">←</span><span class="p">(</span><span class="m">5</span><span class="w"> </span><span class="m">44</span><span class="o">⍴</span><span class="s1">&#39;In publishing and graphic design,           Lorem ipsum is a placeholder text           commonly used to demonstrate the visual formof a document or a typeface                 without relying on meaningful content.      &#39;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">t</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">In publishing and graphic design,           
+Lorem ipsum is a placeholder text           
+commonly used to demonstrate the visual form
+of a document or a typeface                 
+without relying on meaningful content.      
+</pre></div></div>
+</div>
+<p>The first step is identifying spaces. Luckily, scalar extension allows use to do <code class="docutils literal notranslate"><span class="pre">spaces←'</span> <span class="pre">'=t</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">spaces</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39; &#39;</span><span class="o">=</span><span class="nv">t</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1
+0 0 0 0 0 1 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1
+0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0
+0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 1 1 1 1 1
+</pre></div></div>
+</div>
+<p>How might we use that to create a mask (Boolean matrix) for the characters we want to <em>keep</em>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">keep</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="o">~⌽∧</span><span class="na">\</span><span class="o">⌽</span><span class="nv">spaces</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+</pre></div></div>
+</div>
+<p>Next we need to get the number of trailing spaces on each line,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">cols</span><span class="kd">←</span><span class="o">⊃⌽⍴</span><span class="nv">keep</span><span class="w"></span>
+<span class="nv">trail</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">cols</span><span class="o">-+</span><span class="na">/</span><span class="nv">keep</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">11 11 0 17 6
+</pre></div></div>
+</div>
+<p>Since we need to distribute extra width over inner spaces, we need to know how many inner spaces each line has, so we can divide the trailing width by that.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">inner</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">trail</span><span class="o">-</span><span class="na">⍨</span><span class="o">+</span><span class="na">/</span><span class="nv">spaces</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">4 5 6 5 4
+</pre></div></div>
+</div>
+<p>We now need to distribute the extra spaces over the inner spaces, noting that they may not be evenly distributable. We can just take the floor throughout, and the strategically add 1 here and there, preferably as evenly distributed as possible. We could start at the beginning and add one to each interspace until we’re “fully adjusted”. If you look at the example above, that’s what we did:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In⎕⎕⎕⎕publishing⎕⎕⎕⎕and⎕⎕⎕⎕graphic⎕⎕⎕design,
+</pre></div>
+</div>
+<p>The first three have 4 and the last one has 3. How might we determine the number of spaces that need one extra space? Well, it’s the remainder of dividing total needed spaces by how many spaces we have. For example, if we need to have 14 spaces and only have 5 spots then it’d be 4. We can express this as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">mod</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">inner</span><span class="o">|</span><span class="nv">trail</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">3 1 0 2 2
+</pre></div></div>
+</div>
+<p>The base extension per line is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">div</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="o">⌊</span><span class="nv">trail</span><span class="o">÷</span><span class="nv">inner</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">2 2 0 3 1
+</pre></div></div>
+</div>
+<p>Now we can create a mask for spaces that need an extra space:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">extra</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">spaces</span><span class="o">×</span><span class="nv">mod</span><span class="o">≥</span><span class="na">⍤</span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="o">+</span><span class="na">\</span><span class="nv">spaces</span><span class="o">×</span><span class="nv">keep</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+</pre></div></div>
+</div>
+<p>Now we’re ready to put the parts together to get a replication factor for each character.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">replication</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="nv">keep</span><span class="o">+</span><span class="nv">extra</span><span class="o">+</span><span class="nv">div</span><span class="p">(</span><span class="o">×</span><span class="na">⍤</span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="nv">spaces</span><span class="o">×</span><span class="nv">keep</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">1 1 4 1 1 1 1 1 1 1 1 1 1 4 1 1 1 4 1 1 1 1 1 1 1 3 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+1 1 1 1 1 4 1 1 1 1 1 3 1 1 3 1 3 1 1 1 1 1 1 1 1 1 1 1 3 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 5 1 5 1 1 1 1 1 1 1 1 4 1 1 4 1 4 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 1 1 1 1 1 1 3 1 1 1 1 1 1 1 3 1 1 2 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+</pre></div></div>
+</div>
+<p>and, finally, we can apply the transformation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⍴</span><span class="w"> </span><span class="nv">t</span><span class="p">)</span><span class="o">⍴</span><span class="p">(</span><span class="o">,</span><span class="nv">replication</span><span class="p">)</span><span class="na">/</span><span class="o">,</span><span class="nv">t</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">In    publishing    and    graphic   design,
+Lorem    ipsum   is   a   placeholder   text
+commonly used to demonstrate the visual form
+of     a     document    or    a    typeface
+without   relying   on  meaningful  content.
+</pre></div></div>
+</div>
+<p>Combine it all into a dfn, and we get:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"></span>
+<span class="nv">Justify</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="w"></span>
+<span class="w">    </span><span class="nv">spaces</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="o">=</span><span class="bp">⍵</span><span class="w"></span>
+<span class="w">    </span><span class="nv">keep</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">~⌽∧</span><span class="na">\</span><span class="o">⌽</span><span class="nv">spaces</span><span class="w"></span>
+<span class="w">    </span><span class="nv">trail</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">+</span><span class="na">/</span><span class="o">~</span><span class="nv">keep</span><span class="w"></span>
+<span class="w">    </span><span class="nv">inner</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">|</span><span class="nv">trail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">+</span><span class="na">/</span><span class="nv">spaces</span><span class="w"></span>
+<span class="w">    </span><span class="nv">mod</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">inner</span><span class="o">|</span><span class="nv">trail</span><span class="w"></span>
+<span class="w">    </span><span class="nv">div</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="o">⌊</span><span class="nv">trail</span><span class="o">÷</span><span class="nv">inner</span><span class="w"></span>
+<span class="w">    </span><span class="nv">extra</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">spaces</span><span class="o">×</span><span class="nv">mod</span><span class="p">(</span><span class="o">≥</span><span class="na">⍤</span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="o">+</span><span class="na">\</span><span class="w"> </span><span class="nv">spaces</span><span class="o">×</span><span class="nv">keep</span><span class="w"></span>
+<span class="w">    </span><span class="nv">replication</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="nv">keep</span><span class="o">+</span><span class="nv">extra</span><span class="o">+</span><span class="nv">div</span><span class="p">(</span><span class="o">×</span><span class="na">⍤</span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="nv">spaces</span><span class="o">×</span><span class="nv">keep</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="o">⍴</span><span class="w"> </span><span class="bp">⍵</span><span class="p">)</span><span class="o">⍴</span><span class="p">(</span><span class="o">,</span><span class="nv">replication</span><span class="p">)</span><span class="na">/</span><span class="o">,</span><span class="bp">⍵</span><span class="w"></span>
+<span class="kt">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Justify</span><span class="w"> </span><span class="nv">t</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre class="language-APL">In    publishing    and    graphic   design,
+Lorem    ipsum   is   a   placeholder   text
+commonly used to demonstrate the visual form
+of     a     document    or    a    typeface
+without   relying   on  meaningful  content.
+</pre></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dyalog-kernel"
+        },
+        kernelOptions: {
+            kernelName: "dyalog-kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dyalog-kernel'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Plotting.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Plotting with SharpPlot</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="FunctionApplication.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Function application</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

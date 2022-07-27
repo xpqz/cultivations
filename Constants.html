@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Constants, tools and utils &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -62,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -422,6 +439,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -434,90 +456,191 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Constants.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FConstants.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FConstants.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Constants.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#alphabetic-chars-a">
    Alphabetic chars
@@ -673,72 +796,243 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Constants, tools and utils</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alphabetic-chars-a">
+   Alphabetic chars
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕A
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#digits-d">
+   Digits
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕D
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#null-item-null">
+   Null item
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕NULL
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#win-unix-command-cmd-sh">
+   Win/unix command
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕CMD
+    </span>
+    <span class="pre">
+     ⎕SH
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comma-separated-values-csv">
+   Comma separated values
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕CSV
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-representation-dr">
+   Data representation
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕DR
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format-fmt">
+   Format
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕FMT
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-export-json-json">
+   Import/export JSON
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕JSON
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map-file-map">
+   Map file
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕MAP
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unicode-convert-ucs">
+   Unicode convert
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕UCS
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verify-and-fix-input-vfi">
+   Verify and fix input
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕VFI
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml-convert-xml">
+   XML convert
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕XML
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-conversion-c">
+   Case conversion
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕C
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#date-time-conversions-dt">
+   Date-time conversions
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⎕DT
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format-date-time-1200">
+   Format Date-Time
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     1200⌶
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="constants-tools-and-utils">
-<h1>Constants, tools and utils<a class="headerlink" href="#constants-tools-and-utils" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="constants-tools-and-utils">
+<h1>Constants, tools and utils<a class="headerlink" href="#constants-tools-and-utils" title="Permalink to this headline">#</a></h1>
 <p>In this section we’ll cover some system constants and utility functions.</p>
-<div class="section" id="alphabetic-chars-a">
-<h2>Alphabetic chars <code class="docutils literal notranslate"><span class="pre">⎕A</span></code><a class="headerlink" href="#alphabetic-chars-a" title="Permalink to this headline">¶</a></h2>
+<section id="alphabetic-chars-a">
+<h2>Alphabetic chars <code class="docutils literal notranslate"><span class="pre">⎕A</span></code><a class="headerlink" href="#alphabetic-chars-a" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕A</span></code> is the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/a.htm">uppercase English alphabet</a> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕A</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕A</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">ABCDEFGHIJKLMNOPQRSTUVWXYZ
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</pre></div></div>
 </div>
 <p>There is no built-in for the lowercase alphabet, but you can get it with the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/c.htm">case convert</a> system function, <code class="docutils literal notranslate"><span class="pre">⎕C</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕C⎕A</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕C⎕A</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">abcdefghijklmnopqrstuvwxyz
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">abcdefghijklmnopqrstuvwxyz
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="digits-d">
-<h2>Digits <code class="docutils literal notranslate"><span class="pre">⎕D</span></code><a class="headerlink" href="#digits-d" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="digits-d">
+<h2>Digits <code class="docutils literal notranslate"><span class="pre">⎕D</span></code><a class="headerlink" href="#digits-d" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕D</span></code> has the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/d.htm">digits</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕D</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕D</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0123456789
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0123456789
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="null-item-null">
-<h2>Null item <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code><a class="headerlink" href="#null-item-null" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="null-item-null">
+<h2>Null item <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code><a class="headerlink" href="#null-item-null" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code> is a <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/null.htm">scalar null</a> value. It isn’t really used much in APL itself, but you can meet it e.g. when importing spreadsheets where it represents empty cells.  Note that it is <em>not</em> JSON <code class="docutils literal notranslate"><span class="pre">null</span></code>, which is represented as <code class="docutils literal notranslate"><span class="pre">⊂'null'</span></code> to match true and false being <code class="docutils literal notranslate"><span class="pre">⊂'true'</span></code> and <code class="docutils literal notranslate"><span class="pre">⊂'false'</span></code>.  Note also that <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code> equals itself. These three (<code class="docutils literal notranslate"><span class="pre">⎕A</span> <span class="pre">⎕D</span> <span class="pre">⎕NULL</span></code>) are system <em>constants</em>; you can’t assign to them.</p>
-</div>
-<div class="section" id="win-unix-command-cmd-sh">
-<h2>Win/unix command  <code class="docutils literal notranslate"><span class="pre">⎕CMD</span> <span class="pre">⎕SH</span></code><a class="headerlink" href="#win-unix-command-cmd-sh" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="win-unix-command-cmd-sh">
+<h2>Win/unix command  <code class="docutils literal notranslate"><span class="pre">⎕CMD</span> <span class="pre">⎕SH</span></code><a class="headerlink" href="#win-unix-command-cmd-sh" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/cmd.htm"><code class="docutils literal notranslate"><span class="pre">⎕CMD</span></code></a> and <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/sh.htm"><code class="docutils literal notranslate"><span class="pre">⎕SH</span></code></a> are identical, but the first feels more natural to Windows users while the second feels more natural to UNIX users. Pressing <kbd>f1</kbd> on them will give you the help appropriate for that OS. They are used to call the OS command processor:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕SH</span><span class="s1">&#39;ls /&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕SH</span><span class="s1">&#39;ls /&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">Applications
+<div class="output text_html"><pre class="language-APL">Applications
 Library
 System
 Users
@@ -754,153 +1048,153 @@ sbin
 tmp
 usr
 var
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="comma-separated-values-csv">
-<h2>Comma separated values <code class="docutils literal notranslate"><span class="pre">⎕CSV</span></code><a class="headerlink" href="#comma-separated-values-csv" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="comma-separated-values-csv">
+<h2>Comma separated values <code class="docutils literal notranslate"><span class="pre">⎕CSV</span></code><a class="headerlink" href="#comma-separated-values-csv" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕CSV</span></code> will import and export <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/csv.htm">Comma/Character Separated Values</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CSV</span> <span class="s1">&#39;&quot;abc&quot;,&quot;def&quot;,3&#39;</span> <span class="s1">&#39;S&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕CSV</span><span class="w"> </span><span class="s1">&#39;&quot;abc&quot;,&quot;def&quot;,3&#39;</span><span class="w"> </span><span class="s1">&#39;S&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┬─┐
+<div class="output text_html"><pre class="language-APL">┌───┬───┬─┐
 │abc│def│3│
 └───┴───┴─┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>It has a ton of options for almost anything you could want, including import and export directly to and from text files.</p>
-</div>
-<div class="section" id="data-representation-dr">
-<h2>Data representation <code class="docutils literal notranslate"><span class="pre">⎕DR</span></code><a class="headerlink" href="#data-representation-dr" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="data-representation-dr">
+<h2>Data representation <code class="docutils literal notranslate"><span class="pre">⎕DR</span></code><a class="headerlink" href="#data-representation-dr" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕DR</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/dr.htm">Data Representation</a>. Monadically, it will tell you how an array is represented internally, and dyadically, it allows you to convert between data types:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕DR</span> <span class="m">42</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕DR</span><span class="w"> </span><span class="m">42</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">83
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">83
+</pre></div></div>
 </div>
 <p>Dyalog APL data type codes have two parts, the 1’s place and the rest. The 1’s place tells you which kind of data it is, the rest tells you how many bits are used to store it, with one exception: pointers are always 326 even on 64 bit systems. The number 42 gave us 83, where 3 means integer and 8 means 8-bit.</p>
 <p>Dyalog APL has single-bit Boolean arrays, so they are type 11 where the rightmost 1 means Boolean, and the leftmost 1 means 1-bit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕DR</span> <span class="m">1</span> <span class="m">0</span> <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> <span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕DR</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">11
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">11
+</pre></div></div>
 </div>
 <p>Dyadic <code class="docutils literal notranslate"><span class="pre">⎕DR</span></code> lets you convert between types:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">11</span><span class="nf">⎕DR</span> <span class="m">42</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">11</span><span class="nf">⎕DR</span><span class="w"> </span><span class="m">42</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 0 1 0 1 0 1 0
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0 0 1 0 1 0 1 0
+</pre></div></div>
 </div>
 <p>This takes the memory which was used to represent 42 and interprets it as if it was a Boolean array.
 You can also combine two steps of <code class="docutils literal notranslate"><span class="pre">⎕DR</span></code> into one. A two-element left argument will interpret the right argument as that type, then convert it to the type given by the second element of the left argument.</p>
-</div>
-<div class="section" id="format-fmt">
-<h2>Format <code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code><a class="headerlink" href="#format-fmt" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="format-fmt">
+<h2>Format <code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code><a class="headerlink" href="#format-fmt" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/fmt.htm">ForMaT</a>. It is like a beefed up version of <code class="docutils literal notranslate"><span class="pre">⍕</span></code>. <code class="docutils literal notranslate"><span class="pre">⍕</span></code> retains the rank of its argument (except for numeric scalars becoming character vectors). <code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> always returns a matrix. Also, <code class="docutils literal notranslate"><span class="pre">⍕</span></code> treats control characters as normal characters, while <code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> will resolve them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">str</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;abc&#39;</span><span class="o">,</span><span class="p">(</span><span class="nf">⎕UCS</span> <span class="m">8</span><span class="p">)</span><span class="o">,</span><span class="s1">&#39;def&#39;</span> <span class="c1">⍝ 8 is backspace</span>
-<span class="o">⍴</span><span class="vg">⎕</span><span class="kd">←</span><span class="o">⍕</span><span class="nv">str</span>                    <span class="c1">⍝ ⍕ treats backspace as any other char</span>
-<span class="o">⍴</span><span class="vg">⎕</span><span class="kd">←</span><span class="nf">⎕FMT</span> <span class="nv">str</span>                <span class="c1">⍝ ⎕FMT resolves it</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">str</span><span class="kd">←</span><span class="vg">⎕</span><span class="kd">←</span><span class="s1">&#39;abc&#39;</span><span class="o">,</span><span class="p">(</span><span class="nf">⎕UCS</span><span class="w"> </span><span class="m">8</span><span class="p">)</span><span class="o">,</span><span class="s1">&#39;def&#39;</span><span class="w"> </span><span class="c1">⍝ 8 is backspace</span><span class="w"></span>
+<span class="o">⍴</span><span class="vg">⎕</span><span class="kd">←</span><span class="o">⍕</span><span class="nv">str</span><span class="w">                    </span><span class="c1">⍝ ⍕ treats backspace as any other char</span><span class="w"></span>
+<span class="o">⍴</span><span class="vg">⎕</span><span class="kd">←</span><span class="nf">⎕FMT</span><span class="w"> </span><span class="nv">str</span><span class="w">                </span><span class="c1">⍝ ⎕FMT resolves it</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">abdef
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">abdef
+<div class="output text_html"><pre class="language-APL">abdef
+</pre></div><div class="output text_html"><pre class="language-APL">abdef
 7
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">abdef
+</pre></div><div class="output text_html"><pre class="language-APL">abdef
 1 5
-</span></div></div>
+</pre></div></div>
 </div>
 <p>You see that the <code class="docutils literal notranslate"><span class="pre">'c'</span></code> really was erased by the backspace.</p>
 <p>Dyadic <code class="docutils literal notranslate"><span class="pre">⎕FMT</span></code> gives you access to a whole new language, namely a formatting specification language. We won’t go though all the details here (see docs!), but here’s a taste:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I3,F5.2&#39;</span> <span class="nf">⎕FMT</span> <span class="m">2</span> <span class="m">4</span><span class="o">⍴⍳</span><span class="m">8</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I3,F5.2&#39;</span><span class="w"> </span><span class="nf">⎕FMT</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="o">⍴⍳</span><span class="m">8</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">  1 2.00  3 4.00
+<div class="output text_html"><pre class="language-APL">  1 2.00  3 4.00
   5 6.00  7 8.00
-</span></div></div>
+</pre></div></div>
 </div>
 <p>The formatting string <code class="docutils literal notranslate"><span class="pre">I3,F5.2</span></code> means that each row should first have an integer, then a float which uses five characters in width and has 2 decimals, then this formatting is cycled as much as needed for all the columns (here twice).</p>
-</div>
-<div class="section" id="import-export-json-json">
-<h2>Import/export JSON  <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code><a class="headerlink" href="#import-export-json-json" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="import-export-json-json">
+<h2>Import/export JSON  <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code><a class="headerlink" href="#import-export-json-json" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/json.htm">imports/exports JSON</a>. It works for both arrays and objects:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="s1">&#39;[[42,null],&quot;hello&quot;]&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="s1">&#39;[[42,null],&quot;hello&quot;]&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┬─────┐
+<div class="output text_html"><pre class="language-APL">┌───────────┬─────┐
 │┌──┬──────┐│hello│
 ││42│┌────┐││     │
 ││  ││null│││     │
 ││  │└────┘││     │
 │└──┴──────┘│     │
 └───────────┴─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span><span class="nv">ns</span><span class="kd">←</span><span class="nf">⎕JSON</span><span class="s1">&#39;{&quot;abc&quot;:42,&quot;de&quot;:null,&quot;f&quot;:&quot;hello&quot;}&#39;</span>
-<span class="nv">ns</span><span class="na">.</span><span class="p">(</span><span class="nv">abc</span> <span class="nv">f</span><span class="p">)</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⊢</span><span class="nv">ns</span><span class="kd">←</span><span class="nf">⎕JSON</span><span class="s1">&#39;{&quot;abc&quot;:42,&quot;de&quot;:null,&quot;f&quot;:&quot;hello&quot;}&#39;</span><span class="w"></span>
+<span class="nv">ns</span><span class="na">.</span><span class="p">(</span><span class="nv">abc</span><span class="w"> </span><span class="nv">f</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">#.[JSON object]
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──┬─────┐
+<div class="output text_html"><pre class="language-APL">#.[JSON object]
+</pre></div><div class="output text_html"><pre class="language-APL">┌──┬─────┐
 │42│hello│
 └──┴─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>We can also export from APL to JSON:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span> <span class="p">(</span><span class="s1">&#39;abc&#39;</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)</span> <span class="m">4</span> <span class="m">5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">[["abc",1,2,3],4,5]
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">[["abc",1,2,3],4,5]
+</pre></div></div>
 </div>
 <p>Just be aware that if you want to convert an APL string to JSON, you need use the left argument to specify whether you want import (0) or export (1).</p>
 <p>You can also tell <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> that you want your JSON fully white-spaced:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="m">0</span><span class="o">⊢</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="p">)</span><span class="m">4</span> <span class="m">5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="m">0</span><span class="o">⊢</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">[
+<div class="output text_html"><pre class="language-APL">[
   [
     "abc",
     1,
@@ -910,37 +1204,37 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
   4,
   5
 ]
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Finally, whilst you can import any JSON object, not every APL namespace can be exported. For example, a namespace with APL functions cannot be converted to JSON. Again, <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> has some more advanced options — see the docs. <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> is fully compliant with JSON, though, but we do allow some leniency which allows you to create some JavaScript objects which are not valid JSON. For example,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span> <span class="s1">&#39;hello&#39;</span> <span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;world&#39;</span><span class="p">)</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="w"> </span><span class="s1">&#39;hello&#39;</span><span class="w"> </span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;world&#39;</span><span class="p">)</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">["hello",world]
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">["hello",world]
+</pre></div></div>
 </div>
 <p>We opted for a generalised system for strings without quotes, rather than special casing <code class="docutils literal notranslate"><span class="pre">null</span></code>. The I-beam that preceded <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> did in fact use <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code>. By using enclosed strings, we can losslessly roundtrip. However, If you DO want to use APL’s <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code>, you can specify this using the <code class="docutils literal notranslate"><span class="pre">Null</span></code> variant to <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">j</span><span class="kd">←</span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Null&#39;</span> <span class="nf">⎕NULL</span><span class="o">⊢</span><span class="s1">&#39;{&quot;name&quot;: null}&#39;</span>
-<span class="nv">j</span><span class="na">.</span><span class="nv">name</span>
-<span class="nv">j</span><span class="na">.</span><span class="nv">name</span> <span class="o">=</span> <span class="nf">⎕NULL</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">j</span><span class="kd">←</span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Null&#39;</span><span class="w"> </span><span class="nf">⎕NULL</span><span class="o">⊢</span><span class="s1">&#39;{&quot;name&quot;: null}&#39;</span><span class="w"></span>
+<span class="nv">j</span><span class="na">.</span><span class="nv">name</span><span class="w"></span>
+<span class="nv">j</span><span class="na">.</span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">⎕NULL</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">[Null]
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">[Null]
+</pre></div><div class="output text_html"><pre class="language-APL">1
+</pre></div></div>
 </div>
 <p>The JSON format doesn’t support arrays of higher rank, only lists-of-lists. This means that not all APL constructs can be converted to JSON directly, for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span> <span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span> <span class="c1">⍝ DOMAIN ERROR</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span><span class="w"> </span><span class="c1">⍝ DOMAIN ERROR</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -955,160 +1249,160 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
 <p>However, when speaking with the world outside, we probably want our matrices to be converted to lists of lists. For this, we have the <code class="docutils literal notranslate"><span class="pre">HighRank</span></code> variant option:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;HighRank&#39;</span> <span class="s1">&#39;Split&#39;</span> <span class="o">⊢</span> <span class="m">2</span> <span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;HighRank&#39;</span><span class="w"> </span><span class="s1">&#39;Split&#39;</span><span class="w"> </span><span class="o">⊢</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">⍴⍳</span><span class="m">6</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">[[1,2,3],[4,5,6]]
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">[[1,2,3],[4,5,6]]
+</pre></div></div>
 </div>
 <p>This works universally, also recursing into namespaces:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">mat</span><span class="kd">←</span><span class="o">⍳</span><span class="m">2</span> <span class="m">3</span>
-<span class="nv">cube</span><span class="kd">←</span><span class="m">2</span> <span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="m">2</span>
-<span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;HighRank&#39;</span> <span class="s1">&#39;Split&#39;</span><span class="nf">⎕NS</span><span class="s1">&#39;mat&#39;</span> <span class="s1">&#39;cube&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">mat</span><span class="kd">←</span><span class="o">⍳</span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"></span>
+<span class="nv">cube</span><span class="kd">←</span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="o">⍴</span><span class="m">2</span><span class="w"></span>
+<span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;HighRank&#39;</span><span class="w"> </span><span class="s1">&#39;Split&#39;</span><span class="nf">⎕NS</span><span class="s1">&#39;mat&#39;</span><span class="w"> </span><span class="s1">&#39;cube&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">{"cube":[[[2,2],[2,2]],[[2,2],[2,2]]],"mat":[[[1,1],[1,2],[1,3]],[[2,1],[2,2],[2,3]]]}
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">{"cube":[[[2,2],[2,2]],[[2,2],[2,2]]],"mat":[[[1,1],[1,2],[1,3]],[[2,1],[2,2],[2,3]]]}
+</pre></div></div>
 </div>
 <p>Another thing that <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> can now do is to understand and create <a class="reference external" href="https://json5.org/">JSON5</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">ns</span><span class="kd">←</span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span> <span class="s1">&#39;JSON5&#39;</span><span class="o">⊢</span><span class="s1">&#39;{noQuotes: [0xdecaf,0xC0FFEE] /* comment */}&#39;</span><span class="p">)</span><span class="na">.</span><span class="nv">noQuotes</span>
-<span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span> <span class="s1">&#39;JSON5&#39;</span><span class="o">⊢</span><span class="nv">ns</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">ns</span><span class="kd">←</span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span><span class="w"> </span><span class="s1">&#39;JSON5&#39;</span><span class="o">⊢</span><span class="s1">&#39;{noQuotes: [0xdecaf,0xC0FFEE] /* comment */}&#39;</span><span class="p">)</span><span class="na">.</span><span class="nv">noQuotes</span><span class="w"></span>
+<span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span><span class="w"> </span><span class="s1">&#39;JSON5&#39;</span><span class="o">⊢</span><span class="nv">ns</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">912559 12648430
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">{noQuotes:[912559,12648430]}
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">912559 12648430
+</pre></div><div class="output text_html"><pre class="language-APL">{noQuotes:[912559,12648430]}
+</pre></div></div>
 </div>
 <p>Maybe most importantly, JSON5 allows trailing commas in lists and objects:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span> <span class="s1">&#39;JSON5&#39;</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="m">0</span><span class="o">⍳</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span><span class="w"> </span><span class="s1">&#39;JSON5&#39;</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="m">0</span><span class="o">⍳</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">[
+<div class="output text_html"><pre class="language-APL">[
   1,
   2,
   3,
 ]
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Compare with</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span> <span class="s1">&#39;JSON&#39;</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="m">0</span><span class="o">⍳</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Dialect&#39;</span><span class="w"> </span><span class="s1">&#39;JSON&#39;</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="m">0</span><span class="o">⍳</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">[
+<div class="output text_html"><pre class="language-APL">[
   1,
   2,
   3
 ]
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="map-file-map">
-<h2>Map file <code class="docutils literal notranslate"><span class="pre">⎕MAP</span></code><a class="headerlink" href="#map-file-map" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="map-file-map">
+<h2>Map file <code class="docutils literal notranslate"><span class="pre">⎕MAP</span></code><a class="headerlink" href="#map-file-map" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/map.htm"><code class="docutils literal notranslate"><span class="pre">⎕MAP</span></code></a> is a function we’ll only mention and not demonstrate (see the docs). It basically allows you to use a file as an array instead of keeping the array in memory. Very useful.</p>
-</div>
-<div class="section" id="unicode-convert-ucs">
-<h2>Unicode convert <code class="docutils literal notranslate"><span class="pre">⎕UCS</span></code><a class="headerlink" href="#unicode-convert-ucs" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="unicode-convert-ucs">
+<h2>Unicode convert <code class="docutils literal notranslate"><span class="pre">⎕UCS</span></code><a class="headerlink" href="#unicode-convert-ucs" title="Permalink to this headline">#</a></h2>
 <p>This brings us to <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/ucs.htm">Unicode Convert</a>, <code class="docutils literal notranslate"><span class="pre">⎕UCS</span></code>, which in its monadic form flips characters and their Unicode code points:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕UCS</span> <span class="m">954</span> <span class="m">945</span> <span class="m">955</span> <span class="m">951</span> <span class="m">956</span> <span class="m">941</span> <span class="m">961</span> <span class="m">945</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕UCS</span><span class="w"> </span><span class="m">954</span><span class="w"> </span><span class="m">945</span><span class="w"> </span><span class="m">955</span><span class="w"> </span><span class="m">951</span><span class="w"> </span><span class="m">956</span><span class="w"> </span><span class="m">941</span><span class="w"> </span><span class="m">961</span><span class="w"> </span><span class="m">945</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">καλημέρα
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">καλημέρα
+</pre></div></div>
 </div>
 <p>The dyadic form takes a left argument specifying an encoding scheme and converts to and from byte values rather than code points:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;UTF-8&#39;</span> <span class="nf">⎕UCS</span> <span class="m">206</span> <span class="m">179</span> <span class="m">206</span> <span class="m">181</span> <span class="m">206</span> <span class="m">185</span> <span class="m">206</span> <span class="m">177</span> <span class="m">32</span> <span class="m">207</span> <span class="m">131</span> <span class="m">206</span> <span class="m">191</span> <span class="m">207</span> <span class="m">133</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;UTF-8&#39;</span><span class="w"> </span><span class="nf">⎕UCS</span><span class="w"> </span><span class="m">206</span><span class="w"> </span><span class="m">179</span><span class="w"> </span><span class="m">206</span><span class="w"> </span><span class="m">181</span><span class="w"> </span><span class="m">206</span><span class="w"> </span><span class="m">185</span><span class="w"> </span><span class="m">206</span><span class="w"> </span><span class="m">177</span><span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="m">207</span><span class="w"> </span><span class="m">131</span><span class="w"> </span><span class="m">206</span><span class="w"> </span><span class="m">191</span><span class="w"> </span><span class="m">207</span><span class="w"> </span><span class="m">133</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">γεια σου
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">γεια σου
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="verify-and-fix-input-vfi">
-<h2>Verify and fix input <code class="docutils literal notranslate"><span class="pre">⎕VFI</span></code><a class="headerlink" href="#verify-and-fix-input-vfi" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="verify-and-fix-input-vfi">
+<h2>Verify and fix input <code class="docutils literal notranslate"><span class="pre">⎕VFI</span></code><a class="headerlink" href="#verify-and-fix-input-vfi" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕VFI</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/vfi.htm">Verify and Fix Input</a>. It takes a string and returns two lists. It cuts the string into space separated fields. Then it attempts to convert each field to a number. If it succeeds then the corresponding element of the left result list is 1 (else 0) and the corresponding element of the right list is the number (else 0).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕VFI</span> <span class="s1">&#39;123 four 42&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕VFI</span><span class="w"> </span><span class="s1">&#39;123 four 42&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────┬────────┐
+<div class="output text_html"><pre class="language-APL">┌─────┬────────┐
 │1 0 1│123 0 42│
 └─────┴────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>You can also specify one or more valid field separators as left argument:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;;/&#39;</span><span class="nf">⎕VFI</span> <span class="s1">&#39;123 four,42 5/2/4&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;;/&#39;</span><span class="nf">⎕VFI</span><span class="w"> </span><span class="s1">&#39;123 four,42 5/2/4&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────┬─────┐
+<div class="output text_html"><pre class="language-APL">┌─────┬─────┐
 │0 1 1│0 2 4│
 └─────┴─────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Here <code class="docutils literal notranslate"><span class="pre">123</span> <span class="pre">four</span></code> were grouped because space is not a separator anymore, and so it is an invalid number. So too with <code class="docutils literal notranslate"><span class="pre">42</span> <span class="pre">5</span></code>. Only <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">4</span></code> were valid. You can get just the valid numbers with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="na">//</span><span class="s1">&#39;;/&#39;</span><span class="nf">⎕VFI</span> <span class="s1">&#39;123 four,42 5/2/4&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="na">//</span><span class="s1">&#39;;/&#39;</span><span class="nf">⎕VFI</span><span class="w"> </span><span class="s1">&#39;123 four,42 5/2/4&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┐
+<div class="output text_html"><pre class="language-APL">┌───┐
 │2 4│
 └───┘
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="xml-convert-xml">
-<h2>XML convert <code class="docutils literal notranslate"><span class="pre">⎕XML</span></code><a class="headerlink" href="#xml-convert-xml" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="xml-convert-xml">
+<h2>XML convert <code class="docutils literal notranslate"><span class="pre">⎕XML</span></code><a class="headerlink" href="#xml-convert-xml" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕XML</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/xml.htm">converts to and from XML</a>, but the corresponding APL format is rather involved. We usually just use ⎕XML to verify that some XML is valid or to normalise whitespace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕XML</span><span class="na">⍣</span><span class="m">2</span> <span class="o">⊢</span> <span class="s1">&#39;&lt;xml&gt;&lt;document id=&quot;001&quot;&gt;An introduction to XML&lt;/document&gt;&lt;/xml&gt;&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕XML</span><span class="na">⍣</span><span class="m">2</span><span class="w"> </span><span class="o">⊢</span><span class="w"> </span><span class="s1">&#39;&lt;xml&gt;&lt;document id=&quot;001&quot;&gt;An introduction to XML&lt;/document&gt;&lt;/xml&gt;&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">&lt;xml&gt;
+<div class="output text_html"><pre class="language-APL">&lt;xml&gt;
   &lt;document id="001"&gt;An introduction to XML&lt;/document&gt;
 &lt;/xml&gt;
-</span></div></div>
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="case-conversion-c">
-<h2>Case conversion <code class="docutils literal notranslate"><span class="pre">⎕C</span></code><a class="headerlink" href="#case-conversion-c" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="case-conversion-c">
+<h2>Case conversion <code class="docutils literal notranslate"><span class="pre">⎕C</span></code><a class="headerlink" href="#case-conversion-c" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕C</span></code> provides various handy <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/c.htm">case conversion</a> operations for strings. The left argument, if given, currently has to be a single simple scalar integer, 1 or ¯1 or ¯3:</p>
 <ul class="simple">
 <li><p>1 does upper-casing</p></li>
@@ -1122,13 +1416,13 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="nf">⎕C</span><span class="na">@</span><span class="m">1</span><span class="o">⊢</span><span class="s1">&#39;hello, world!&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="nf">⎕C</span><span class="na">@</span><span class="m">1</span><span class="o">⊢</span><span class="s1">&#39;hello, world!&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">Hello, world!
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">Hello, world!
+</pre></div></div>
 </div>
 <p>Next up: a better (still not perfect) palindrome checker. Given a string without diacritics, but which may have spaces, determine if it is a palindrome. Examples:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;race car&#39; → 1
@@ -1139,172 +1433,172 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="o">⊢≡⌽</span><span class="p">)</span><span class="m">¯3</span><span class="nf">⎕C</span><span class="o">~</span><span class="na">∘</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="na">¨</span> <span class="s1">&#39;race car&#39;</span> <span class="s1">&#39;Σοφος&#39;</span> <span class="s1">&#39;hello&#39;</span> <span class="s1">&#39;Νιψον ανομηματα μη μοναν οψιν&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="o">⊢≡⌽</span><span class="p">)</span><span class="m">¯3</span><span class="nf">⎕C</span><span class="o">~</span><span class="na">∘</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="na">¨</span><span class="w"> </span><span class="s1">&#39;race car&#39;</span><span class="w"> </span><span class="s1">&#39;Σοφος&#39;</span><span class="w"> </span><span class="s1">&#39;hello&#39;</span><span class="w"> </span><span class="s1">&#39;Νιψον ανομηματα μη μοναν οψιν&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1 1 0 1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1 1 0 1
+</pre></div></div>
 </div>
 <p>Here’s a trick too: monadic <code class="docutils literal notranslate"><span class="pre">⎕C</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">¯3∘⎕C</span></code>.</p>
-</div>
-<div class="section" id="date-time-conversions-dt">
-<h2>Date-time conversions <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code><a class="headerlink" href="#date-time-conversions-dt" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="date-time-conversions-dt">
+<h2>Date-time conversions <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code><a class="headerlink" href="#date-time-conversions-dt" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⎕DT</span></code> provides a wealth of <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/dt.htm">date-time conversions</a>. It allows you to convert any numeric representation of a date-time into any other representation. You can use it to glue together two 3rd-party systems that otherwise can’t easily communicate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">20</span> <span class="nf">⎕DT</span> <span class="m">44053.674</span> <span class="c1">⍝ Dyalog to Unix time</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">20</span><span class="w"> </span><span class="nf">⎕DT</span><span class="w"> </span><span class="m">44053.674</span><span class="w"> </span><span class="c1">⍝ Dyalog to Unix time</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1597162233
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1597162233
+</pre></div></div>
 </div>
 <p>Dyalog’s basic representation of a moment is the number of days since 1899-12-31. The advantage of Dyalog’s system (which was actually the original one) is that you can then find the day-of-week with <code class="docutils literal notranslate"><span class="pre">7|⌊</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">7</span><span class="o">|⌊</span><span class="m">44053.674</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">7</span><span class="o">|⌊</span><span class="m">44053.674</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">2
+</pre></div></div>
 </div>
 <p>0: Sunday, 1: Monday, etc.</p>
 <p>Does anyone use some software that has its own date format? Answer: yes, you all do. APL does. It has the 7-element vector <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code> for the current <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/ts.htm">Time Stamp</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span> <span class="nf">⎕DT</span> <span class="m">44053.674</span> <span class="c1">⍝ to ⎕TS</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span><span class="w"> </span><span class="nf">⎕DT</span><span class="w"> </span><span class="m">44053.674</span><span class="w"> </span><span class="c1">⍝ to ⎕TS</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────────────────────┐
+<div class="output text_html"><pre class="language-APL">┌──────────────────────┐
 │2020 8 11 16 10 33 600│
 └──────────────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>The left argument tells <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code> what you want to convert to. The numbers are largely arbitrary, but not entirely so. Positive codes indicate a scalar format (one number per date-time) and negative numbers indicate a vector format (multiple numbers per date-time). Also, the number divided by 10 and floored indicates the family. So we had 2(0) for UNIX and 4(0) for applications (Excel). The last element of <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code> is the milliseconds. We can get more precision in the <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code>-style result by using <code class="docutils literal notranslate"><span class="pre">¯2</span></code> for microseconds and <code class="docutils literal notranslate"><span class="pre">¯3</span></code> for nanoseconds:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯2</span> <span class="nf">⎕DT</span> <span class="m">44053.674</span>
-<span class="m">¯3</span> <span class="nf">⎕DT</span> <span class="m">44053.674</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯2</span><span class="w"> </span><span class="nf">⎕DT</span><span class="w"> </span><span class="m">44053.674</span><span class="w"></span>
+<span class="m">¯3</span><span class="w"> </span><span class="nf">⎕DT</span><span class="w"> </span><span class="m">44053.674</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────────────────────────┐
+<div class="output text_html"><pre class="language-APL">┌─────────────────────────┐
 │2020 8 11 16 10 33 600000│
 └─────────────────────────┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────────────────────────────┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌────────────────────────────┐
 │2020 8 11 16 10 33 600000000│
 └────────────────────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Notice also that vector formats are enclosed. This allows <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code> to handle arrays of dates:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span> <span class="nf">⎕DT</span> <span class="m">44053</span><span class="o">+⍳</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯1</span><span class="w"> </span><span class="nf">⎕DT</span><span class="w"> </span><span class="m">44053</span><span class="o">+⍳</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────────────────┬─────────────────┬─────────────────┐
+<div class="output text_html"><pre class="language-APL">┌─────────────────┬─────────────────┬─────────────────┐
 │2020 8 12 0 0 0 0│2020 8 13 0 0 0 0│2020 8 14 0 0 0 0│
 └─────────────────┴─────────────────┴─────────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>There are many of these codes; we won’t cover them all here, but they are readily available in the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/dt.htm">documentation</a>. What you do need to know is how to convert from one of these formats. Until now, we’ve just used the Dyalog day number. That’s the default for simple scalars in the right argument. The default for enclosed vectors is the <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code> format (<code class="docutils literal notranslate"><span class="pre">¯1</span></code>). If your input is anything else, you need to give <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code> a two-element left argument. The first element is the input type, and the second is the output type.</p>
 <p>For example, this converts an ISO year, week of year, day of week to <code class="docutils literal notranslate"><span class="pre">⎕TS</span></code>-style:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯11</span> <span class="m">¯1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">40</span> <span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯11</span><span class="w"> </span><span class="m">¯1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span><span class="w"> </span><span class="m">40</span><span class="w"> </span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─────────────────┐
+<div class="output text_html"><pre class="language-APL">┌─────────────────┐
 │2020 9 30 0 0 0 0│
 └─────────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Another example: given two ISO-style dates (as a 2 element vector of Y,M,D vectors), compute the inclusive number of days between them. E.g. <code class="docutils literal notranslate"><span class="pre">(2020</span> <span class="pre">6</span> <span class="pre">25)(2020</span> <span class="pre">08</span> <span class="pre">10)</span></code> should give 47. <code class="docutils literal notranslate"><span class="pre">(2020</span> <span class="pre">08</span> <span class="pre">10)(2020</span> <span class="pre">6</span> <span class="pre">25)</span></code> should also give 47. <code class="docutils literal notranslate"><span class="pre">(2020</span> <span class="pre">08</span> <span class="pre">10)(2020</span> <span class="pre">08</span> <span class="pre">10)</span></code> should give 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">diff</span> <span class="kd">←</span> <span class="kt">{</span><span class="m">1</span><span class="o">+|-</span><span class="na">/</span><span class="m">1</span><span class="nf">⎕DT</span><span class="bp">⍵</span><span class="kt">}</span>
-<span class="nv">diff</span> <span class="p">(</span><span class="m">2020</span> <span class="m">6</span> <span class="m">25</span><span class="p">)(</span><span class="m">2020</span> <span class="m">08</span> <span class="m">10</span><span class="p">)</span>
-<span class="nv">diff</span> <span class="p">(</span><span class="m">2020</span> <span class="m">08</span> <span class="m">10</span><span class="p">)(</span><span class="m">2020</span> <span class="m">6</span> <span class="m">25</span><span class="p">)</span>
-<span class="nv">diff</span> <span class="p">(</span><span class="m">2020</span> <span class="m">08</span> <span class="m">10</span><span class="p">)(</span><span class="m">2020</span> <span class="m">08</span> <span class="m">10</span><span class="p">)</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">diff</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="m">1</span><span class="o">+|-</span><span class="na">/</span><span class="m">1</span><span class="nf">⎕DT</span><span class="bp">⍵</span><span class="kt">}</span><span class="w"></span>
+<span class="nv">diff</span><span class="w"> </span><span class="p">(</span><span class="m">2020</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">25</span><span class="p">)(</span><span class="m">2020</span><span class="w"> </span><span class="m">08</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w"></span>
+<span class="nv">diff</span><span class="w"> </span><span class="p">(</span><span class="m">2020</span><span class="w"> </span><span class="m">08</span><span class="w"> </span><span class="m">10</span><span class="p">)(</span><span class="m">2020</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">25</span><span class="p">)</span><span class="w"></span>
+<span class="nv">diff</span><span class="w"> </span><span class="p">(</span><span class="m">2020</span><span class="w"> </span><span class="m">08</span><span class="w"> </span><span class="m">10</span><span class="p">)(</span><span class="m">2020</span><span class="w"> </span><span class="m">08</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">47
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">47
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">47
+</pre></div><div class="output text_html"><pre class="language-APL">47
+</pre></div><div class="output text_html"><pre class="language-APL">1
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="format-date-time-1200">
-<h2>Format Date-Time <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code><a class="headerlink" href="#format-date-time-1200" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="format-date-time-1200">
+<h2>Format Date-Time <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code><a class="headerlink" href="#format-date-time-1200" title="Permalink to this headline">#</a></h2>
 <p>Above we covered how to convert between different numerical date-time representations. What about converting a numeric date-time representation to text? For that we can use the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/I%20Beam%20Functions/Format%20Datetime.htm">Format Date-Time</a> I-beam function, <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code>.</p>
 <p>When you want to convert a numeric date-time to text, the first step is always to convert it to a Dyalog day number. After that, you can use <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code> to convert that to text. It takes a left argument which is a format pattern.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;YYYY DD MM hhmm&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">08</span> <span class="m">11</span> <span class="m">11</span> <span class="m">32</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;YYYY DD MM hhmm&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span><span class="w"> </span><span class="m">08</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">32</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────────┐
+<div class="output text_html"><pre class="language-APL">┌───────────────┐
 │2020 11 08 1132│
 └───────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>The system in the pattern for <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code> is that numeric parts of the date are uppercase, while parts of the time are lowercase. You can use a single character for a variable-width pattern, or multi-character for a 0-padded pattern. If instead you want space-padding, use an underscore as the first character:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;YYYY-DD-MM@hh:mm&#39;</span> <span class="s1">&#39;YYYY-D-M@h:m&#39;</span> <span class="s1">&#39;YYYY-_D-_M@_h:_m&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="na">¨</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">8</span> <span class="m">11</span> <span class="m">1</span> <span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;YYYY-DD-MM@hh:mm&#39;</span><span class="w"> </span><span class="s1">&#39;YYYY-D-M@h:m&#39;</span><span class="w"> </span><span class="s1">&#39;YYYY-_D-_M@_h:_m&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="na">¨</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────────────────┬───────────────┬──────────────────┐
+<div class="output text_html"><pre class="language-APL">┌──────────────────┬───────────────┬──────────────────┐
 │┌────────────────┐│┌─────────────┐│┌────────────────┐│
 ││2020-11-08@01:03│││2020-11-8@1:3│││2020-11- 8@ 1: 3││
 │└────────────────┘│└─────────────┘│└────────────────┘│
 └──────────────────┴───────────────┴──────────────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">t</span></code> is for 12-hour. <code class="docutils literal notranslate"><span class="pre">h</span></code> is for 24-hour. Furthermore, the format also allows for casing and languages other than English:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;YYYY MMM D &quot;at&quot; h:mm&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">8</span> <span class="m">1</span> <span class="m">4</span> <span class="m">30</span>
-<span class="s1">&#39;YYYY Mmm D&#39;</span> <span class="s1">&#39;YYYY mmm D&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="na">¨</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">8</span> <span class="m">1</span>
-<span class="s1">&#39;__fr__YYYY Mmmm D&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span> <span class="m">8</span> <span class="m">1</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;YYYY MMM D &quot;at&quot; h:mm&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">30</span><span class="w"></span>
+<span class="s1">&#39;YYYY Mmm D&#39;</span><span class="w"> </span><span class="s1">&#39;YYYY mmm D&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="na">¨</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
+<span class="s1">&#39;__fr__YYYY Mmmm D&#39;</span><span class="p">(</span><span class="m">1200</span><span class="na">⌶</span><span class="p">)</span><span class="m">1</span><span class="nf">⎕DT</span><span class="o">⊂</span><span class="m">2020</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌──────────────────┐
+<div class="output text_html"><pre class="language-APL">┌──────────────────┐
 │2020 AUG 1 at 4:30│
 └──────────────────┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────────────┬────────────┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌────────────┬────────────┐
 │┌──────────┐│┌──────────┐│
 ││2020 Aug 1│││2020 aug 1││
 │└──────────┘│└──────────┘│
 └────────────┴────────────┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───────────┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌───────────┐
 │2020 Août 1│
 └───────────┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Like <code class="docutils literal notranslate"><span class="pre">⎕DT</span></code>, <code class="docutils literal notranslate"><span class="pre">1200⌶</span></code> has lots of options, including custom languages. Have a look at the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/I%20Beam%20Functions/Format%20Datetime.htm">documentation</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1328,9 +1622,11 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Behaviour.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1346,32 +1642,34 @@ You can also combine two steps of <code class="docutils literal notranslate"><sp
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

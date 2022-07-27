@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Variant in depth ⍠ &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -62,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -422,6 +439,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -434,12 +456,17 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -447,82 +474,177 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Variant.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FVariant.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Variant.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FVariant.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
 </div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        </div>
     </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Variant in depth ⍠</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="variant-in-depth">
-<h1>Variant in depth <code class="docutils literal notranslate"><span class="pre">⍠</span></code><a class="headerlink" href="#variant-in-depth" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="variant-in-depth">
+<h1>Variant in depth <code class="docutils literal notranslate"><span class="pre">⍠</span></code><a class="headerlink" href="#variant-in-depth" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Operators/Variant.htm">Variant</a>, <code class="docutils literal notranslate"><span class="pre">⍠</span></code>, is a dyadic operator, but it is quite unlike all other operators in APL. Syntactically, it is normal though. It always takes a function (monadic or dyadic) on its left, and always takes an array on its right. Although it is usually called Variant, you can also call it <em>Option</em>. In fact, it has a system operator synonym, <code class="docutils literal notranslate"><span class="pre">⎕OPT</span></code>.</p>
 <p>Variant is special in that it sets options in an invisible set of options. You can’t access this set directly, only observe modified behaviour in the operand function, because the operand function will check this set to know what to do.</p>
 <p>This also means that, uniquely, the operand function will “know” that it is being called as an operand of <code class="docutils literal notranslate"><span class="pre">⍠</span></code>. Usually, functions can’t really detect (easily) who called them. The left operand (the function) must be one of a fixed set of system functions (or functions derived from system operators).</p>
@@ -535,61 +657,61 @@
 <p>The scalar operand is only allowed if a default key exists, in which case it is equivalent to ‘DefaultKey’ value. Let’s take an example. You might know about the system function to convert to and from JSON:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="o">⍳</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="o">⍳</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">[1,2,3]
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">[1,2,3]
+</pre></div></div>
 </div>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">⍠</span></code> with the key <code class="docutils literal notranslate"><span class="pre">'Compact'</span></code> to change the white-space behaviour of <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code>. In essence, <code class="docutils literal notranslate"><span class="pre">⍠</span></code> sets the <code class="docutils literal notranslate"><span class="pre">Compact</span></code> setting to the corresponding value (0 or 1 in this case):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span> <span class="m">0</span> <span class="o">⍳</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Compact&#39;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">⍳</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">[
+<div class="output text_html"><pre class="language-APL">[
   1,
   2,
   3
 ]
-</span></div></div>
+</pre></div></div>
 </div>
 <p>There are other options too. Typically, <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> will convert a JavaScript <code class="docutils literal notranslate"><span class="pre">null</span></code> to an APL enclosed string <code class="docutils literal notranslate"><span class="pre">⊂'null'</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;null&#39;</span><span class="p">)</span> <span class="o">≡</span> <span class="nf">⎕JSON</span><span class="s1">&#39;null&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">⊂</span><span class="s1">&#39;null&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">≡</span><span class="w"> </span><span class="nf">⎕JSON</span><span class="s1">&#39;null&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1
+</pre></div></div>
 </div>
 <p>However, if you instead want it to convert it to an object-type null, <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code> you can tell it so:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕NULL</span> <span class="o">≡</span> <span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Null&#39;</span> <span class="nf">⎕NULL</span> <span class="o">⊢</span> <span class="s1">&#39;null&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕NULL</span><span class="w"> </span><span class="o">≡</span><span class="w"> </span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Null&#39;</span><span class="w"> </span><span class="nf">⎕NULL</span><span class="w"> </span><span class="o">⊢</span><span class="w"> </span><span class="s1">&#39;null&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1
+</pre></div></div>
 </div>
 <p>Notice the <code class="docutils literal notranslate"><span class="pre">⊢</span></code>. Whenever a dyadic operator has an array right operand, it will strand together with any literal right argument. There must be a function (or parentheses, or naming) to split them apart.</p>
 <p>Another option for <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> is to convert JSON into an APL matrix that describes the JSON, rather than attempting to actually convert to an equivalent APL structure:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Format&#39;</span> <span class="s1">&#39;M&#39;</span> <span class="o">⊢</span> <span class="s1">&#39;[1,null,&quot;hello&quot;]&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Format&#39;</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="w"> </span><span class="o">⊢</span><span class="w"> </span><span class="s1">&#39;[1,null,&quot;hello&quot;]&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┬┬──────┬─┐
+<div class="output text_html"><pre class="language-APL">┌─┬┬──────┬─┐
 │0││      │2│
 ├─┼┼──────┼─┤
 │1││1     │3│
@@ -600,17 +722,17 @@
 ├─┼┼──────┼─┤
 │1││hello │4│
 └─┴┴──────┴─┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>The exact details of this <em>M</em>atrix Format isn’t important here, though. You can check out the <a class="reference external" href="https://help.dyalog.com/latest/index.htm#Language/System%20Functions/json.htm">docs</a>. Now that we know about a couple of options, we can look at how to specify multiple options. We can create a “dictionary” of key-value pairs:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="p">(</span><span class="s1">&#39;Format&#39;</span> <span class="s1">&#39;M&#39;</span><span class="p">)(</span><span class="s1">&#39;Null&#39;</span> <span class="nf">⎕NULL</span><span class="p">)</span> <span class="o">⊢</span> <span class="s1">&#39;[1,null,&quot;hello&quot;]&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="p">(</span><span class="s1">&#39;Format&#39;</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">)(</span><span class="s1">&#39;Null&#39;</span><span class="w"> </span><span class="nf">⎕NULL</span><span class="p">)</span><span class="w"> </span><span class="o">⊢</span><span class="w"> </span><span class="s1">&#39;[1,null,&quot;hello&quot;]&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┬┬────────┬─┐
+<div class="output text_html"><pre class="language-APL">┌─┬┬────────┬─┐
 │0││        │2│
 ├─┼┼────────┼─┤
 │1││1       │3│
@@ -619,17 +741,17 @@
 ├─┼┼────────┼─┤
 │1││hello   │4│
 └─┴┴────────┴─┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Notice how we both got a matrix, and the <code class="docutils literal notranslate"><span class="pre">null</span></code> became <code class="docutils literal notranslate"><span class="pre">[Null]</span></code> (the text representation of <code class="docutils literal notranslate"><span class="pre">⎕NULL</span></code>) rather than an enclosed <code class="docutils literal notranslate"><span class="pre">'null'</span></code>. We can also use <code class="docutils literal notranslate"><span class="pre">⍠</span></code> twice:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Format&#39;</span> <span class="s1">&#39;M&#39;</span><span class="na">⍠</span><span class="s1">&#39;Null&#39;</span> <span class="nf">⎕NULL</span> <span class="o">⊢</span> <span class="s1">&#39;[1,null,&quot;hello&quot;]&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;Format&#39;</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="na">⍠</span><span class="s1">&#39;Null&#39;</span><span class="w"> </span><span class="nf">⎕NULL</span><span class="w"> </span><span class="o">⊢</span><span class="w"> </span><span class="s1">&#39;[1,null,&quot;hello&quot;]&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┬┬────────┬─┐
+<div class="output text_html"><pre class="language-APL">┌─┬┬────────┬─┐
 │0││        │2│
 ├─┼┼────────┼─┤
 │1││1       │3│
@@ -638,17 +760,17 @@
 ├─┼┼────────┼─┤
 │1││hello   │4│
 └─┴┴────────┴─┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>If we check the docs for <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code>, we’ll see that <code class="docutils literal notranslate"><span class="pre">'Format'</span></code> is the principal option, which means we can specify it as a scalar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;M&#39;</span><span class="na">⍠</span><span class="s1">&#39;Null&#39;</span> <span class="nf">⎕NULL</span> <span class="o">⊢</span> <span class="s1">&#39;[1,null,&quot;hello&quot;]&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕JSON</span><span class="na">⍠</span><span class="s1">&#39;M&#39;</span><span class="na">⍠</span><span class="s1">&#39;Null&#39;</span><span class="w"> </span><span class="nf">⎕NULL</span><span class="w"> </span><span class="o">⊢</span><span class="w"> </span><span class="s1">&#39;[1,null,&quot;hello&quot;]&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┬┬────────┬─┐
+<div class="output text_html"><pre class="language-APL">┌─┬┬────────┬─┐
 │0││        │2│
 ├─┼┼────────┼─┤
 │1││1       │3│
@@ -657,7 +779,7 @@
 ├─┼┼────────┼─┤
 │1││hello   │4│
 └─┴┴────────┴─┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>What happens if we set the same option twice with different values? The rightmost one takes precedence. There are two ways you can think of it, both leading to that same conclusion:</p>
 <ol class="simple">
@@ -667,124 +789,124 @@
 <p>Variant is also used with <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> and its sibling <code class="docutils literal notranslate"><span class="pre">⎕S</span></code>. If you’re not familiar with <code class="docutils literal notranslate"><span class="pre">⎕R</span></code>: Briefly, it is a dyadic operator, Replacing occurrences of its left operand with its right operand, in the right argument:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span> <span class="o">⊢</span> <span class="s1">&#39;mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span><span class="w"> </span><span class="o">⊢</span><span class="w"> </span><span class="s1">&#39;mississippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">miSSiSSippi
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">miSSiSSippi
+</pre></div></div>
 </div>
 <p>This replaces all lowercase s with uppercase S. Let’s say we only want to replace the first 2. We can set the Match Limit to 2. The option key to use for this is <code class="docutils literal notranslate"><span class="pre">'ML'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">2</span> <span class="o">⊢</span> <span class="s1">&#39;mississippi&#39;</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">2</span><span class="w"> </span><span class="o">⊢</span><span class="w"> </span><span class="s1">&#39;mississippi&#39;</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">miSSissippi
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">miSSissippi
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">⎕R</span></code> is an operator. It takes two operands, in our case ‘s’ and ‘S’, and derives a new function. It is this derived function that <code class="docutils literal notranslate"><span class="pre">⍠</span></code> needs to act upon by taking it as its left operand. So the order is <code class="docutils literal notranslate"><span class="pre">FunctionToBeModified</span> <span class="pre">⍠</span> <span class="pre">options</span> <span class="pre">⊢</span> <span class="pre">argument</span></code>. Alternatively, we can parenthesise: <code class="docutils literal notranslate"><span class="pre">(FunctionToBeModified</span> <span class="pre">⍠</span> <span class="pre">options)</span> <span class="pre">argument</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">2</span><span class="p">)</span> <span class="s1">&#39;mississippi&#39;</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;mississippi&#39;</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">miSSissippi
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">miSSissippi
+</pre></div></div>
 </div>
 <p>Naming a derived monadic operator:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">ReplaceWithS</span><span class="kd">←</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span>
-<span class="s1">&#39;s&#39;</span><span class="nv">ReplaceWithS</span> <span class="s1">&#39;mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">ReplaceWithS</span><span class="kd">←</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span><span class="w"></span>
+<span class="s1">&#39;s&#39;</span><span class="nv">ReplaceWithS</span><span class="w"> </span><span class="s1">&#39;mississippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">miSSiSSippi
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">miSSiSSippi
+</pre></div></div>
 </div>
 <p>This also means we can name the combination of <code class="docutils literal notranslate"><span class="pre">⍠</span></code> with one or more options.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">OnlyTwo</span><span class="kd">←</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">2</span>
-<span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span><span class="nv">OnlyTwo</span> <span class="s1">&#39;mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">OnlyTwo</span><span class="kd">←</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">2</span><span class="w"></span>
+<span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span><span class="nv">OnlyTwo</span><span class="w"> </span><span class="s1">&#39;mississippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">miSSissippi
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">miSSissippi
+</pre></div></div>
 </div>
 <p>We can even do both:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">ReplaceWithS</span><span class="kd">←</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span>
-<span class="nv">OnlyTwo</span><span class="kd">←</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">2</span>
-<span class="s1">&#39;s&#39;</span><span class="nv">ReplaceWithS</span> <span class="nv">OnlyTwo</span> <span class="s1">&#39;mississippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">ReplaceWithS</span><span class="kd">←</span><span class="nf">⎕R</span><span class="s1">&#39;S&#39;</span><span class="w"></span>
+<span class="nv">OnlyTwo</span><span class="kd">←</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">2</span><span class="w"></span>
+<span class="s1">&#39;s&#39;</span><span class="nv">ReplaceWithS</span><span class="w"> </span><span class="nv">OnlyTwo</span><span class="w"> </span><span class="s1">&#39;mississippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">miSSissippi
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">miSSissippi
+</pre></div></div>
 </div>
 <p>A really common thing with regexes is wanting case insensitivity. That is <code class="docutils literal notranslate"><span class="pre">'IC'1</span></code> (Ignore Case), but it is also the principal option:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;ss&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;__&#39;</span><span class="na">⍠</span><span class="m">1</span><span class="o">⊢</span><span class="s1">&#39;MISSissippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;ss&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;__&#39;</span><span class="na">⍠</span><span class="m">1</span><span class="o">⊢</span><span class="s1">&#39;MISSissippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">MI__i__ippi
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">MI__i__ippi
+</pre></div></div>
 </div>
 <p>But it only works if that is the only setting you’re changing. Though, you can always use <code class="docutils literal notranslate"><span class="pre">⍠</span></code> twice:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;_&#39;</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">3</span><span class="na">⍠</span><span class="m">1</span><span class="o">⊢</span><span class="s1">&#39;MISSissippi&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;s&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;_&#39;</span><span class="na">⍠</span><span class="s1">&#39;ML&#39;</span><span class="m">3</span><span class="na">⍠</span><span class="m">1</span><span class="o">⊢</span><span class="s1">&#39;MISSissippi&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">MI__i_sippi
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">MI__i_sippi
+</pre></div></div>
 </div>
 <p>Here is another example where we use <code class="docutils literal notranslate"><span class="pre">⍠</span></code> on <code class="docutils literal notranslate"><span class="pre">⎕R</span></code> to do something entirely unrelated to regular expressions. Sometimes, your input can be of various forms and you need to normalise it. Say you get some text, but it could be a character scalar, a character vector, a vector of character vectors, an enclosed character vector, or even a character vector with literal newlines. So we want to normalise all of these to become a vector of character vectors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">VecOfVecs</span><span class="kd">←</span><span class="s1">&#39;&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;&#39;</span><span class="na">⍠</span><span class="s1">&#39;ResultText&#39;</span> <span class="s1">&#39;Nested&#39;</span>
-<span class="nv">VecOfVecs</span> <span class="s1">&#39;a&#39;</span>
-<span class="nv">VecOfVecs</span> <span class="s1">&#39;abc&#39;</span>
-<span class="nv">VecOfVecs</span> <span class="s1">&#39;abc&#39;</span> <span class="s1">&#39;def&#39;</span>
-<span class="nv">VecOfVecs</span> <span class="o">⊂</span><span class="s1">&#39;abc&#39;</span>
-<span class="nv">VecOfVecs</span> <span class="s1">&#39;abc&#39;</span><span class="o">,</span><span class="p">(</span><span class="nf">⎕UCS</span> <span class="m">10</span><span class="p">)</span><span class="o">,</span><span class="s1">&#39;def&#39;</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">VecOfVecs</span><span class="kd">←</span><span class="s1">&#39;&#39;</span><span class="nf">⎕R</span><span class="s1">&#39;&#39;</span><span class="na">⍠</span><span class="s1">&#39;ResultText&#39;</span><span class="w"> </span><span class="s1">&#39;Nested&#39;</span><span class="w"></span>
+<span class="nv">VecOfVecs</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"></span>
+<span class="nv">VecOfVecs</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="w"></span>
+<span class="nv">VecOfVecs</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="w"> </span><span class="s1">&#39;def&#39;</span><span class="w"></span>
+<span class="nv">VecOfVecs</span><span class="w"> </span><span class="o">⊂</span><span class="s1">&#39;abc&#39;</span><span class="w"></span>
+<span class="nv">VecOfVecs</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span><span class="o">,</span><span class="p">(</span><span class="nf">⎕UCS</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="o">,</span><span class="s1">&#39;def&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌─┐
+<div class="output text_html"><pre class="language-APL">┌─┐
 │a│
 └─┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌───┐
 │abc│
 └───┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌───┬───┐
 │abc│def│
 └───┴───┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌───┐
 │abc│
 └───┘
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">┌───┬───┐
+</pre></div><div class="output text_html"><pre class="language-APL">┌───┬───┐
 │abc│def│
 └───┴───┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Note that Dyalog often adds additional options to existing system functions based on customer demand. Case in point, in version 18.0, options were added to <code class="docutils literal notranslate"><span class="pre">⎕JSON</span></code> to automatically split high-rank arrays so they can be represented as JSON, and an option to process and generate JSON5. And for <code class="docutils literal notranslate"><span class="pre">⎕R</span></code>/<code class="docutils literal notranslate"><span class="pre">⎕S</span></code>, options to turn regexes off so you can do literal replacements without worrying about having to escape characters that have special meaning in PCRE.</p>
 <p>One more usage of <code class="docutils literal notranslate"><span class="pre">⍠</span></code> that isn’t really related to this, and we can’t demonstate it easily here, either. When using external .NET methods, APL will coerce its arrays into an appropriate type for the called method. However, .NET methods can be overloaded (different code depending on the type of the argument), and then APL can’t know which one you want. You can use <code class="docutils literal notranslate"><span class="pre">⍠</span></code> with the method and the option <code class="docutils literal notranslate"><span class="pre">'OverloadTypes'</span></code> to choose. The value has to be a .NET data type, e.g. <code class="docutils literal notranslate"><span class="pre">Double</span></code> or <code class="docutils literal notranslate"><span class="pre">Int32</span></code>. This option is the principal option too, so the calling can be done simply with <code class="docutils literal notranslate"><span class="pre">MyDotNetMethod⍠Double</span> <span class="pre">⊢</span> <span class="pre">argument</span></code>. If the method takes multiple arguments, you can specify a vector of types: <code class="docutils literal notranslate"><span class="pre">MyDotNetMethod⍠(⊂Double</span> <span class="pre">Int32)</span> <span class="pre">⊢</span> <span class="pre">argument</span></code></p>
@@ -793,7 +915,7 @@
 <li><p>The types are not quoted names, they are scalar references to the .NET types.
 1. When specifying a vector of types, it must be enclosed, as the principal option must be a scalar.</p></li>
 </ol>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -817,9 +939,11 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Encode.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -835,32 +959,34 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

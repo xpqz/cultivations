@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>+-×÷*⍟⌹○ &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -64,7 +65,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +88,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +109,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -424,6 +441,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -436,90 +458,191 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Functions1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FFunctions1.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FFunctions1.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Functions1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#arithmetic">
    Arithmetic
@@ -592,62 +715,150 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>+-×÷*⍟⌹○</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arithmetic">
+   Arithmetic
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     +-×÷
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reciprocal-a">
+   Reciprocal
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ÷A
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#direction-a">
+   Direction
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ×A
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#power">
+   Power
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     *
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#log">
+   Log
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⍟
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix-divide">
+   Matrix divide
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ⌹
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#circular">
+   Circular
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ○
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><code class="docutils literal notranslate"><span class="pre">+-×÷*⍟⌹○</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="arithmetic">
-<h2>Arithmetic <code class="docutils literal notranslate"><span class="pre">+-×÷</span></code><a class="headerlink" href="#arithmetic" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><code class="docutils literal notranslate"><span class="pre">+-×÷*⍟⌹○</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="arithmetic">
+<h2>Arithmetic <code class="docutils literal notranslate"><span class="pre">+-×÷</span></code><a class="headerlink" href="#arithmetic" title="Permalink to this headline">#</a></h2>
 <p>Dyadic <code class="docutils literal notranslate"><span class="pre">+-×÷</span></code> are what you expect from mathematics:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="o">+</span><span class="m">8</span>
-<span class="m">4</span><span class="o">×</span><span class="m">12</span>
-<span class="m">144</span><span class="o">×</span><span class="m">11</span>
-<span class="m">3</span><span class="o">-</span><span class="m">7</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="o">+</span><span class="m">8</span><span class="w"></span>
+<span class="m">4</span><span class="o">×</span><span class="m">12</span><span class="w"></span>
+<span class="m">144</span><span class="o">×</span><span class="m">11</span><span class="w"></span>
+<span class="m">3</span><span class="o">-</span><span class="m">7</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">11
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">48
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1584
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">¯4
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">11
+</pre></div><div class="output text_html"><pre class="language-APL">48
+</pre></div><div class="output text_html"><pre class="language-APL">1584
+</pre></div><div class="output text_html"><pre class="language-APL">¯4
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">0÷0</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code> by default, but you can make all <code class="docutils literal notranslate"><span class="pre">n÷0</span></code> into <code class="docutils literal notranslate"><span class="pre">0</span></code> by setting <code class="docutils literal notranslate"><span class="pre">⎕DIV←1</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="o">÷</span><span class="m">0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="o">÷</span><span class="m">0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1
+</pre></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕DIV</span><span class="kd">←</span><span class="m">1</span>
-<span class="m">0</span><span class="o">÷</span><span class="m">0</span>
-<span class="nf">⎕DIV</span><span class="kd">←</span><span class="m">0</span>       <span class="c1">⍝ default setting</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕DIV</span><span class="kd">←</span><span class="m">1</span><span class="w"></span>
+<span class="m">0</span><span class="o">÷</span><span class="m">0</span><span class="w"></span>
+<span class="nf">⎕DIV</span><span class="kd">←</span><span class="m">0</span><span class="w">       </span><span class="c1">⍝ default setting</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="reciprocal-a">
-<h2>Reciprocal <code class="docutils literal notranslate"><span class="pre">÷A</span></code><a class="headerlink" href="#reciprocal-a" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="reciprocal-a">
+<h2>Reciprocal <code class="docutils literal notranslate"><span class="pre">÷A</span></code><a class="headerlink" href="#reciprocal-a" title="Permalink to this headline">#</a></h2>
 <p>Question:</p>
 <blockquote>
 <div><p>How can we make 0÷0 throw an error?</p>
@@ -655,7 +866,7 @@
 <p>Multiply with the reciprocal:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="o">×÷</span><span class="m">0</span>        <span class="c1">⍝ DOMAIN ERROR: Divide by zero </span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="o">×÷</span><span class="m">0</span><span class="w">        </span><span class="c1">⍝ DOMAIN ERROR: Divide by zero </span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -668,103 +879,103 @@
 </div>
 </div>
 <p>Monadic <code class="docutils literal notranslate"><span class="pre">÷</span></code> is the <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Reciprocal.htm">reciprocal</a>, i.e. <code class="docutils literal notranslate"><span class="pre">÷x</span></code> is <code class="docutils literal notranslate"><span class="pre">1÷x</span></code>.</p>
-</div>
-<div class="section" id="direction-a">
-<h2>Direction <code class="docutils literal notranslate"><span class="pre">×A</span></code><a class="headerlink" href="#direction-a" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="direction-a">
+<h2>Direction <code class="docutils literal notranslate"><span class="pre">×A</span></code><a class="headerlink" href="#direction-a" title="Permalink to this headline">#</a></h2>
 <p>Monadic <code class="docutils literal notranslate"><span class="pre">×</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Direction.htm">direction</a>, i.e. a complex number which has magnitude 1 but same angle as the argument. For real numbers this means <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Direction.htm">signum</a> (sign).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">÷</span><span class="m">5</span>          <span class="c1">⍝ reciprocal: 1÷5</span>
-<span class="o">×</span><span class="m">12</span> <span class="m">¯33</span> <span class="m">0</span>   <span class="c1">⍝ signum</span>
-<span class="o">×</span><span class="m">32j¯24</span>     <span class="c1">⍝ direction</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">÷</span><span class="m">5</span><span class="w">          </span><span class="c1">⍝ reciprocal: 1÷5</span><span class="w"></span>
+<span class="o">×</span><span class="m">12</span><span class="w"> </span><span class="m">¯33</span><span class="w"> </span><span class="m">0</span><span class="w">   </span><span class="c1">⍝ signum</span><span class="w"></span>
+<span class="o">×</span><span class="m">32j¯24</span><span class="w">     </span><span class="c1">⍝ direction</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0.2
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">1 ¯1 0
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0.8J¯0.6
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0.2
+</pre></div><div class="output text_html"><pre class="language-APL">1 ¯1 0
+</pre></div><div class="output text_html"><pre class="language-APL">0.8J¯0.6
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="power">
-<h2>Power <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="power">
+<h2>Power <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#power" title="Permalink to this headline">#</a></h2>
 <p>Dyadic <code class="docutils literal notranslate"><span class="pre">*</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Power.htm">power</a>, and the default left argument (i.e. for the monadic form) is e. So, monadic <code class="docutils literal notranslate"><span class="pre">*</span></code> is e-to-the-power-of.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="o">*</span><span class="m">10</span>        <span class="c1">⍝ ⍺ to the power of ⍵</span>
-<span class="o">*</span><span class="m">1</span>          <span class="c1">⍝ e to the power of ⍵</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="o">*</span><span class="m">10</span><span class="w">        </span><span class="c1">⍝ ⍺ to the power of ⍵</span><span class="w"></span>
+<span class="o">*</span><span class="m">1</span><span class="w">          </span><span class="c1">⍝ e to the power of ⍵</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1024
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">2.71828
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1024
+</pre></div><div class="output text_html"><pre class="language-APL">2.718281828
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="log">
-<h2>Log <code class="docutils literal notranslate"><span class="pre">⍟</span></code><a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="log">
+<h2>Log <code class="docutils literal notranslate"><span class="pre">⍟</span></code><a class="headerlink" href="#log" title="Permalink to this headline">#</a></h2>
 <p>The inverse of <code class="docutils literal notranslate"><span class="pre">*</span></code> is <code class="docutils literal notranslate"><span class="pre">⍟</span></code>; <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Logarithm.htm">logarithm</a>. The monadic form is the natural logarithm and the dyadic is left-arg logarithm, so <code class="docutils literal notranslate"><span class="pre">10⍟n</span></code> is <code class="docutils literal notranslate"><span class="pre">log(n)</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">10</span><span class="o">⍟</span><span class="m">10000000</span>   <span class="c1">⍝ log(10000000)</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">10</span><span class="o">⍟</span><span class="m">10000000</span><span class="w">   </span><span class="c1">⍝ log(10000000)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">7
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">7
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="matrix-divide">
-<h2>Matrix divide <code class="docutils literal notranslate"><span class="pre">⌹</span></code><a class="headerlink" href="#matrix-divide" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="matrix-divide">
+<h2>Matrix divide <code class="docutils literal notranslate"><span class="pre">⌹</span></code><a class="headerlink" href="#matrix-divide" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">⌹</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Matrix%20Divide.htm">matrix division</a>. Give it a coefficients’ matrix on the right and it will invert the matrix. If you also put a vector on the left and it will solve your system of equations. If over-determined, it will give you the least squares fit.</p>
 <p>For example, in order to solve the following set of simultaneous equations,</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{lcl} 3x + 2y &amp; = &amp; 13 \\ x - y &amp; = &amp; 1 \end{array}\)</span></p>
 <p>we can use <code class="docutils literal notranslate"><span class="pre">⌹</span></code> like so:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">13</span> <span class="m">1</span> <span class="o">⌹</span> <span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="m">3</span> <span class="m">2</span> <span class="m">1</span> <span class="m">¯1</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">13</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">⌹</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="o">⍴</span><span class="m">3</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">¯1</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">3 2
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">3 2
+</pre></div></div>
 </div>
-</div>
-<div class="section" id="circular">
-<h2>Circular <code class="docutils literal notranslate"><span class="pre">○</span></code><a class="headerlink" href="#circular" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="circular">
+<h2>Circular <code class="docutils literal notranslate"><span class="pre">○</span></code><a class="headerlink" href="#circular" title="Permalink to this headline">#</a></h2>
 <p>Monadic <code class="docutils literal notranslate"><span class="pre">○</span></code> <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Pi%20Times.htm">multiplies by π</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">○</span><span class="m">2</span>          <span class="c1">⍝ 2 times π</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">○</span><span class="m">2</span><span class="w">          </span><span class="c1">⍝ 2 times π</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">6.28319
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">6.283185307
+</pre></div></div>
 </div>
 <p>Dyadic <code class="docutils literal notranslate"><span class="pre">○</span></code> is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Circular.htm">circular</a>. It uses an integer left argument to select which trigonometric function to apply. The most common ones are 1, 2 and 3, which are <em>sin</em>, <em>cos</em> and <em>tan</em>. The negative versions <code class="docutils literal notranslate"><span class="pre">¯1</span></code>, <code class="docutils literal notranslate"><span class="pre">¯2</span></code> and <code class="docutils literal notranslate"><span class="pre">¯3</span></code> are <em>arcsin</em>, <em>arccos</em> and <em>arctan</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">○○</span><span class="m">1</span>        <span class="c1">⍝ sin π</span>
-<span class="m">2</span><span class="o">○○</span><span class="m">1</span>        <span class="c1">⍝ cos π</span>
-<span class="m">¯2</span><span class="o">○</span><span class="m">2</span><span class="o">○○</span><span class="m">1</span>     <span class="c1">⍝ arccos cos π</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">○○</span><span class="m">1</span><span class="w">        </span><span class="c1">⍝ sin π</span><span class="w"></span>
+<span class="m">2</span><span class="o">○○</span><span class="m">1</span><span class="w">        </span><span class="c1">⍝ cos π</span><span class="w"></span>
+<span class="m">¯2</span><span class="o">○</span><span class="m">2</span><span class="o">○○</span><span class="m">1</span><span class="w">     </span><span class="c1">⍝ arccos cos π</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1.22465E¯16
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">¯1
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">3.14159
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1.224646799E¯16
+</pre></div><div class="output text_html"><pre class="language-APL">¯1
+</pre></div><div class="output text_html"><pre class="language-APL">3.141592654
+</pre></div></div>
 </div>
 <p>The entire list of <code class="docutils literal notranslate"><span class="pre">○</span></code>’s left arguments is <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Circular.htm">here</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -788,9 +999,11 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Functions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -806,32 +1019,34 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

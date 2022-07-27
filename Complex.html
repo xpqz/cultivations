@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Complex numbers &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -62,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -422,6 +439,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -434,12 +456,17 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -447,273 +474,368 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Complex.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FComplex.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Complex.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FComplex.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
 </div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        </div>
     </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Complex numbers</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="complex-numbers">
-<h1>Complex numbers<a class="headerlink" href="#complex-numbers" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="complex-numbers">
+<h1>Complex numbers<a class="headerlink" href="#complex-numbers" title="Permalink to this headline">#</a></h1>
 <p>Instead of <code class="docutils literal notranslate"><span class="pre">a+bi</span></code> or <code class="docutils literal notranslate"><span class="pre">a+b×i</span></code>, APL uses <code class="docutils literal notranslate"><span class="pre">aJb</span></code> for scalar atomic complex numbers. In other words, <code class="docutils literal notranslate"><span class="pre">3+4i</span></code> is <code class="docutils literal notranslate"><span class="pre">3J4</span></code> and <em>i</em> is <code class="docutils literal notranslate"><span class="pre">0J1</span></code>. The arithmetic functions support complex mathematics where sensible. Of special interest are monadic <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">|</span></code> and the circular functions <code class="docutils literal notranslate"><span class="pre">k○Y</span></code>. Monadic <code class="docutils literal notranslate"><span class="pre">+</span></code> is the complex conjugate, that is, <code class="docutils literal notranslate"><span class="pre">a+bi</span> <span class="pre">→</span> <span class="pre">a-bi</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2J4</span><span class="o">*</span><span class="m">0.5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2J4</span><span class="o">*</span><span class="m">0.5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1.79891J1.11179
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1.79890744J1.111785941
+</pre></div></div>
 </div>
 <p>We can combine a real and imaginary parts with <code class="docutils literal notranslate"><span class="pre">re+0J1×im</span></code> but since the complex numbers are atomic (simple scalars) we need a way to split them. For this we have <code class="docutils literal notranslate"><span class="pre">9○Y</span></code> and <code class="docutils literal notranslate"><span class="pre">11○Y</span></code> which would be <code class="docutils literal notranslate"><span class="pre">Re(Y)</span></code> and <code class="docutils literal notranslate"><span class="pre">Im(Y)</span></code> in traditional notation. You might think it odd that we have numbered functions (like the trigonometric functions; sine and cosine are <code class="docutils literal notranslate"><span class="pre">1○Y</span></code> and <code class="docutils literal notranslate"><span class="pre">2○Y</span></code>) but it can actually be really neat because <code class="docutils literal notranslate"><span class="pre">○</span></code> is a scalar function.</p>
 <p>Let’s say we have a vector of complex numbers <code class="docutils literal notranslate"><span class="pre">Nv←2J3</span> <span class="pre">0J1</span> <span class="pre">10</span></code> then how might we get a 2-row matrix with one row for the real parts and one row for the complex part?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Nv</span><span class="kd">←</span><span class="m">2J3</span> <span class="m">0J1</span> <span class="m">10</span>
-<span class="m">9</span> <span class="m">11</span><span class="na">∘.</span><span class="o">○</span><span class="nv">Nv</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Nv</span><span class="kd">←</span><span class="m">2J3</span><span class="w"> </span><span class="m">0J1</span><span class="w"> </span><span class="m">10</span><span class="w"></span>
+<span class="m">9</span><span class="w"> </span><span class="m">11</span><span class="na">∘.</span><span class="o">○</span><span class="nv">Nv</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2 0 10
+<div class="output text_html"><pre class="language-APL">2 0 10
 3 1  0
-</span></div></div>
+</pre></div></div>
 </div>
 <p>Now, if we have an array <code class="docutils literal notranslate"><span class="pre">N←2</span> <span class="pre">2⍴2J3</span> <span class="pre">0J1</span> <span class="pre">10</span> <span class="pre">0</span></code> and want a two-element vector where each element has the same shape as <code class="docutils literal notranslate"><span class="pre">N</span></code> but the first has the real parts and the second the imaginary parts?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">N</span><span class="kd">←</span><span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="m">2J3</span> <span class="m">0J1</span> <span class="m">10</span> <span class="m">0</span>
-<span class="m">9</span> <span class="m">11</span><span class="o">○⊂</span><span class="nv">N</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">N</span><span class="kd">←</span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="o">⍴</span><span class="m">2J3</span><span class="w"> </span><span class="m">0J1</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">0</span><span class="w"></span>
+<span class="m">9</span><span class="w"> </span><span class="m">11</span><span class="o">○⊂</span><span class="nv">N</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────┬───┐
+<div class="output text_html"><pre class="language-APL">┌────┬───┐
 │ 2 0│3 1│
 │10 0│0 0│
 └────┴───┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>The solution can be either a tacit function <code class="docutils literal notranslate"><span class="pre">(9</span> <span class="pre">11○⊂)N</span></code> or the expression <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">11○⊂N</span></code> though the outcome is equivalent. First we enclose <code class="docutils literal notranslate"><span class="pre">N</span></code> which makes it a scalar. Then we pair that scalar with a vector <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">11</span></code> as arguments to a scalar function, <code class="docutils literal notranslate"><span class="pre">○</span></code>. This makes APL do a scalar extension: <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">11○(⍴9</span> <span class="pre">11)⍴⊂N</span></code> or <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">11○N</span> <span class="pre">N</span></code> or <code class="docutils literal notranslate"><span class="pre">(9○N)(11○N)</span></code>.</p>
 <p>Now, if you’re familiar with the trigonometric functions, you’ll know that negating the left argument of <code class="docutils literal notranslate"><span class="pre">○</span></code> gives you the inverse function. For example, <code class="docutils literal notranslate"><span class="pre">sin</span></code> is <code class="docutils literal notranslate"><span class="pre">1○Y</span></code> and <code class="docutils literal notranslate"><span class="pre">arcsin</span></code> is <code class="docutils literal notranslate"><span class="pre">¯1○Y</span></code>. So <code class="docutils literal notranslate"><span class="pre">11○Y</span></code> extracts the imaginary part into a real number. <code class="docutils literal notranslate"><span class="pre">¯11○Y</span></code> will “put back” a real number into its imaginary place:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯11</span><span class="o">○</span><span class="m">3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">¯11</span><span class="o">○</span><span class="m">3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0J3
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0J3
+</pre></div></div>
 </div>
 <p>Of course, it can’t restore the real part, as that was discarded. So… given our 2-element real-and-complex vector from above, how can we reconstitute our original <code class="docutils literal notranslate"><span class="pre">N</span></code>? In other words, how can we convert <code class="docutils literal notranslate"><span class="pre">(2</span> <span class="pre">0)(3</span> <span class="pre">1)</span></code> back to <code class="docutils literal notranslate"><span class="pre">2J3</span> <span class="pre">0J1</span></code>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⊃+</span><span class="na">/</span><span class="m">¯9</span> <span class="m">¯11</span><span class="o">○</span><span class="p">(</span><span class="m">2</span> <span class="m">0</span><span class="p">)(</span><span class="m">3</span> <span class="m">1</span><span class="p">)</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">⊃+</span><span class="na">/</span><span class="m">¯9</span><span class="w"> </span><span class="m">¯11</span><span class="o">○</span><span class="p">(</span><span class="m">2</span><span class="w"> </span><span class="m">0</span><span class="p">)(</span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">2J3 0J1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">2J3 0J1
+</pre></div></div>
 </div>
 <p>If the argument is a matrix, we can use</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">N</span><span class="kd">←</span><span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="m">2J3</span> <span class="m">0J1</span> <span class="m">10</span> <span class="m">0</span>
-<span class="nv">m</span><span class="kd">←</span><span class="m">9</span> <span class="m">11</span><span class="o">○⊂</span><span class="nv">N</span>
-<span class="o">⊃</span><span class="m">¯9</span> <span class="m">¯11</span><span class="o">+</span><span class="na">.</span><span class="o">○</span><span class="m">9</span> <span class="m">11</span><span class="o">○⊂</span><span class="nv">m</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">N</span><span class="kd">←</span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="o">⍴</span><span class="m">2J3</span><span class="w"> </span><span class="m">0J1</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">0</span><span class="w"></span>
+<span class="nv">m</span><span class="kd">←</span><span class="m">9</span><span class="w"> </span><span class="m">11</span><span class="o">○⊂</span><span class="nv">N</span><span class="w"></span>
+<span class="o">⊃</span><span class="m">¯9</span><span class="w"> </span><span class="m">¯11</span><span class="o">+</span><span class="na">.</span><span class="o">○</span><span class="m">9</span><span class="w"> </span><span class="m">11</span><span class="o">○⊂</span><span class="nv">m</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">┌────┬───┐
+<div class="output text_html"><pre class="language-APL">┌────┬───┐
 │ 2 0│3 1│
 │10 0│0 0│
 └────┴───┘
-</span></div></div>
+</pre></div></div>
 </div>
 <p>If you deal with complex numbers a lot, you might want to define <code class="docutils literal notranslate"><span class="pre">J←{⍺+0j1×⍵}</span></code> which will then allow you to write <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">J</span> <span class="pre">b</span></code> to form <code class="docutils literal notranslate"><span class="pre">aJb</span></code>, and so <code class="docutils literal notranslate"><span class="pre">⊃J/vec</span></code> for this challenge.</p>
 <p>Complex numbers are not just for hard-core mathematicians. Sometimes they are convenient to use as simple scalar 2D coordinates, where the real part represents offset along one axis, and the imaginary part along the other. One benefit in doing so is that some formulas become vastly simpler with this representation. Let’s say we have two points in 2D space, <code class="docutils literal notranslate"><span class="pre">(a,b)</span></code> and <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code>, and we want to compute the distance between them. The traditional approach is something like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">)</span><span class="kd">←</span><span class="m">4</span> <span class="m">6</span> <span class="m">1</span> <span class="m">2</span>
-<span class="m">0.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">+</span><span class="na">/</span><span class="m">2</span><span class="o">*</span><span class="na">⍨</span><span class="nv">a</span> <span class="nv">b</span><span class="o">-</span><span class="nv">x</span> <span class="nv">y</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span><span class="kd">←</span><span class="m">4</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"></span>
+<span class="m">0.5</span><span class="o">*</span><span class="na">⍨</span><span class="o">+</span><span class="na">/</span><span class="m">2</span><span class="o">*</span><span class="na">⍨</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="o">-</span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">5
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">5
+</pre></div></div>
 </div>
 <p>Let’s rewrite it given <code class="docutils literal notranslate"><span class="pre">(u</span> <span class="pre">v)←4j6</span> <span class="pre">1j2</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">u</span> <span class="nv">v</span><span class="p">)</span><span class="kd">←</span><span class="m">4j6</span> <span class="m">1j2</span>
-<span class="o">|</span><span class="nv">u</span><span class="o">-</span><span class="nv">v</span> 
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">u</span><span class="w"> </span><span class="nv">v</span><span class="p">)</span><span class="kd">←</span><span class="m">4j6</span><span class="w"> </span><span class="m">1j2</span><span class="w"></span>
+<span class="o">|</span><span class="nv">u</span><span class="o">-</span><span class="nv">v</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">5
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">5
+</pre></div></div>
 </div>
 <p>This lends itself nicely to a 2-train:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Dist</span><span class="kd">←</span><span class="o">|-</span>
-<span class="nv">u</span> <span class="nv">Dist</span> <span class="nv">v</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">Dist</span><span class="kd">←</span><span class="o">|-</span><span class="w"></span>
+<span class="nv">u</span><span class="w"> </span><span class="nv">Dist</span><span class="w"> </span><span class="nv">v</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">5
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">5
+</pre></div></div>
 </div>
 <p>Now imagine you need to represent some vectors in 2D space. <code class="docutils literal notranslate"><span class="pre">3j3</span></code> would point north-east. We can now rotate the pointer 90 degrees counter-clockwise, with <code class="docutils literal notranslate"><span class="pre">0j1×3j3</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0J1</span><span class="o">×</span><span class="m">3J3</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">0J1</span><span class="o">×</span><span class="m">3J3</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯3J3
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯3J3
+</pre></div></div>
 </div>
 <p>Now it points north-west instead. Using <code class="docutils literal notranslate"><span class="pre">0J¯1×</span></code> will rotate clockwise instead. Also, multiplication by <code class="docutils literal notranslate"><span class="pre">¯1</span></code> (which is <code class="docutils literal notranslate"><span class="pre">0J1*2</span></code>) and so rotation by 180 degrees, giving us the oppositely pointed vector, and further multiplication by <code class="docutils literal notranslate"><span class="pre">0J1</span></code> (i.e. to <code class="docutils literal notranslate"><span class="pre">0J1*3</span></code>) is 270 degrees. This means we can get the four corners with <code class="docutils literal notranslate"><span class="pre">3j3×0j1*⍳4</span></code>. Similarly, we can get the four cardinal directions with <code class="docutils literal notranslate"><span class="pre">3J0×0J1*⍳4</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3J3</span><span class="o">×</span><span class="m">0J1</span><span class="o">*⍳</span><span class="m">4</span>
-<span class="m">3</span><span class="o">×</span><span class="m">0J1</span><span class="o">*⍳</span><span class="m">4</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">3J3</span><span class="o">×</span><span class="m">0J1</span><span class="o">*⍳</span><span class="m">4</span><span class="w"></span>
+<span class="m">3</span><span class="o">×</span><span class="m">0J1</span><span class="o">*⍳</span><span class="m">4</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">¯3J3 ¯3J¯3 3J¯3 3J3
-</span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">0J3 ¯3 0J¯3 3
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">¯3J3 ¯3J¯3 3J¯3 3J3
+</pre></div><div class="output text_html"><pre class="language-APL">0J3 ¯3 0J¯3 3
+</pre></div></div>
 </div>
 <p>Some more cheatsheet about vectors: <code class="docutils literal notranslate"><span class="pre">+v</span></code> is reflection by x-axis, <code class="docutils literal notranslate"><span class="pre">+-v</span></code> is by y-axis, <code class="docutils literal notranslate"><span class="pre">|v</span></code> is length, <code class="docutils literal notranslate"><span class="pre">×v</span></code> is unit vector in that direction, <code class="docutils literal notranslate"><span class="pre">k××v</span></code> is vector of length <code class="docutils literal notranslate"><span class="pre">k</span></code> in that direction. If you want to scale vector <code class="docutils literal notranslate"><span class="pre">v</span></code> with scaling factor <code class="docutils literal notranslate"><span class="pre">k</span></code>, do <code class="docutils literal notranslate"><span class="pre">k×v</span></code>, and to rotate vector <code class="docutils literal notranslate"><span class="pre">v</span></code> by the angle of vector <code class="docutils literal notranslate"><span class="pre">w</span></code>, do <code class="docutils literal notranslate"><span class="pre">v××w</span></code>.</p>
 <p>You can represent a number of “moves” in 2D space as complex vectors, say <code class="docutils literal notranslate"><span class="pre">moves←1j2</span> <span class="pre">0j3</span> <span class="pre">¯1j0</span></code>. This means move 1 right and 2 up, then 3 right, then 1 down. Given such a moves sequence, where do we end up?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">moves</span><span class="kd">←</span><span class="m">1j2</span> <span class="m">0j3</span> <span class="m">¯1j0</span>
-<span class="o">+</span><span class="na">/</span><span class="nv">moves</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">moves</span><span class="kd">←</span><span class="m">1j2</span><span class="w"> </span><span class="m">0j3</span><span class="w"> </span><span class="m">¯1j0</span><span class="w"></span>
+<span class="o">+</span><span class="na">/</span><span class="nv">moves</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0J5
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0J5
+</pre></div></div>
 </div>
 <p>What points did we pass through?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">\</span><span class="nv">moves</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">\</span><span class="nv">moves</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1J2 1J5 0J5
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1J2 1J5 0J5
+</pre></div></div>
 </div>
 <p>Although we may want to say</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">\</span><span class="m">0</span><span class="o">,</span><span class="nv">moves</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="na">\</span><span class="m">0</span><span class="o">,</span><span class="nv">moves</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">0 1J2 1J5 0J5
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">0 1J2 1J5 0J5
+</pre></div></div>
 </div>
 <p>to include the origin.</p>
 <p>Conversely, given a set of points, what is the corresponding moves sequence?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="o">-</span><span class="na">⍨/</span><span class="m">0</span> <span class="m">1J2</span> <span class="m">1J5</span> <span class="m">0J5</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="o">-</span><span class="na">⍨/</span><span class="m">0</span><span class="w"> </span><span class="m">1J2</span><span class="w"> </span><span class="m">1J5</span><span class="w"> </span><span class="m">0J5</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><span style="white-space:pre; font-family: monospace">1J2 0J3 ¯1
-</span></div></div>
+<div class="output text_html"><pre class="language-APL">1J2 0J3 ¯1
+</pre></div></div>
 </div>
 <p>Sometimes, it is convenient to deal with the angle (upwards from due east) and magnitude (pointer length) instead of the “coordinates”. We can already get the magnitude (absolute value) with <code class="docutils literal notranslate"><span class="pre">|Y</span></code> but the angle (or phase) is <code class="docutils literal notranslate"><span class="pre">12○Y</span></code>. Side note: the <code class="docutils literal notranslate"><span class="pre">12○Y</span></code> is the one called <code class="docutils literal notranslate"><span class="pre">atan2()</span></code> in other languages. Remember how convenient it was to use the scalar <code class="docutils literal notranslate"><span class="pre">○</span></code> function with a 2-element left argument <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">11</span></code>. For that same reason, <code class="docutils literal notranslate"><span class="pre">|Y</span></code> exists as <code class="docutils literal notranslate"><span class="pre">○</span></code> argument, which is 10 of course. So <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">12○Y</span></code> gives you the magnitude and phase. Of course, we can use <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">12∘.○Y</span></code> and <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">12○⊂Y</span></code> like before.</p>
 <p>How about the other way, if we have an angle and magnitude and want to combine them into a single complex number?
 Remember how we used <code class="docutils literal notranslate"><span class="pre">{⍺+¯11○⍵}</span></code> before. This is then <code class="docutils literal notranslate"><span class="pre">{⍺×¯12○⍵}</span></code> (or, if you prefer, <code class="docutils literal notranslate"><span class="pre">¯10</span> <span class="pre">¯12×.○Y</span></code>).</p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -737,9 +859,11 @@ Remember how we used <code class="docutils literal notranslate"><span class="pre
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="AdvancedOO.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -755,32 +879,34 @@ Remember how we used <code class="docutils literal notranslate"><span class="pre
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

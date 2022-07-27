@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Properties &#8212; APL Cultivations</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -62,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Intro.html">
-   APL Cultivations
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    APL Cultivations
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Arrays.html">
    Introduction to arrays
@@ -422,6 +439,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ArrayProgramming.html">
+   Array programming techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="FunctionApplication.html">
    Function application
   </a>
@@ -434,90 +456,191 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Properties.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xpqz/cultivations"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FProperties.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xpqz/cultivations"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xpqz/cultivations/issues/new?title=Issue%20on%20page%20%2FProperties.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Properties.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#get-and-set">
    Get and Set
@@ -550,46 +673,94 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Properties</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-and-set">
+   Get and Set
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-properties-and-default">
+   Multiple properties and Default
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generic-properties">
+   Generic properties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#display-form">
+   Display form
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overtaking-objects">
+   Overtaking objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-properties">
+   Advanced properties
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="properties">
-<h1>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="properties">
+<h1>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">#</a></h1>
 <p>So far, classes have acted pretty much like restricted namespaces. Properties act much like fields/variables, but allow us to take special action when they are set or used.</p>
-<div class="section" id="get-and-set">
-<h2>Get and Set<a class="headerlink" href="#get-and-set" title="Permalink to this headline">¶</a></h2>
+<section id="get-and-set">
+<h2>Get and Set<a class="headerlink" href="#get-and-set" title="Permalink to this headline">#</a></h2>
 <p>Have a look at this code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
-<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">Class</span><span class="w"> </span><span class="nv">Person</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">Field</span> <span class="nv">public</span> <span class="nv">name</span><span class="kd">←</span><span class="s1">&#39;-&#39;</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Field</span><span class="w"> </span><span class="nv">public</span><span class="w"> </span><span class="nv">name</span><span class="kd">←</span><span class="s1">&#39;-&#39;</span><span class="w"></span>
 
-    <span class="nv">Upper</span><span class="kd">←</span><span class="m">1</span><span class="na">∘</span><span class="nf">⎕C</span>
-    <span class="nv">Lower</span><span class="kd">←</span><span class="nf">⎕C</span>
+<span class="w">    </span><span class="nv">Upper</span><span class="kd">←</span><span class="m">1</span><span class="na">∘</span><span class="nf">⎕C</span><span class="w"></span>
+<span class="w">    </span><span class="nv">Lower</span><span class="kd">←</span><span class="nf">⎕C</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">Name</span>
-    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
-        <span class="bp">∇</span> <span class="nv">text</span><span class="kd">←</span><span class="nv">Get</span>
-          <span class="bp">:</span><span class="nv">If</span> <span class="s1">&#39;-&#39;</span><span class="o">≡</span><span class="nv">name</span>
-              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;I don&#39;&#39;t have a name!&#39;</span>
-          <span class="bp">:</span><span class="nv">Else</span>
-              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;Hi, my name is &#39;</span><span class="o">,</span><span class="nv">name</span><span class="o">,</span><span class="s1">&#39;!&#39;</span>
-          <span class="bp">:</span><span class="nv">EndIf</span>
-        <span class="bp">∇</span>
-        <span class="bp">∇</span> <span class="nv">Set</span> <span class="nv">text</span>
-          <span class="nv">name</span><span class="kd">←</span><span class="p">(</span><span class="nv">Upper</span> <span class="m">1</span><span class="o">↑</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="o">,</span><span class="p">(</span><span class="nv">Lower</span> <span class="m">1</span><span class="o">↓</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span>
-        <span class="bp">∇</span>
-    <span class="bp">:</span><span class="nv">EndProperty</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Property</span><span class="w"> </span><span class="nv">Name</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">Public</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">text</span><span class="kd">←</span><span class="nv">Get</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="o">≡</span><span class="nv">name</span><span class="w"></span>
+<span class="w">              </span><span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;I don&#39;&#39;t have a name!&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">Else</span><span class="w"></span>
+<span class="w">              </span><span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;Hi, my name is &#39;</span><span class="o">,</span><span class="nv">name</span><span class="o">,</span><span class="s1">&#39;!&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Set</span><span class="w"> </span><span class="nv">text</span><span class="w"></span>
+<span class="w">          </span><span class="nv">name</span><span class="kd">←</span><span class="p">(</span><span class="nv">Upper</span><span class="w"> </span><span class="m">1</span><span class="o">↑</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="o">,</span><span class="p">(</span><span class="nv">Lower</span><span class="w"> </span><span class="m">1</span><span class="o">↓</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">EndProperty</span><span class="w"></span>
 
-<span class="bp">:</span><span class="nv">EndClass</span>
+<span class="bp">:</span><span class="nv">EndClass</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -600,12 +771,12 @@
 <p>In the code abobe, <code class="docutils literal notranslate"><span class="pre">:Field</span></code> initialises <code class="docutils literal notranslate"><span class="pre">name</span></code> to be a dash. <code class="docutils literal notranslate"><span class="pre">Get</span></code> will check whether <code class="docutils literal notranslate"><span class="pre">name</span></code> is a dash or not, and respond accordingly. <code class="docutils literal notranslate"><span class="pre">Set</span></code> will accept a character vector and make sure the casing is right (upper initial, rest lower) before assigning to <code class="docutils literal notranslate"><span class="pre">name</span></code>. Let’s see if it works:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">name</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="kd">←</span><span class="s1">&#39;anTON&#39;</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">name</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span><span class="w"> </span><span class="nv">Person</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">name</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="kd">←</span><span class="s1">&#39;anTON&#39;</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">name</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -616,48 +787,48 @@
 </span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">Anton
 </span></div></div>
 </div>
-</div>
-<div class="section" id="multiple-properties-and-default">
-<h2>Multiple properties and Default<a class="headerlink" href="#multiple-properties-and-default" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="multiple-properties-and-default">
+<h2>Multiple properties and Default<a class="headerlink" href="#multiple-properties-and-default" title="Permalink to this headline">#</a></h2>
 <p>A class can have more than one property. Let’s have a look at a fancier version:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
-<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">Class</span><span class="w"> </span><span class="nv">Person</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">Field</span> <span class="nv">age</span><span class="kd">←</span><span class="m">0</span>
-    <span class="bp">:</span><span class="nv">Field</span> <span class="nv">name</span><span class="kd">←</span><span class="s1">&#39;-&#39;</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Field</span><span class="w"> </span><span class="nv">age</span><span class="kd">←</span><span class="m">0</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Field</span><span class="w"> </span><span class="nv">name</span><span class="kd">←</span><span class="s1">&#39;-&#39;</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">Age</span>
-    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
-        <span class="bp">∇</span> <span class="nv">num</span><span class="kd">←</span><span class="nv">get</span>
-          <span class="nv">num</span><span class="kd">←</span><span class="o">⌊</span><span class="nv">age</span>
-        <span class="bp">∇</span>
-    <span class="bp">:</span><span class="nv">EndProperty</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Property</span><span class="w"> </span><span class="nv">Age</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">Public</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">num</span><span class="kd">←</span><span class="nv">get</span><span class="w"></span>
+<span class="w">          </span><span class="nv">num</span><span class="kd">←</span><span class="o">⌊</span><span class="nv">age</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">EndProperty</span><span class="w"></span>
 
-    <span class="bp">∇</span> <span class="nv">Grow</span> <span class="nv">amount</span>
-      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
-      <span class="nv">age</span><span class="o">+</span><span class="kd">←</span><span class="nv">amount</span>
-    <span class="bp">∇</span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Grow</span><span class="w"> </span><span class="nv">amount</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">Public</span><span class="w"></span>
+<span class="w">      </span><span class="nv">age</span><span class="o">+</span><span class="kd">←</span><span class="nv">amount</span><span class="w"></span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"></span>
 
-    <span class="nv">Upper</span><span class="kd">←</span><span class="m">1</span><span class="na">∘</span><span class="nf">⎕C</span>
-    <span class="nv">Lower</span><span class="kd">←</span><span class="nf">⎕C</span>
+<span class="w">    </span><span class="nv">Upper</span><span class="kd">←</span><span class="m">1</span><span class="na">∘</span><span class="nf">⎕C</span><span class="w"></span>
+<span class="w">    </span><span class="nv">Lower</span><span class="kd">←</span><span class="nf">⎕C</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">Default</span> <span class="nv">Name</span>
-    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
-        <span class="bp">∇</span> <span class="nv">text</span><span class="kd">←</span><span class="nv">Get</span>
-          <span class="bp">:</span><span class="nv">If</span> <span class="s1">&#39;-&#39;</span><span class="o">≡</span><span class="nv">name</span>
-              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;I don&#39;&#39;t have a name!&#39;</span>
-          <span class="bp">:</span><span class="nv">Else</span>
-              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;Hi, my name is &#39;</span><span class="o">,</span><span class="nv">name</span><span class="o">,</span><span class="s1">&#39;!&#39;</span>
-          <span class="bp">:</span><span class="nv">EndIf</span>
-        <span class="bp">∇</span>
-        <span class="bp">∇</span> <span class="nv">Set</span> <span class="nv">text</span>
-          <span class="nv">name</span><span class="kd">←</span><span class="p">(</span><span class="nv">Upper</span><span class="o">⊃</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="o">,</span><span class="nv">Lower</span> <span class="m">1</span><span class="o">↓</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span>
-        <span class="bp">∇</span>
-    <span class="bp">:</span><span class="nv">EndProperty</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Property</span><span class="w"> </span><span class="nv">Default</span><span class="w"> </span><span class="nv">Name</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">Public</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">text</span><span class="kd">←</span><span class="nv">Get</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="o">≡</span><span class="nv">name</span><span class="w"></span>
+<span class="w">              </span><span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;I don&#39;&#39;t have a name!&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">Else</span><span class="w"></span>
+<span class="w">              </span><span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;Hi, my name is &#39;</span><span class="o">,</span><span class="nv">name</span><span class="o">,</span><span class="s1">&#39;!&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Set</span><span class="w"> </span><span class="nv">text</span><span class="w"></span>
+<span class="w">          </span><span class="nv">name</span><span class="kd">←</span><span class="p">(</span><span class="nv">Upper</span><span class="o">⊃</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="o">,</span><span class="nv">Lower</span><span class="w"> </span><span class="m">1</span><span class="o">↓</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">EndProperty</span><span class="w"></span>
 
-<span class="bp">:</span><span class="nv">EndClass</span>
+<span class="bp">:</span><span class="nv">EndClass</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -666,14 +837,14 @@
 <p>Let’s look at those changes in action:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="kd">←</span><span class="s1">&#39;BRUNO&#39;</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Age</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Grow</span> <span class="m">3.6</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Age</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Grow</span> <span class="m">0.6</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Age</span>
-<span class="o">⌷</span><span class="nv">p</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span><span class="w"> </span><span class="nv">Person</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="kd">←</span><span class="s1">&#39;BRUNO&#39;</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Age</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Grow</span><span class="w"> </span><span class="m">3.6</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Age</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Grow</span><span class="w"> </span><span class="m">0.6</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Age</span><span class="w"></span>
+<span class="o">⌷</span><span class="nv">p</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -685,27 +856,27 @@
 </span></div></div>
 </div>
 <p>On the topic of monadic <code class="docutils literal notranslate"><span class="pre">⌷</span></code>, if you apply it on .NET collections, it materialises the collection’s items, returning an array of the .NET items that the collection consisted of. You can of course make your class have that same behaviour by setting the default property appropriately.</p>
-</div>
-<div class="section" id="generic-properties">
-<h2>Generic properties<a class="headerlink" href="#generic-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="generic-properties">
+<h2>Generic properties<a class="headerlink" href="#generic-properties" title="Permalink to this headline">#</a></h2>
 <p>Sometimes a class needs a few properties that have the same or similar getter and setter. Instead of repeating yourself, Dyalog APL lets you collapse the code into a single <code class="docutils literal notranslate"><span class="pre">:Property</span></code> block:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span> 
-<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"> </span>
+<span class="bp">:</span><span class="nv">Class</span><span class="w"> </span><span class="nv">Person</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">heightVal</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">weightVal</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">ageVal</span><span class="kd">←</span><span class="m">0</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">field</span><span class="w"> </span><span class="nv">heightVal</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">field</span><span class="w"> </span><span class="nv">weightVal</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">field</span><span class="w"> </span><span class="nv">ageVal</span><span class="kd">←</span><span class="m">0</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">height</span><span class="o">,</span><span class="nv">weight</span><span class="o">,</span><span class="nv">age</span>
-    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-        <span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">Get</span> <span class="nv">x</span>
-          <span class="nv">r</span><span class="kd">←</span><span class="o">⌊⍎</span><span class="nv">x</span><span class="na">.</span><span class="nv">Name</span><span class="o">,</span><span class="s1">&#39;Val&#39;</span>
-        <span class="bp">∇</span>
-    <span class="bp">:</span><span class="nv">endproperty</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Property</span><span class="w"> </span><span class="nv">height</span><span class="o">,</span><span class="nv">weight</span><span class="o">,</span><span class="nv">age</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">r</span><span class="kd">←</span><span class="nv">Get</span><span class="w"> </span><span class="nv">x</span><span class="w"></span>
+<span class="w">          </span><span class="nv">r</span><span class="kd">←</span><span class="o">⌊⍎</span><span class="nv">x</span><span class="na">.</span><span class="nv">Name</span><span class="o">,</span><span class="s1">&#39;Val&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">endproperty</span><span class="w"></span>
 
-<span class="bp">:</span><span class="nv">EndClass</span>
+<span class="bp">:</span><span class="nv">EndClass</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -713,67 +884,67 @@
 <p>Notice the comma-separated “name list”. You can also see why the argument to <code class="docutils literal notranslate"><span class="pre">Get</span></code> needs to be a namespace: so that we can determine which property was requested. Here’s a complete listing of the <code class="docutils literal notranslate"><span class="pre">Person</span></code> class:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
-<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">Class</span><span class="w"> </span><span class="nv">Person</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">heightVal</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">weightVal</span>
-    <span class="bp">:</span><span class="nv">field</span> <span class="nv">ageVal</span><span class="kd">←</span><span class="m">0</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">field</span><span class="w"> </span><span class="nv">heightVal</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">field</span><span class="w"> </span><span class="nv">weightVal</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">field</span><span class="w"> </span><span class="nv">ageVal</span><span class="kd">←</span><span class="m">0</span><span class="w"></span>
 
-    <span class="bp">∇</span> <span class="nv">Birth</span><span class="p">(</span><span class="nv">h</span> <span class="nv">w</span><span class="p">)</span>
-      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-      <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
-      <span class="p">(</span><span class="nv">heightVal</span> <span class="nv">weightVal</span><span class="p">)</span><span class="kd">←</span><span class="nv">h</span> <span class="nv">w</span>
-    <span class="bp">∇</span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Birth</span><span class="p">(</span><span class="nv">h</span><span class="w"> </span><span class="nv">w</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">Implements</span><span class="w"> </span><span class="nv">constructor</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nv">heightVal</span><span class="w"> </span><span class="nv">weightVal</span><span class="p">)</span><span class="kd">←</span><span class="nv">h</span><span class="w"> </span><span class="nv">w</span><span class="w"></span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">height</span><span class="o">,</span><span class="nv">weight</span><span class="o">,</span><span class="nv">age</span>
-    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-        <span class="bp">∇</span> <span class="nv">r</span><span class="kd">←</span><span class="nv">Get</span> <span class="nv">x</span>
-          <span class="nv">r</span><span class="kd">←</span><span class="o">⌊⍎</span><span class="nv">x</span><span class="na">.</span><span class="nv">Name</span><span class="o">,</span><span class="s1">&#39;Val&#39;</span>
-        <span class="bp">∇</span>
-    <span class="bp">:</span><span class="nv">endproperty</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Property</span><span class="w"> </span><span class="nv">height</span><span class="o">,</span><span class="nv">weight</span><span class="o">,</span><span class="nv">age</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">r</span><span class="kd">←</span><span class="nv">Get</span><span class="w"> </span><span class="nv">x</span><span class="w"></span>
+<span class="w">          </span><span class="nv">r</span><span class="kd">←</span><span class="o">⌊⍎</span><span class="nv">x</span><span class="na">.</span><span class="nv">Name</span><span class="o">,</span><span class="s1">&#39;Val&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">endproperty</span><span class="w"></span>
 
-    <span class="bp">∇</span> <span class="nv">Grow</span> <span class="nv">cm</span>
-      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-      <span class="nv">heightVal</span><span class="o">+</span><span class="kd">←</span><span class="nv">cm</span>
-    <span class="bp">∇</span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Grow</span><span class="w"> </span><span class="nv">cm</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">      </span><span class="nv">heightVal</span><span class="o">+</span><span class="kd">←</span><span class="nv">cm</span><span class="w"></span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"></span>
 
-    <span class="bp">∇</span> <span class="nv">Gain</span> <span class="nv">kg</span>
-      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-      <span class="nv">weightVal</span><span class="o">+</span><span class="kd">←</span><span class="nv">kg</span>
-    <span class="bp">∇</span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Gain</span><span class="w"> </span><span class="nv">kg</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">      </span><span class="nv">weightVal</span><span class="o">+</span><span class="kd">←</span><span class="nv">kg</span><span class="w"></span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"></span>
 
-    <span class="bp">∇</span> <span class="nv">Lose</span> <span class="nv">kg</span>
-      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-      <span class="nv">weightVal</span><span class="o">-</span><span class="kd">←</span><span class="nv">kg</span>
-    <span class="bp">∇</span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Lose</span><span class="w"> </span><span class="nv">kg</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">      </span><span class="nv">weightVal</span><span class="o">-</span><span class="kd">←</span><span class="nv">kg</span><span class="w"></span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"></span>
 
-    <span class="bp">∇</span> <span class="nv">Age</span> <span class="nv">y</span>
-      <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-      <span class="nv">ageVal</span><span class="o">+</span><span class="kd">←</span><span class="nv">y</span>
-    <span class="bp">∇</span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Age</span><span class="w"> </span><span class="nv">y</span><span class="w"></span>
+<span class="w">      </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">      </span><span class="nv">ageVal</span><span class="o">+</span><span class="kd">←</span><span class="nv">y</span><span class="w"></span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">property</span> <span class="nv">BMI</span>
-    <span class="bp">:</span><span class="nv">access</span> <span class="nv">public</span>
-        <span class="bp">∇</span> <span class="nv">bmi</span><span class="kd">←</span><span class="nv">Get</span>
-          <span class="nv">bmi</span><span class="kd">←</span><span class="o">⌊</span><span class="m">0.5</span><span class="o">+</span><span class="nv">weightVal</span><span class="o">÷×</span><span class="na">⍨</span><span class="nv">heightVal</span><span class="o">÷</span><span class="m">100</span>
-        <span class="bp">∇</span>
-    <span class="bp">:</span><span class="nv">endproperty</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">property</span><span class="w"> </span><span class="nv">BMI</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">bmi</span><span class="kd">←</span><span class="nv">Get</span><span class="w"></span>
+<span class="w">          </span><span class="nv">bmi</span><span class="kd">←</span><span class="o">⌊</span><span class="m">0.5</span><span class="o">+</span><span class="nv">weightVal</span><span class="o">÷×</span><span class="na">⍨</span><span class="nv">heightVal</span><span class="o">÷</span><span class="m">100</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">endproperty</span><span class="w"></span>
 
-<span class="bp">:</span><span class="nv">EndClass</span>
+<span class="bp">:</span><span class="nv">EndClass</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span> <span class="p">(</span><span class="m">50</span> <span class="m">3</span><span class="p">)</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Gain</span> <span class="m">0.7</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">weight</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Grow</span> <span class="m">2.5</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Gain</span> <span class="m">0.4</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">weight</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">BMI</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span><span class="w"> </span><span class="nv">Person</span><span class="w"> </span><span class="p">(</span><span class="m">50</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Gain</span><span class="w"> </span><span class="m">0.7</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">weight</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Grow</span><span class="w"> </span><span class="m">2.5</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Gain</span><span class="w"> </span><span class="m">0.4</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">weight</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">BMI</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -783,13 +954,13 @@
 </span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">15
 </span></div></div>
 </div>
-</div>
-<div class="section" id="display-form">
-<h2>Display form<a class="headerlink" href="#display-form" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="display-form">
+<h2>Display form<a class="headerlink" href="#display-form" title="Permalink to this headline">#</a></h2>
 <p>The normal display of an object is with a namespace path and object name or class name/”namespace” in brackets. Not very useful:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕NS</span> <span class="no">⍬</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nf">⎕NS</span><span class="w"> </span><span class="no">⍬</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -800,9 +971,9 @@
 <p>However, the system function <code class="docutils literal notranslate"><span class="pre">⎕DF</span></code> (<a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/System%20Functions/df.htm">Display Form</a>) allows you to change this to any character array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">ns</span><span class="kd">←</span><span class="nf">⎕NS</span> <span class="no">⍬</span>
-<span class="nv">ns</span><span class="na">.</span><span class="nf">⎕DF</span> <span class="m">2</span> <span class="m">2</span><span class="o">⍴</span><span class="s1">&#39;yo&#39;</span>
-<span class="nv">ns</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">ns</span><span class="kd">←</span><span class="nf">⎕NS</span><span class="w"> </span><span class="no">⍬</span><span class="w"></span>
+<span class="nv">ns</span><span class="na">.</span><span class="nf">⎕DF</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="o">⍴</span><span class="s1">&#39;yo&#39;</span><span class="w"></span>
+<span class="nv">ns</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -814,34 +985,34 @@ yo
 <p>This is similar in spirit to Python’s “dunder” method <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html?highlight=__repr__#object.__repr__">__repr__()</a>. Of course, having a static display form like that isn’t much fun. Here is a better usage:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
-<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">Class</span><span class="w"> </span><span class="nv">Person</span><span class="w"></span>
 
-    <span class="bp">∇</span> <span class="nv">Birth</span>
-        <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
-        <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-        <span class="nf">⎕DF</span> <span class="s1">&#39;baby&#39;</span>
-    <span class="bp">∇</span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Birth</span><span class="w"></span>
+<span class="w">        </span><span class="bp">:</span><span class="nv">Implements</span><span class="w"> </span><span class="nv">constructor</span><span class="w"></span>
+<span class="w">        </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">        </span><span class="nf">⎕DF</span><span class="w"> </span><span class="s1">&#39;baby&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"></span>
 
-    <span class="nv">Upper</span><span class="kd">←</span><span class="m">1</span><span class="na">∘</span><span class="nf">⎕C</span>
-    <span class="nv">Lower</span><span class="kd">←</span><span class="nf">⎕C</span>
+<span class="w">    </span><span class="nv">Upper</span><span class="kd">←</span><span class="m">1</span><span class="na">∘</span><span class="nf">⎕C</span><span class="w"></span>
+<span class="w">    </span><span class="nv">Lower</span><span class="kd">←</span><span class="nf">⎕C</span><span class="w"></span>
 
-    <span class="bp">:</span><span class="nv">Property</span> <span class="nv">Name</span>
-    <span class="bp">:</span><span class="nv">Access</span> <span class="nv">Public</span>
-        <span class="bp">∇</span> <span class="nv">text</span><span class="kd">←</span><span class="nv">Get</span>
-          <span class="bp">:</span><span class="nv">If</span> <span class="m">0</span><span class="o">=</span><span class="nf">⎕NC</span><span class="s1">&#39;name&#39;</span>
-              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;I don&#39;&#39;t have a name!&#39;</span>
-          <span class="bp">:</span><span class="nv">Else</span>
-              <span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;Hi, my name is &#39;</span><span class="o">,</span><span class="nv">name</span><span class="o">,</span><span class="s1">&#39;!&#39;</span>
-          <span class="bp">:</span><span class="nv">EndIf</span>
-        <span class="bp">∇</span>
-        <span class="bp">∇</span> <span class="nv">Set</span> <span class="nv">text</span>
-          <span class="nv">name</span><span class="kd">←</span><span class="p">(</span><span class="nv">Upper</span><span class="o">⊃</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="o">,</span><span class="nv">Lower</span> <span class="m">1</span><span class="o">↓</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span>
-          <span class="nf">⎕DF</span> <span class="nv">name</span>
-        <span class="bp">∇</span>
-    <span class="bp">:</span><span class="nv">EndProperty</span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Property</span><span class="w"> </span><span class="nv">Name</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">Public</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">text</span><span class="kd">←</span><span class="nv">Get</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">If</span><span class="w"> </span><span class="m">0</span><span class="o">=</span><span class="nf">⎕NC</span><span class="s1">&#39;name&#39;</span><span class="w"></span>
+<span class="w">              </span><span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;I don&#39;&#39;t have a name!&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">Else</span><span class="w"></span>
+<span class="w">              </span><span class="nv">text</span><span class="kd">←</span><span class="s1">&#39;Hi, my name is &#39;</span><span class="o">,</span><span class="nv">name</span><span class="o">,</span><span class="s1">&#39;!&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="bp">:</span><span class="nv">EndIf</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Set</span><span class="w"> </span><span class="nv">text</span><span class="w"></span>
+<span class="w">          </span><span class="nv">name</span><span class="kd">←</span><span class="p">(</span><span class="nv">Upper</span><span class="o">⊃</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="p">)</span><span class="o">,</span><span class="nv">Lower</span><span class="w"> </span><span class="m">1</span><span class="o">↓</span><span class="nv">text</span><span class="na">.</span><span class="nv">NewValue</span><span class="w"></span>
+<span class="w">          </span><span class="nf">⎕DF</span><span class="w"> </span><span class="nv">name</span><span class="w"></span>
+<span class="w">        </span><span class="bp">∇</span><span class="w"></span>
+<span class="w">    </span><span class="bp">:</span><span class="nv">EndProperty</span><span class="w"></span>
 
-<span class="bp">:</span><span class="nv">EndClass</span>
+<span class="bp">:</span><span class="nv">EndClass</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -849,12 +1020,12 @@ yo
 <p>Now we have a constructor which sets up the initial display form. And every time the <code class="docutils literal notranslate"><span class="pre">Name</span></code> property is <code class="docutils literal notranslate"><span class="pre">Set</span></code>, the display form is updated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span>
-<span class="nv">p</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="kd">←</span><span class="s1">&#39;anTON&#39;</span>
-<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span>
-<span class="nv">p</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span><span class="w"> </span><span class="nv">Person</span><span class="w"></span>
+<span class="nv">p</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="kd">←</span><span class="s1">&#39;anTON&#39;</span><span class="w"></span>
+<span class="nv">p</span><span class="na">.</span><span class="nv">Name</span><span class="w"></span>
+<span class="nv">p</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -868,9 +1039,9 @@ yo
 <p>As we now know, objects are passed by reference. This means that if we just try to grab the object value, we get a ref rather than the display form, even if the display form is what shows in the session. How do we get the <em>actual</em> display form? In C# it would be <a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring">ToString</a>, of course. Think about it: if you have a numeric array, how would you get the character array display form? Well, <a class="reference external" href="http://help.dyalog.com/latest/index.htm#Language/Primitive%20Functions/Format%20Monadic.htm">Format</a> (<code class="docutils literal notranslate"><span class="pre">⍕</span></code>) is APL’s “ToString”. So <code class="docutils literal notranslate"><span class="pre">⍕object</span></code> will give you whatever argument has been fed to <code class="docutils literal notranslate"><span class="pre">⎕DF</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span>              <span class="c1">⍝ Still a reference, even if it displays as a character array</span>
-<span class="nf">⎕NC</span> <span class="s1">&#39;p&#39;</span>        <span class="c1">⍝ Name class 9: object        </span>
-<span class="m">1</span><span class="nf">⎕C</span><span class="o">⍕</span><span class="nv">p</span>          <span class="c1">⍝ ⍕p is the actual ⎕DF: we can for example upcase it</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="w">              </span><span class="c1">⍝ Still a reference, even if it displays as a character array</span><span class="w"></span>
+<span class="nf">⎕NC</span><span class="w"> </span><span class="s1">&#39;p&#39;</span><span class="w">        </span><span class="c1">⍝ Name class 9: object        </span><span class="w"></span>
+<span class="m">1</span><span class="nf">⎕C</span><span class="o">⍕</span><span class="nv">p</span><span class="w">          </span><span class="c1">⍝ ⍕p is the actual ⎕DF: we can for example upcase it</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -880,13 +1051,13 @@ yo
 </span></div><div class="output text_html"><span style="white-space:pre; font-family: monospace">ANTON
 </span></div></div>
 </div>
-</div>
-<div class="section" id="overtaking-objects">
-<h2>Overtaking objects<a class="headerlink" href="#overtaking-objects" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="overtaking-objects">
+<h2>Overtaking objects<a class="headerlink" href="#overtaking-objects" title="Permalink to this headline">#</a></h2>
 <p>Another cool thing you can do is <em>overtaking</em>. Remember how APL pads with the a fill element if there are not enough elements to go?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">10</span><span class="o">↑</span><span class="m">3</span> <span class="m">1</span> <span class="m">4</span>   <span class="c1">⍝ Overtake a list of ints pads with 0</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="m">10</span><span class="o">↑</span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w">   </span><span class="c1">⍝ Overtake a list of ints pads with 0</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -897,30 +1068,30 @@ yo
 <p>If a class has a niladic constructor, then overtaking an instance will create siblings (i.e. new instances of the same class) using the niladic constructor:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span>
-<span class="bp">:</span><span class="nv">Class</span> <span class="nv">Person</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="sr">]</span><span class="nv">dinput</span><span class="w"></span>
+<span class="bp">:</span><span class="nv">Class</span><span class="w"> </span><span class="nv">Person</span><span class="w"></span>
 
-    <span class="bp">∇</span> <span class="nv">Birth</span>
-        <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
-        <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-        <span class="s1">&#39;I&#39;&#39;m an orphan!&#39;</span>
-    <span class="bp">∇</span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Birth</span><span class="w"></span>
+<span class="w">        </span><span class="bp">:</span><span class="nv">Implements</span><span class="w"> </span><span class="nv">constructor</span><span class="w"></span>
+<span class="w">        </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;I&#39;&#39;m an orphan!&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"></span>
 
-    <span class="bp">∇</span> <span class="nv">Naming</span> <span class="nv">name</span>
-        <span class="bp">:</span><span class="nv">Implements</span> <span class="nv">constructor</span>
-        <span class="bp">:</span><span class="nv">Access</span> <span class="nv">public</span>
-        <span class="s1">&#39;I was born with the name &#39;</span><span class="o">,</span><span class="nv">name</span>
-    <span class="bp">∇</span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"> </span><span class="nv">Naming</span><span class="w"> </span><span class="nv">name</span><span class="w"></span>
+<span class="w">        </span><span class="bp">:</span><span class="nv">Implements</span><span class="w"> </span><span class="nv">constructor</span><span class="w"></span>
+<span class="w">        </span><span class="bp">:</span><span class="nv">Access</span><span class="w"> </span><span class="nv">public</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;I was born with the name &#39;</span><span class="o">,</span><span class="nv">name</span><span class="w"></span>
+<span class="w">    </span><span class="bp">∇</span><span class="w"></span>
 
-<span class="bp">:</span><span class="nv">EndClass</span>
+<span class="bp">:</span><span class="nv">EndClass</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span> <span class="nv">Person</span> <span class="s1">&#39;Joe&#39;</span>
-<span class="m">3</span><span class="o">↑</span><span class="nv">p</span>
+<div class="highlight-APL notranslate"><div class="highlight"><pre><span></span><span class="nv">p</span><span class="kd">←</span><span class="nf">⎕NEW</span><span class="w"> </span><span class="nv">Person</span><span class="w"> </span><span class="s1">&#39;Joe&#39;</span><span class="w"></span>
+<span class="m">3</span><span class="o">↑</span><span class="nv">p</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -931,14 +1102,14 @@ I'm an orphan!
  #.[Person]  #.[Person]  #.[Person]
 </span></div></div>
 </div>
-</div>
-<div class="section" id="advanced-properties">
-<h2>Advanced properties<a class="headerlink" href="#advanced-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="advanced-properties">
+<h2>Advanced properties<a class="headerlink" href="#advanced-properties" title="Permalink to this headline">#</a></h2>
 <p>You can also have a <code class="docutils literal notranslate"><span class="pre">:property</span> <span class="pre">numbered</span></code> which acts like a normal property, but if you use indices to set or get, those functions are called with a namespace that has an <code class="docutils literal notranslate"><span class="pre">Indexers</span></code> member to tell the function which elements are being asked for.</p>
 <p>Remember the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> function of a property we mentioned briefly before? This means that a property can have any (pretend) shape. So when <code class="docutils literal notranslate"><span class="pre">Get</span></code> or <code class="docutils literal notranslate"><span class="pre">Set</span></code> are called, the argument has a member called <code class="docutils literal notranslate"><span class="pre">IndexersSpecified</span></code> which is a Boolean vector indicating which dimensions are being addressed. You can use this, for example, to implement sparse arrays.</p>
 <p>You can also have a <code class="docutils literal notranslate"><span class="pre">:Property</span> <span class="pre">keyed</span></code> which instead of numeric indices can use any arrays as keys. It is then up to the <code class="docutils literal notranslate"><span class="pre">Set</span></code> and <code class="docutils literal notranslate"><span class="pre">Get</span></code> functions to handle these. Typically you’d want to use character vectors as keys. For such properties you must use indexing, as APL cannot know how many “elements” there are. You can use this to implement dictionary objects.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -962,9 +1133,11 @@ I'm an orphan!
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="CtorsDtors.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -980,32 +1153,34 @@ I'm an orphan!
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Adám Brudzewsky (edited by Stefan Kruger)<br/>
-        
-          <div class="extra_footer">
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Adám Brudzewsky (edited by Stefan Kruger)<br/>
+  
+    <div class="extra_footer">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 </a></p>
 <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
